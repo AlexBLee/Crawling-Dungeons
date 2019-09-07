@@ -6,6 +6,8 @@ using TMPro;
 // the class for all Characters in the game.
 public class CharacterEntity : MonoBehaviour
 {
+    public BattleManager battleManager;
+
     // Stats ----------------------------------
     public int level;
     public float exp;
@@ -35,11 +37,11 @@ public class CharacterEntity : MonoBehaviour
 
     // Conditions --------------------------
     public bool inBattle;
-    protected bool targetChosen;
-    protected bool targetReached = true;
-    protected bool attacking = false;
-    protected bool dead = false;
-    protected bool animationDone = false;
+    public bool targetChosen;
+    public bool targetReached = true;
+    public bool attacking = false;
+    public bool dead = false;
+    public bool animationDone = false;
 
     // ------------------------------------
 
@@ -153,7 +155,7 @@ public class CharacterEntity : MonoBehaviour
         }
         else
         {
-            GameManager.instance.battleManager.infoStatus.UpdateText();
+            battleManager.infoStatus.UpdateText();
         }
 
     }
@@ -205,20 +207,20 @@ public class CharacterEntity : MonoBehaviour
 
     }
 
-    protected void MoveAndAttack(Vector3 targetPosition, int direction)
+    protected void MoveAndAttack(Vector2 targetPosition, int direction)
     {
         if(!targetReached && targetChosen && attacking)
         {
-            if (Vector3.Distance(transform.position, targetPosition) > 2.0f)
+            if (Vector2.Distance(transform.position, targetPosition) > 1.0f)
             {
-                transform.position += (transform.forward * direction) * Time.deltaTime * moveSpeed * 2;
-                GameManager.instance.battleManager.attackButton.SetActive(false);
-                anim.SetBool("Run", true);
+                transform.position += (transform.right * direction) * Time.deltaTime * moveSpeed * 2;
+                battleManager.attackButton.SetActive(false);
+                // anim.SetBool("Run", true);
             }
             else
             {
-                anim.SetBool("Run", false);
-                anim.SetTrigger("Attack");
+                // anim.SetBool("Run", false);
+                // anim.SetTrigger("Attack");
                 targetChosen = false;
                 targetReached = true;
             }
@@ -228,17 +230,17 @@ public class CharacterEntity : MonoBehaviour
 
     protected void StopAttacking()
     {
-        if(!targetChosen && targetReached && attacking && animationDone)
+        if(targetReached && attacking)
         {
-            GameManager.instance.battleManager.attackHeader.gameObject.SetActive(false);
+            // battleManager.attackHeader.gameObject.SetActive(false);
             StartCoroutine(MoveToExactPosition(initialPos));
-            anim.SetBool("BackwardsRun", true);
+            // anim.SetBool("BackwardsRun", true);
             
 
             if(transform.position == initialPos)
             {
-                anim.SetBool("BackwardsRun", false);
-                GameManager.instance.battleManager.ToggleNextTurn();
+                // anim.SetBool("BackwardsRun", false);
+                battleManager.ToggleNextTurn();
                 targetReached = false;
                 attacking = false;
                 animationDone = false;                   
@@ -257,7 +259,7 @@ public class CharacterEntity : MonoBehaviour
         while(timer < 2)
         {
             timer += Time.deltaTime;
-            transform.position = Vector3.Lerp(startPos,endPos, timer/2);
+            transform.position = Vector2.Lerp(startPos,endPos, timer/2);
             yield return null;
         }
 

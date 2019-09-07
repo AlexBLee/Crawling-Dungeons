@@ -8,14 +8,12 @@ using UnityEngine;
 
 public class Player : CharacterEntity
 {
-    private string TAG_ENEMY = "Enemy";
-    private float maxDistance = 1000.0f;
-    private float clickedDistance = 1.0f;
-    private Rigidbody rb;
+
     public Vector3 pos;
-    private Vector3 enemyPosition;
+    public Vector2 enemyPosition;
     public Button btn;
     private bool buttonPressed;
+    
     private InventoryDisplay invDisplay;
     private CharacterPanel charPanel;
     private StatDisplayer statDisplayer;
@@ -37,9 +35,8 @@ public class Player : CharacterEntity
     private void Start()
     {
         pos = transform.position;
-        
-
         btn.onClick.AddListener(WaitForAttackInput);
+        target = GameObject.Find("Enemy").GetComponent<CharacterEntity>();
 
     }
 
@@ -50,32 +47,14 @@ public class Player : CharacterEntity
         // --------------------------------------------------------------------------------------------------------------------------- //
 
 
-        if(inBattle && GameManager.instance.battleManager.playerTurn)
+        if(inBattle && battleManager.playerTurn)
         {
             if(hp <= 0)
             {
                 Debug.Log("oof!");
             }
-
-            if (Input.GetButton("Fire1"))
-            {
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-
-                if (Physics.Raycast(ray, out hit, 1000.0f))
-                {
-                    if(hit.collider.gameObject.GetComponent<Enemy>() != null)
-                    {
-                        target = hit.collider.gameObject.GetComponent<CharacterEntity>();
-                        enemyPosition = hit.collider.gameObject.transform.position;
-                        targetChosen = true;
-                    }
-                }
-            }
-
             
-            MoveAndAttack(enemyPosition, 1);
+            MoveAndAttack(target.transform.position, 1);
             StopAttacking();            
         }
 
@@ -91,8 +70,8 @@ public class Player : CharacterEntity
     {
         if(targetChosen)
         {
-            GameManager.instance.battleManager.attackHeader.gameObject.SetActive(true);
-            GameManager.instance.battleManager.attackHeader.UpdateText("Attack");
+            // GameManager.instance.battleManager.attackHeader.gameObject.SetActive(true);
+            // GameManager.instance.battleManager.attackHeader.UpdateText("Attack");
             initialPos = transform.position;
             targetReached = false;
             attacking = true;

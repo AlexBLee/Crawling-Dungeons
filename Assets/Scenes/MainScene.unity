@@ -663,13 +663,14 @@ MonoBehaviour:
   def: 5
   moveSpeed: 5
   maxSpeed: 10
-  inBattle: 0
+  inBattle: 1
   anim: {fileID: 0}
   target: {fileID: 0}
   infoText: {fileID: 0}
   objectID: 0
+  battleManager: {fileID: 611337056}
   pos: {x: 0, y: 0, z: 0}
-  btn: {fileID: 0}
+  btn: {fileID: 1299836355}
   itemList: []
   tempItem: {fileID: 0}
   helmet: {fileID: 0}
