@@ -205,13 +205,58 @@ GameObject:
   - component: {fileID: 972500772}
   - component: {fileID: 972500771}
   - component: {fileID: 972500770}
+  - component: {fileID: 972500769}
   m_Layer: 0
-  m_Name: blank
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &972500769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972500768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cecc79a26e3ab594fb759a694c1c5513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
+  exp: 0
+  expThreshold: 50
+  statPoints: 0
+  hp: 100
+  mp: 100
+  maxHP: 100
+  maxMP: 100
+  str: 20
+  intl: 20
+  dex: 20
+  will: 20
+  minDamage: 0
+  maxDamage: 0
+  def: 5
+  moveSpeed: 5
+  maxSpeed: 10
+  inBattle: 0
+  anim: {fileID: 0}
+  target: {fileID: 0}
+  infoText: {fileID: 0}
+  objectID: 0
+  pos: {x: 0, y: 0, z: 0}
+  btn: {fileID: 0}
+  itemList: []
+  tempItem: {fileID: 0}
+  helmet: {fileID: 0}
+  upper: {fileID: 0}
+  lower: {fileID: 0}
+  rightHand: {fileID: 0}
+  leftHand: {fileID: 0}
+  gold: 0
 --- !u!61 &972500770
 BoxCollider2D:
   m_ObjectHideFlags: 0

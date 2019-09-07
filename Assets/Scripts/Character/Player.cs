@@ -36,18 +36,13 @@ public class Player : CharacterEntity
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
         pos = transform.position;
-        invDisplay = FindObjectOfType<InventoryDisplay>();
-        charPanel = FindObjectOfType<CharacterPanel>();
-        anim = GetComponent<Animator>();
-
         
-        if(inBattle)
-        {
-            btn = GameObject.Find("AttackButton").GetComponent<Button>();
-            btn.onClick.AddListener(WaitForAttackInput);
-        }
+        // if(inBattle)
+        // {
+        //     btn = GameObject.Find("AttackButton").GetComponent<Button>();
+        //     btn.onClick.AddListener(WaitForAttackInput);
+        // }
     }
 
     private void Update()
@@ -56,93 +51,78 @@ public class Player : CharacterEntity
         // --------------------------------------------------------------------------------------------------------------------------- //
         // --------------------------------------------------------------------------------------------------------------------------- //
 
-        if(!inBattle)
-        {
-            // Test input.
-            if(Input.GetKeyDown(KeyCode.F))
-            {
-                AddItem(tempItem);
-            }
+        // if(!inBattle)
+        // {
+        //     // Test input.
+        //     if(Input.GetKeyDown(KeyCode.F))
+        //     {
+        //         AddItem(tempItem);
+        //     }
 
-            if (Input.GetButton("Fire1"))
-            {
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //     if (Input.GetButton("Fire1"))
+        //     {
+        //         RaycastHit hit;
+        //         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-                if (Physics.Raycast(ray, out hit, maxDistance))
-                {
-                    if(!EventSystem.current.IsPointerOverGameObject())
-                    {
-                        pos = hit.point;
-                        transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
-                    }
-                }
-            }
-
-
-            if (Vector3.Distance(transform.position, pos) > clickedDistance)
-            {
-                anim.SetBool("Run", true); 
-                transform.position += transform.forward * Time.deltaTime * moveSpeed;
-            }
-            else
-            {
-                anim.SetBool("Run", false);
-            }
-        }
-
-        // --------------------------------------------------------------------------------------------------------------------------- //
-        // --------------------------------------------------------------------------------------------------------------------------- //
-        // --------------------------------------------------------------------------------------------------------------------------- //
+        //         if (Physics.Raycast(ray, out hit, maxDistance))
+        //         {
+        //             if(!EventSystem.current.IsPointerOverGameObject())
+        //             {
+        //                 pos = hit.point;
+        //                 transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+        //             }
+        //         }
+        //     }
 
 
-        if(inBattle && GameManager.instance.battleManager.playerTurn)
-        {
-            if(hp <= 0)
-            {
-                Debug.Log("oof!");
-            }
+        //     if (Vector3.Distance(transform.position, pos) > clickedDistance)
+        //     {
+        //         anim.SetBool("Run", true); 
+        //         transform.position += transform.forward * Time.deltaTime * moveSpeed;
+        //     }
+        //     else
+        //     {
+        //         anim.SetBool("Run", false);
+        //     }
+        // }
 
-            if (Input.GetButton("Fire1"))
-            {
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        // // --------------------------------------------------------------------------------------------------------------------------- //
+        // // --------------------------------------------------------------------------------------------------------------------------- //
+        // // --------------------------------------------------------------------------------------------------------------------------- //
 
 
-                if (Physics.Raycast(ray, out hit, 1000.0f))
-                {
-                    if(hit.collider.gameObject.GetComponent<Enemy>() != null)
-                    {
-                        target = hit.collider.gameObject.GetComponent<CharacterEntity>();
-                        enemyPosition = hit.collider.gameObject.transform.position;
-                        targetChosen = true;
-                    }
-                }
-            }
+        // if(inBattle && GameManager.instance.battleManager.playerTurn)
+        // {
+        //     if(hp <= 0)
+        //     {
+        //         Debug.Log("oof!");
+        //     }
+
+        //     if (Input.GetButton("Fire1"))
+        //     {
+        //         RaycastHit hit;
+        //         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+
+        //         if (Physics.Raycast(ray, out hit, 1000.0f))
+        //         {
+        //             if(hit.collider.gameObject.GetComponent<Enemy>() != null)
+        //             {
+        //                 target = hit.collider.gameObject.GetComponent<CharacterEntity>();
+        //                 enemyPosition = hit.collider.gameObject.transform.position;
+        //                 targetChosen = true;
+        //             }
+        //         }
+        //     }
 
             
-            MoveAndAttack(enemyPosition, 1);
-            StopAttacking();            
-        }
+        //     MoveAndAttack(enemyPosition, 1);
+        //     StopAttacking();            
+        // }
 
         // --------------------------------------------------------------------------------------------------------------------------- //
         // --------------------------------------------------------------------------------------------------------------------------- //
         // --------------------------------------------------------------------------------------------------------------------------- //
-
-    }
-    
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == TAG_ENEMY)
-        {
-            ApplyStatsTo(GameManager.instance.playerStats);
-            CopyInventoryTo(GameManager.instance.itemList);
-
-            GameManager.instance.lastCameraPos = Camera.main.transform.position;
-            GameManager.instance.lastPlayerPos = transform.position;
-            SceneManager.LoadScene("FightScene");
-        }
-
 
     }
 
