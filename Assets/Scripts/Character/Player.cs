@@ -38,11 +38,9 @@ public class Player : CharacterEntity
     {
         pos = transform.position;
         
-        // if(inBattle)
-        // {
-        //     btn = GameObject.Find("AttackButton").GetComponent<Button>();
-        //     btn.onClick.AddListener(WaitForAttackInput);
-        // }
+
+        btn.onClick.AddListener(WaitForAttackInput);
+
     }
 
     private void Update()
@@ -51,74 +49,35 @@ public class Player : CharacterEntity
         // --------------------------------------------------------------------------------------------------------------------------- //
         // --------------------------------------------------------------------------------------------------------------------------- //
 
-        // if(!inBattle)
-        // {
-        //     // Test input.
-        //     if(Input.GetKeyDown(KeyCode.F))
-        //     {
-        //         AddItem(tempItem);
-        //     }
 
-        //     if (Input.GetButton("Fire1"))
-        //     {
-        //         RaycastHit hit;
-        //         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if(inBattle && GameManager.instance.battleManager.playerTurn)
+        {
+            if(hp <= 0)
+            {
+                Debug.Log("oof!");
+            }
 
-        //         if (Physics.Raycast(ray, out hit, maxDistance))
-        //         {
-        //             if(!EventSystem.current.IsPointerOverGameObject())
-        //             {
-        //                 pos = hit.point;
-        //                 transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
-        //             }
-        //         }
-        //     }
+            if (Input.GetButton("Fire1"))
+            {
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
 
-        //     if (Vector3.Distance(transform.position, pos) > clickedDistance)
-        //     {
-        //         anim.SetBool("Run", true); 
-        //         transform.position += transform.forward * Time.deltaTime * moveSpeed;
-        //     }
-        //     else
-        //     {
-        //         anim.SetBool("Run", false);
-        //     }
-        // }
-
-        // // --------------------------------------------------------------------------------------------------------------------------- //
-        // // --------------------------------------------------------------------------------------------------------------------------- //
-        // // --------------------------------------------------------------------------------------------------------------------------- //
-
-
-        // if(inBattle && GameManager.instance.battleManager.playerTurn)
-        // {
-        //     if(hp <= 0)
-        //     {
-        //         Debug.Log("oof!");
-        //     }
-
-        //     if (Input.GetButton("Fire1"))
-        //     {
-        //         RaycastHit hit;
-        //         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-
-        //         if (Physics.Raycast(ray, out hit, 1000.0f))
-        //         {
-        //             if(hit.collider.gameObject.GetComponent<Enemy>() != null)
-        //             {
-        //                 target = hit.collider.gameObject.GetComponent<CharacterEntity>();
-        //                 enemyPosition = hit.collider.gameObject.transform.position;
-        //                 targetChosen = true;
-        //             }
-        //         }
-        //     }
+                if (Physics.Raycast(ray, out hit, 1000.0f))
+                {
+                    if(hit.collider.gameObject.GetComponent<Enemy>() != null)
+                    {
+                        target = hit.collider.gameObject.GetComponent<CharacterEntity>();
+                        enemyPosition = hit.collider.gameObject.transform.position;
+                        targetChosen = true;
+                    }
+                }
+            }
 
             
-        //     MoveAndAttack(enemyPosition, 1);
-        //     StopAttacking();            
-        // }
+            MoveAndAttack(enemyPosition, 1);
+            StopAttacking();            
+        }
 
         // --------------------------------------------------------------------------------------------------------------------------- //
         // --------------------------------------------------------------------------------------------------------------------------- //

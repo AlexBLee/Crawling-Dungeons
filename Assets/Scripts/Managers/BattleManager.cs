@@ -19,11 +19,6 @@ public class BattleManager : MonoBehaviour
 
     public int storedXP;
 
-    private void Awake() {
-        GameManager.instance.battleManager = this;
-        
-    }
-
 
 
     public void TogglePlayerTurn()
