@@ -11,55 +11,40 @@ public class Enemy : CharacterEntity
 
     private void Start() 
     {   
-        anim = GetComponent<Animator>();
         player = GameObject.Find("Player");
-        if(!inBattle && hp <= 0)
-        {
-            Destroy(gameObject);
-        }
+
 
 
     }
 
     void Update()
     {
-        if(inBattle && !GameManager.instance.battleManager.playerTurn)
-        {            
-            MoveAndAttack(target.transform.position, 1);
-            StopAttacking();
-        }
+        // if(inBattle && !GameManager.instance.battleManager.playerTurn)
+        // {            
+        //     MoveAndAttack(target.transform.position, 1);
+        //     StopAttacking();
+        // }
 
 
-        if(!inBattle)
-        {
-            if(Vector3.Distance(gameObject.transform.position, player.transform.position) < detectDistance)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
-                transform.LookAt(player.transform.position);
-                anim.SetBool("Run", true);
-            }
-            else
-            {
-                anim.SetBool("Run", false);
-            }
+        // if(!inBattle)
+        // {
+        //     if(Vector3.Distance(gameObject.transform.position, player.transform.position) < detectDistance)
+        //     {
+        //         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+        //         transform.LookAt(player.transform.position);
+        //         anim.SetBool("Run", true);
+        //     }
+        //     else
+        //     {
+        //         anim.SetBool("Run", false);
+        //     }
 
-        }
+        // }
 
 
         
     }
 
-
-    private void OnCollisionEnter(Collision other) 
-    {
-        if(other.gameObject.tag == TAG_PLAYER)
-        {
-            DontDestroyOnLoad(gameObject);
-            anim.SetBool("Run", false);
-            GameManager.instance.enemyIndexNumber = objectID;
-            //ApplyStatsTo(GameManager.instance.enemyStats);
-        }
-    }
 
     public void SetAttackConditions()
     {
