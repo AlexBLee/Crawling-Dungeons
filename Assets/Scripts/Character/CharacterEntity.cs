@@ -106,32 +106,6 @@ public class CharacterEntity : MonoBehaviour
         def = str / 10;
     }
 
-    // protected void DoDamage(CharacterEntity enemy)
-    // {
-    //     // Damage is calculated by finding a random value between the minimum/maximum damage, and then taking the damage reduced by the enemy's defense.
-    //     // for clarification, 1 def is equal to 1% of damage reduced.
-    //     // so in this case, the enemy takes 99% of the damage.
-
-    //     float x = Random.Range(minDamage,maxDamage);
-    //     x *= (1.00f - ((float)enemy.def/100));
-    //     int damage = Mathf.RoundToInt(x);
-    //     enemy.hp -= damage;
-    //     enemy.anim.SetTrigger("Hit");
-        
-    //     infoText.text = damage.ToString();
-    //     Instantiate(infoText, enemy.transform.position + new Vector3(0,0,-1), Quaternion.identity);
-    //     Debug.Log(gameObject.name + " dealt " + damage + " damage to " + enemy.name);
-
-    //     if(enemy is Enemy)
-    //     {
-    //         enemy.GetComponent<Enemy>().CheckDeath();
-    //     }
-    //     else
-    //     {
-    //         GameManager.instance.battleManager.infoStatus.UpdateText();
-    //     }
-
-    // }
 
     protected void DoDamage()
     {
