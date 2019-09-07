@@ -11,36 +11,19 @@ public class Enemy : CharacterEntity
 
     private void Start() 
     {   
-        player = GameObject.Find("Player");
-
+        target = GameObject.Find("Player").GetComponent<CharacterEntity>();
+        initialPos = transform.position;
 
 
     }
 
     void Update()
     {
-        // if(inBattle && !GameManager.instance.battleManager.playerTurn)
-        // {            
-        //     MoveAndAttack(target.transform.position, 1);
-        //     StopAttacking();
-        // }
-
-
-        // if(!inBattle)
-        // {
-        //     if(Vector3.Distance(gameObject.transform.position, player.transform.position) < detectDistance)
-        //     {
-        //         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
-        //         transform.LookAt(player.transform.position);
-        //         anim.SetBool("Run", true);
-        //     }
-        //     else
-        //     {
-        //         anim.SetBool("Run", false);
-        //     }
-
-        // }
-
+        if(inBattle && !battleManager.playerTurn)
+        {            
+            MoveAndAttack(target.transform.position, 1);
+            StopAttacking();
+        }
 
         
     }
