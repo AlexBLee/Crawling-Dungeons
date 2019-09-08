@@ -187,14 +187,14 @@ public class CharacterEntity : MonoBehaviour
         {
             if (Vector2.Distance(transform.position, targetPosition) > 1.0f)
             {
-                transform.position += (transform.right * direction) * Time.deltaTime * moveSpeed * 2;
+                transform.position += (transform.right * direction) * Time.deltaTime * moveSpeed;
                 battleManager.attackButton.SetActive(false);
-                // anim.SetBool("Run", true);
+                anim.SetBool("Run", true);
             }
             else
             {
-                // anim.SetBool("Run", false);
-                // anim.SetTrigger("Attack");
+                anim.SetBool("Run", false);
+                anim.SetTrigger("Attack");
                 targetChosen = false;
                 targetReached = true;
             }
@@ -204,7 +204,7 @@ public class CharacterEntity : MonoBehaviour
 
     protected void StopAttacking()
     {
-        if(targetReached && attacking)
+        if(targetReached && attacking && animationDone)
         {
             // battleManager.attackHeader.gameObject.SetActive(false);
             StartCoroutine(MoveToExactPosition(initialPos));
