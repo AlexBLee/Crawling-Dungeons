@@ -117,7 +117,7 @@ public class CharacterEntity : MonoBehaviour
         x *= (1.00f - ((float)target.def/100));
         int damage = Mathf.RoundToInt(x);
         target.hp -= damage;
-        target.anim.SetTrigger("Hit");
+        //target.anim.SetTrigger("Hit");
         
         infoText.text = damage.ToString();
         Instantiate(infoText, target.transform.position + new Vector3(0,0,-1), Quaternion.identity);

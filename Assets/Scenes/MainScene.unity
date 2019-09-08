@@ -666,8 +666,8 @@ MonoBehaviour:
   intl: 20
   dex: 20
   will: 20
-  minDamage: 0
-  maxDamage: 0
+  minDamage: 5
+  maxDamage: 10
   def: 5
   moveSpeed: 5
   maxSpeed: 10
