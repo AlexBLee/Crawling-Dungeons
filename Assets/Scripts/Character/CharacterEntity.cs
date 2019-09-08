@@ -117,11 +117,11 @@ public class CharacterEntity : MonoBehaviour
         x *= (1.00f - ((float)target.def/100));
         int damage = Mathf.RoundToInt(x);
         target.hp -= damage;
-        //target.anim.SetTrigger("Hit");
+        target.anim.SetTrigger("Hit");
         
-        // infoText.text = damage.ToString();
-        // Instantiate(infoText, target.transform.position + new Vector3(0,0,-1), Quaternion.identity);
-        // Debug.Log(gameObject.name + " dealt " + damage + " damage to " + target.name);
+        infoText.text = damage.ToString();
+        Instantiate(infoText, target.transform.position + new Vector3(0,0,-1), Quaternion.identity);
+        Debug.Log(gameObject.name + " dealt " + damage + " damage to " + target.name);
 
         // if(target is Enemy)
         // {
@@ -183,7 +183,7 @@ public class CharacterEntity : MonoBehaviour
 
     protected void MoveAndAttack(Vector2 targetPosition, int direction)
     {
-        if(!targetReached && targetChosen && attacking)
+        if(!targetReached && attacking)
         {
             if (Vector2.Distance(transform.position, targetPosition) > 1.0f)
             {
@@ -195,7 +195,6 @@ public class CharacterEntity : MonoBehaviour
             {
                 anim.SetBool("Run", false);
                 anim.SetTrigger("Attack");
-                targetChosen = false;
                 targetReached = true;
             }
 

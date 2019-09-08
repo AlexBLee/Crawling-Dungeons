@@ -33,7 +33,6 @@ public class Enemy : CharacterEntity
     {
         initialPos = transform.position;
         targetReached = false;
-        targetChosen = true;
         attacking = true;
     }
 

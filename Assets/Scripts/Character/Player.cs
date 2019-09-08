@@ -68,14 +68,11 @@ public class Player : CharacterEntity
 
     private void WaitForAttackInput()
     {
-        if(targetChosen)
-        {
-            // GameManager.instance.battleManager.attackHeader.gameObject.SetActive(true);
-            // GameManager.instance.battleManager.attackHeader.UpdateText("Attack");
-            initialPos = transform.position;
-            targetReached = false;
-            attacking = true;
-        }
+        // GameManager.instance.battleManager.attackHeader.gameObject.SetActive(true);
+        // GameManager.instance.battleManager.attackHeader.UpdateText("Attack");
+        initialPos = transform.position;
+        targetReached = false;
+        attacking = true;
     }
 
     public void AddToStat(int number)
