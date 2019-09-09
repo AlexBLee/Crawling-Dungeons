@@ -38,6 +38,8 @@ public class Player : CharacterEntity
         btn.onClick.AddListener(WaitForAttackInput);
         target = GameObject.Find("Enemy").GetComponent<CharacterEntity>();
 
+        UpdateDamageStats();
+
     }
 
     private void Update()
@@ -71,8 +73,6 @@ public class Player : CharacterEntity
 
     private void WaitForAttackInput()
     {
-        // GameManager.instance.battleManager.attackHeader.gameObject.SetActive(true);
-        // GameManager.instance.battleManager.attackHeader.UpdateText("Attack");
         initialPos = transform.position;
         targetReached = false;
         attacking = true;
@@ -333,22 +333,6 @@ public class Player : CharacterEntity
     {
         gold += amount;
         invDisplay.goldText.text = gold.ToString();
-    }
-
-    public void CopyInventoryTo(List<Item> playerInv)
-    {
-        for(int i = 0; i < 3; i++)
-        {
-            playerInv[i] = itemList[i];
-        }
-    }
-
-    public void CopyInventoryFrom(List<Item> playerInv)
-    {
-        for(int i = 0; i < itemList.Count; i++)
-        {
-            itemList[i] = playerInv[i];
-        }
     }
 
     public int LookForFreeInventorySpace()

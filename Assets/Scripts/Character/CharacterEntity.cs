@@ -76,6 +76,8 @@ public class CharacterEntity : MonoBehaviour
         dex = 20;
         will = 20;
 
+        UpdateDamageStats();
+
     }
 
     protected void LevelUp()
