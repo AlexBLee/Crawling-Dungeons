@@ -128,6 +128,8 @@ public class Player : CharacterEntity
     public void RecieveXP(int expRecieved)
     {
         exp += expRecieved;
+        infoText.text = "+" + expRecieved.ToString() + " XP";
+        Instantiate(infoText, transform.position, Quaternion.identity);
         CheckForLevelUp();
     }
 
@@ -142,7 +144,6 @@ public class Player : CharacterEntity
             Instantiate(infoText, transform.position, Quaternion.identity);
 
             exp += extraXP;
-            GameManager.instance.playerLevel = level;
         }
 
     }

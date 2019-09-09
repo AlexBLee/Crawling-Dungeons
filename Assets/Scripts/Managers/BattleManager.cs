@@ -47,9 +47,4 @@ public class BattleManager : MonoBehaviour
             playerTurn = true;
         }
     }
-
-    public void ToggleBattleEnd()
-    {
-        SceneManager.LoadScene("TestLevel");
-    }
 }

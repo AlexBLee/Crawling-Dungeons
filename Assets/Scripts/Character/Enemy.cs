@@ -8,6 +8,7 @@ public class Enemy : CharacterEntity
     private GameObject player;
     public bool beginTurn;
     public float detectDistance = 10.0f;
+    public int experiencePoints;
 
     private void Start() 
     {   
@@ -40,6 +41,7 @@ public class Enemy : CharacterEntity
     {
         if(hp <= 0 && inBattle)
         {
+            target.GetComponent<Player>().RecieveXP(experiencePoints);
             Destroy(gameObject);
         }
     }

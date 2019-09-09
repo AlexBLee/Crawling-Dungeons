@@ -379,7 +379,6 @@ MonoBehaviour:
   attackButton: {fileID: 1299836353}
   exitButton: {fileID: 0}
   victoryPanel: {fileID: 0}
-  attackHeader: {fileID: 0}
   infoStatus: {fileID: 0}
   victoryInfo: {fileID: 0}
   battleList: []
@@ -509,7 +508,7 @@ MonoBehaviour:
   exp: 0
   expThreshold: 50
   statPoints: 0
-  hp: 20
+  hp: 1
   mp: 20
   maxHP: 20
   maxMP: 20
@@ -535,6 +534,7 @@ MonoBehaviour:
   objectID: 0
   beginTurn: 0
   detectDistance: 10
+  experiencePoints: 999
 --- !u!61 &931546023
 BoxCollider2D:
   m_ObjectHideFlags: 0
