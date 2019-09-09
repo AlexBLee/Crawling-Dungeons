@@ -12,7 +12,7 @@ public class BattleManager : MonoBehaviour
     public GameObject attackButton;
     public GameObject exitButton;
     public GameObject victoryPanel;
-    public AttackHeader attackHeader;
+
     public InfoStatus infoStatus;
     public VictoryInfo victoryInfo;
     public List<GameObject> battleList;

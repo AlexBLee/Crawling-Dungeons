@@ -16,8 +16,7 @@ public class Player : CharacterEntity
     
     private InventoryDisplay invDisplay;
     private CharacterPanel charPanel;
-    private StatDisplayer statDisplayer;
-    private AttackHeader attackHeader;
+    private StatDisplayer statDisplayer;    
 
     // Equipped Items
     public List<Item> itemList;
