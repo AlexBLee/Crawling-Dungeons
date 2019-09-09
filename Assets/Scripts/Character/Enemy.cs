@@ -22,8 +22,8 @@ public class Enemy : CharacterEntity
         if(inBattle && !battleManager.playerTurn)
         {            
             MoveAndAttack(target.transform.position, 1);
-            StopAttacking();
         }
+        StopAttacking();
 
         
     }
@@ -39,12 +39,8 @@ public class Enemy : CharacterEntity
     public void CheckDeath()
     {
         if(hp <= 0 && inBattle)
-        {       
-            GameManager.instance.battleManager.battleList.RemoveAt(GameManager.instance.battleManager.battleList.IndexOf(gameObject));
-            GameManager.instance.enemyStates[objectID] = true;
-            ApplyStatsTo(GameManager.instance.enemyStats);
+        {
             Destroy(gameObject);
-            GameManager.instance.battleManager.CheckBattleList();
         }
     }
 

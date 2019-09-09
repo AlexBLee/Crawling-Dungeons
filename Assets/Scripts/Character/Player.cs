@@ -54,8 +54,11 @@ public class Player : CharacterEntity
                 Debug.Log("oof!");
             }
             
-            MoveAndAttack(target.transform.position, 1);
-            StopAttacking();            
+            if (target != null)
+            {     
+                MoveAndAttack(target.transform.position, 1);
+            }
+            StopAttacking();  
         }
 
         // --------------------------------------------------------------------------------------------------------------------------- //

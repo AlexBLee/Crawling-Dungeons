@@ -123,14 +123,14 @@ public class CharacterEntity : MonoBehaviour
         Instantiate(infoText, target.transform.position + new Vector3(0,0,-1), Quaternion.identity);
         Debug.Log(gameObject.name + " dealt " + damage + " damage to " + target.name);
 
-        // if(target is Enemy)
-        // {
-        //     target.GetComponent<Enemy>().CheckDeath();
-        // }
-        // else
-        // {
-        //     battleManager.infoStatus.UpdateText();
-        // }
+        if(target is Enemy)
+        {
+            target.GetComponent<Enemy>().CheckDeath();
+        }
+        else
+        {
+//            battleManager.infoStatus.UpdateText();
+        }
 
     }
 

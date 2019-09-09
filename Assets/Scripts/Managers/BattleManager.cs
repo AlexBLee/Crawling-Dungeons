@@ -52,18 +52,4 @@ public class BattleManager : MonoBehaviour
     {
         SceneManager.LoadScene("TestLevel");
     }
-
-    public void CheckBattleList()
-    {
-        if(battleList.Count == 0)
-        {
-            Player playerA = FindObjectOfType<Player>();
-            playerA.RecieveXP(storedXP);
-            playerA.ApplyStatsTo(GameManager.instance.playerStats);
-            playerA.CopyInventoryTo(GameManager.instance.playerStats.itemList);
-
-            exitButton.GetComponent<Button>().onClick.AddListener(ToggleBattleEnd);
-            victoryPanel.SetActive(true);
-        }
-    }
 }
