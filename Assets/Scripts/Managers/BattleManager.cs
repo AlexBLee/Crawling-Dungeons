@@ -10,6 +10,7 @@ public class BattleManager : MonoBehaviour
     public Enemy enemy;
 
     public GameObject attackButton;
+    public GameObject magicButton;
     public GameObject exitButton;
     public GameObject victoryPanel;
 

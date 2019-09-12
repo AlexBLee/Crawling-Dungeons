@@ -11,7 +11,10 @@ public class Player : CharacterEntity
 
     public Vector3 pos;
     public Vector2 enemyPosition;
-    public Button btn;
+    public Button meleeAttackButton;
+    public Button magicAttackButton;
+    public Button potionButton;
+
     private bool buttonPressed;
     
     private InventoryDisplay invDisplay;
@@ -34,7 +37,9 @@ public class Player : CharacterEntity
     private void Start()
     {
         pos = transform.position;
-        btn.onClick.AddListener(WaitForAttackInput);
+        meleeAttackButton.onClick.AddListener(WaitForAttackInput);
+        magicAttackButton.onClick.AddListener(MagicPressed);
+        
         target = GameObject.Find("Enemy").GetComponent<CharacterEntity>();
 
         UpdateDamageStats();
@@ -75,6 +80,13 @@ public class Player : CharacterEntity
         initialPos = transform.position;
         targetReached = false;
         attacking = true;
+    }
+
+    private void MagicPressed()
+    {
+        attacking = true;
+        RangedAttack();
+
     }
 
     public void AddToStat(int number)

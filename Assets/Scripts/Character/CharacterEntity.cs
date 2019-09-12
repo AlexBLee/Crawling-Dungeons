@@ -183,6 +183,13 @@ public class CharacterEntity : MonoBehaviour
 
     }
 
+    protected void RangedAttack()
+    {
+        battleManager.magicButton.SetActive(false);
+        anim.SetTrigger("Cast");
+        attacking = false;
+    }
+
     protected void MoveAndAttack(Vector2 targetPosition, int direction)
     {
         if(!targetReached && attacking)
@@ -243,5 +250,10 @@ public class CharacterEntity : MonoBehaviour
     public void AnimationFinish()
     {
         animationDone = true;
+    }
+
+    public void MagicAnimationFinish()
+    {
+        battleManager.ToggleNextTurn();
     }
 }
