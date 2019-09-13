@@ -11,6 +11,7 @@ public class BattleManager : MonoBehaviour
 
     public GameObject attackButton;
     public GameObject magicButton;
+    public GameObject itemButton;
     public GameObject exitButton;
     public GameObject victoryPanel;
 

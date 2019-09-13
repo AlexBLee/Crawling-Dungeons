@@ -183,11 +183,25 @@ public class CharacterEntity : MonoBehaviour
 
     }
 
+    // Next turn setting is done through animation
     protected void RangedAttack()
     {
         battleManager.magicButton.SetActive(false);
         anim.SetTrigger("Cast");
         attacking = false;
+    }
+
+    protected void UseItem()
+    {
+        battleManager.itemButton.SetActive(false);
+        hp += 20;
+        if(hp >= maxHP)
+        {
+            hp = maxHP;
+        }
+        infoText.text = "+20";
+        Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
+        anim.SetTrigger("UseItem");
     }
 
     protected void MoveAndAttack(Vector2 targetPosition, int direction)

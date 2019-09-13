@@ -39,6 +39,8 @@ public class Player : CharacterEntity
         pos = transform.position;
         meleeAttackButton.onClick.AddListener(WaitForAttackInput);
         magicAttackButton.onClick.AddListener(MagicPressed);
+        potionButton.onClick.AddListener(UseItem);
+
         
         target = GameObject.Find("Enemy").GetComponent<CharacterEntity>();
 
