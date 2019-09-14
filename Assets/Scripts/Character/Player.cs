@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class Player : CharacterEntity
 {
+    public HealthBar healthBar;
 
     public Vector3 pos;
     public Vector2 enemyPosition;
@@ -160,6 +161,11 @@ public class Player : CharacterEntity
             exp += extraXP;
         }
 
+    }
+
+    public void UpdateUIHealth()
+    {
+        healthBar.SetHealth(hp, maxHP);
     }
 
     // -----------------------------------------------------------------------------

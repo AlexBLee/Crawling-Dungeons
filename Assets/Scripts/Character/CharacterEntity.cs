@@ -131,7 +131,7 @@ public class CharacterEntity : MonoBehaviour
         }
         else
         {
-//            battleManager.infoStatus.UpdateText();
+            target.GetComponent<Player>().UpdateUIHealth();
         }
 
     }
