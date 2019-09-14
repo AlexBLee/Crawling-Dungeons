@@ -21,7 +21,19 @@ public class BattleManager : MonoBehaviour
 
     public int storedXP;
 
+    public void DisableButtons()
+    {
+        attackButton.SetActive(false);
+        magicButton.SetActive(false);
+        itemButton.SetActive(false);
+    }
 
+    public void EnableButtons()
+    {
+        attackButton.SetActive(true);
+        magicButton.SetActive(true);
+        itemButton.SetActive(true);
+    }
 
     public void TogglePlayerTurn()
     {
@@ -45,7 +57,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            attackButton.SetActive(true);
+            EnableButtons();
             playerTurn = true;
         }
     }
