@@ -202,6 +202,11 @@ public class CharacterEntity : MonoBehaviour
         infoText.text = "+20";
         Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
         anim.SetTrigger("UseItem");
+
+        if(this is Player)
+        {
+            GetComponent<Player>().UpdateUIHealth();
+        }
     }
 
     protected void MoveAndAttack(Vector2 targetPosition, int direction)

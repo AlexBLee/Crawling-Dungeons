@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// Also mana bar, but the current implementation is basically identical so shouldn't be a need to make another class..
 public class HealthBar : MonoBehaviour
 {
     public Image imgHealthBar;

@@ -9,6 +9,7 @@ using UnityEngine;
 public class Player : CharacterEntity
 {
     public HealthBar healthBar;
+    public HealthBar manaBar;
 
     public Vector3 pos;
     public Vector2 enemyPosition;
@@ -87,6 +88,8 @@ public class Player : CharacterEntity
 
     private void MagicPressed()
     {
+        mp -= 20;
+        manaBar.SetHealth(mp, maxMP);
         attacking = true;
         RangedAttack();
 
