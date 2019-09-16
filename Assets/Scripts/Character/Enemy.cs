@@ -25,6 +25,7 @@ public class Enemy : CharacterEntity
             MoveAndAttack(target.transform.position, 1);
         }
         StopAttacking();
+        
 
         
     }

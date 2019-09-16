@@ -77,7 +77,6 @@ public class CharacterEntity : MonoBehaviour
         will = 20;
 
         UpdateDamageStats();
-
     }
 
     protected void LevelUp()

@@ -148,16 +148,18 @@ public class Player : CharacterEntity
         exp += expRecieved;
         infoText.text = "+" + expRecieved.ToString() + " XP";
         Instantiate(infoText, transform.position, Quaternion.identity);
-        CheckForLevelUp();
+        StartCoroutine(CheckForLevelUp());
     }
 
-    public void CheckForLevelUp()
+    public IEnumerator CheckForLevelUp()
     {
+        Debug.Log("@@");
+
         while(exp >= expThreshold)
         {
             float extraXP = exp - expThreshold;
             LevelUp();
-
+            yield return new WaitForSeconds(0.15f);
             infoText.text = "Level up!";
             Instantiate(infoText, transform.position, Quaternion.identity);
 
