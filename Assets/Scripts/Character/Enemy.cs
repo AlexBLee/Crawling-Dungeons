@@ -14,8 +14,6 @@ public class Enemy : CharacterEntity
     {   
         target = GameObject.Find("Player").GetComponent<CharacterEntity>();
         initialPos = transform.position;
-
-
     }
 
     void Update()
@@ -25,9 +23,6 @@ public class Enemy : CharacterEntity
             MoveAndAttack(target.transform.position, 1);
         }
         StopAttacking();
-        
-
-        
     }
 
 

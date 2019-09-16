@@ -95,6 +95,8 @@ public class Player : CharacterEntity
 
     }
 
+    #region Stats
+
     public void AddToStat(int number)
     {
         switch (number)
@@ -153,8 +155,6 @@ public class Player : CharacterEntity
 
     public IEnumerator CheckForLevelUp()
     {
-        Debug.Log("@@");
-
         while(exp >= expThreshold)
         {
             float extraXP = exp - expThreshold;
@@ -173,7 +173,11 @@ public class Player : CharacterEntity
         healthBar.SetHealth(hp, maxHP);
     }
 
+    #endregion
+
     // -----------------------------------------------------------------------------
+
+    #region Inventory
 
     public void InitializeInventory()
     {
@@ -375,6 +379,7 @@ public class Player : CharacterEntity
         return spot;
     }
 
+    #endregion
     
 
 

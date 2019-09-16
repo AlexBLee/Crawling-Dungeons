@@ -57,6 +57,8 @@ public class CharacterEntity : MonoBehaviour
 
     // ------------------------------------
 
+    #region Stats
+    
 
     protected void InitalizeStats()
     {
@@ -107,35 +109,7 @@ public class CharacterEntity : MonoBehaviour
         def = str / 10;
     }
 
-
-    protected void DoDamage()
-    {
-        // Damage is calculated by finding a random value between the minimum/maximum damage, and then taking the damage reduced by the enemy's defense.
-        // for clarification, 1 def is equal to 1% of damage reduced.
-        // so in this case, the enemy takes 99% of the damage.
-
-        float x = Random.Range(minDamage,maxDamage);
-        x *= (1.00f - ((float)target.def/100));
-        int damage = Mathf.RoundToInt(x);
-        target.hp -= damage;
-        target.anim.SetTrigger("Hit");
-        
-        infoText.text = damage.ToString();
-        Instantiate(infoText, target.transform.position + new Vector3(0,0,-1), Quaternion.identity);
-        Debug.Log(gameObject.name + " dealt " + damage + " damage to " + target.name);
-
-        if(target is Enemy)
-        {
-            target.GetComponent<Enemy>().CheckDeath();
-        }
-        else
-        {
-            target.GetComponent<Player>().UpdateUIHealth();
-        }
-
-    }
-
-    public void ApplyStatsFrom(CharacterEntity otherChar)
+   public void ApplyStatsFrom(CharacterEntity otherChar)
     {
         level = otherChar.level;
         exp = otherChar.exp;
@@ -182,6 +156,38 @@ public class CharacterEntity : MonoBehaviour
 
     }
 
+    #endregion
+
+    #region Moves
+    
+    protected void DoDamage()
+    {
+        // Damage is calculated by finding a random value between the minimum/maximum damage, and then taking the damage reduced by the enemy's defense.
+        // for clarification, 1 def is equal to 1% of damage reduced.
+        // so in this case, the enemy takes 99% of the damage.
+
+        float x = Random.Range(minDamage,maxDamage);
+        x *= (1.00f - ((float)target.def/100));
+        int damage = Mathf.RoundToInt(x);
+        target.hp -= damage;
+        target.anim.SetTrigger("Hit");
+        
+        infoText.text = damage.ToString();
+        Instantiate(infoText, target.transform.position + new Vector3(0,0,-1), Quaternion.identity);
+        Debug.Log(gameObject.name + " dealt " + damage + " damage to " + target.name);
+
+        if(target is Enemy)
+        {
+            target.GetComponent<Enemy>().CheckDeath();
+        }
+        else
+        {
+            target.GetComponent<Player>().UpdateUIHealth();
+        }
+
+    }
+
+ 
     // Next turn setting is done through animation
     protected void RangedAttack()
     {
@@ -208,6 +214,10 @@ public class CharacterEntity : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region Animations/Movement
+   
     protected void MoveAndAttack(Vector2 targetPosition, int direction)
     {
         if(!targetReached && attacking)
@@ -274,4 +284,5 @@ public class CharacterEntity : MonoBehaviour
     {
         battleManager.ToggleNextTurn();
     }
+    #endregion
 }
