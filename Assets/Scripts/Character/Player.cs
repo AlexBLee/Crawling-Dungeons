@@ -151,6 +151,8 @@ public class Player : CharacterEntity
         infoText.text = "+" + expRecieved.ToString() + " XP";
         Instantiate(infoText, transform.position, Quaternion.identity);
         StartCoroutine(CheckForLevelUp());
+        StartCoroutine(NextBattle());
+
     }
 
     public IEnumerator CheckForLevelUp()
@@ -171,6 +173,13 @@ public class Player : CharacterEntity
     public void UpdateUIHealth()
     {
         healthBar.SetHealth(hp, maxHP);
+    }
+
+    public IEnumerator NextBattle()
+    {
+        yield return new WaitForSeconds(3);
+        battleManager.battleDone = true;
+        battleManager.ToggleNextBattle();
     }
 
     #endregion

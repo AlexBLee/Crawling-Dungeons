@@ -57,8 +57,7 @@ public class CharacterEntity : MonoBehaviour
 
     // ------------------------------------
 
-    #region Stats
-    
+    #region Stats  
 
     protected void InitalizeStats()
     {
@@ -259,11 +258,10 @@ public class CharacterEntity : MonoBehaviour
         }
     }
 
-    protected IEnumerator MoveToExactPosition(Vector3 destination)
+    protected IEnumerator MoveToExactPosition(Vector2 destination)
     {
-
-        Vector3 startPos = transform.position;
-        Vector3 endPos = destination;
+        Vector2 startPos = transform.position;
+        Vector2 endPos = destination;
 
         float timer = 0;
         while(timer < 2)
