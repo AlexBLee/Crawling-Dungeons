@@ -32,6 +32,7 @@ public class BattleManager : MonoBehaviour
 
     private void Start() 
     {
+        DisableButtons();
         SpawnNextEnemy(enemyCounter);
         player.target = enemy;
     }
@@ -60,6 +61,7 @@ public class BattleManager : MonoBehaviour
 
     public void TogglePlayerTurn()
     {
+        EnableButtons();
         playerTurn = true;
     }
 

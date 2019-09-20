@@ -42,6 +42,7 @@ public class Enemy : CharacterEntity
         {
             anim.SetBool("Run", false);
             newBattle = false;
+            battleManager.StartNewBattle();
         }
     }
 
