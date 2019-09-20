@@ -495,12 +495,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTurn: 1
+  battleDone: 0
   enemy: {fileID: 931546022}
   attackButton: {fileID: 1299836353}
   magicButton: {fileID: 256438345}
   itemButton: {fileID: 754336923}
   exitButton: {fileID: 0}
   victoryPanel: {fileID: 0}
+  background: {fileID: 1926431752}
   infoStatus: {fileID: 0}
   victoryInfo: {fileID: 0}
   battleList: []

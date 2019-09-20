@@ -12,7 +12,7 @@ public class BattleManager : MonoBehaviour
     Vector2 newPosition;
 
     public Enemy enemy;
-
+    public Player player;
 
     public GameObject attackButton;
     public GameObject magicButton;
@@ -91,6 +91,14 @@ public class BattleManager : MonoBehaviour
 
     }
 
+    public void StartNewBattle()
+    {
+        battleDone = false;
+        player.anim.SetBool("Run", false);
+        TogglePlayerTurn();
+        EnableButtons();
+    }
+    
     protected IEnumerator MoveToExactPosition(Vector2 start, Vector2 destination)
     {
         Vector2 startPos = start;
@@ -104,7 +112,7 @@ public class BattleManager : MonoBehaviour
             yield return null;
         }
         calculating = true;
-        battleDone = false;
+        StartNewBattle();
 
     }
 

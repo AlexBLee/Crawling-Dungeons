@@ -178,6 +178,7 @@ public class Player : CharacterEntity
     public IEnumerator NextBattle()
     {
         yield return new WaitForSeconds(3);
+        anim.SetBool("Run", true);
         battleManager.battleDone = true;
         battleManager.ToggleNextBattle();
     }
