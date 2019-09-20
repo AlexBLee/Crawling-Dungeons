@@ -9,7 +9,8 @@ public class BattleManager : MonoBehaviour
     public bool playerTurn = true;
     public bool battleDone = false;
     bool calculating = true;
-    Vector2 newPosition;
+    public Vector2 newPosition;
+    public Vector2 enemyPosition;
 
     public Enemy enemy;
     public Player player;
@@ -24,9 +25,16 @@ public class BattleManager : MonoBehaviour
 
     public InfoStatus infoStatus;
     public VictoryInfo victoryInfo;
-    public List<GameObject> battleList;
+    public List<GameObject> spawnableEnemies;
+    public int enemyCounter = 0;
 
     public int storedXP;
+
+    private void Start() 
+    {
+        SpawnNextEnemy(enemyCounter);
+        player.target = enemy;
+    }
 
     private void Update() 
     {
@@ -82,12 +90,12 @@ public class BattleManager : MonoBehaviour
         if(calculating)
         {
             float backgroundX = background.transform.position.x;
-            backgroundX -= 4.0f;
-            newPosition = new Vector2(backgroundX, background.transform.position.y);
+            newPosition = new Vector2(backgroundX -= 4.0f, background.transform.position.y);
             calculating = false;
         }
 
         StartCoroutine(MoveToExactPosition(background.transform.position,newPosition));
+        SpawnNextEnemy(enemyCounter);
 
     }
 
@@ -97,6 +105,16 @@ public class BattleManager : MonoBehaviour
         player.anim.SetBool("Run", false);
         TogglePlayerTurn();
         EnableButtons();
+    }
+
+    public void SpawnNextEnemy(int number)
+    {
+        GameObject enemyObject = Instantiate(spawnableEnemies[number], enemyPosition, Quaternion.Euler(0,180,0));
+        enemy = enemyObject.GetComponent<Enemy>();
+        enemy.battleManager = this;
+        enemy.target = FindObjectOfType<Player>();
+
+        enemyCounter++;
     }
     
     protected IEnumerator MoveToExactPosition(Vector2 start, Vector2 destination)

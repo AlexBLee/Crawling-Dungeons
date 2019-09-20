@@ -44,7 +44,6 @@ public class Player : CharacterEntity
         potionButton.onClick.AddListener(UseItem);
 
         
-        target = GameObject.Find("Enemy").GetComponent<CharacterEntity>();
 
         UpdateDamageStats();
 
