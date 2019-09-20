@@ -113,6 +113,8 @@ public class BattleManager : MonoBehaviour
         enemy = enemyObject.GetComponent<Enemy>();
         enemy.battleManager = this;
         enemy.target = FindObjectOfType<Player>();
+        enemy.newBattle = true;
+        player.target = enemy;
 
         enemyCounter++;
     }

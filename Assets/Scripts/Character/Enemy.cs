@@ -9,20 +9,40 @@ public class Enemy : CharacterEntity
     public bool beginTurn;
     public float detectDistance = 10.0f;
     public int experiencePoints;
+    public bool newBattle;
+    public Vector3 fightPosition;
 
     private void Start() 
     {   
-        target = GameObject.Find("Player").GetComponent<CharacterEntity>();
         initialPos = transform.position;
     }
 
     void Update()
     {
+        if(newBattle)
+        {
+            MoveToPosition();
+        }
+
         if(inBattle && !battleManager.playerTurn)
         {            
             MoveAndAttack(target.transform.position, 1);
         }
         StopAttacking();
+    }
+
+    public void MoveToPosition()
+    {
+        if (transform.position != fightPosition)
+        {
+            StartCoroutine(MoveToExactPosition(fightPosition));
+            anim.SetBool("Run", true);
+        }
+        else
+        {
+            anim.SetBool("Run", false);
+            newBattle = false;
+        }
     }
 
 

@@ -152,6 +152,8 @@ MonoBehaviour:
   beginTurn: 0
   detectDistance: 10
   experiencePoints: 999
+  newBattle: 0
+  fightPosition: {x: 4.28, y: 2.58}
 --- !u!95 &4452915190085327165
 Animator:
   serializedVersion: 3
