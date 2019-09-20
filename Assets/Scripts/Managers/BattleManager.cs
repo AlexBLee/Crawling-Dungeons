@@ -9,6 +9,7 @@ public class BattleManager : MonoBehaviour
     public bool playerTurn = true;
     public bool battleDone = false;
     bool calculating = true;
+    bool needToSpawn = true;
     public Vector2 newPosition;
     public Vector2 enemyPosition;
 
@@ -89,6 +90,7 @@ public class BattleManager : MonoBehaviour
 
     public void ToggleNextBattle()
     {
+
         if(calculating)
         {
             float backgroundX = background.transform.position.x;
@@ -96,8 +98,13 @@ public class BattleManager : MonoBehaviour
             calculating = false;
         }
 
+        if(needToSpawn)
+        {
+            SpawnNextEnemy(enemyCounter);
+            needToSpawn = false;
+        }
         StartCoroutine(MoveToExactPosition(background.transform.position,newPosition));
-        SpawnNextEnemy(enemyCounter);
+
 
     }
 
@@ -107,6 +114,7 @@ public class BattleManager : MonoBehaviour
         player.anim.SetBool("Run", false);
         TogglePlayerTurn();
         EnableButtons();
+        needToSpawn = true;
     }
 
     public void SpawnNextEnemy(int number)
