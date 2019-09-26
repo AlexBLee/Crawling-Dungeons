@@ -511,6 +511,9 @@ MonoBehaviour:
   spawnableEnemies:
   - {fileID: 4452915190085327154, guid: f4a87c3d0e93dd5468d2b26055c9085c, type: 3}
   - {fileID: 4452915190085327154, guid: f4a87c3d0e93dd5468d2b26055c9085c, type: 3}
+  - {fileID: 4452915190085327154, guid: f4a87c3d0e93dd5468d2b26055c9085c, type: 3}
+  - {fileID: 4452915190085327154, guid: f4a87c3d0e93dd5468d2b26055c9085c, type: 3}
+  - {fileID: 4452915190085327154, guid: f4a87c3d0e93dd5468d2b26055c9085c, type: 3}
   enemyCounter: 0
   storedXP: 0
 --- !u!4 &611337057
@@ -1865,6 +1868,52 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: battleManager
+      value: 
+      objectReference: {fileID: 611337056}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: btn
+      value: 
+      objectReference: {fileID: 1299836355}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: infoText
+      value: 
+      objectReference: {fileID: 5973154270874184695, guid: dc9f3253454acfa4a8730ae96c228bf3,
+        type: 3}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: maxDamage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: meleeAttackButton
+      value: 
+      objectReference: {fileID: 1299836355}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: magicAttackButton
+      value: 
+      objectReference: {fileID: 256438349}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: potionButton
+      value: 
+      objectReference: {fileID: 754336927}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 986476002}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: manaBar
+      value: 
+      objectReference: {fileID: 1232276769}
     - target: {fileID: 70495698347628145, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1925,51 +1974,5 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: battleManager
-      value: 
-      objectReference: {fileID: 611337056}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: btn
-      value: 
-      objectReference: {fileID: 1299836355}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: infoText
-      value: 
-      objectReference: {fileID: 5973154270874184695, guid: dc9f3253454acfa4a8730ae96c228bf3,
-        type: 3}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: maxDamage
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: meleeAttackButton
-      value: 
-      objectReference: {fileID: 1299836355}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: magicAttackButton
-      value: 
-      objectReference: {fileID: 256438349}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: potionButton
-      value: 
-      objectReference: {fileID: 754336927}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 986476002}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: manaBar
-      value: 
-      objectReference: {fileID: 1232276769}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6f2ea454a19a0b47b4e14e777baa4da, type: 3}

@@ -25,6 +25,10 @@ public class HealthBar : MonoBehaviour
             }
             else
             {
+                if(max != maxHealth)
+                {
+                    max = maxHealth;
+                }
                 mCurrentValue = health;
                 mPercentage = (float)mCurrentValue / (float)(max - min);
             }

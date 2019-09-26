@@ -125,7 +125,7 @@ MonoBehaviour:
   exp: 0
   expThreshold: 50
   statPoints: 0
-  hp: 5
+  hp: 20
   mp: 20
   maxHP: 20
   maxMP: 20
@@ -153,7 +153,7 @@ MonoBehaviour:
   detectDistance: 10
   experiencePoints: 999
   newBattle: 0
-  fightPosition: {x: 4.28, y: 2.58}
+  fightPosition: {x: 4.28, y: 2.58, z: 0}
 --- !u!95 &4452915190085327165
 Animator:
   serializedVersion: 3
