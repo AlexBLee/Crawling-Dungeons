@@ -161,6 +161,8 @@ public class Player : CharacterEntity
             float extraXP = exp - expThreshold;
             LevelUp();
             yield return new WaitForSeconds(0.15f);
+            healthBar.SetHealth(hp,maxHP);
+            manaBar.SetHealth(mp,maxMP);
             infoText.text = "Level up!";
             Instantiate(infoText, transform.position, Quaternion.identity);
 
