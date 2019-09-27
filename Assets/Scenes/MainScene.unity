@@ -496,6 +496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTurn: 1
   battleDone: 0
+  newBattle: 1
   newPosition: {x: 0, y: 0}
   enemyPosition: {x: 6.88, y: 2.58}
   enemy: {fileID: 0}
@@ -1006,7 +1007,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 413a07aab3b39c94bb9297d561f336ee, type: 3}
   m_Color: {r: 0.3207547, g: 0.31016374, b: 0.31016374, a: 1}
   m_FlipX: 0

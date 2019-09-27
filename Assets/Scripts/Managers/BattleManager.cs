@@ -122,16 +122,18 @@ public class BattleManager : MonoBehaviour
 
     public void SpawnNextEnemy(int number)
     {
-        GameObject enemyObject = Instantiate(spawnableEnemies[number], enemyPosition, Quaternion.Euler(0,180,0));
-        enemy = enemyObject.GetComponent<Enemy>();
-        enemy.battleManager = this;
-        enemy.target = FindObjectOfType<Player>();
-        enemy.newBattle = true;
-        player.target = enemy;
+        if(enemyCounter < spawnableEnemies.Count)
+        {
+            GameObject enemyObject = Instantiate(spawnableEnemies[number], enemyPosition, Quaternion.Euler(0,180,0));
+            enemy = enemyObject.GetComponent<Enemy>();
+            enemy.battleManager = this;
+            enemy.target = FindObjectOfType<Player>();
+            enemy.newBattle = true;
+            player.target = enemy;
 
-
-        needToSpawn = false;
-        enemyCounter++;
+            needToSpawn = false;
+            enemyCounter++;
+        }
     }
     
     protected IEnumerator MoveToExactPosition(Vector2 start, Vector2 destination)
