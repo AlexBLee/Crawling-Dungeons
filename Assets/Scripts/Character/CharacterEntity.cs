@@ -224,7 +224,6 @@ public class CharacterEntity : MonoBehaviour
             if (Vector2.Distance(transform.position, targetPosition) > 1.0f)
             {
                 transform.position += (transform.right * direction) * Time.deltaTime * moveSpeed;
-                battleManager.DisableButtons();
                 anim.SetBool("Run", true);
             }
             else

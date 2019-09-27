@@ -80,6 +80,7 @@ public class Player : CharacterEntity
 
     private void WaitForAttackInput()
     {
+        battleManager.DisableButtons();
         initialPos = transform.position;
         targetReached = false;
         attacking = true;
