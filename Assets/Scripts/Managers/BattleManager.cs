@@ -8,9 +8,9 @@ public class BattleManager : MonoBehaviour
 {
     public bool playerTurn = true;
     public bool battleDone = false;
-    public bool newBattle = true;
-    bool calculating = true;
-    bool needToSpawn = true;
+    private bool newBattle = true;
+    private bool calculating = true;
+    private bool needToSpawn = true;
     public Vector2 newPosition;
     public Vector2 enemyPosition;
 
@@ -134,6 +134,9 @@ public class BattleManager : MonoBehaviour
             needToSpawn = false;
             enemyCounter++;
         }
+
+        
+        
     }
     
     protected IEnumerator MoveToExactPosition(Vector2 start, Vector2 destination)

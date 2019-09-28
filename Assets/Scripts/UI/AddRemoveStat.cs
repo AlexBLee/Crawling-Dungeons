@@ -9,16 +9,14 @@ public class AddRemoveStat : MonoBehaviour, IPointerClickHandler
     // true = add point
     // false = subtract
     public bool option = true;
-    private Player player;
+    public Player player;
     public int number;
     public StatDisplayer statDisplay;
 
 
     private void Start() 
     {
-        player = GameManager.instance.playerObject;
 
-        GameManager.instance.addRemoves.Add(this);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -37,7 +35,7 @@ public class AddRemoveStat : MonoBehaviour, IPointerClickHandler
         
         if(player.statPoints == 0)
         {
-            GameManager.instance.DeactivateAdders();
+            player.DeactivateAdders();
         }
     }
 }

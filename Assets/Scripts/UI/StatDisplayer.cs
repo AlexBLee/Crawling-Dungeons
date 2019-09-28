@@ -5,7 +5,7 @@ using TMPro;
 
 public class StatDisplayer : MonoBehaviour
 {
-    private Player player;
+    public Player player;
     public TextMeshProUGUI str;
     public TextMeshProUGUI dex;
     public TextMeshProUGUI intl;
@@ -15,7 +15,6 @@ public class StatDisplayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameManager.instance.playerObject;
         UpdateStats();
 
     }

@@ -33,6 +33,8 @@ public class Player : CharacterEntity
     public RightHand rightHand;
     public LeftHand leftHand;
 
+    public List<AddRemoveStat> addRemoves;
+
     public int gold;
 
 
@@ -183,6 +185,22 @@ public class Player : CharacterEntity
         anim.SetBool("Run", true);
         battleManager.battleDone = true;
         battleManager.ToggleNextBattle();
+    }
+
+    public void DeactivateAdders()
+    {
+        for(int i = 0; i < addRemoves.Count; i++)
+        {
+            addRemoves[i].gameObject.SetActive(false);
+        }
+    }
+
+    public void ActivateAdders()
+    {
+        for(int i = 0; i < addRemoves.Count; i++)
+        {
+            addRemoves[i].gameObject.SetActive(true);
+        }
     }
 
     #endregion
