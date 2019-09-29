@@ -37,6 +37,7 @@ public class BattleManager : MonoBehaviour
         DisableButtons();
         SpawnNextEnemy(enemyCounter);
         player.target = enemy;
+        victoryPanel.SetActive(false);
     }
 
     private void Update() 
@@ -133,6 +134,10 @@ public class BattleManager : MonoBehaviour
 
             needToSpawn = false;
             enemyCounter++;
+        }
+        else
+        {
+            victoryPanel.SetActive(true);
         }
 
         

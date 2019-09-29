@@ -13,12 +13,6 @@ public class AddRemoveStat : MonoBehaviour, IPointerClickHandler
     public int number;
     public StatDisplayer statDisplay;
 
-
-    private void Start() 
-    {
-
-    }
-
     public void OnPointerClick(PointerEventData eventData)
     {
         if(option)

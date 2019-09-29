@@ -993,7 +993,7 @@ MonoBehaviour:
   magicButton: {fileID: 256438345}
   itemButton: {fileID: 754336923}
   exitButton: {fileID: 0}
-  victoryPanel: {fileID: 0}
+  victoryPanel: {fileID: 2036862401}
   background: {fileID: 1529571563}
   infoStatus: {fileID: 0}
   victoryInfo: {fileID: 0}
@@ -4606,6 +4606,7 @@ GameObject:
   - component: {fileID: 2036862402}
   - component: {fileID: 2036862404}
   - component: {fileID: 2036862403}
+  - component: {fileID: 2036862405}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -4677,6 +4678,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036862401}
   m_CullTransparentMesh: 0
+--- !u!114 &2036862405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036862401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87c27a26e02cb3343b35ad38940805f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleManager: {fileID: 611337056}
+  expGained: {fileID: 0}
+  itemObtained: {fileID: 0}
+  nameOfCharacter: {fileID: 0}
+  currentLevel: {fileID: 0}
+  playerLevel: 
+  playerName: 
 --- !u!1 &2051620468
 GameObject:
   m_ObjectHideFlags: 0
