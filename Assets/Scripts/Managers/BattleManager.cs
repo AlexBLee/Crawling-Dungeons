@@ -25,8 +25,6 @@ public class BattleManager : MonoBehaviour
 
     public GameObject background;
 
-    public InfoStatus infoStatus;
-    public VictoryInfo victoryInfo;
     public List<GameObject> spawnableEnemies;
     public int enemyCounter = 0;
 

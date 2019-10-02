@@ -19,8 +19,6 @@ public class Player : CharacterEntity
 
     private bool buttonPressed;
     
-    private InventoryDisplay invDisplay;
-    private CharacterPanel charPanel;
     private StatDisplayer statDisplayer;    
 
     // Equipped Items
@@ -209,205 +207,205 @@ public class Player : CharacterEntity
 
     #region Inventory
 
-    public void InitializeInventory()
-    {
-        itemList.Clear();
-    }
+    // public void InitializeInventory()
+    // {
+    //     itemList.Clear();
+    // }
 
-    public void AddItem(Item item)
-    {
-        // For item getting added from some source
-        int index = LookForFreeInventorySpace();
+    // public void AddItem(Item item)
+    // {
+    //     // For item getting added from some source
+    //     int index = LookForFreeInventorySpace();
 
-        itemList[index] = item;
-        invDisplay.AddItemImage(item,index);
-    }
+    //     itemList[index] = item;
+    //     invDisplay.AddItemImage(item,index);
+    // }
 
-    public void AddItem(Item item, int index)
-    {
-        // For item slot switching
-        itemList[index] = item;
-        invDisplay.AddItemImage(item,index);
-    }
+    // public void AddItem(Item item, int index)
+    // {
+    //     // For item slot switching
+    //     itemList[index] = item;
+    //     invDisplay.AddItemImage(item,index);
+    // }
 
-    public void RemoveItem(int index)
-    {
-        itemList[index] = null;
-        invDisplay.RemoveItemImage(index);
-    }
+    // public void RemoveItem(int index)
+    // {
+    //     itemList[index] = null;
+    //     invDisplay.RemoveItemImage(index);
+    // }
 
-    public void EquipItem(Item item, int index)
-    {
-        // Equipping without anything equipped
-        if(item is ArmorItem)
-        {
-            EquipArmorItem((ArmorItem)item);
-        }
-        else if(item is WeaponItem)
-        {
-            EquipWeaponItem((WeaponItem)item);
-        }
-        UpdateDamageStats();
-        RemoveItem(index);
-    }
+    // public void EquipItem(Item item, int index)
+    // {
+    //     // Equipping without anything equipped
+    //     if(item is ArmorItem)
+    //     {
+    //         EquipArmorItem((ArmorItem)item);
+    //     }
+    //     else if(item is WeaponItem)
+    //     {
+    //         EquipWeaponItem((WeaponItem)item);
+    //     }
+    //     UpdateDamageStats();
+    //     RemoveItem(index);
+    // }
 
-    public void EquipItem(Item item)
-    {
-        // Swapping an equipped item
-        if(item is ArmorItem)
-        {
-            EquipArmorItem((ArmorItem)item);
-        }
-        else if(item is WeaponItem)
-        {
-            EquipWeaponItem((WeaponItem)item);
-        }
-        UpdateDamageStats();
+    // public void EquipItem(Item item)
+    // {
+    //     // Swapping an equipped item
+    //     if(item is ArmorItem)
+    //     {
+    //         EquipArmorItem((ArmorItem)item);
+    //     }
+    //     else if(item is WeaponItem)
+    //     {
+    //         EquipWeaponItem((WeaponItem)item);
+    //     }
+    //     UpdateDamageStats();
 
-    }
+    // }
 
-    public void EquipArmorItem(ArmorItem item)
-    {
-        if(item is Helmet)
-        {
-            helmet = (Helmet)item;
-            charPanel.AddItem(helmet, charPanel.helmetNumber);
-        }
-        else if(item is Upper)
-        {
-            upper = (Upper)item;
-            charPanel.AddItem(upper, charPanel.upperNumber);
-        }
-        else if(item is Lower)
-        {
-            lower = (Lower)item;
-            charPanel.AddItem(lower, charPanel.lowerNumber);
-        }
-        else if(item is LeftHand)
-        {
-            leftHand = (LeftHand)item;
-            charPanel.AddItem(leftHand, charPanel.leftNumber);
-        }
+    // public void EquipArmorItem(ArmorItem item)
+    // {
+    //     if(item is Helmet)
+    //     {
+    //         helmet = (Helmet)item;
+    //         charPanel.AddItem(helmet, charPanel.helmetNumber);
+    //     }
+    //     else if(item is Upper)
+    //     {
+    //         upper = (Upper)item;
+    //         charPanel.AddItem(upper, charPanel.upperNumber);
+    //     }
+    //     else if(item is Lower)
+    //     {
+    //         lower = (Lower)item;
+    //         charPanel.AddItem(lower, charPanel.lowerNumber);
+    //     }
+    //     else if(item is LeftHand)
+    //     {
+    //         leftHand = (LeftHand)item;
+    //         charPanel.AddItem(leftHand, charPanel.leftNumber);
+    //     }
 
-        def += item.defense;
-    }
+    //     def += item.defense;
+    // }
 
-    public void EquipWeaponItem(WeaponItem item)
-    {
-        rightHand = (RightHand)item;
-        charPanel.AddItem(rightHand, charPanel.rightNumber);
-        minDamage += item.minDamage;
-        maxDamage += item.maxDamage;
-    }
+    // public void EquipWeaponItem(WeaponItem item)
+    // {
+    //     rightHand = (RightHand)item;
+    //     charPanel.AddItem(rightHand, charPanel.rightNumber);
+    //     minDamage += item.minDamage;
+    //     maxDamage += item.maxDamage;
+    // }
     
-    public void UnequipItem(EquippableItem item)
-    {
-        // For unequipping only
-        if(item is ArmorItem)
-        {
-            UnequipArmorItem((ArmorItem)item);
-        }
-        else if(item is WeaponItem)
-        {
-            UnequipWeaponItem((WeaponItem)item);
-        }
+    // public void UnequipItem(EquippableItem item)
+    // {
+    //     // For unequipping only
+    //     if(item is ArmorItem)
+    //     {
+    //         UnequipArmorItem((ArmorItem)item);
+    //     }
+    //     else if(item is WeaponItem)
+    //     {
+    //         UnequipWeaponItem((WeaponItem)item);
+    //     }
 
-        int index = LookForFreeInventorySpace();
+    //     int index = LookForFreeInventorySpace();
         
-        itemList[index] = item;
-        invDisplay.AddItemImage(item,index);
+    //     itemList[index] = item;
+    //     invDisplay.AddItemImage(item,index);
 
-    }
+    // }
 
-    public void UnequipItem(EquippableItem item, int index)
-    {
-        // For swapping equips
-        if(item is ArmorItem)
-        {
-            UnequipArmorItem((ArmorItem)item);
-        }
-        else if(item is WeaponItem)
-        {
-            UnequipWeaponItem((WeaponItem)item);
-        }
+    // public void UnequipItem(EquippableItem item, int index)
+    // {
+    //     // For swapping equips
+    //     if(item is ArmorItem)
+    //     {
+    //         UnequipArmorItem((ArmorItem)item);
+    //     }
+    //     else if(item is WeaponItem)
+    //     {
+    //         UnequipWeaponItem((WeaponItem)item);
+    //     }
 
-        itemList[index] = item;
-        invDisplay.AddItemImage(item,index);
-    }
+    //     itemList[index] = item;
+    //     invDisplay.AddItemImage(item,index);
+    // }
 
-    public void UnequipItemAndDrop(EquippableItem item)
-    {
-        // Dropping the item out of the bounds of the UI
-        if(item is ArmorItem)
-        {
-            UnequipArmorItem((ArmorItem)item);
-        }
-        else if(item is WeaponItem)
-        {
-            UnequipWeaponItem((WeaponItem)item);
-        }
+    // public void UnequipItemAndDrop(EquippableItem item)
+    // {
+    //     // Dropping the item out of the bounds of the UI
+    //     if(item is ArmorItem)
+    //     {
+    //         UnequipArmorItem((ArmorItem)item);
+    //     }
+    //     else if(item is WeaponItem)
+    //     {
+    //         UnequipWeaponItem((WeaponItem)item);
+    //     }
 
-        item = null;
-    }
+    //     item = null;
+    // }
 
-    public void UnequipArmorItem(ArmorItem item)
-    {
-        if(item is Helmet)
-        {
-            helmet = null;
-        }
-        else if(item is Upper)
-        {
-            upper = null;
-        }
-        else if(item is Lower)
-        {
-            lower = null;
-        }
-        else if(item is LeftHand)
-        {
-            leftHand = null;
-        }
-        def -= item.defense;
-    }
+    // public void UnequipArmorItem(ArmorItem item)
+    // {
+    //     if(item is Helmet)
+    //     {
+    //         helmet = null;
+    //     }
+    //     else if(item is Upper)
+    //     {
+    //         upper = null;
+    //     }
+    //     else if(item is Lower)
+    //     {
+    //         lower = null;
+    //     }
+    //     else if(item is LeftHand)
+    //     {
+    //         leftHand = null;
+    //     }
+    //     def -= item.defense;
+    // }
 
-    public void UnequipWeaponItem(WeaponItem item)
-    {
-        rightHand = null;
-        str -= item.minDamage;
-        str -= item.maxDamage;
-    }
+    // public void UnequipWeaponItem(WeaponItem item)
+    // {
+    //     rightHand = null;
+    //     str -= item.minDamage;
+    //     str -= item.maxDamage;
+    // }
 
-    // -----------------------------------------------------------------------------
+    // // -----------------------------------------------------------------------------
 
-    public void SwapItem(int indexA, int indexB)
-    {
-        Item temp = itemList[indexA];
-        itemList[indexA] = itemList[indexB];
-        itemList[indexB] = temp;
-        invDisplay.SwapItem(indexA,indexB);
-    }
+    // public void SwapItem(int indexA, int indexB)
+    // {
+    //     Item temp = itemList[indexA];
+    //     itemList[indexA] = itemList[indexB];
+    //     itemList[indexB] = temp;
+    //     invDisplay.SwapItem(indexA,indexB);
+    // }
 
-    public void GainMoney(int amount)
-    {
-        gold += amount;
-        invDisplay.goldText.text = gold.ToString();
-    }
+    // public void GainMoney(int amount)
+    // {
+    //     gold += amount;
+    //     invDisplay.goldText.text = gold.ToString();
+    // }
 
-    public int LookForFreeInventorySpace()
-    {
-        int spot = 0;
+    // public int LookForFreeInventorySpace()
+    // {
+    //     int spot = 0;
 
-        for(int i = 0; i <= itemList.Count; i++)
-        {
-            if(itemList[i] == null)
-            {
-                spot = i;
-                break;
-            }
-        }
-        return spot;
-    }
+    //     for(int i = 0; i <= itemList.Count; i++)
+    //     {
+    //         if(itemList[i] == null)
+    //         {
+    //             spot = i;
+    //             break;
+    //         }
+    //     }
+    //     return spot;
+    // }
 
     #endregion
     

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Enemy : CharacterEntity
 {
-    private string TAG_PLAYER = "Player";
     private GameObject player;
     public bool beginTurn;
     public float detectDistance = 10.0f;
