@@ -10,8 +10,6 @@ public class GameManager : MonoBehaviour
     public Enemy enemyStats;
 
 
-
-
     void Awake()
     {
         if (instance == null)
@@ -27,6 +25,12 @@ public class GameManager : MonoBehaviour
 
 
     }
+
+    private void Start() 
+    {
+        playerStats.InitalizeStats();    
+    }
+
 
     
 

@@ -28,6 +28,7 @@ public class BattleManager : MonoBehaviour
     public List<GameObject> spawnableEnemies;
     public int enemyCounter = 0;
 
+
     public int storedXP;
 
     private void Start() 
@@ -133,6 +134,7 @@ public class BattleManager : MonoBehaviour
             needToSpawn = false;
             enemyCounter++;
         }
+        // If no more enemies to spawn, floor is complete.
         else
         {
             victoryPanel.SetActive(true);

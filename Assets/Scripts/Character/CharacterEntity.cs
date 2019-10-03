@@ -59,7 +59,7 @@ public class CharacterEntity : MonoBehaviour
 
     #region Stats  
 
-    protected void InitalizeStats()
+    public void InitalizeStats()
     {
         level = 1;
         exp = 0;

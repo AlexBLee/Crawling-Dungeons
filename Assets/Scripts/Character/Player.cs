@@ -38,13 +38,14 @@ public class Player : CharacterEntity
 
     private void Start()
     {
+        ApplyStatsFrom(GameManager.instance.playerStats);
+
         pos = transform.position;
         meleeAttackButton.onClick.AddListener(WaitForAttackInput);
         magicAttackButton.onClick.AddListener(MagicPressed);
         potionButton.onClick.AddListener(UseItem);
 
         
-
         UpdateDamageStats();
 
     }
