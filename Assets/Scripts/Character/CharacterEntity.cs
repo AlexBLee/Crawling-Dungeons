@@ -30,6 +30,9 @@ public class CharacterEntity : MonoBehaviour
     public float minDamage;
     public float maxDamage;
 
+    public float magicMinDamage;
+    public float magicMaxDamage;
+
     public int def;
 
     public int moveSpeed = 5;
@@ -111,6 +114,9 @@ public class CharacterEntity : MonoBehaviour
         minDamage += dex / 3.5f;
         maxDamage += dex / 4.5f;
 
+        magicMinDamage = intl / 5;
+        magicMaxDamage = intl / 2;
+
         critChance = (will - 10)/10;
 
         def = str / 10;
@@ -174,6 +180,40 @@ public class CharacterEntity : MonoBehaviour
         // so in this case, the enemy takes 99% of the damage.
         float chance = Random.Range(0, 100);
         float x = Random.Range(minDamage,maxDamage);
+        x *= (1.00f - ((float)target.def/100));
+        int damage = Mathf.RoundToInt(x);
+
+        if(chance < critChance)
+        {
+            damage *= 2;
+        }
+
+        target.hp -= damage;
+        target.anim.SetTrigger("Hit");
+        
+        infoText.text = damage.ToString();
+        Instantiate(infoText, target.transform.position + new Vector3(0,0,-1), Quaternion.identity);
+        Debug.Log(gameObject.name + " dealt " + damage + " damage to " + target.name);
+
+        if(target is Enemy)
+        {
+            target.GetComponent<Enemy>().CheckDeath();
+        }
+        else
+        {
+            target.GetComponent<Player>().UpdateUIHealth();
+        }
+
+    }
+
+    // Currently a seperate funciton due to magic possibly not being just a basic attack?
+    protected void DoMagicDamage()
+    {
+        // Damage is calculated by finding a random value between the minimum/maximum damage, and then taking the damage reduced by the enemy's defense.
+        // for clarification, 1 def is equal to 1% of damage reduced.
+        // so in this case, the enemy takes 99% of the damage.
+        float chance = Random.Range(0, 100);
+        float x = Random.Range(magicMinDamage,magicMaxDamage);
         x *= (1.00f - ((float)target.def/100));
         int damage = Mathf.RoundToInt(x);
 
