@@ -4941,6 +4941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 2005592311}
+  player: {fileID: 1075298623}
 --- !u!1 &2036862401
 GameObject:
   m_ObjectHideFlags: 0

@@ -105,6 +105,10 @@ public class CharacterEntity : MonoBehaviour
     {
         maxDamage = str / 2.5f;
         minDamage = str / 3;
+
+        minDamage += dex / 2.5f;
+        maxDamage += dex / 3.5f;
+
         def = str / 10;
     }
 
