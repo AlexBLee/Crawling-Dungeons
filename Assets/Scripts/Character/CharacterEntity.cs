@@ -25,6 +25,8 @@ public class CharacterEntity : MonoBehaviour
     public int dex;
     public int will;
 
+    public float critChance;
+
     public float minDamage;
     public float maxDamage;
 
@@ -106,8 +108,10 @@ public class CharacterEntity : MonoBehaviour
         maxDamage = str / 2.5f;
         minDamage = str / 3;
 
-        minDamage += dex / 2.5f;
-        maxDamage += dex / 3.5f;
+        minDamage += dex / 3.5f;
+        maxDamage += dex / 4.5f;
+
+        critChance = (will - 10)/10;
 
         def = str / 10;
     }
@@ -168,10 +172,16 @@ public class CharacterEntity : MonoBehaviour
         // Damage is calculated by finding a random value between the minimum/maximum damage, and then taking the damage reduced by the enemy's defense.
         // for clarification, 1 def is equal to 1% of damage reduced.
         // so in this case, the enemy takes 99% of the damage.
-
+        float chance = Random.Range(0, 100);
         float x = Random.Range(minDamage,maxDamage);
         x *= (1.00f - ((float)target.def/100));
         int damage = Mathf.RoundToInt(x);
+
+        if(chance < critChance)
+        {
+            damage *= 2;
+        }
+
         target.hp -= damage;
         target.anim.SetTrigger("Hit");
         
