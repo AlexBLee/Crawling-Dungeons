@@ -186,6 +186,7 @@ public class CharacterEntity : MonoBehaviour
         if(chance < critChance)
         {
             damage *= 2;
+            infoText.color = new Color(255,255,0);
         }
 
         target.hp -= damage;
@@ -193,6 +194,7 @@ public class CharacterEntity : MonoBehaviour
         
         infoText.text = damage.ToString();
         Instantiate(infoText, target.transform.position + new Vector3(0,0,-1), Quaternion.identity);
+        infoText.color = new Color(255,255,255);
         Debug.Log(gameObject.name + " dealt " + damage + " damage to " + target.name);
 
         if(target is Enemy)
@@ -203,6 +205,7 @@ public class CharacterEntity : MonoBehaviour
         {
             target.GetComponent<Player>().UpdateUIHealth();
         }
+
 
     }
 
