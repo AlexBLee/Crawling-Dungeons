@@ -5540,6 +5540,11 @@ PrefabInstance:
       propertyPath: pos.y
       value: 2.68
       objectReference: {fileID: 0}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: critChance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 70495698347628145, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
       propertyPath: m_LocalPosition.x
