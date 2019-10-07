@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
     private void Start() 
     {
         attackButton.onClick.AddListener(player.Attack);
-        magicButton.onClick.AddListener(player.MagicPressed);
+        magicButton.onClick.AddListener(ShowMagicList);
         itemButton.onClick.AddListener(player.UseItem);
         HideMagicList();
     }
