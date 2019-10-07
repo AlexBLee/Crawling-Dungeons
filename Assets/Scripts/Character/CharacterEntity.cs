@@ -7,6 +7,7 @@ using TMPro;
 public class CharacterEntity : MonoBehaviour
 {
     public BattleManager battleManager;
+    public UIManager uiManager;
 
     // Stats ----------------------------------
     public int level;
@@ -247,14 +248,14 @@ public class CharacterEntity : MonoBehaviour
     // Next turn setting is done through animation
     protected void RangedAttack()
     {
-        battleManager.DisableButtons();
+        uiManager.DisableButtons();
         anim.SetTrigger("Cast");
         attacking = false;
     }
 
-    protected void UseItem()
+    public void UseItem()
     {
-        battleManager.DisableButtons();
+        uiManager.DisableButtons();
         hp += 20;
         if(hp >= maxHP)
         {

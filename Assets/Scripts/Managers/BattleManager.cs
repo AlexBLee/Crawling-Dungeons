@@ -17,9 +17,8 @@ public class BattleManager : MonoBehaviour
     public Enemy enemy;
     public Player player;
 
-    public GameObject attackButton;
-    public GameObject magicButton;
-    public GameObject itemButton;
+    public UIManager uiManager;
+
     public GameObject exitButton;
     public GameObject victoryPanel;
 
@@ -33,7 +32,7 @@ public class BattleManager : MonoBehaviour
 
     private void Start() 
     {
-        DisableButtons();
+        uiManager.DisableButtons();
         SpawnNextEnemy(enemyCounter);
         player.target = enemy;
         victoryPanel.SetActive(false);
@@ -47,23 +46,11 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public void DisableButtons()
-    {
-        attackButton.SetActive(false);
-        magicButton.SetActive(false);
-        itemButton.SetActive(false);
-    }
 
-    public void EnableButtons()
-    {
-        attackButton.SetActive(true);
-        magicButton.SetActive(true);
-        itemButton.SetActive(true);
-    }
 
     public void TogglePlayerTurn()
     {
-        EnableButtons();
+        uiManager.EnableButtons();
         playerTurn = true;
     }
 
@@ -84,7 +71,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            EnableButtons();
+            uiManager.EnableButtons();
             playerTurn = true;
         }
     }
@@ -115,7 +102,7 @@ public class BattleManager : MonoBehaviour
         battleDone = false;
         player.anim.SetBool("Run", false);
         TogglePlayerTurn();
-        EnableButtons();
+        uiManager.EnableButtons();
         needToSpawn = true;
         newBattle = true;
     }

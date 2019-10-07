@@ -39,12 +39,7 @@ public class Player : CharacterEntity
     private void Start()
     {
         ApplyStatsFrom(GameManager.instance.playerStats);
-
         pos = transform.position;
-        meleeAttackButton.onClick.AddListener(WaitForAttackInput);
-        magicAttackButton.onClick.AddListener(MagicPressed);
-        potionButton.onClick.AddListener(UseItem);
-
         
         UpdateDamageStats();
 
@@ -79,15 +74,15 @@ public class Player : CharacterEntity
 
     // -----------------------------------------------------------------------------
 
-    private void WaitForAttackInput()
+    public void Attack()
     {
-        battleManager.DisableButtons();
+        uiManager.DisableButtons();
         initialPos = transform.position;
         targetReached = false;
         attacking = true;
     }
 
-    private void MagicPressed()
+    public void MagicPressed()
     {
         mp -= 20;
         manaBar.SetHealth(mp, maxMP);
