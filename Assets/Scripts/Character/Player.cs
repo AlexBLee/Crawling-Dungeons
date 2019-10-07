@@ -13,15 +13,13 @@ public class Player : CharacterEntity
 
     public Vector3 pos;
     public Vector2 enemyPosition;
-    public Button meleeAttackButton;
-    public Button magicAttackButton;
-    public Button potionButton;
 
     private bool buttonPressed;
     
     private StatDisplayer statDisplayer;    
 
     // Equipped Items
+    public List<Spell> spellList;
     public List<Item> itemList;
     public EquippableItem tempItem;
 
