@@ -8,7 +8,7 @@ public class Spell : ScriptableObject
     public string spellName;
     public int cost;
     public int additionalDamage;
-    public Sprite sprite;
+    public GameObject effect;
 
 
 

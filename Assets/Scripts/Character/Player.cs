@@ -80,11 +80,14 @@ public class Player : CharacterEntity
         attacking = true;
     }
 
-    public void MagicPressed()
+    public void MagicPressed(Spell spell)
     {
-        mp -= 20;
+        uiManager.HideMagicList();
+        Debug.Log("Casted: " + spell.name);
+        mp -= spell.cost;
         manaBar.SetHealth(mp, maxMP);
         attacking = true;
+        Instantiate(spell.effect, target.transform.position, Quaternion.identity);
         RangedAttack();
 
     }

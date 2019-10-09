@@ -12,12 +12,22 @@ public class UIManager : MonoBehaviour
     public Button itemButton;
 
     public GameObject magicList;
+    public List<Button> magicButtonList;
 
     private void Start() 
     {
         attackButton.onClick.AddListener(player.Attack);
         magicButton.onClick.AddListener(ShowMagicList);
         itemButton.onClick.AddListener(player.UseItem);
+
+        magicButtonList[0].onClick.AddListener(delegate{player.MagicPressed(player.spellList[0]);});
+        magicButtonList[1].onClick.AddListener(delegate{player.MagicPressed(player.spellList[1]);});
+        magicButtonList[2].onClick.AddListener(delegate{player.MagicPressed(player.spellList[2]);});
+        magicButtonList[3].onClick.AddListener(delegate{player.MagicPressed(player.spellList[3]);});
+        magicButtonList[4].onClick.AddListener(delegate{player.MagicPressed(player.spellList[4]);});
+        magicButtonList[5].onClick.AddListener(delegate{player.MagicPressed(player.spellList[5]);});
+
+
         HideMagicList();
     }
 
