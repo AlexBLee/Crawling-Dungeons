@@ -14,4 +14,6 @@ public class Spell : ScriptableObject
 
 
 
+
+
 }
