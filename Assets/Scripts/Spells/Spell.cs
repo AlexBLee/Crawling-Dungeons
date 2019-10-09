@@ -9,6 +9,7 @@ public class Spell : ScriptableObject
     public int cost;
     public int additionalDamage;
     public GameObject effect;
+    public bool atPosition;
 
 
 

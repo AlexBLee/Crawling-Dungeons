@@ -13,6 +13,7 @@ public class Player : CharacterEntity
 
     public Vector3 pos;
     public Vector2 enemyPosition;
+    public Vector3 spellPosition;
 
     private bool buttonPressed;
     
@@ -83,14 +84,23 @@ public class Player : CharacterEntity
     public void MagicPressed(Spell spell)
     {
         uiManager.HideMagicList();
-        
+
         Debug.Log("Casted: " + spell.name);
         mp -= spell.cost;
         manaBar.SetHealth(mp, maxMP);
 
         attacking = true;
         RangedAttack();
-        Instantiate(spell.effect, target.transform.position, Quaternion.identity);
+
+        // Asks if the spell is supposed to be spawned firstly near the player or right on top of the enemy.
+        if(spell.atPosition)
+        {
+            Instantiate(spell.effect, spellPosition, Quaternion.identity);            
+        }
+        else
+        {
+            Instantiate(spell.effect, target.transform.position, Quaternion.identity);
+        }
 
     }
 
