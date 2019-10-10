@@ -15,4 +15,5 @@ MonoBehaviour:
   spellName: Magic Bolt
   cost: 30
   additionalDamage: 30
-  sprite: {fileID: 0}
+  effect: {fileID: 8229583972622305970, guid: d8b319e3f7bbe3d4495387b88878f159, type: 3}
+  atPosition: 1

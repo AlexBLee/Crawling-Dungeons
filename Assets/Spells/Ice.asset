@@ -15,4 +15,5 @@ MonoBehaviour:
   spellName: Ice
   cost: 5
   additionalDamage: 10
-  sprite: {fileID: 0}
+  effect: {fileID: 6935244160025113188, guid: 341fc47657861684a958e9e9e7ac317a, type: 3}
+  atPosition: 0

@@ -15,4 +15,5 @@ MonoBehaviour:
   spellName: GODS MIGHT
   cost: 100
   additionalDamage: 2147483647
-  sprite: {fileID: 0}
+  effect: {fileID: 3524098551615806769, guid: 2d630d26735b7cc49bd63f87466d8a7f, type: 3}
+  atPosition: 0

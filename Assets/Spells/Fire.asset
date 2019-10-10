@@ -15,4 +15,5 @@ MonoBehaviour:
   spellName: Fire
   cost: 10
   additionalDamage: 20
-  sprite: {fileID: 0}
+  effect: {fileID: 4521811901299092897, guid: 6c84a5e47ad93de40875728803779576, type: 3}
+  atPosition: 0

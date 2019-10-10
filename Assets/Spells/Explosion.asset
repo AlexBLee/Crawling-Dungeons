@@ -15,4 +15,5 @@ MonoBehaviour:
   spellName: Explosion
   cost: 45
   additionalDamage: 45
-  effect: {fileID: 3524098551615806769, guid: 2d630d26735b7cc49bd63f87466d8a7f, type: 3}
+  effect: {fileID: 7410637851479206119, guid: 1240072021a7d184ba4fa812183b9e7a, type: 3}
+  atPosition: 0
