@@ -26,6 +26,7 @@ public class CharacterEntity : MonoBehaviour
     public int dex;
     public int will;
 
+    public int additionalDamage;
     public float critChance;
 
     public float minDamage;
@@ -220,6 +221,7 @@ public class CharacterEntity : MonoBehaviour
         float x = Random.Range(magicMinDamage,magicMaxDamage);
         x *= (1.00f - ((float)target.def/100));
         int damage = Mathf.RoundToInt(x);
+        damage += additionalDamage;
 
         if(chance < critChance)
         {
@@ -245,7 +247,7 @@ public class CharacterEntity : MonoBehaviour
     }
 
  
-    // Next turn setting is done through animation
+    // Next turn setting + damage is done through animation
     protected void RangedAttack()
     {
         uiManager.DisableButtons();

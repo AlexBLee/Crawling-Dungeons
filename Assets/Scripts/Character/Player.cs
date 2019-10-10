@@ -86,6 +86,7 @@ public class Player : CharacterEntity
         uiManager.HideMagicList();
 
         Debug.Log("Casted: " + spell.name);
+        additionalDamage = spell.additionalDamage;
         mp -= spell.cost;
         manaBar.SetHealth(mp, maxMP);
 
