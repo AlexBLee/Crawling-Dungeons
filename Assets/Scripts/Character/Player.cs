@@ -8,8 +8,8 @@ using UnityEngine;
 
 public class Player : CharacterEntity
 {
-    public HealthBar healthBar;
-    public HealthBar manaBar;
+    public AmountBar healthBar;
+    public AmountBar manaBar;
 
     public Vector3 pos;
     public Vector2 enemyPosition;
@@ -88,7 +88,7 @@ public class Player : CharacterEntity
         Debug.Log("Casted: " + spell.name);
         additionalDamage = spell.additionalDamage;
         mp -= spell.cost;
-        manaBar.SetHealth(mp, maxMP);
+        manaBar.SetAmount(mp, maxMP);
 
         attacking = true;
         RangedAttack();
@@ -172,8 +172,8 @@ public class Player : CharacterEntity
             float extraXP = exp - expThreshold;
             LevelUp();
             yield return new WaitForSeconds(0.15f);
-            healthBar.SetHealth(hp,maxHP);
-            manaBar.SetHealth(mp,maxMP);
+            healthBar.SetAmount(hp,maxHP);
+            manaBar.SetAmount(mp,maxMP);
             infoText.text = "Level up!";
             Instantiate(infoText, transform.position, Quaternion.identity);
 
@@ -184,7 +184,7 @@ public class Player : CharacterEntity
 
     public void UpdateUIHealth()
     {
-        healthBar.SetHealth(hp, maxHP);
+        healthBar.SetAmount(hp, maxHP);
     }
 
     public IEnumerator NextBattle()

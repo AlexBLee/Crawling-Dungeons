@@ -4,19 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-// Also mana bar, but the current implementation is basically identical so shouldn't be a need to make another class..
-public class HealthBar : MonoBehaviour
+public class AmountBar : MonoBehaviour
 {
-    public Image imgHealthBar;
-    public TextMeshProUGUI txtHealth;
+    public Image bar;
+    public TextMeshProUGUI txtAmount;
     public int min;
     public int max;
     public int mCurrentValue;
     public float mPercentage;
 
-    public void SetHealth(int health, int maxHealth)
+    public void SetAmount(int minAmount, int maxAmount)
     {
-        if (health != mCurrentValue)
+        if (minAmount != mCurrentValue)
         {
             if (max - min == 0)
             {
@@ -25,16 +24,16 @@ public class HealthBar : MonoBehaviour
             }
             else
             {
-                if(max != maxHealth)
+                if(max != maxAmount)
                 {
-                    max = maxHealth;
+                    max = maxAmount;
                 }
-                mCurrentValue = health;
+                mCurrentValue = minAmount;
                 mPercentage = (float)mCurrentValue / (float)(max - min);
             }
 
-            imgHealthBar.fillAmount = mPercentage;
-            txtHealth.text = "HP: " + health + "/" + maxHealth;
+            bar.fillAmount = mPercentage;
+            txtAmount.text = minAmount + "/" + maxAmount;
         }
     }
 
