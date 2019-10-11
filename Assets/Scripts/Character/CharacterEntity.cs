@@ -258,12 +258,12 @@ public class CharacterEntity : MonoBehaviour
     public void UseItem()
     {
         uiManager.DisableButtons();
-        hp += 20;
+        hp += Mathf.RoundToInt(maxHP * 0.20f);
         if(hp >= maxHP)
         {
             hp = maxHP;
         }
-        infoText.text = "+20";
+        infoText.text = Mathf.RoundToInt(maxHP * 0.20f).ToString();
         Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
         anim.SetTrigger("UseItem");
 
