@@ -83,25 +83,37 @@ public class Player : CharacterEntity
 
     public void MagicPressed(Spell spell)
     {
-        uiManager.HideMagicList();
-
-        Debug.Log("Casted: " + spell.name);
-        additionalDamage = spell.additionalDamage;
-        mp -= spell.cost;
-        manaBar.SetAmount(mp, maxMP);
-
-        attacking = true;
-        RangedAttack();
-
-        // Asks if the spell is supposed to be spawned firstly near the player or right on top of the enemy.
-        if(spell.atPosition)
+        if((mp -= spell.cost) < 0)
         {
-            Instantiate(spell.effect, spellPosition, Quaternion.identity);            
+            Debug.Log("not enough mana!");
+            infoText.text = "Not enough mana!";
+            Instantiate(infoText, transform.position, Quaternion.identity);
         }
         else
         {
-            Instantiate(spell.effect, target.transform.position, Quaternion.identity);
+            uiManager.HideMagicList();
+
+            Debug.Log("Casted: " + spell.name);
+            additionalDamage = spell.additionalDamage;
+            mp -= spell.cost;
+            manaBar.SetAmount(mp, maxMP);
+
+            attacking = true;
+            RangedAttack();
+
+            // Asks if the spell is supposed to be spawned firstly near the player or right on top of the enemy.
+            if(spell.atPosition)
+            {
+                Instantiate(spell.effect, spellPosition, Quaternion.identity);            
+            }
+            else
+            {
+                Instantiate(spell.effect, target.transform.position, Quaternion.identity);
+            }
         }
+
+
+        
 
     }
 
