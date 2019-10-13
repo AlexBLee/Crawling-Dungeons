@@ -20,7 +20,8 @@ public class Player : CharacterEntity
     private StatDisplayer statDisplayer;    
 
     // Equipped Items
-    public List<Spell> spellList;
+    public List<Spell> spells;
+    public Dictionary<Spell, bool> spellList;
     public List<Item> itemList;
     public EquippableItem tempItem;
 
@@ -34,12 +35,23 @@ public class Player : CharacterEntity
 
     public int gold;
 
+    private void Awake() {
+        spellList = new Dictionary<Spell, bool>();
+        foreach(Spell spell in spells)
+        {
+            spellList.Add(spell, false);
+        }
+    }
+
 
     private void Start()
     {
+
         ApplyStatsFrom(GameManager.instance.playerStats);
         pos = transform.position;
         
+
+        UnlockSpells();
         UpdateDamageStats();
 
     }
@@ -83,7 +95,7 @@ public class Player : CharacterEntity
 
     public void MagicPressed(Spell spell)
     {
-        if((mp -= spell.cost) < 0)
+        if((mp - spell.cost) < 0)
         {
             Debug.Log("not enough mana!");
             infoText.text = "Not enough mana!";
@@ -183,6 +195,7 @@ public class Player : CharacterEntity
         {
             float extraXP = exp - expThreshold;
             LevelUp();
+            UnlockSpells();
             yield return new WaitForSeconds(0.15f);
             healthBar.SetAmount(hp,maxHP);
             manaBar.SetAmount(mp,maxMP);
@@ -192,6 +205,34 @@ public class Player : CharacterEntity
             exp += extraXP;
         }
 
+    }
+
+    public void UnlockSpells()
+    {
+        switch(level)
+        {
+            case 1:
+                spellList[spells[0]] = true;
+                break;
+            case 5:
+                spellList[spells[1]] = true;
+                break;
+            case 7:
+                spellList[spells[2]] = true;
+                break;
+            case 12:
+                spellList[spells[3]] = true;
+                break;
+            case 20:
+                spellList[spells[4]] = true;
+                break;
+            case 25:
+                spellList[spells[5]] = true;
+                break;
+
+            default:
+                break;
+        }
     }
 
     public void UpdateUIHealth()

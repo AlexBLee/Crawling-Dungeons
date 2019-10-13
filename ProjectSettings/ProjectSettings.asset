@@ -596,7 +596,8 @@ PlayerSettings:
   webGLCompressionFormat: 1
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    7: RHSD
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}

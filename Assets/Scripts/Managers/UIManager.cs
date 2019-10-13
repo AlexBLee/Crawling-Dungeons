@@ -20,13 +20,12 @@ public class UIManager : MonoBehaviour
         magicButton.onClick.AddListener(ShowMagicList);
         itemButton.onClick.AddListener(player.UseItem);
 
-        magicButtonList[0].onClick.AddListener(delegate{player.MagicPressed(player.spellList[0]);});
-        magicButtonList[1].onClick.AddListener(delegate{player.MagicPressed(player.spellList[1]);});
-        magicButtonList[2].onClick.AddListener(delegate{player.MagicPressed(player.spellList[2]);});
-        magicButtonList[3].onClick.AddListener(delegate{player.MagicPressed(player.spellList[3]);});
-        magicButtonList[4].onClick.AddListener(delegate{player.MagicPressed(player.spellList[4]);});
-        magicButtonList[5].onClick.AddListener(delegate{player.MagicPressed(player.spellList[5]);});
-
+        int count = 0;
+        foreach(KeyValuePair<Spell, bool> spell in player.spellList)
+        {
+            magicButtonList[count].onClick.AddListener(delegate{player.MagicPressed(spell.Key);});
+            count++;
+        }
 
         HideMagicList();
     }
@@ -49,6 +48,21 @@ public class UIManager : MonoBehaviour
     {
         DisableButtons();
         magicList.SetActive(true);
+        int counter = 0;
+
+        foreach(KeyValuePair<Spell,bool> spells in player.spellList)
+        {
+            if(!spells.Value)
+            {
+                magicButtonList[counter].gameObject.SetActive(false);
+            }
+            else
+            {
+                magicButtonList[counter].gameObject.SetActive(true);                
+            }
+            counter++;
+        }
+
     }
 
     public void HideMagicList()

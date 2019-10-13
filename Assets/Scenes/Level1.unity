@@ -7476,6 +7476,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
+      propertyPath: spells.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
       propertyPath: battleManager
       value: 
       objectReference: {fileID: 611337056}
@@ -7673,6 +7678,42 @@ PrefabInstance:
     - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
       propertyPath: spellList.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 41aef99e45692d4488a3fc8bdf6a0f43,
+        type: 2}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: spells.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6286b042dc9e4df4c9651ed76fabebfd,
+        type: 2}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: spells.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2e54bacf9d1b5a34f97cc26db19843e1,
+        type: 2}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: spells.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: f31f65fde98d13742be1d3cf249f819a,
+        type: 2}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: spells.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: ab96531fcd755fa489e49ad9530a24c7,
+        type: 2}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: spells.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: b893d635ba3a4e64e8fc3c6e1e94d6fc,
+        type: 2}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: spells.Array.data[5]
       value: 
       objectReference: {fileID: 11400000, guid: 41aef99e45692d4488a3fc8bdf6a0f43,
         type: 2}

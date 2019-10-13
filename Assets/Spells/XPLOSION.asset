@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: XPLOSION
   m_EditorClassIdentifier: 
   spellName: XPLOSION
-  cost: 80
+  cost: 110
   additionalDamage: 90
   effect: {fileID: 74047802097223413, guid: 278a1ba0fba190b4e8d60632a11d3592, type: 3}
   atPosition: 0
