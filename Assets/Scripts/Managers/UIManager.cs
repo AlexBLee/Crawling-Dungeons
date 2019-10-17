@@ -14,6 +14,12 @@ public class UIManager : MonoBehaviour
     public GameObject magicList;
     public List<Button> magicButtonList;
 
+    public List<AddRemoveStat> addRemoves;
+
+    public AmountBar healthBar;
+    public AmountBar manaBar;
+
+
     private void Start() 
     {
         attackButton.onClick.AddListener(player.Attack);
@@ -69,5 +75,31 @@ public class UIManager : MonoBehaviour
     {
         EnableButtons();
         magicList.SetActive(false);
+    }
+
+    public void DeactivateAdders()
+    {
+        for(int i = 0; i < addRemoves.Count; i++)
+        {
+            addRemoves[i].gameObject.SetActive(false);
+        }
+    }
+
+    public void ActivateAdders()
+    {
+        for(int i = 0; i < addRemoves.Count; i++)
+        {
+            addRemoves[i].gameObject.SetActive(true);
+        }
+    }
+
+    public void UpdateUIHealth()
+    {
+        healthBar.SetAmount(player.hp, player.maxHP);
+    }
+
+    public void UpdateUIMana()
+    {
+        manaBar.SetAmount(player.mp, player.maxMP);
     }
 }

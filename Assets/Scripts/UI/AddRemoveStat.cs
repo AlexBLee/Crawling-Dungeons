@@ -12,6 +12,7 @@ public class AddRemoveStat : MonoBehaviour, IPointerClickHandler
     public Player player;
     public int number;
     public StatDisplayer statDisplay;
+    public UIManager uiManager;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -29,7 +30,7 @@ public class AddRemoveStat : MonoBehaviour, IPointerClickHandler
         
         if(player.statPoints == 0)
         {
-            player.DeactivateAdders();
+            uiManager.DeactivateAdders();
         }
     }
 }

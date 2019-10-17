@@ -31,7 +31,6 @@ public class Player : CharacterEntity
     public RightHand rightHand;
     public LeftHand leftHand;
 
-    public List<AddRemoveStat> addRemoves;
 
     public int gold;
 
@@ -46,14 +45,12 @@ public class Player : CharacterEntity
 
     private void Start()
     {
-
         ApplyStatsFrom(GameManager.instance.playerStats);
         pos = transform.position;
         
 
         UnlockSpells();
         UpdateDamageStats();
-
     }
 
     private void Update()
@@ -108,7 +105,7 @@ public class Player : CharacterEntity
             Debug.Log("Casted: " + spell.name);
             additionalDamage = spell.additionalDamage;
             mp -= spell.cost;
-            manaBar.SetAmount(mp, maxMP);
+            uiManager.UpdateUIMana();
 
             attacking = true;
             RangedAttack();
@@ -235,11 +232,6 @@ public class Player : CharacterEntity
         }
     }
 
-    public void UpdateUIHealth()
-    {
-        healthBar.SetAmount(hp, maxHP);
-    }
-
     public IEnumerator NextBattle()
     {
         yield return new WaitForSeconds(3);
@@ -248,21 +240,6 @@ public class Player : CharacterEntity
         battleManager.ToggleNextBattle();
     }
 
-    public void DeactivateAdders()
-    {
-        for(int i = 0; i < addRemoves.Count; i++)
-        {
-            addRemoves[i].gameObject.SetActive(false);
-        }
-    }
-
-    public void ActivateAdders()
-    {
-        for(int i = 0; i < addRemoves.Count; i++)
-        {
-            addRemoves[i].gameObject.SetActive(true);
-        }
-    }
 
     #endregion
 

@@ -60,6 +60,7 @@ public class CharacterEntity : MonoBehaviour
     public CharacterEntity target;
     public TextMeshPro infoText;
     public int objectID;
+    public UIManager uIManager;
 
 
     // ------------------------------------
@@ -205,7 +206,7 @@ public class CharacterEntity : MonoBehaviour
         }
         else
         {
-            target.GetComponent<Player>().UpdateUIHealth();
+            uiManager.UpdateUIHealth();
         }
 
 
@@ -241,7 +242,7 @@ public class CharacterEntity : MonoBehaviour
         }
         else
         {
-            target.GetComponent<Player>().UpdateUIHealth();
+           uiManager.UpdateUIHealth();
         }
 
     }
@@ -269,7 +270,7 @@ public class CharacterEntity : MonoBehaviour
 
         if(this is Player)
         {
-            GetComponent<Player>().UpdateUIHealth();
+            uiManager.UpdateUIHealth();
         }
     }
 

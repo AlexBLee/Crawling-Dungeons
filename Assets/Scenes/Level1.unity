@@ -352,6 +352,15 @@ MonoBehaviour:
   - {fileID: 506456873}
   - {fileID: 210427985}
   - {fileID: 184801476}
+  addRemoves:
+  - {fileID: 1266429448}
+  - {fileID: 435997619}
+  - {fileID: 1584427757}
+  - {fileID: 2051620472}
+  - {fileID: 1537546145}
+  - {fileID: 1079737161}
+  - {fileID: 1079312284}
+  - {fileID: 2105414286}
 --- !u!4 &68796134
 Transform:
   m_ObjectHideFlags: 0
@@ -1496,6 +1505,7 @@ MonoBehaviour:
   player: {fileID: 1075298623}
   number: 1
   statDisplay: {fileID: 1870896508}
+  uiManager: {fileID: 68796133}
 --- !u!1 &506456871
 GameObject:
   m_ObjectHideFlags: 0
@@ -3418,6 +3428,7 @@ MonoBehaviour:
   player: {fileID: 1075298623}
   number: 4
   statDisplay: {fileID: 1870896508}
+  uiManager: {fileID: 68796133}
 --- !u!1 &1079737157
 GameObject:
   m_ObjectHideFlags: 0
@@ -3509,6 +3520,7 @@ MonoBehaviour:
   player: {fileID: 1075298623}
   number: 2
   statDisplay: {fileID: 1870896508}
+  uiManager: {fileID: 68796133}
 --- !u!1 &1117705921
 GameObject:
   m_ObjectHideFlags: 0
@@ -3965,6 +3977,7 @@ MonoBehaviour:
   player: {fileID: 1075298623}
   number: 1
   statDisplay: {fileID: 1870896508}
+  uiManager: {fileID: 68796133}
 --- !u!1 &1281094958
 GameObject:
   m_ObjectHideFlags: 0
@@ -5185,6 +5198,7 @@ MonoBehaviour:
   player: {fileID: 1075298623}
   number: 2
   statDisplay: {fileID: 1870896508}
+  uiManager: {fileID: 68796133}
 --- !u!1 &1539096303
 GameObject:
   m_ObjectHideFlags: 0
@@ -5654,6 +5668,7 @@ MonoBehaviour:
   player: {fileID: 1075298623}
   number: 3
   statDisplay: {fileID: 1870896508}
+  uiManager: {fileID: 68796133}
 --- !u!1 &1673642253
 GameObject:
   m_ObjectHideFlags: 0
@@ -7041,6 +7056,7 @@ MonoBehaviour:
   player: {fileID: 1075298623}
   number: 3
   statDisplay: {fileID: 1870896508}
+  uiManager: {fileID: 68796133}
 --- !u!1 &2067977537
 GameObject:
   m_ObjectHideFlags: 0
@@ -7292,6 +7308,7 @@ MonoBehaviour:
   player: {fileID: 1075298623}
   number: 4
   statDisplay: {fileID: 1870896508}
+  uiManager: {fileID: 68796133}
 --- !u!1 &2117425741
 GameObject:
   m_ObjectHideFlags: 0
