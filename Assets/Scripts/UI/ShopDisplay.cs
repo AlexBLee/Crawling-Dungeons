@@ -21,8 +21,8 @@ public class ShopDisplay : MonoBehaviour
         for(int i = 0; i < itemList.Count; i++)
         {
             itemDisplays[i].nameOfItem.text = itemList[i].itemName;
-            itemDisplays[i].cost.text = itemList[i].itemName;
-            itemDisplays[i].image = itemList[i].image;
+            itemDisplays[i].cost.text = itemList[i].cost.ToString();
+            itemDisplays[i].image.sprite = itemList[i].image;
 
         }
 

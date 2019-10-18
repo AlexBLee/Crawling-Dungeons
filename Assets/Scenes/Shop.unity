@@ -955,15 +955,15 @@ MonoBehaviour:
   moneyText: {fileID: 1066920173}
   player: {fileID: 1075298623}
   itemList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: aa1d49409939053428f35e014638c22f, type: 2}
+  - {fileID: 11400000, guid: aa1d49409939053428f35e014638c22f, type: 2}
+  - {fileID: 11400000, guid: aa1d49409939053428f35e014638c22f, type: 2}
+  - {fileID: 11400000, guid: aa1d49409939053428f35e014638c22f, type: 2}
+  - {fileID: 11400000, guid: aa1d49409939053428f35e014638c22f, type: 2}
+  - {fileID: 11400000, guid: aa1d49409939053428f35e014638c22f, type: 2}
+  - {fileID: 11400000, guid: aa1d49409939053428f35e014638c22f, type: 2}
+  - {fileID: 11400000, guid: aa1d49409939053428f35e014638c22f, type: 2}
+  - {fileID: 11400000, guid: aa1d49409939053428f35e014638c22f, type: 2}
   itemDisplays:
   - {fileID: 2023180604}
   - {fileID: 750520769}
