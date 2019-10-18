@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 813e3c92697d84b4494451f415bd774b, type: 3}
-  m_Name: Loower
+  m_Script: {fileID: 11500000, guid: 467d6bd2ae46afa41aa6d18ffdddc0e5, type: 3}
+  m_Name: Weapon-Excalibur
   m_EditorClassIdentifier: 
-  itemName: loower
-  description: ff
-  image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  durability: 22
-  defense: 222
+  itemName: Excalibur
+  description: boom!
+  image: {fileID: 21300098, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
+  cost: 120
+  durability: 69
+  minDamage: 2265
+  maxDamage: 11000

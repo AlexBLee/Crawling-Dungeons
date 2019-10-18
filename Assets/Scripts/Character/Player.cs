@@ -30,6 +30,7 @@ public class Player : CharacterEntity
     public Lower lower;
     public RightHand rightHand;
     public LeftHand leftHand;
+    public Boots boots;
 
 
     public int gold;

@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87f14847be58d254c9388062885e5cf7, type: 3}
-  m_Name: TestItem
+  m_Name: ManaPot
   m_EditorClassIdentifier: 
-  itemName: testItem
+  itemName: Health Pot
   description: n
-  image: {fileID: 21300000, guid: f8fceb41b68ef0a4ea35add24f4635e0, type: 3}
+  image: {fileID: 21300206, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
+  cost: 20
