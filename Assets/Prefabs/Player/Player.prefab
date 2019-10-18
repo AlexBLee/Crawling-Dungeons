@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 0}
+  uiManager: {fileID: 0}
   level: 1
   exp: 0
   expThreshold: 50
@@ -129,12 +130,16 @@ MonoBehaviour:
   mp: 100
   maxHP: 100
   maxMP: 100
-  str: 20
+  str: 99
   intl: 20
   dex: 20
   will: 20
+  additionalDamage: 0
+  critChance: 20
   minDamage: 5
-  maxDamage: 10
+  maxDamage: 8
+  magicMinDamage: 0
+  magicMaxDamage: 0
   def: 5
   moveSpeed: 5
   maxSpeed: 10
@@ -146,11 +151,22 @@ MonoBehaviour:
   animationDone: 0
   anim: {fileID: 70495698347628144}
   target: {fileID: 0}
-  infoText: {fileID: 0}
+  infoText: {fileID: 5973154270874184695, guid: dc9f3253454acfa4a8730ae96c228bf3,
+    type: 3}
   objectID: 0
-  pos: {x: 0, y: 0, z: 0}
+  uIManager: {fileID: 0}
+  healthBar: {fileID: 0}
+  manaBar: {fileID: 0}
+  pos: {x: 1.31, y: 2.68, z: 0}
   enemyPosition: {x: 0, y: 0}
-  btn: {fileID: 0}
+  spellPosition: {x: 0, y: 0, z: 0}
+  spells:
+  - {fileID: 11400000, guid: 6286b042dc9e4df4c9651ed76fabebfd, type: 2}
+  - {fileID: 11400000, guid: 2e54bacf9d1b5a34f97cc26db19843e1, type: 2}
+  - {fileID: 11400000, guid: f31f65fde98d13742be1d3cf249f819a, type: 2}
+  - {fileID: 11400000, guid: ab96531fcd755fa489e49ad9530a24c7, type: 2}
+  - {fileID: 11400000, guid: b893d635ba3a4e64e8fc3c6e1e94d6fc, type: 2}
+  - {fileID: 11400000, guid: 41aef99e45692d4488a3fc8bdf6a0f43, type: 2}
   itemList: []
   tempItem: {fileID: 0}
   helmet: {fileID: 0}

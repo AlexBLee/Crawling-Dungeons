@@ -111,8 +111,8 @@ public class CharacterEntity : MonoBehaviour
 
     public void UpdateDamageStats()
     {
-        maxDamage = str / 2.5f;
         minDamage = str / 3;
+        maxDamage = str / 2.5f;
 
         minDamage += dex / 3.5f;
         maxDamage += dex / 4.5f;

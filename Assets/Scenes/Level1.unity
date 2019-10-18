@@ -361,6 +361,8 @@ MonoBehaviour:
   - {fileID: 1079737161}
   - {fileID: 1079312284}
   - {fileID: 2105414286}
+  healthBar: {fileID: 986476002}
+  manaBar: {fileID: 1232276769}
 --- !u!4 &68796134
 Transform:
   m_ObjectHideFlags: 0
@@ -7493,11 +7495,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
-      propertyPath: spells.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
       propertyPath: battleManager
       value: 
       objectReference: {fileID: 611337056}
@@ -7506,17 +7503,6 @@ PrefabInstance:
       propertyPath: btn
       value: 
       objectReference: {fileID: 1299836355}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: infoText
-      value: 
-      objectReference: {fileID: 5973154270874184695, guid: dc9f3253454acfa4a8730ae96c228bf3,
-        type: 3}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: maxDamage
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
       propertyPath: meleeAttackButton
@@ -7542,11 +7528,6 @@ PrefabInstance:
       propertyPath: manaBar
       value: 
       objectReference: {fileID: 1232276769}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: str
-      value: 99
-      objectReference: {fileID: 0}
     - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
       propertyPath: addRemoves.Array.data[0]
@@ -7587,76 +7568,6 @@ PrefabInstance:
       propertyPath: addRemoves.Array.data[7]
       value: 
       objectReference: {fileID: 2105414286}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: level
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: exp
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: expThreshold
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: statPoints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: hp
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: mp
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: maxHP
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: maxMP
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: intl
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: dex
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: will
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: pos.x
-      value: 1.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: pos.y
-      value: 2.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: critChance
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
       propertyPath: uiManager
@@ -7700,40 +7611,9 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
-      propertyPath: spells.Array.data[0]
+      propertyPath: uIManager
       value: 
-      objectReference: {fileID: 11400000, guid: 6286b042dc9e4df4c9651ed76fabebfd,
-        type: 2}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: spells.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 2e54bacf9d1b5a34f97cc26db19843e1,
-        type: 2}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: spells.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: f31f65fde98d13742be1d3cf249f819a,
-        type: 2}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: spells.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: ab96531fcd755fa489e49ad9530a24c7,
-        type: 2}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: spells.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: b893d635ba3a4e64e8fc3c6e1e94d6fc,
-        type: 2}
-    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
-        type: 3}
-      propertyPath: spells.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 41aef99e45692d4488a3fc8bdf6a0f43,
-        type: 2}
+      objectReference: {fileID: 68796133}
     - target: {fileID: 70495698347628145, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
       propertyPath: m_LocalPosition.x
