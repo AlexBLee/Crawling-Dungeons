@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -20,8 +19,6 @@ public class UIManager : MonoBehaviour
     public AmountBar healthBar;
     public AmountBar manaBar;
 
-    public TextMeshProUGUI moneyText;
-
 
     private void Start() 
     {
@@ -36,10 +33,6 @@ public class UIManager : MonoBehaviour
             count++;
         }
 
-        if(moneyText != null)
-        {
-            UpdateGold();
-        }
 
         HideMagicList();
     }
@@ -111,8 +104,4 @@ public class UIManager : MonoBehaviour
         manaBar.SetAmount(player.mp, player.maxMP);
     }
 
-    public void UpdateGold()
-    {
-        moneyText.text = player.gold.ToString();
-    }
 }
