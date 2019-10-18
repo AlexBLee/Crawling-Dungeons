@@ -60,7 +60,6 @@ public class CharacterEntity : MonoBehaviour
     public CharacterEntity target;
     public TextMeshPro infoText;
     public int objectID;
-    public UIManager uIManager;
 
 
     // ------------------------------------

@@ -9,5 +9,6 @@ public class ItemDisplay : MonoBehaviour
     public TextMeshProUGUI nameOfItem;
     public TextMeshProUGUI cost;
     public Image image;
+    public Button button;
 
 }

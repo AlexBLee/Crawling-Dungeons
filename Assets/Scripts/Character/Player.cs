@@ -17,13 +17,15 @@ public class Player : CharacterEntity
 
     private bool buttonPressed;
     
-    private StatDisplayer statDisplayer;    
+    private StatDisplayer statDisplayer;   
 
     // Equipped Items
     public List<Spell> spells;
     public Dictionary<Spell, bool> spellList;
     public List<Item> itemList;
     public EquippableItem tempItem;
+
+    public InventoryDisplay inventoryDisplay;
 
     public Helmet helmet;
     public Upper upper;
@@ -41,6 +43,7 @@ public class Player : CharacterEntity
         {
             spellList.Add(spell, false);
         }
+
     }
 
 
@@ -48,7 +51,6 @@ public class Player : CharacterEntity
     {
         ApplyStatsFrom(GameManager.instance.playerStats);
         pos = transform.position;
-        
 
         UnlockSpells();
         UpdateDamageStats();
@@ -248,26 +250,24 @@ public class Player : CharacterEntity
 
     #region Inventory
 
-    // public void InitializeInventory()
-    // {
-    //     itemList.Clear();
-    // }
 
-    // public void AddItem(Item item)
-    // {
-    //     // For item getting added from some source
-    //     int index = LookForFreeInventorySpace();
 
-    //     itemList[index] = item;
-    //     invDisplay.AddItemImage(item,index);
-    // }
+    public void AddItem(Item item)
+    {
+        Debug.Log("Bought " + item.itemName);
+        // For item getting added from some source
+        int index = LookForFreeInventorySpace();
 
-    // public void AddItem(Item item, int index)
-    // {
-    //     // For item slot switching
-    //     itemList[index] = item;
-    //     invDisplay.AddItemImage(item,index);
-    // }
+        itemList[index] = item;
+        inventoryDisplay.AddItemImage(item,index);
+    }
+
+    public void AddItem(Item item, int index)
+    {
+        // For item slot switching
+        itemList[index] = item;
+        inventoryDisplay.AddItemImage(item,index);
+    }
 
     // public void RemoveItem(int index)
     // {
@@ -433,20 +433,20 @@ public class Player : CharacterEntity
     //     invDisplay.goldText.text = gold.ToString();
     // }
 
-    // public int LookForFreeInventorySpace()
-    // {
-    //     int spot = 0;
+    public int LookForFreeInventorySpace()
+    {
+        int spot = 0;
 
-    //     for(int i = 0; i <= itemList.Count; i++)
-    //     {
-    //         if(itemList[i] == null)
-    //         {
-    //             spot = i;
-    //             break;
-    //         }
-    //     }
-    //     return spot;
-    // }
+        for(int i = 0; i <= itemList.Count; i++)
+        {
+            if(itemList[i] == null)
+            {
+                spot = i;
+                break;
+            }
+        }
+        return spot;
+    }
 
     #endregion
     

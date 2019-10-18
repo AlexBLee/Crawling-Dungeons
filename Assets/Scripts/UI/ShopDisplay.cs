@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 
@@ -25,6 +26,13 @@ public class ShopDisplay : MonoBehaviour
             itemDisplays[i].image.sprite = itemList[i].image;
 
         }
+
+        itemDisplays[0].button.onClick.AddListener(delegate {player.AddItem(itemList[0]);});
+        itemDisplays[1].button.onClick.AddListener(delegate {player.AddItem(itemList[1]);});
+        itemDisplays[2].button.onClick.AddListener(delegate {player.AddItem(itemList[2]);});
+
+
+
 
         
     }
