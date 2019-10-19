@@ -254,19 +254,21 @@ public class Player : CharacterEntity
 
     public void AddItem(Item item)
     {
-        Debug.Log("Bought " + item.itemName);
-        // For item getting added from some source
-        int index = LookForFreeInventorySpace();
+        if(gold >= item.cost)
+        {
+            Debug.Log("Bought " + item.itemName);
 
-        itemList[index] = item;
-        inventoryDisplay.AddItemImage(item,index);
-    }
+            // For item getting added from some source
+            int index = LookForFreeInventorySpace();
 
-    public void AddItem(Item item, int index)
-    {
-        // For item slot switching
-        itemList[index] = item;
-        inventoryDisplay.AddItemImage(item,index);
+            itemList[index] = item;
+            inventoryDisplay.AddItemImage(item,index);
+        }
+        else
+        {
+            Debug.Log("Not enough money!");
+        }
+            
     }
 
     // public void RemoveItem(int index)

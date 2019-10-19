@@ -35,10 +35,6 @@ public class ShopDisplay : MonoBehaviour
         itemDisplays[0].button.onClick.AddListener(delegate {player.AddItem(itemList[0]);});
         itemDisplays[1].button.onClick.AddListener(delegate {player.AddItem(itemList[1]);});
         itemDisplays[2].button.onClick.AddListener(delegate {player.AddItem(itemList[2]);});
-
-
-
-
         
     }
 
