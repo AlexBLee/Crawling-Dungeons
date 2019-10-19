@@ -15,11 +15,21 @@ public class InventoryDisplay : MonoBehaviour
     private bool notFront;
     public ItemDisplay itemDisplay;
     public TextMeshProUGUI goldText;
+    public Button inventoryButton;
+    public GameObject inventory;
+    public GameObject shop;
 
 
     private void Start() 
     {
         items = player.itemList;
+        inventoryButton.onClick.AddListener(ShowInventory);
+    }
+
+    public void ShowInventory()
+    {
+        shop.SetActive(false);
+        inventory.SetActive(true);
     }
 
     public void AddItemImage(Item item, int index)

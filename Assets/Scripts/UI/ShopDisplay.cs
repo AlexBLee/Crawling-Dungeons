@@ -11,20 +11,25 @@ public class ShopDisplay : MonoBehaviour
     public Player player;
     public List<Item> itemList;
     public List<ItemDisplay> itemDisplays;
+    public Button shopButton;
+    public GameObject shop;
+    public GameObject inventory;
 
     void Start()
     {
+        shopButton.onClick.AddListener(ShowShop);
+
         if(moneyText != null)
         {
             UpdateGold();
         }
+
 
         for(int i = 0; i < itemList.Count; i++)
         {
             itemDisplays[i].nameOfItem.text = itemList[i].itemName;
             itemDisplays[i].cost.text = itemList[i].cost.ToString();
             itemDisplays[i].image.sprite = itemList[i].image;
-
         }
 
         itemDisplays[0].button.onClick.AddListener(delegate {player.AddItem(itemList[0]);});
@@ -37,10 +42,10 @@ public class ShopDisplay : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ShowShop()
     {
-        
+        inventory.SetActive(false);
+        shop.SetActive(true);
     }
 
     public void UpdateGold()
