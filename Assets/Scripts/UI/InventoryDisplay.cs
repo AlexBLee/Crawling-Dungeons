@@ -8,12 +8,13 @@ public class InventoryDisplay : MonoBehaviour
 {
     public List<Item> items;
     public List<Image> images;
+    public List<Button> buttons;
     public Sprite blankImage;
     public Player player;
     public int count = 0;
     private int tempIndex;
     private bool notFront;
-    public ItemDisplay itemDisplay;
+    public ItemPopup itemPopup;
     public TextMeshProUGUI goldText;
     public Button inventoryButton;
     public GameObject inventory;
@@ -24,6 +25,12 @@ public class InventoryDisplay : MonoBehaviour
     {
         items = player.itemList;
         inventoryButton.onClick.AddListener(ShowInventory);
+
+        buttons[0].onClick.AddListener(delegate {DisplayItemInfo(0,buttons[0].gameObject.transform.position);});
+        buttons[1].onClick.AddListener(delegate {DisplayItemInfo(1,buttons[1].gameObject.transform.position);});
+        buttons[2].onClick.AddListener(delegate {DisplayItemInfo(2,buttons[2].gameObject.transform.position);});
+
+
     }
 
     public void ShowInventory()
@@ -65,10 +72,10 @@ public class InventoryDisplay : MonoBehaviour
 
     public void DisplayItemInfo(int index, Vector3 position)
     {
-        // itemDisplay.gameObject.SetActive(true);
-        // itemDisplay.nameOfItem.text = items[index].itemName;
-        // itemDisplay.description.text = items[index].description;
-        // itemDisplay.gameObject.transform.parent.position = position;
+        itemPopup.gameObject.SetActive(true);
+        itemPopup.nameOfItem.text = items[index].itemName;
+        itemPopup.description.text = items[index].description;
+        itemPopup.transform.parent.position = position;
     }
     
 

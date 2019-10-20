@@ -271,75 +271,75 @@ public class Player : CharacterEntity
             
     }
 
-    // public void RemoveItem(int index)
-    // {
-    //     itemList[index] = null;
-    //     invDisplay.RemoveItemImage(index);
-    // }
+    public void RemoveItem(int index)
+    {
+        itemList[index] = null;
+        inventoryDisplay.RemoveItemImage(index);
+    }
 
-    // public void EquipItem(Item item, int index)
-    // {
-    //     // Equipping without anything equipped
-    //     if(item is ArmorItem)
-    //     {
-    //         EquipArmorItem((ArmorItem)item);
-    //     }
-    //     else if(item is WeaponItem)
-    //     {
-    //         EquipWeaponItem((WeaponItem)item);
-    //     }
-    //     UpdateDamageStats();
-    //     RemoveItem(index);
-    // }
+    public void EquipItem(Item item, int index)
+    {
+        // Equipping without anything equipped
+        if(item is ArmorItem)
+        {
+            EquipArmorItem((ArmorItem)item);
+        }
+        else if(item is WeaponItem)
+        {
+            EquipWeaponItem((WeaponItem)item);
+        }
+        UpdateDamageStats();
+        RemoveItem(index);
+    }
 
-    // public void EquipItem(Item item)
-    // {
-    //     // Swapping an equipped item
-    //     if(item is ArmorItem)
-    //     {
-    //         EquipArmorItem((ArmorItem)item);
-    //     }
-    //     else if(item is WeaponItem)
-    //     {
-    //         EquipWeaponItem((WeaponItem)item);
-    //     }
-    //     UpdateDamageStats();
+    public void EquipItem(Item item)
+    {
+        // Swapping an equipped item
+        if(item is ArmorItem)
+        {
+            EquipArmorItem((ArmorItem)item);
+        }
+        else if(item is WeaponItem)
+        {
+            EquipWeaponItem((WeaponItem)item);
+        }
+        UpdateDamageStats();
 
-    // }
+    }
 
-    // public void EquipArmorItem(ArmorItem item)
-    // {
-    //     if(item is Helmet)
-    //     {
-    //         helmet = (Helmet)item;
-    //         charPanel.AddItem(helmet, charPanel.helmetNumber);
-    //     }
-    //     else if(item is Upper)
-    //     {
-    //         upper = (Upper)item;
-    //         charPanel.AddItem(upper, charPanel.upperNumber);
-    //     }
-    //     else if(item is Lower)
-    //     {
-    //         lower = (Lower)item;
-    //         charPanel.AddItem(lower, charPanel.lowerNumber);
-    //     }
-    //     else if(item is LeftHand)
-    //     {
-    //         leftHand = (LeftHand)item;
-    //         charPanel.AddItem(leftHand, charPanel.leftNumber);
-    //     }
+    public void EquipArmorItem(ArmorItem item)
+    {
+        if(item is Helmet)
+        {
+            helmet = (Helmet)item;
+            // charPanel.AddItem(helmet, charPanel.helmetNumber);
+        }
+        else if(item is Upper)
+        {
+            upper = (Upper)item;
+            // charPanel.AddItem(upper, charPanel.upperNumber);
+        }
+        else if(item is Lower)
+        {
+            lower = (Lower)item;
+            // charPanel.AddItem(lower, charPanel.lowerNumber);
+        }
+        else if(item is LeftHand)
+        {
+            leftHand = (LeftHand)item;
+            // charPanel.AddItem(leftHand, charPanel.leftNumber);
+        }
 
-    //     def += item.defense;
-    // }
+        def += item.defense;
+    }
 
-    // public void EquipWeaponItem(WeaponItem item)
-    // {
-    //     rightHand = (RightHand)item;
-    //     charPanel.AddItem(rightHand, charPanel.rightNumber);
-    //     minDamage += item.minDamage;
-    //     maxDamage += item.maxDamage;
-    // }
+    public void EquipWeaponItem(WeaponItem item)
+    {
+        rightHand = (RightHand)item;
+        // charPanel.AddItem(rightHand, charPanel.rightNumber);
+        minDamage += item.minDamage;
+        maxDamage += item.maxDamage;
+    }
     
     // public void UnequipItem(EquippableItem item)
     // {
