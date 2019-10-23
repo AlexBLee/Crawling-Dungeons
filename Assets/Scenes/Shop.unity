@@ -1505,7 +1505,7 @@ MonoBehaviour:
   moneyText: {fileID: 1066920173}
   player: {fileID: 1075298623}
   itemList:
-  - {fileID: 11400000, guid: d505ee764e67bba4795f0d55c1adde94, type: 2}
+  - {fileID: 11400000, guid: 8756745642afb7a4fb4a7a7211e6cd10, type: 2}
   - {fileID: 11400000, guid: d0d3782fe7b537d4abcfa654db7c952b, type: 2}
   - {fileID: 11400000, guid: 6b13e92e7ace18d4996d9812809e2a50, type: 2}
   - {fileID: 11400000, guid: aa1d49409939053428f35e014638c22f, type: 2}
@@ -8691,9 +8691,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8771b5f056ad19b4883df54aa7b632e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1075298623}
+  item: {fileID: 0}
+  index: 0
   nameOfItem: {fileID: 1537580264}
   description: {fileID: 252479275}
-  position: {fileID: 0}
+  equipButton: {fileID: 1692175615}
+  trashButton: {fileID: 371786395}
 --- !u!1 &2079595784
 GameObject:
   m_ObjectHideFlags: 0

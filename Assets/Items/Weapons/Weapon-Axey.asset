@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 467d6bd2ae46afa41aa6d18ffdddc0e5, type: 3}
-  m_Name: Weapon-Axey
+  m_Script: {fileID: 11500000, guid: b24a031e6bb0c9040af02662617448d8, type: 3}
+  m_Name: New Right Hand
   m_EditorClassIdentifier: 
-  itemName: Axey
-  description: axx
-  image: {fileID: 21300238, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
-  cost: 145
-  durability: 69
-  minDamage: 100
-  maxDamage: 120
+  itemName: 
+  description: 
+  image: {fileID: 0}
+  cost: 0
+  durability: 0
+  minDamage: 0
+  maxDamage: 0

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 467d6bd2ae46afa41aa6d18ffdddc0e5, type: 3}
+  m_Script: {fileID: 11500000, guid: b24a031e6bb0c9040af02662617448d8, type: 3}
   m_Name: Weapon-Excalibur
   m_EditorClassIdentifier: 
   itemName: Excalibur

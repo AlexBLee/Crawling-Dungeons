@@ -288,7 +288,6 @@ public class Player : CharacterEntity
         {
             EquipWeaponItem((WeaponItem)item);
         }
-        UpdateDamageStats();
         RemoveItem(index);
     }
 
@@ -303,7 +302,6 @@ public class Player : CharacterEntity
         {
             EquipWeaponItem((WeaponItem)item);
         }
-        UpdateDamageStats();
 
     }
 

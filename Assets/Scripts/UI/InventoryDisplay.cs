@@ -76,6 +76,9 @@ public class InventoryDisplay : MonoBehaviour
         itemPopup.nameOfItem.text = items[index].itemName;
         itemPopup.description.text = items[index].description;
         itemPopup.transform.parent.position = position;
+
+        itemPopup.item = items[index];
+        itemPopup.index = index;
     }
     
 
