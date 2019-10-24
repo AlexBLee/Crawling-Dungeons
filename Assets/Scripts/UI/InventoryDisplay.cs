@@ -12,7 +12,7 @@ public class InventoryDisplay : MonoBehaviour
     public List<Button> buttons;
 
     // Equipped items display
-    public List<Item> equippedItems;
+    public List<EquippableItem> equippedItems;
     public List<Image> equippedImages;
     public List<Button> equippedButtons;
 
@@ -26,6 +26,8 @@ public class InventoryDisplay : MonoBehaviour
     bootNumber = 5;
 
     public Sprite blankImage;
+    public Sprite blankEquipImage;
+
     public Player player;
     public int count = 0;
     private int tempIndex;
@@ -52,6 +54,13 @@ public class InventoryDisplay : MonoBehaviour
         buttons[7].onClick.AddListener(delegate {DisplayItemInfo(7,buttons[7].gameObject.transform.position);});
         buttons[8].onClick.AddListener(delegate {DisplayItemInfo(8,buttons[8].gameObject.transform.position);});
 
+        equippedButtons[0].onClick.AddListener(delegate {DisplayEquippedItemInfo(0,equippedButtons[0].gameObject.transform.position);});
+        equippedButtons[1].onClick.AddListener(delegate {DisplayEquippedItemInfo(1,equippedButtons[1].gameObject.transform.position);});
+        equippedButtons[2].onClick.AddListener(delegate {DisplayEquippedItemInfo(2,equippedButtons[2].gameObject.transform.position);});
+        equippedButtons[3].onClick.AddListener(delegate {DisplayEquippedItemInfo(3,equippedButtons[3].gameObject.transform.position);});
+        equippedButtons[4].onClick.AddListener(delegate {DisplayEquippedItemInfo(4,equippedButtons[4].gameObject.transform.position);});
+        equippedButtons[5].onClick.AddListener(delegate {DisplayEquippedItemInfo(5,equippedButtons[5].gameObject.transform.position);});
+
 
     }
 
@@ -76,7 +85,7 @@ public class InventoryDisplay : MonoBehaviour
         notFront = false;
     }
 
-    public void AddEquippedItemImage(Item item, int index)
+    public void AddEquippedItemImage(EquippableItem item, int index)
     {
         equippedItems[index] = item;
         equippedImages[index].sprite = item.image;
@@ -85,6 +94,15 @@ public class InventoryDisplay : MonoBehaviour
     public void RemoveItemImage(int index)
     {
         images[index].sprite = blankImage;
+        tempIndex = count;
+        
+        count = index;
+        notFront = true;
+    }
+
+    public void RemoveEquippedItemImage(int index)
+    {
+        equippedImages[index].sprite = blankEquipImage;
         tempIndex = count;
         
         count = index;
@@ -100,13 +118,29 @@ public class InventoryDisplay : MonoBehaviour
 
     public void DisplayItemInfo(int index, Vector3 position)
     {
-        itemPopup.gameObject.SetActive(true);
-        itemPopup.nameOfItem.text = items[index].itemName;
-        itemPopup.description.text = items[index].description;
-        itemPopup.transform.parent.position = position;
+        if(items[index] != null)
+        {
+            itemPopup.gameObject.SetActive(true);
+            itemPopup.nameOfItem.text = items[index].itemName;
+            itemPopup.description.text = items[index].description;
+            itemPopup.transform.parent.position = position;
 
-        itemPopup.item = items[index];
-        itemPopup.index = index;
+            itemPopup.item = items[index];
+            itemPopup.index = index;
+        }
+    }
+
+    public void DisplayEquippedItemInfo(int index, Vector3 position)
+    {
+        if(equippedItems[index] != null)
+        {
+            itemPopup.gameObject.SetActive(true);
+            itemPopup.equipButton.onClick.AddListener(delegate{player.UnequipItem(equippedItems[index], index);});
+
+            itemPopup.nameOfItem.text = equippedItems[index].itemName;
+            itemPopup.description.text = equippedItems[index].description;
+            itemPopup.transform.parent.position = position;
+        }
     }
     
 

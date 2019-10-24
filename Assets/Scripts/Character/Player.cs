@@ -26,6 +26,7 @@ public class Player : CharacterEntity
     public EquippableItem tempItem;
 
     public InventoryDisplay inventoryDisplay;
+    public ItemPopup itemPopup;
 
     public Helmet helmet;
     public Upper upper;
@@ -273,12 +274,15 @@ public class Player : CharacterEntity
 
     public void RemoveItem(int index)
     {
+        itemPopup.gameObject.SetActive(false);
         itemList[index] = null;
         inventoryDisplay.RemoveItemImage(index);
     }
 
     public void EquipItem(Item item, int index)
     {
+        itemPopup.gameObject.SetActive(false);
+
         // Equipping without anything equipped
         if(item is ArmorItem)
         {
@@ -293,6 +297,8 @@ public class Player : CharacterEntity
 
     public void EquipItem(Item item)
     {
+        itemPopup.gameObject.SetActive(false);
+
         // Swapping an equipped item
         if(item is ArmorItem)
         {
@@ -344,99 +350,87 @@ public class Player : CharacterEntity
         maxDamage += item.maxDamage;
     }
     
-    // public void UnequipItem(EquippableItem item)
-    // {
-    //     // For unequipping only
-    //     if(item is ArmorItem)
-    //     {
-    //         UnequipArmorItem((ArmorItem)item);
-    //     }
-    //     else if(item is WeaponItem)
-    //     {
-    //         UnequipWeaponItem((WeaponItem)item);
-    //     }
-
-    //     int index = LookForFreeInventorySpace();
+    public void UnequipItem(EquippableItem item)
+    {
         
-    //     itemList[index] = item;
-    //     invDisplay.AddItemImage(item,index);
+        // For unequipping only
+        if(item is ArmorItem)
+        {
+            UnequipArmorItem((ArmorItem)item);
+        }
+        else if(item is WeaponItem)
+        {
+            UnequipWeaponItem((WeaponItem)item);
+        }
 
-    // }
+        int index = LookForFreeInventorySpace();
+        
+        itemList[index] = item;
+        inventoryDisplay.AddItemImage(item,index);
 
-    // public void UnequipItem(EquippableItem item, int index)
-    // {
-    //     // For swapping equips
-    //     if(item is ArmorItem)
-    //     {
-    //         UnequipArmorItem((ArmorItem)item);
-    //     }
-    //     else if(item is WeaponItem)
-    //     {
-    //         UnequipWeaponItem((WeaponItem)item);
-    //     }
+    }
 
-    //     itemList[index] = item;
-    //     invDisplay.AddItemImage(item,index);
-    // }
+    public void UnequipItem(EquippableItem item, int index)
+    {
+        inventoryDisplay.equippedItems[index] = null;
+        inventoryDisplay.RemoveEquippedItemImage(index);
+        // For swapping equips
+        if(item is ArmorItem)
+        {
+            UnequipArmorItem((ArmorItem)item);
+        }
+        else if(item is WeaponItem)
+        {
+            UnequipWeaponItem((WeaponItem)item);
+        }
 
-    // public void UnequipItemAndDrop(EquippableItem item)
-    // {
-    //     // Dropping the item out of the bounds of the UI
-    //     if(item is ArmorItem)
-    //     {
-    //         UnequipArmorItem((ArmorItem)item);
-    //     }
-    //     else if(item is WeaponItem)
-    //     {
-    //         UnequipWeaponItem((WeaponItem)item);
-    //     }
+        itemList[index] = item;
+        inventoryDisplay.AddItemImage(item,index);
+    }
 
-    //     item = null;
-    // }
+    public void UnequipArmorItem(ArmorItem item)
+    {
+        if(item is Helmet)
+        {
+            helmet = null;
+        }
+        else if(item is Upper)
+        {
+            upper = null;
+        }
+        else if(item is Lower)
+        {
+            lower = null;
+        }
+        else if(item is LeftHand)
+        {
+            leftHand = null;
+        }
+        def -= item.defense;
+    }
 
-    // public void UnequipArmorItem(ArmorItem item)
-    // {
-    //     if(item is Helmet)
-    //     {
-    //         helmet = null;
-    //     }
-    //     else if(item is Upper)
-    //     {
-    //         upper = null;
-    //     }
-    //     else if(item is Lower)
-    //     {
-    //         lower = null;
-    //     }
-    //     else if(item is LeftHand)
-    //     {
-    //         leftHand = null;
-    //     }
-    //     def -= item.defense;
-    // }
+    public void UnequipWeaponItem(WeaponItem item)
+    {
+        rightHand = null;
+        str -= item.minDamage;
+        str -= item.maxDamage;
+    }
 
-    // public void UnequipWeaponItem(WeaponItem item)
-    // {
-    //     rightHand = null;
-    //     str -= item.minDamage;
-    //     str -= item.maxDamage;
-    // }
+    // -----------------------------------------------------------------------------
 
-    // // -----------------------------------------------------------------------------
+    public void SwapItem(int indexA, int indexB)
+    {
+        Item temp = itemList[indexA];
+        itemList[indexA] = itemList[indexB];
+        itemList[indexB] = temp;
+        inventoryDisplay.SwapItem(indexA,indexB);
+    }
 
-    // public void SwapItem(int indexA, int indexB)
-    // {
-    //     Item temp = itemList[indexA];
-    //     itemList[indexA] = itemList[indexB];
-    //     itemList[indexB] = temp;
-    //     invDisplay.SwapItem(indexA,indexB);
-    // }
-
-    // public void GainMoney(int amount)
-    // {
-    //     gold += amount;
-    //     invDisplay.goldText.text = gold.ToString();
-    // }
+    public void GainMoney(int amount)
+    {
+        gold += amount;
+        inventoryDisplay.goldText.text = gold.ToString();
+    }
 
     public int LookForFreeInventorySpace()
     {
