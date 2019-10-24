@@ -310,22 +310,27 @@ public class Player : CharacterEntity
         if(item is Helmet)
         {
             helmet = (Helmet)item;
-            // charPanel.AddItem(helmet, charPanel.helmetNumber);
+            inventoryDisplay.AddEquippedItemImage(helmet, inventoryDisplay.helmetNumber);
         }
         else if(item is Upper)
         {
             upper = (Upper)item;
-            // charPanel.AddItem(upper, charPanel.upperNumber);
+            inventoryDisplay.AddEquippedItemImage(upper, inventoryDisplay.upperNumber);
         }
         else if(item is Lower)
         {
             lower = (Lower)item;
-            // charPanel.AddItem(lower, charPanel.lowerNumber);
+            inventoryDisplay.AddEquippedItemImage(lower, inventoryDisplay.lowerNumber);
         }
         else if(item is LeftHand)
         {
             leftHand = (LeftHand)item;
-            // charPanel.AddItem(leftHand, charPanel.leftNumber);
+            inventoryDisplay.AddEquippedItemImage(leftHand, inventoryDisplay.leftHandNumber);
+        }
+        else if(item is Boots)
+        {
+            boots = (Boots)item;
+            inventoryDisplay.AddEquippedItemImage(boots, inventoryDisplay.bootNumber);
         }
 
         def += item.defense;
@@ -334,7 +339,7 @@ public class Player : CharacterEntity
     public void EquipWeaponItem(WeaponItem item)
     {
         rightHand = (RightHand)item;
-        // charPanel.AddItem(rightHand, charPanel.rightNumber);
+        inventoryDisplay.AddEquippedItemImage(rightHand, inventoryDisplay.rightHandNumber);
         minDamage += item.minDamage;
         maxDamage += item.maxDamage;
     }
