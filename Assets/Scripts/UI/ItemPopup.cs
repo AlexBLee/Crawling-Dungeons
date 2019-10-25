@@ -16,9 +16,18 @@ public class ItemPopup : MonoBehaviour
     public Button equipButton;
     public Button trashButton;
 
-    private void Start() {
+    public Button unequipButton;
+    
+
+    private void Start() 
+    {
         equipButton.onClick.AddListener(delegate{player.EquipItem(item,index);});
         trashButton.onClick.AddListener(delegate{player.RemoveItem(index);});
+
+        unequipButton.onClick.AddListener(delegate{player.UnequipItem((EquippableItem)item,index);});
+
+
+        unequipButton.gameObject.SetActive(false);
 
     }
 

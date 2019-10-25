@@ -62,6 +62,8 @@ public class InventoryDisplay : MonoBehaviour
         equippedButtons[5].onClick.AddListener(delegate {DisplayEquippedItemInfo(5,equippedButtons[5].gameObject.transform.position);});
 
 
+
+
     }
 
     public void ShowInventory()
@@ -121,6 +123,9 @@ public class InventoryDisplay : MonoBehaviour
         if(items[index] != null)
         {
             itemPopup.gameObject.SetActive(true);
+            itemPopup.equipButton.gameObject.SetActive(true);
+            itemPopup.unequipButton.gameObject.SetActive(false);
+
             itemPopup.nameOfItem.text = items[index].itemName;
             itemPopup.description.text = items[index].description;
             itemPopup.transform.parent.position = position;
@@ -135,11 +140,16 @@ public class InventoryDisplay : MonoBehaviour
         if(equippedItems[index] != null)
         {
             itemPopup.gameObject.SetActive(true);
-            itemPopup.equipButton.onClick.AddListener(delegate{player.UnequipItem(equippedItems[index], index);});
+            itemPopup.unequipButton.gameObject.SetActive(true);
+            itemPopup.equipButton.gameObject.SetActive(false);
 
             itemPopup.nameOfItem.text = equippedItems[index].itemName;
             itemPopup.description.text = equippedItems[index].description;
             itemPopup.transform.parent.position = position;
+
+            itemPopup.item = equippedItems[index];
+            itemPopup.index = index;
+
         }
     }
     

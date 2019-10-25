@@ -352,6 +352,7 @@ public class Player : CharacterEntity
     
     public void UnequipItem(EquippableItem item)
     {
+        itemPopup.gameObject.SetActive(false);
         
         // For unequipping only
         if(item is ArmorItem)
@@ -372,6 +373,8 @@ public class Player : CharacterEntity
 
     public void UnequipItem(EquippableItem item, int index)
     {
+        itemPopup.gameObject.SetActive(false);
+
         inventoryDisplay.equippedItems[index] = null;
         inventoryDisplay.RemoveEquippedItemImage(index);
         // For swapping equips
@@ -384,8 +387,10 @@ public class Player : CharacterEntity
             UnequipWeaponItem((WeaponItem)item);
         }
 
-        itemList[index] = item;
-        inventoryDisplay.AddItemImage(item,index);
+        int newIndex = LookForFreeInventorySpace();
+
+        itemList[newIndex] = item;
+        inventoryDisplay.AddItemImage(item,newIndex);
     }
 
     public void UnequipArmorItem(ArmorItem item)
@@ -412,8 +417,8 @@ public class Player : CharacterEntity
     public void UnequipWeaponItem(WeaponItem item)
     {
         rightHand = null;
-        str -= item.minDamage;
-        str -= item.maxDamage;
+        minDamage -= item.minDamage;
+        maxDamage -= item.maxDamage;
     }
 
     // -----------------------------------------------------------------------------
