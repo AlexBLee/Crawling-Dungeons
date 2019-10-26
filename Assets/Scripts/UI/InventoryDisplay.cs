@@ -123,8 +123,17 @@ public class InventoryDisplay : MonoBehaviour
         if(items[index] != null)
         {
             itemPopup.gameObject.SetActive(true);
-            itemPopup.equipButton.gameObject.SetActive(true);
-            itemPopup.unequipButton.gameObject.SetActive(false);
+            
+            if(items[index] is ConsumableItem)
+            {
+                itemPopup.equipButton.gameObject.SetActive(false);
+                itemPopup.unequipButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                itemPopup.equipButton.gameObject.SetActive(true);
+                itemPopup.unequipButton.gameObject.SetActive(false);
+            }
 
             itemPopup.nameOfItem.text = items[index].itemName;
             itemPopup.description.text = items[index].description;

@@ -27,6 +27,7 @@ public class Player : CharacterEntity
 
     public InventoryDisplay inventoryDisplay;
     public ItemPopup itemPopup;
+    public ShopDisplay shopDisplay;
 
     public Helmet helmet;
     public Upper upper;
@@ -258,7 +259,7 @@ public class Player : CharacterEntity
         if(gold >= item.cost)
         {
             gold -= item.cost;
-            FindObjectOfType<ShopDisplay>().UpdateGold();
+            shopDisplay.UpdateGold();
             Debug.Log("Bought " + item.itemName);
 
             // For item getting added from some source

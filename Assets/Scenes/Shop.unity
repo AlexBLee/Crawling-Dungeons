@@ -9704,6 +9704,11 @@ PrefabInstance:
       propertyPath: itemPopup
       value: 
       objectReference: {fileID: 2060712347}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: shopDisplay
+      value: 
+      objectReference: {fileID: 475300285}
     - target: {fileID: 70495698347628145, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
       propertyPath: m_LocalPosition.x
