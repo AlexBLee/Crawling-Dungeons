@@ -151,6 +151,7 @@ public class InventoryDisplay : MonoBehaviour
             itemPopup.gameObject.SetActive(true);
             itemPopup.unequipButton.gameObject.SetActive(true);
             itemPopup.equipButton.gameObject.SetActive(false);
+            itemPopup.trashButton.gameObject.SetActive(false);
 
             itemPopup.nameOfItem.text = equippedItems[index].itemName;
             itemPopup.description.text = equippedItems[index].description;
