@@ -652,7 +652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &126847215
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9182,7 +9182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2060712344
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9263,7 +9263,7 @@ MonoBehaviour:
   description: {fileID: 252479275}
   equipButton: {fileID: 1692175615}
   trashButton: {fileID: 371786395}
-  unequipButton: {fileID: 0}
+  unequipButton: {fileID: 126847216}
 --- !u!1 &2079595784
 GameObject:
   m_ObjectHideFlags: 0

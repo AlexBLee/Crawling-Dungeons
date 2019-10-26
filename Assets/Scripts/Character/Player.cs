@@ -257,6 +257,8 @@ public class Player : CharacterEntity
     {
         if(gold >= item.cost)
         {
+            gold -= item.cost;
+            FindObjectOfType<ShopDisplay>().UpdateGold();
             Debug.Log("Bought " + item.itemName);
 
             // For item getting added from some source
