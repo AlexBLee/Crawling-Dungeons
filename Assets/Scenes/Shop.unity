@@ -1803,6 +1803,7 @@ MonoBehaviour:
   - {fileID: 809199810}
   - {fileID: 1672431917}
   shopButton: {fileID: 2016208292}
+  exitButton: {fileID: 24635378}
   shop: {fileID: 809160331}
   inventory: {fileID: 510461495}
 --- !u!1 &489206670
@@ -5181,7 +5182,6 @@ MonoBehaviour:
   itemPopup: {fileID: 2060712347}
   goldText: {fileID: 0}
   inventoryButton: {fileID: 278342471}
-  exitButton: {fileID: 24635378}
   inventory: {fileID: 510461495}
   shop: {fileID: 809160331}
 --- !u!1 &1311105215
