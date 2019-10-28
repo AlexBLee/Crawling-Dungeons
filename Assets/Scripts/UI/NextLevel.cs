@@ -18,6 +18,7 @@ public class NextLevel : MonoBehaviour
     void GoToNextLevel()
     {
         player.ApplyStatsTo(GameManager.instance.playerStats);
-        SceneManager.LoadScene("Level2");
+        player.ApplyItemsTo(GameManager.instance.playerStats);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

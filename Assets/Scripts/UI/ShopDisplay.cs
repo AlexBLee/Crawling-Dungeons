@@ -62,6 +62,7 @@ public class ShopDisplay : MonoBehaviour
 
     public void ExitShop()
     {
+        player.ApplyItemsTo(GameManager.instance.playerStats);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

@@ -22,7 +22,7 @@ public class Player : CharacterEntity
     // Equipped Items
     public List<Spell> spells;
     public Dictionary<Spell, bool> spellList;
-    public List<Item> itemList;
+    public List<Item> itemList = new List<Item>(12);
     public EquippableItem tempItem;
 
     public InventoryDisplay inventoryDisplay;
@@ -52,6 +52,7 @@ public class Player : CharacterEntity
     private void Start()
     {
         ApplyStatsFrom(GameManager.instance.playerStats);
+        ApplyItemsFrom(GameManager.instance.playerStats);
         pos = transform.position;
 
         UnlockSpells();
@@ -252,7 +253,31 @@ public class Player : CharacterEntity
 
     #region Inventory
 
+    public void ApplyItemsFrom(Player otherPlayer)
+    {
+        itemList = otherPlayer.itemList;
 
+        helmet = otherPlayer.helmet;
+        upper = otherPlayer.upper;
+        lower = otherPlayer.lower;
+        rightHand = otherPlayer.rightHand;
+        leftHand = otherPlayer.leftHand;
+        boots = otherPlayer.boots;
+
+    }
+
+    public void ApplyItemsTo(Player otherPlayer)
+    {
+        otherPlayer.itemList = itemList;
+
+        otherPlayer.helmet = helmet;
+        otherPlayer.upper = upper;
+        otherPlayer.lower = lower;
+        otherPlayer.rightHand = rightHand;
+        otherPlayer.leftHand = leftHand;
+        otherPlayer.boots = boots;
+        
+    }
 
     public void AddItem(Item item)
     {
