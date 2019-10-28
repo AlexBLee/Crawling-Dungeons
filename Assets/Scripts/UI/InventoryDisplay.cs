@@ -55,6 +55,9 @@ public class InventoryDisplay : MonoBehaviour
         buttons[6].onClick.AddListener(delegate {DisplayItemInfo(6,buttons[6].gameObject.transform.position);});
         buttons[7].onClick.AddListener(delegate {DisplayItemInfo(7,buttons[7].gameObject.transform.position);});
         buttons[8].onClick.AddListener(delegate {DisplayItemInfo(8,buttons[8].gameObject.transform.position);});
+        buttons[9].onClick.AddListener(delegate {DisplayItemInfo(9,buttons[9].gameObject.transform.position);});
+        buttons[10].onClick.AddListener(delegate {DisplayItemInfo(10,buttons[10].gameObject.transform.position);});
+        buttons[11].onClick.AddListener(delegate {DisplayItemInfo(11,buttons[11].gameObject.transform.position);});
 
         equippedButtons[0].onClick.AddListener(delegate {DisplayEquippedItemInfo(0,equippedButtons[0].gameObject.transform.position);});
         equippedButtons[1].onClick.AddListener(delegate {DisplayEquippedItemInfo(1,equippedButtons[1].gameObject.transform.position);});

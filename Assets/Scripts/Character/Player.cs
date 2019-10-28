@@ -318,26 +318,46 @@ public class Player : CharacterEntity
     {
         if(item is Helmet)
         {
+            if(helmet != null)
+            {
+                AddItem(helmet);
+            }
             helmet = (Helmet)item;
             inventoryDisplay.AddEquippedItemImage(helmet, inventoryDisplay.helmetNumber);
         }
         else if(item is Upper)
         {
+            if(upper != null)
+            {
+                AddItem(upper);
+            }
             upper = (Upper)item;
             inventoryDisplay.AddEquippedItemImage(upper, inventoryDisplay.upperNumber);
         }
         else if(item is Lower)
         {
+            if(lower != null)
+            {
+                AddItem(lower);
+            }
             lower = (Lower)item;
             inventoryDisplay.AddEquippedItemImage(lower, inventoryDisplay.lowerNumber);
         }
         else if(item is LeftHand)
         {
+            if(leftHand != null)
+            {
+                AddItem(leftHand);
+            }
             leftHand = (LeftHand)item;
             inventoryDisplay.AddEquippedItemImage(leftHand, inventoryDisplay.leftHandNumber);
         }
         else if(item is Boots)
         {
+            if(boots != null)
+            {
+                AddItem(boots);
+            }
             boots = (Boots)item;
             inventoryDisplay.AddEquippedItemImage(boots, inventoryDisplay.bootNumber);
         }
@@ -347,6 +367,10 @@ public class Player : CharacterEntity
 
     public void EquipWeaponItem(WeaponItem item)
     {
+        if(rightHand != null)
+        {
+            AddItem(rightHand);
+        }
         rightHand = (RightHand)item;
         inventoryDisplay.AddEquippedItemImage(rightHand, inventoryDisplay.rightHandNumber);
         minDamage += item.minDamage;
