@@ -44,6 +44,8 @@ public class InventoryDisplay : MonoBehaviour
         items = player.itemList;
         inventoryButton.onClick.AddListener(ShowInventory);
 
+        // Adding listeners for the buttons does not work with loops due to a Unity bug.
+        // Manually writing them out is currently the only solution.
         buttons[0].onClick.AddListener(delegate {DisplayItemInfo(0,buttons[0].gameObject.transform.position);});
         buttons[1].onClick.AddListener(delegate {DisplayItemInfo(1,buttons[1].gameObject.transform.position);});
         buttons[2].onClick.AddListener(delegate {DisplayItemInfo(2,buttons[2].gameObject.transform.position);});
@@ -60,6 +62,7 @@ public class InventoryDisplay : MonoBehaviour
         equippedButtons[3].onClick.AddListener(delegate {DisplayEquippedItemInfo(3,equippedButtons[3].gameObject.transform.position);});
         equippedButtons[4].onClick.AddListener(delegate {DisplayEquippedItemInfo(4,equippedButtons[4].gameObject.transform.position);});
         equippedButtons[5].onClick.AddListener(delegate {DisplayEquippedItemInfo(5,equippedButtons[5].gameObject.transform.position);});
+
 
 
 
@@ -162,6 +165,8 @@ public class InventoryDisplay : MonoBehaviour
 
         }
     }
+
+
     
 
 

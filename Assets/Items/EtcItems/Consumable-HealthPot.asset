@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85881fbbdda8c294583d7a20fc2f2f4b, type: 3}
   m_Name: Consumable-HealthPot
   m_EditorClassIdentifier: 
-  itemName: 
-  description: 
-  image: {fileID: 0}
-  cost: 0
-  hpAdd: 0
+  itemName: Health Pot
+  description: Heals 20 HP
+  image: {fileID: 21300204, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
+  cost: 10
+  hpAdd: 20
   mpAdd: 0

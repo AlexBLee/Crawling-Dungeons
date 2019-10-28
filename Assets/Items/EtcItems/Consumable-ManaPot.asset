@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85881fbbdda8c294583d7a20fc2f2f4b, type: 3}
-  m_Name: Consumable-HealthPot
+  m_Name: Consumable-ManaPot
   m_EditorClassIdentifier: 
-  itemName: 
-  description: 
-  image: {fileID: 0}
-  cost: 0
+  itemName: Mana Pot
+  description: Restores 20 MP
+  image: {fileID: 21300206, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
+  cost: 20
   hpAdd: 0
-  mpAdd: 0
+  mpAdd: 20
