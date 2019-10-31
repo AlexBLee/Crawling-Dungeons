@@ -22,7 +22,7 @@ public class Player : CharacterEntity
     // Equipped Items
     public List<Spell> spells;
     public Dictionary<Spell, bool> spellList;
-    public List<Item> itemList = new List<Item>(12);
+    public List<Item> itemList;
     public EquippableItem tempItem;
 
     public InventoryDisplay inventoryDisplay;
@@ -46,6 +46,7 @@ public class Player : CharacterEntity
             spellList.Add(spell, false);
         }
 
+
     }
 
 
@@ -57,6 +58,7 @@ public class Player : CharacterEntity
 
         UnlockSpells();
         UpdateDamageStats();
+        UpdateItemStats();
     }
 
     private void Update()
@@ -199,6 +201,9 @@ public class Player : CharacterEntity
             float extraXP = exp - expThreshold;
             LevelUp();
             UnlockSpells();
+            UpdateItemStats();
+
+            
             yield return new WaitForSeconds(0.15f);
             healthBar.SetAmount(hp,maxHP);
             manaBar.SetAmount(mp,maxMP);
@@ -238,6 +243,41 @@ public class Player : CharacterEntity
         }
     }
 
+    public void UpdateItemStats()
+    {
+        if(helmet != null)
+        {
+            def += helmet.defense;
+        } 
+        
+        if(upper != null)
+        {
+            def += upper.defense;
+        }
+        
+        if(lower != null)
+        {
+            def += lower.defense;
+        }
+        
+        if(leftHand != null)
+        {
+            def += leftHand.defense;
+        } 
+        
+        if(boots != null)
+        {
+            def += boots.defense;
+        }
+
+        if(rightHand != null)
+        {
+            minDamage += rightHand.minDamage;
+            maxDamage += rightHand.maxDamage;
+
+        }
+    }
+
     public IEnumerator NextBattle()
     {
         yield return new WaitForSeconds(3);
@@ -256,6 +296,7 @@ public class Player : CharacterEntity
     public void ApplyItemsFrom(Player otherPlayer)
     {
         itemList = otherPlayer.itemList;
+        gold = otherPlayer.gold;
 
         helmet = otherPlayer.helmet;
         upper = otherPlayer.upper;
@@ -269,6 +310,7 @@ public class Player : CharacterEntity
     public void ApplyItemsTo(Player otherPlayer)
     {
         otherPlayer.itemList = itemList;
+        otherPlayer.gold = gold;
 
         otherPlayer.helmet = helmet;
         otherPlayer.upper = upper;
