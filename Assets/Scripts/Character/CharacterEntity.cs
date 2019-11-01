@@ -38,13 +38,12 @@ public class CharacterEntity : MonoBehaviour
     public int def;
 
     public int moveSpeed = 5;
-    public int maxSpeed = 10;
+
 
     // ---------------------------------------
 
     // Conditions --------------------------
     public bool inBattle;
-    public bool targetChosen;
     public bool targetReached = true;
     public bool attacking = false;
     public bool dead = false;
@@ -56,7 +55,6 @@ public class CharacterEntity : MonoBehaviour
     // Others ----------------------------
     public Animator anim;
     protected Vector3 initialPos;
-    protected Vector3 lastPos;
     public CharacterEntity target;
     public TextMeshPro infoText;
     public int objectID;

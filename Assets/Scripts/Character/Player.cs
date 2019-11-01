@@ -14,18 +14,12 @@ public class Player : CharacterEntity
 
 
     public Vector3 pos;
-    public Vector2 enemyPosition;
     public Vector3 spellPosition;
-
-    private bool buttonPressed;
-    
-    private StatDisplayer statDisplayer;   
 
     // Equipped Items
     public List<Spell> spells;
     public Dictionary<Spell, bool> spellList;
     public List<Item> itemList;
-    public EquippableItem tempItem;
 
     public InventoryDisplay inventoryDisplay;
     public ItemPopup itemPopup;

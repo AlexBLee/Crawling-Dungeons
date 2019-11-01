@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Enemy : CharacterEntity
 {
-    private GameObject player;
-    public bool beginTurn;
-    public float detectDistance = 10.0f;
     public int experiencePoints;
     public bool newBattle;
     public Vector3 fightPosition;
@@ -45,7 +42,6 @@ public class Enemy : CharacterEntity
             battleManager.StartNewBattle();
         }
     }
-
 
     public void SetAttackConditions()
     {
