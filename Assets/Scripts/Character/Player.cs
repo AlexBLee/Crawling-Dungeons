@@ -11,6 +11,8 @@ public class Player : CharacterEntity
     public AmountBar healthBar;
     public AmountBar manaBar;
 
+
+
     public Vector3 pos;
     public Vector2 enemyPosition;
     public Vector3 spellPosition;

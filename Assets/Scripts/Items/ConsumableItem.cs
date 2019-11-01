@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Item/ConsumableItem")]
 public class ConsumableItem : Item
 {
-    public int hpAdd;
-    public int mpAdd;
+    public float hpAdd;
+    public float mpAdd;
     
     
 

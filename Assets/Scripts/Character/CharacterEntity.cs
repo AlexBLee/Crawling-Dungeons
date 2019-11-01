@@ -60,6 +60,8 @@ public class CharacterEntity : MonoBehaviour
     public CharacterEntity target;
     public TextMeshPro infoText;
     public int objectID;
+    public int hpCounter;
+    public int mpCounter;
 
 
     // ------------------------------------
@@ -255,21 +257,52 @@ public class CharacterEntity : MonoBehaviour
         attacking = false;
     }
 
-    public void UseItem()
+    public void UseHealthItem(ConsumableItem item)
     {
-        uiManager.DisableButtons();
-        hp += Mathf.RoundToInt(maxHP * 0.20f);
-        if(hp >= maxHP)
+        if(hpCounter > 0)
         {
-            hp = maxHP;
-        }
-        infoText.text = Mathf.RoundToInt(maxHP * 0.20f).ToString();
-        Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
-        anim.SetTrigger("UseItem");
+            uiManager.DisableButtons();
+            uiManager.HidePotionList();
 
-        if(this is Player)
+            hp += Mathf.RoundToInt(maxHP * item.hpAdd);
+            if(hp >= maxHP)
+            {
+                hp = maxHP;
+            }
+            infoText.text = Mathf.RoundToInt(maxHP * item.hpAdd).ToString();
+            Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
+            anim.SetTrigger("UseItem");
+
+            if(this is Player)
+            {
+                uiManager.UpdateUIHealth();
+
+            }
+            hpCounter--;
+        }
+    }
+
+    public void UseManaItem(ConsumableItem item)
+    {
+        if(mpCounter > 0)
         {
-            uiManager.UpdateUIHealth();
+            uiManager.DisableButtons();
+            uiManager.HidePotionList();
+
+            mp += Mathf.RoundToInt(maxMP * item.mpAdd);
+            if(mp >= maxMP)
+            {
+                mp = maxMP;
+            }
+            infoText.text = Mathf.RoundToInt(maxMP * item.mpAdd).ToString();
+            Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
+            anim.SetTrigger("UseItem");
+
+            if(this is Player)
+            {
+                uiManager.UpdateUIMana();
+            }
+            mpCounter--;
         }
     }
 

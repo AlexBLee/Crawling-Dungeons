@@ -352,6 +352,12 @@ MonoBehaviour:
   - {fileID: 506456873}
   - {fileID: 210427985}
   - {fileID: 184801476}
+  potionList: {fileID: 0}
+  potionButtonList: []
+  healthPot: {fileID: 11400000, guid: 7345e3fa1c1d83642911421812b716ab, type: 2}
+  manaPot: {fileID: 11400000, guid: 11cd3c5dd14a48544a31b2fbb9e87b6d, type: 2}
+  hpCounter: 0
+  mpCounter: 0
   addRemoves:
   - {fileID: 1266429448}
   - {fileID: 435997619}
@@ -1782,6 +1788,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 70495698347628148, guid: fa61940fa5df1b24b9aec3232ab7633c,
+        type: 3}
+      propertyPath: itemList.Array.size
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 70495698347628145, guid: fa61940fa5df1b24b9aec3232ab7633c,
         type: 3}
@@ -7492,6 +7503,11 @@ PrefabInstance:
         type: 3}
       propertyPath: spellList.Array.size
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: itemList.Array.size
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}

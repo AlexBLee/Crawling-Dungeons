@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,6 +14,15 @@ public class UIManager : MonoBehaviour
     public GameObject magicList;
     public List<Button> magicButtonList;
 
+    public GameObject potionList;
+    public List<Button> potionButtonList;
+    public List<TextMeshProUGUI> potionTextList;
+
+    // Caching purposes only.
+    // used to keep the count the amount of potions in players inventory.
+    public ConsumableItem healthPot;
+    public ConsumableItem manaPot;
+
     public List<AddRemoveStat> addRemoves;
 
     public AmountBar healthBar;
@@ -24,7 +33,7 @@ public class UIManager : MonoBehaviour
     {
         attackButton.onClick.AddListener(player.Attack);
         magicButton.onClick.AddListener(ShowMagicList);
-        itemButton.onClick.AddListener(player.UseItem);
+        itemButton.onClick.AddListener(ShowPotionList);
 
         int count = 0;
         foreach(KeyValuePair<Spell, bool> spell in player.spellList)
@@ -33,8 +42,21 @@ public class UIManager : MonoBehaviour
             count++;
         }
 
+        foreach(ConsumableItem item in player.itemList)
+        {
+            if(item == healthPot)
+            {
+                player.hpCounter++;
+            }
+            else if(item == manaPot)
+            {
+                player.mpCounter++;
+            }
+        }
 
-        HideMagicList();
+        potionButtonList[0].onClick.AddListener(delegate{player.UseHealthItem(healthPot);});
+        potionButtonList[1].onClick.AddListener(delegate{player.UseManaItem(manaPot);});
+
     }
 
     public void DisableButtons()
@@ -76,6 +98,24 @@ public class UIManager : MonoBehaviour
     {
         EnableButtons();
         magicList.SetActive(false);
+    }
+
+    public void ShowPotionList()
+    {
+        DisableButtons();
+        potionList.SetActive(true);
+        
+        potionTextList[0].text = "x" + player.hpCounter;
+        potionTextList[1].text = "x" + player.mpCounter;
+
+
+
+    }
+
+    public void HidePotionList()
+    {
+        EnableButtons();
+        potionList.SetActive(false);
     }
 
     public void DeactivateAdders()

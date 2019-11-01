@@ -17,4 +17,4 @@ MonoBehaviour:
   image: {fileID: 21300206, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
   cost: 20
   hpAdd: 0
-  mpAdd: 20
+  mpAdd: 0.2
