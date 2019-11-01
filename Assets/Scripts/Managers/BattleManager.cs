@@ -19,7 +19,6 @@ public class BattleManager : MonoBehaviour
 
     public UIManager uiManager;
 
-    public GameObject exitButton;
     public GameObject victoryPanel;
 
     public GameObject background;
@@ -28,7 +27,6 @@ public class BattleManager : MonoBehaviour
     public int enemyCounter = 0;
 
 
-    public int storedXP;
 
     private void Start() 
     {

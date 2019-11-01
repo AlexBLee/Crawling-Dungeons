@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public Player playerStats;
-    public Enemy enemyStats;
 
 
     void Awake()
