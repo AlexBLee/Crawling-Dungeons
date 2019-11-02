@@ -11,8 +11,6 @@ public class Player : CharacterEntity
     public AmountBar healthBar;
     public AmountBar manaBar;
 
-
-
     public Vector3 pos;
     public Vector3 spellPosition;
 
@@ -31,6 +29,7 @@ public class Player : CharacterEntity
     public RightHand rightHand;
     public LeftHand leftHand;
     public Boots boots;
+
 
 
     public int gold;
@@ -325,7 +324,6 @@ public class Player : CharacterEntity
             shopDisplay.UpdateGold();
             Debug.Log("Bought " + item.itemName);
 
-            // For item getting added from some source
             int index = LookForFreeInventorySpace();
 
             itemList[index] = item;
@@ -349,7 +347,6 @@ public class Player : CharacterEntity
     {
         itemPopup.gameObject.SetActive(false);
 
-        // Equipping without anything equipped
         if(item is ArmorItem)
         {
             EquipArmorItem((ArmorItem)item);
@@ -361,26 +358,11 @@ public class Player : CharacterEntity
         RemoveItem(index);
     }
 
-    public void EquipItem(Item item)
-    {
-        itemPopup.gameObject.SetActive(false);
-
-        // Swapping an equipped item
-        if(item is ArmorItem)
-        {
-            EquipArmorItem((ArmorItem)item);
-        }
-        else if(item is WeaponItem)
-        {
-            EquipWeaponItem((WeaponItem)item);
-        }
-
-    }
-
     public void EquipArmorItem(ArmorItem item)
     {
         if(item is Helmet)
         {
+            // If an item exists in the equip slot already, just add the equipped item back to the inventory
             if(helmet != null)
             {
                 AddItem(helmet);
@@ -438,27 +420,6 @@ public class Player : CharacterEntity
         inventoryDisplay.AddEquippedItemImage(rightHand, inventoryDisplay.rightHandNumber);
         minDamage += item.minDamage;
         maxDamage += item.maxDamage;
-    }
-    
-    public void UnequipItem(EquippableItem item)
-    {
-        itemPopup.gameObject.SetActive(false);
-        
-        // For unequipping only
-        if(item is ArmorItem)
-        {
-            UnequipArmorItem((ArmorItem)item);
-        }
-        else if(item is WeaponItem)
-        {
-            UnequipWeaponItem((WeaponItem)item);
-        }
-
-        int index = LookForFreeInventorySpace();
-        
-        itemList[index] = item;
-        inventoryDisplay.AddItemImage(item,index);
-
     }
 
     public void UnequipItem(EquippableItem item, int index)

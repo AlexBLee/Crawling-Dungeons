@@ -6,6 +6,8 @@ using TMPro;
 // the class for all Characters in the game.
 public class CharacterEntity : MonoBehaviour
 {
+    // Managers ------------------------------
+
     public BattleManager battleManager;
     public UIManager uiManager;
 
@@ -108,7 +110,7 @@ public class CharacterEntity : MonoBehaviour
         UpdateDamageStats();
     }
 
-    public void UpdateDamageStats()
+    protected void UpdateDamageStats()
     {
         minDamage = str / 3;
         maxDamage = str / 2.5f;
@@ -124,7 +126,7 @@ public class CharacterEntity : MonoBehaviour
         def = str / 10;
     }
 
-   public void ApplyStatsFrom(CharacterEntity otherChar)
+    public void ApplyStatsFrom(CharacterEntity otherChar)
     {
         level = otherChar.level;
         exp = otherChar.exp;
@@ -180,20 +182,25 @@ public class CharacterEntity : MonoBehaviour
         // Damage is calculated by finding a random value between the minimum/maximum damage, and then taking the damage reduced by the enemy's defense.
         // for clarification, 1 def is equal to 1% of damage reduced.
         // so in this case, the enemy takes 99% of the damage.
-        float chance = Random.Range(0, 100);
+        
+        // Initial damage calculation
         float x = Random.Range(minDamage,maxDamage);
         x *= (1.00f - ((float)target.def/100));
         int damage = Mathf.RoundToInt(x);
 
+        // Critcal chance calculation
+        float chance = Random.Range(0, 100);
         if(chance < critChance)
         {
             damage *= 2;
             infoText.color = new Color(255,255,0);
         }
 
+        // Apply damage
         target.hp -= damage;
         target.anim.SetTrigger("Hit");
         
+        // Spawning text
         infoText.text = damage.ToString();
         Instantiate(infoText, target.transform.position + new Vector3(0,0,-1), Quaternion.identity);
         infoText.color = new Color(255,255,255);
@@ -217,20 +224,25 @@ public class CharacterEntity : MonoBehaviour
         // Damage is calculated by finding a random value between the minimum/maximum damage, and then taking the damage reduced by the enemy's defense.
         // for clarification, 1 def is equal to 1% of damage reduced.
         // so in this case, the enemy takes 99% of the damage.
-        float chance = Random.Range(0, 100);
+        
+        // Initial Damage Calculation
         float x = Random.Range(magicMinDamage,magicMaxDamage);
         x *= (1.00f - ((float)target.def/100));
         int damage = Mathf.RoundToInt(x);
         damage += additionalDamage;
 
+        // Critical chance calculation
+        float chance = Random.Range(0, 100);
         if(chance < critChance)
         {
             damage *= 2;
         }
 
+        // Apply damage
         target.hp -= damage;
         target.anim.SetTrigger("Hit");
         
+        // Spawn text
         infoText.text = damage.ToString();
         Instantiate(infoText, target.transform.position + new Vector3(0,0,-1), Quaternion.identity);
         Debug.Log(gameObject.name + " dealt " + damage + " damage to " + target.name);
@@ -262,12 +274,15 @@ public class CharacterEntity : MonoBehaviour
             uiManager.DisableButtons();
             uiManager.HidePotionList();
 
-            hp += Mathf.RoundToInt(maxHP * item.hpAdd);
+            int amountToHeal = Mathf.RoundToInt(maxHP * item.hpAdd);
+            hp += amountToHeal;
+
             if(hp >= maxHP)
             {
                 hp = maxHP;
             }
-            infoText.text = Mathf.RoundToInt(maxHP * item.hpAdd).ToString();
+            
+            infoText.text = amountToHeal.ToString();
             Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
             anim.SetTrigger("UseItem");
 
@@ -276,6 +291,7 @@ public class CharacterEntity : MonoBehaviour
                 uiManager.UpdateUIHealth();
 
             }
+
             hpCounter--;
         }
     }
@@ -287,12 +303,15 @@ public class CharacterEntity : MonoBehaviour
             uiManager.DisableButtons();
             uiManager.HidePotionList();
 
-            mp += Mathf.RoundToInt(maxMP * item.mpAdd);
+            int amountToRestore = Mathf.RoundToInt(maxMP * item.mpAdd);
+            mp += amountToRestore;
+
             if(mp >= maxMP)
             {
                 mp = maxMP;
             }
-            infoText.text = Mathf.RoundToInt(maxMP * item.mpAdd).ToString();
+
+            infoText.text = amountToRestore.ToString();
             Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
             anim.SetTrigger("UseItem");
 
@@ -300,6 +319,7 @@ public class CharacterEntity : MonoBehaviour
             {
                 uiManager.UpdateUIMana();
             }
+
             mpCounter--;
         }
     }
@@ -331,14 +351,10 @@ public class CharacterEntity : MonoBehaviour
     {
         if(targetReached && attacking && animationDone)
         {
-            // battleManager.attackHeader.gameObject.SetActive(false);
             StartCoroutine(MoveToExactPosition(initialPos));
-            // anim.SetBool("BackwardsRun", true);
             
-
             if(transform.position == initialPos)
             {
-                // anim.SetBool("BackwardsRun", false);
                 battleManager.ToggleNextTurn();
                 targetReached = false;
                 attacking = false;
