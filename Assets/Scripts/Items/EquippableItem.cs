@@ -5,7 +5,7 @@ using UnityEngine;
 public class EquippableItem : Item
 {
     public float durability;
-
+    public int itemType;
     
     
 

@@ -9,6 +9,7 @@ public class ItemPopup : MonoBehaviour
     public Player player;
     public Item item;
     public int index;
+    public int equipIndex;
 
     public TextMeshProUGUI nameOfItem;
     public TextMeshProUGUI description;
@@ -21,7 +22,7 @@ public class ItemPopup : MonoBehaviour
 
     private void Start() 
     {
-        equipButton.onClick.AddListener(delegate{player.EquipItem(item,index);});
+        equipButton.onClick.AddListener(delegate{player.EquipItem((EquippableItem)item,index, equipIndex);});
         trashButton.onClick.AddListener(delegate{player.RemoveItem(index);});
 
         unequipButton.onClick.AddListener(delegate{player.UnequipItem((EquippableItem)item,index);});

@@ -80,6 +80,7 @@ public class InventoryDisplay : MonoBehaviour
 
     public void AddItemImage(Item item, int index)
     {
+        items[index] = item;
         images[index].sprite = items[index].image;
 
         if(notFront)
@@ -147,6 +148,13 @@ public class InventoryDisplay : MonoBehaviour
 
             itemPopup.item = items[index];
             itemPopup.index = index;
+
+            if(items[index] is EquippableItem)
+            {
+                EquippableItem item = (EquippableItem)items[index];
+                itemPopup.equipIndex = item.itemType;
+            }
+
         }
     }
 

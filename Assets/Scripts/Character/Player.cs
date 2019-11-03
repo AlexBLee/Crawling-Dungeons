@@ -30,6 +30,7 @@ public class Player : CharacterEntity
     public LeftHand leftHand;
     public Boots boots;
 
+    public List<EquippableItem> equipInventory;
 
 
     public int gold;
@@ -343,85 +344,32 @@ public class Player : CharacterEntity
         inventoryDisplay.RemoveItemImage(index);
     }
 
-    public void EquipItem(Item item, int index)
+    public void EquipItem(EquippableItem item, int invIndex, int equipIndex)
     {
         itemPopup.gameObject.SetActive(false);
 
+        if(equipInventory[equipIndex] != null)
+        {
+            AddItem(equipInventory[equipIndex]);
+        }
+        equipInventory[equipIndex] = item;
+        inventoryDisplay.AddEquippedItemImage(equipInventory[equipIndex], equipInventory[equipIndex].itemType);
+
         if(item is ArmorItem)
         {
-            EquipArmorItem((ArmorItem)item);
+            ArmorItem armor = (ArmorItem)item;
+            def += armor.defense;
         }
         else if(item is WeaponItem)
         {
-            EquipWeaponItem((WeaponItem)item);
+            WeaponItem wpn = (WeaponItem)item;
+            minDamage += wpn.minDamage;
+            maxDamage += wpn.maxDamage;
         }
-        RemoveItem(index);
+
+        RemoveItem(invIndex);
     }
-
-    public void EquipArmorItem(ArmorItem item)
-    {
-        if(item is Helmet)
-        {
-            // If an item exists in the equip slot already, just add the equipped item back to the inventory
-            if(helmet != null)
-            {
-                AddItem(helmet);
-            }
-            helmet = (Helmet)item;
-            inventoryDisplay.AddEquippedItemImage(helmet, inventoryDisplay.helmetNumber);
-        }
-        else if(item is Upper)
-        {
-            if(upper != null)
-            {
-                AddItem(upper);
-            }
-            upper = (Upper)item;
-            inventoryDisplay.AddEquippedItemImage(upper, inventoryDisplay.upperNumber);
-        }
-        else if(item is Lower)
-        {
-            if(lower != null)
-            {
-                AddItem(lower);
-            }
-            lower = (Lower)item;
-            inventoryDisplay.AddEquippedItemImage(lower, inventoryDisplay.lowerNumber);
-        }
-        else if(item is LeftHand)
-        {
-            if(leftHand != null)
-            {
-                AddItem(leftHand);
-            }
-            leftHand = (LeftHand)item;
-            inventoryDisplay.AddEquippedItemImage(leftHand, inventoryDisplay.leftHandNumber);
-        }
-        else if(item is Boots)
-        {
-            if(boots != null)
-            {
-                AddItem(boots);
-            }
-            boots = (Boots)item;
-            inventoryDisplay.AddEquippedItemImage(boots, inventoryDisplay.bootNumber);
-        }
-
-        def += item.defense;
-    }
-
-    public void EquipWeaponItem(WeaponItem item)
-    {
-        if(rightHand != null)
-        {
-            AddItem(rightHand);
-        }
-        rightHand = (RightHand)item;
-        inventoryDisplay.AddEquippedItemImage(rightHand, inventoryDisplay.rightHandNumber);
-        minDamage += item.minDamage;
-        maxDamage += item.maxDamage;
-    }
-
+    
     public void UnequipItem(EquippableItem item, int index)
     {
         itemPopup.gameObject.SetActive(false);
