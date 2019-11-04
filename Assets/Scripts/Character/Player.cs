@@ -241,36 +241,22 @@ public class Player : CharacterEntity
 
     public void UpdateItemStats()
     {
-        if(helmet != null)
+        for(int i = 0; i < equipInventory.Count; i++)
         {
-            def += helmet.defense;
-        } 
-        
-        if(upper != null)
-        {
-            def += upper.defense;
-        }
-        
-        if(lower != null)
-        {
-            def += lower.defense;
-        }
-        
-        if(leftHand != null)
-        {
-            def += leftHand.defense;
-        } 
-        
-        if(boots != null)
-        {
-            def += boots.defense;
-        }
-
-        if(rightHand != null)
-        {
-            minDamage += rightHand.minDamage;
-            maxDamage += rightHand.maxDamage;
-
+            if(equipInventory[i] != null)
+            {
+                if(equipInventory[i] is ArmorItem)
+                {
+                    ArmorItem tempItem = (ArmorItem)equipInventory[i];
+                    def += tempItem.defense;
+                }
+                else if(equipInventory[i] is WeaponItem)
+                {
+                    WeaponItem tempItem = (WeaponItem)equipInventory[i];
+                    minDamage += tempItem.minDamage;
+                    maxDamage += tempItem.maxDamage;
+                }
+            }
         }
     }
 
@@ -344,25 +330,30 @@ public class Player : CharacterEntity
         inventoryDisplay.RemoveItemImage(index);
     }
 
-    public void EquipItem(EquippableItem item, int invIndex, int equipIndex)
+    public void EquipItem(int invIndex, int equipIndex)
     {
         itemPopup.gameObject.SetActive(false);
+
+        EquippableItem tempItem = (EquippableItem)inventoryDisplay.items[invIndex];
 
         if(equipInventory[equipIndex] != null)
         {
             AddItem(equipInventory[equipIndex]);
         }
-        equipInventory[equipIndex] = item;
+
+        equipInventory[equipIndex] = tempItem;
         inventoryDisplay.AddEquippedItemImage(equipInventory[equipIndex], equipInventory[equipIndex].itemType);
 
-        if(item is ArmorItem)
+        inventoryDisplay.items[invIndex] = null;
+
+        if(tempItem is ArmorItem)
         {
-            ArmorItem armor = (ArmorItem)item;
+            ArmorItem armor = (ArmorItem)tempItem;
             def += armor.defense;
         }
-        else if(item is WeaponItem)
+        else if(tempItem is WeaponItem)
         {
-            WeaponItem wpn = (WeaponItem)item;
+            WeaponItem wpn = (WeaponItem)tempItem;
             minDamage += wpn.minDamage;
             maxDamage += wpn.maxDamage;
         }
@@ -370,54 +361,34 @@ public class Player : CharacterEntity
         RemoveItem(invIndex);
     }
     
-    public void UnequipItem(EquippableItem item, int index)
+    public void UnequipItem(int index)
     {
         itemPopup.gameObject.SetActive(false);
 
+        Item tempItem = equipInventory[index];
+
         inventoryDisplay.equippedItems[index] = null;
         inventoryDisplay.RemoveEquippedItemImage(index);
+
+        equipInventory[index] = null;
+
         // For swapping equips
-        if(item is ArmorItem)
+        if(tempItem is ArmorItem)
         {
-            UnequipArmorItem((ArmorItem)item);
+            ArmorItem armor = (ArmorItem)tempItem;
+            def -= armor.defense;
         }
-        else if(item is WeaponItem)
+        else if(tempItem is WeaponItem)
         {
-            UnequipWeaponItem((WeaponItem)item);
+            WeaponItem wpn = (WeaponItem)tempItem;
+            minDamage -= wpn.minDamage;
+            maxDamage -= wpn.maxDamage;
         }
 
         int newIndex = LookForFreeInventorySpace();
 
-        itemList[newIndex] = item;
-        inventoryDisplay.AddItemImage(item,newIndex);
-    }
-
-    public void UnequipArmorItem(ArmorItem item)
-    {
-        if(item is Helmet)
-        {
-            helmet = null;
-        }
-        else if(item is Upper)
-        {
-            upper = null;
-        }
-        else if(item is Lower)
-        {
-            lower = null;
-        }
-        else if(item is LeftHand)
-        {
-            leftHand = null;
-        }
-        def -= item.defense;
-    }
-
-    public void UnequipWeaponItem(WeaponItem item)
-    {
-        rightHand = null;
-        minDamage -= item.minDamage;
-        maxDamage -= item.maxDamage;
+        itemList[newIndex] = tempItem;
+        inventoryDisplay.AddItemImage(tempItem,newIndex);
     }
 
     // -----------------------------------------------------------------------------

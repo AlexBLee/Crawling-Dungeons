@@ -17,4 +17,5 @@ MonoBehaviour:
   image: {fileID: 21300172, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
   cost: 250
   durability: 22
+  itemType: 4
   defense: 222

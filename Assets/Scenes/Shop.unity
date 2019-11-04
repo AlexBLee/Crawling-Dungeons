@@ -590,6 +590,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  potionList: {fileID: 0}
+  potionButtonList: []
+  potionTextList: []
+  healthPot: {fileID: 0}
+  manaPot: {fileID: 0}
   addRemoves:
   - {fileID: 0}
   - {fileID: 0}
@@ -2516,14 +2521,12 @@ MonoBehaviour:
   enemy: {fileID: 0}
   player: {fileID: 1075298623}
   uiManager: {fileID: 68796133}
-  exitButton: {fileID: 0}
   victoryPanel: {fileID: 0}
   background: {fileID: 1529571563}
   spawnableEnemies:
   - {fileID: 4452915190085327154, guid: f4a87c3d0e93dd5468d2b26055c9085c, type: 3}
   - {fileID: 4452915190085327154, guid: f4a87c3d0e93dd5468d2b26055c9085c, type: 3}
   enemyCounter: 0
-  storedXP: 0
 --- !u!4 &611337057
 Transform:
   m_ObjectHideFlags: 0
@@ -3206,6 +3209,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 70495698347628148, guid: fa61940fa5df1b24b9aec3232ab7633c,
+        type: 3}
+      propertyPath: itemList.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 70495698347628148, guid: fa61940fa5df1b24b9aec3232ab7633c,
+        type: 3}
+      propertyPath: equipInventory.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 70495698347628148, guid: fa61940fa5df1b24b9aec3232ab7633c,
+        type: 3}
+      propertyPath: gold
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 70495698347628145, guid: fa61940fa5df1b24b9aec3232ab7633c,
         type: 3}
@@ -5529,7 +5547,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 368710595}
-  enemyStats: {fileID: 0}
 --- !u!4 &1347749279
 Transform:
   m_ObjectHideFlags: 0
@@ -9378,6 +9395,7 @@ MonoBehaviour:
   player: {fileID: 1075298623}
   item: {fileID: 0}
   index: 0
+  equipIndex: 0
   nameOfItem: {fileID: 1537580264}
   description: {fileID: 252479275}
   equipButton: {fileID: 1692175615}
@@ -9686,6 +9704,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemList.Array.size
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: equipInventory.Array.size
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
