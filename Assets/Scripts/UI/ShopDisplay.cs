@@ -35,17 +35,11 @@ public class ShopDisplay : MonoBehaviour
             itemDisplays[i].image.sprite = itemList[i].image;
         }
 
-        // Adding listeners for the buttons does not work with loops due to a Unity bug.
-        // Manually writing them out is currently the only solution.
-        itemDisplays[0].button.onClick.AddListener(delegate {player.AddItem(itemList[0]);});
-        itemDisplays[1].button.onClick.AddListener(delegate {player.AddItem(itemList[1]);});
-        itemDisplays[2].button.onClick.AddListener(delegate {player.AddItem(itemList[2]);});
-        itemDisplays[3].button.onClick.AddListener(delegate {player.AddItem(itemList[3]);});
-        itemDisplays[4].button.onClick.AddListener(delegate {player.AddItem(itemList[4]);});
-        itemDisplays[5].button.onClick.AddListener(delegate {player.AddItem(itemList[5]);});
-        itemDisplays[6].button.onClick.AddListener(delegate {player.AddItem(itemList[6]);});
-        itemDisplays[7].button.onClick.AddListener(delegate {player.AddItem(itemList[7]);});
-        itemDisplays[8].button.onClick.AddListener(delegate {player.AddItem(itemList[8]);});
+        for(int i = 0; i < itemDisplays.Count; i++)
+        {
+            int x = i;
+            itemDisplays[x].button.onClick.AddListener(delegate {player.AddItem(itemList[x]);});
+        }
         
     }
 

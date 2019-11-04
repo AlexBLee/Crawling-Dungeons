@@ -16,15 +16,6 @@ public class InventoryDisplay : MonoBehaviour
     public List<Image> equippedImages;
     public List<Button> equippedButtons;
 
-    // For determining which position to add the item image to.
-    [HideInInspector]
-    public int helmetNumber = 0, 
-    upperNumber = 1, 
-    rightHandNumber = 2, 
-    leftHandNumber = 3, 
-    lowerNumber = 4, 
-    bootNumber = 5;
-
     public Sprite blankImage;
     public Sprite blankEquipImage;
 
@@ -44,31 +35,17 @@ public class InventoryDisplay : MonoBehaviour
         items = player.itemList;
         inventoryButton.onClick.AddListener(ShowInventory);
 
-        // Adding listeners for the buttons does not work with loops due to a Unity bug.
-        // Manually writing them out is currently the only solution.
-        buttons[0].onClick.AddListener(delegate {DisplayItemInfo(0,buttons[0].gameObject.transform.position);});
-        buttons[1].onClick.AddListener(delegate {DisplayItemInfo(1,buttons[1].gameObject.transform.position);});
-        buttons[2].onClick.AddListener(delegate {DisplayItemInfo(2,buttons[2].gameObject.transform.position);});
-        buttons[3].onClick.AddListener(delegate {DisplayItemInfo(3,buttons[3].gameObject.transform.position);});
-        buttons[4].onClick.AddListener(delegate {DisplayItemInfo(4,buttons[4].gameObject.transform.position);});
-        buttons[5].onClick.AddListener(delegate {DisplayItemInfo(5,buttons[5].gameObject.transform.position);});
-        buttons[6].onClick.AddListener(delegate {DisplayItemInfo(6,buttons[6].gameObject.transform.position);});
-        buttons[7].onClick.AddListener(delegate {DisplayItemInfo(7,buttons[7].gameObject.transform.position);});
-        buttons[8].onClick.AddListener(delegate {DisplayItemInfo(8,buttons[8].gameObject.transform.position);});
-        buttons[9].onClick.AddListener(delegate {DisplayItemInfo(9,buttons[9].gameObject.transform.position);});
-        buttons[10].onClick.AddListener(delegate {DisplayItemInfo(10,buttons[10].gameObject.transform.position);});
-        buttons[11].onClick.AddListener(delegate {DisplayItemInfo(11,buttons[11].gameObject.transform.position);});
+        for(int i = 0; i < buttons.Count; i++)
+        {
+            int x = i;
+            buttons[x].onClick.AddListener(delegate {DisplayItemInfo(x,buttons[x].gameObject.transform.position);});
+        }
 
-        equippedButtons[0].onClick.AddListener(delegate {DisplayEquippedItemInfo(0,equippedButtons[0].gameObject.transform.position);});
-        equippedButtons[1].onClick.AddListener(delegate {DisplayEquippedItemInfo(1,equippedButtons[1].gameObject.transform.position);});
-        equippedButtons[2].onClick.AddListener(delegate {DisplayEquippedItemInfo(2,equippedButtons[2].gameObject.transform.position);});
-        equippedButtons[3].onClick.AddListener(delegate {DisplayEquippedItemInfo(3,equippedButtons[3].gameObject.transform.position);});
-        equippedButtons[4].onClick.AddListener(delegate {DisplayEquippedItemInfo(4,equippedButtons[4].gameObject.transform.position);});
-        equippedButtons[5].onClick.AddListener(delegate {DisplayEquippedItemInfo(5,equippedButtons[5].gameObject.transform.position);});
-
-
-
-
+        for(int i = 0; i < buttons.Count; i++)
+        {
+            int x = i;
+            equippedButtons[x].onClick.AddListener(delegate {DisplayEquippedItemInfo(x,equippedButtons[x].gameObject.transform.position);});
+        }
 
     }
 

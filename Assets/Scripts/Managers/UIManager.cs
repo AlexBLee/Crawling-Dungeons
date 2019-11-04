@@ -18,8 +18,6 @@ public class UIManager : MonoBehaviour
     public List<Button> potionButtonList;
     public List<TextMeshProUGUI> potionTextList;
 
-    // Caching purposes only.
-    // used to keep the count the amount of potions in players inventory.
     public ConsumableItem healthPot;
     public ConsumableItem manaPot;
 

@@ -257,7 +257,6 @@ public class CharacterEntity : MonoBehaviour
         }
 
     }
-
  
     // Next turn setting + damage is done through animation
     protected void RangedAttack()
@@ -379,6 +378,7 @@ public class CharacterEntity : MonoBehaviour
 
     }
 
+    // Animation Finishes - triggered in animations.
     public void AnimationFinish()
     {
         animationDone = true;
