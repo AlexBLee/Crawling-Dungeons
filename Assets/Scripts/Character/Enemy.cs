@@ -49,6 +49,8 @@ public class Enemy : CharacterEntity
 
     public void SetAttackConditions()
     {
+        // The AI can only heal once every two turns.
+        // The counter is there to keep count of how manys turns its been since it last healed.
         if(!canHeal)
         {
             healCounter--;
@@ -60,28 +62,29 @@ public class Enemy : CharacterEntity
 
         FindBestMove();
 
-
-        initialPos = transform.position;
-        targetReached = false;
-        attacking = true;
+        
     }
 
     public void FindBestMove()
     {
-        if(hp < maxHP*0.30f && hpCounter > 0 && canHeal)
+        if(hp < maxHP * 0.30f && hpCounter > 0 && canHeal)
         {
             hpCounter--;
             canHeal = false;
             healCounter = 2;
+            UseHealthItem(uiManager.healthPot);
             Debug.Log("HEAL!");
         }
-        else if(target.hp < target.maxHP*0.60f)
+        else if(target.hp < target.maxHP * 0.60f)
         {
+            RangedAttack();
             Debug.Log("use spell!");
         }
         else
         {
-            Debug.Log("ATTACK!");
+            initialPos = transform.position;
+            targetReached = false;
+            attacking = true;
         }
 
     }
