@@ -121,11 +121,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 0}
+  uiManager: {fileID: 0}
   level: 1
   exp: 0
   expThreshold: 50
   statPoints: 0
-  hp: 20
+  hp: 1000
   mp: 20
   maxHP: 20
   maxMP: 20
@@ -133,13 +134,15 @@ MonoBehaviour:
   intl: 20
   dex: 20
   will: 20
+  additionalDamage: 0
+  critChance: 0
   minDamage: 5
   maxDamage: 10
+  magicMinDamage: 0
+  magicMaxDamage: 0
   def: 0
   moveSpeed: 5
-  maxSpeed: 10
   inBattle: 1
-  targetChosen: 0
   targetReached: 0
   attacking: 0
   dead: 0
@@ -149,11 +152,14 @@ MonoBehaviour:
   infoText: {fileID: 5973154270874184695, guid: dc9f3253454acfa4a8730ae96c228bf3,
     type: 3}
   objectID: 0
-  beginTurn: 0
-  detectDistance: 10
+  hpCounter: 0
+  mpCounter: 0
   experiencePoints: 50
   newBattle: 0
   fightPosition: {x: 4.28, y: 2.58, z: 0}
+  healNumber: 0
+  attackNumber: 0
+  spellNumber: 0
 --- !u!95 &4452915190085327165
 Animator:
   serializedVersion: 3

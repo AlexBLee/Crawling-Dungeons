@@ -17,6 +17,6 @@ MonoBehaviour:
   image: {fileID: 21300098, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
   cost: 120
   durability: 69
-  itemType: 3
+  itemType: 2
   minDamage: 2265
   maxDamage: 11000
