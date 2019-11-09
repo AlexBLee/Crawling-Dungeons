@@ -67,19 +67,21 @@ public class Enemy : CharacterEntity
 
     public void FindBestMove()
     {
+        // Heal if self is low on health and is able to heal
         if(hp < maxHP * 0.30f && hpCounter > 0 && canHeal)
         {
             hpCounter--;
             canHeal = false;
             healCounter = 2;
             UseHealthItem(uiManager.healthPot);
-            Debug.Log("HEAL!");
         }
+        // Use spell if the player is low on health
         else if(target.hp < target.maxHP * 0.60f)
         {
+            additionalDamage = (int)maxDamage * 2;
             RangedAttack();
-            Debug.Log("use spell!");
         }
+        // Normal Attack
         else
         {
             initialPos = transform.position;

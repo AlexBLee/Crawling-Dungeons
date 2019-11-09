@@ -126,7 +126,7 @@ MonoBehaviour:
   exp: 0
   expThreshold: 50
   statPoints: 0
-  hp: 1000
+  hp: 20
   mp: 20
   maxHP: 20
   maxMP: 20
@@ -152,14 +152,13 @@ MonoBehaviour:
   infoText: {fileID: 5973154270874184695, guid: dc9f3253454acfa4a8730ae96c228bf3,
     type: 3}
   objectID: 0
-  hpCounter: 0
+  hpCounter: 3
   mpCounter: 0
   experiencePoints: 50
   newBattle: 0
   fightPosition: {x: 4.28, y: 2.58, z: 0}
-  healNumber: 0
-  attackNumber: 0
-  spellNumber: 0
+  canHeal: 0
+  healCounter: 1
 --- !u!95 &4452915190085327165
 Animator:
   serializedVersion: 3
