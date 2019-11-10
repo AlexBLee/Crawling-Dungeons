@@ -388,5 +388,11 @@ public class CharacterEntity : MonoBehaviour
     {
         battleManager.ToggleNextTurn();
     }
+
+        
+    public void PlaySound(string n)
+    {
+        AudioManager.Instance.Play(n);
+    }
     #endregion
 }

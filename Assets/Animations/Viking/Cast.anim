@@ -175,6 +175,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 1.0625
+    functionName: PlaySound
+    data: GunShot
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 2.0625
     functionName: MagicAnimationFinish
     data: 

@@ -1,10 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using UnityEngine;
-
+using UnityEngine.Audio;
 
 public class Player : CharacterEntity
 {
@@ -29,6 +26,8 @@ public class Player : CharacterEntity
     public RightHand rightHand;
     public LeftHand leftHand;
     public Boots boots;
+
+    public AudioClip clip;
 
     public List<EquippableItem> equipInventory;
 
@@ -423,7 +422,6 @@ public class Player : CharacterEntity
     }
 
     #endregion
-    
 
 
 }
