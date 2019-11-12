@@ -41,7 +41,7 @@ public class InventoryDisplay : MonoBehaviour
             buttons[x].onClick.AddListener(delegate {DisplayItemInfo(x,buttons[x].gameObject.transform.position);});
         }
 
-        for(int i = 0; i < buttons.Count; i++)
+        for(int i = 0; i < equippedButtons.Count; i++)
         {
             int x = i;
             equippedButtons[x].onClick.AddListener(delegate {DisplayEquippedItemInfo(x,equippedButtons[x].gameObject.transform.position);});
@@ -51,6 +51,7 @@ public class InventoryDisplay : MonoBehaviour
 
     public void ShowInventory()
     {
+        AudioManager.Instance.Play("Bag");
         shop.SetActive(false);
         inventory.SetActive(true);
     }

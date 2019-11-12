@@ -308,6 +308,7 @@ public class Player : CharacterEntity
     {
         if(gold >= item.cost)
         {
+            AudioManager.Instance.Play("Buy");
             gold -= item.cost;
             shopDisplay.UpdateGold();
             Debug.Log("Bought " + item.itemName);
@@ -326,6 +327,7 @@ public class Player : CharacterEntity
 
     public void RemoveItem(int index)
     {
+        AudioManager.Instance.Play("Trash");
         itemPopup.gameObject.SetActive(false);
         itemList[index] = null;
         inventoryDisplay.RemoveItemImage(index);
@@ -349,11 +351,13 @@ public class Player : CharacterEntity
 
         if(tempItem is ArmorItem)
         {
+            AudioManager.Instance.Play("ArmorEquip");
             ArmorItem armor = (ArmorItem)tempItem;
             def += armor.defense;
         }
         else if(tempItem is WeaponItem)
         {
+            AudioManager.Instance.Play("WeaponEquip");
             WeaponItem wpn = (WeaponItem)tempItem;
             minDamage += wpn.minDamage;
             maxDamage += wpn.maxDamage;
