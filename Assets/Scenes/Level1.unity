@@ -1763,6 +1763,71 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: UsePotion
+    clip: {fileID: 8300000, guid: 9b7b5370bfba54a4d8e35b71637c7179, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: DeathSound
+    clip: {fileID: 8300000, guid: eabed2d9d0acea44eb5edd8cec8f9b3c, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: MonsterDeathSound
+    clip: {fileID: 8300000, guid: d5bf1a2405b292449ac1f4f965da2fe3, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: IceSpell
+    clip: {fileID: 8300000, guid: 526630e342100d24d86e807d972e8b15, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Fire
+    clip: {fileID: 8300000, guid: 5f1bd2e635af3764eb72f3115a7ffa41, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: EnergyBall
+    clip: {fileID: 8300000, guid: ae18be102b64f2c42acaae02c8de7270, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Explosion
+    clip: {fileID: 8300000, guid: a5469cd6e401a624499942993ff37454, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Xplosion
+    clip: {fileID: 8300000, guid: 47e6b79a9b7dabc42823f345343fd548, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: GodsMight
+    clip: {fileID: 8300000, guid: a3b571a9e39806d4f8c95835643de364, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: AddClick
+    clip: {fileID: 8300000, guid: 498a4fd6745a7464589f44be6a71c6c1, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: RemoveClick
+    clip: {fileID: 8300000, guid: 03373bd15bc67c64c86b78229614944b, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: 601ee3ea579bbb844bc6e3856247190b, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Victory
+    clip: {fileID: 8300000, guid: 81ada4c8f411dd14b9708730e26caac2, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
 --- !u!4 &597520652
 Transform:
   m_ObjectHideFlags: 0

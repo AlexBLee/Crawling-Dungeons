@@ -16,13 +16,16 @@ public class AddRemoveStat : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+
         if(option)
         {
+            AudioManager.Instance.Play("AddClick");
             player.AddToStat(number);
             statDisplay.UpdateStats();
         }
         else
         {
+            AudioManager.Instance.Play("RemoveClick");
             player.RemoveFromStat(number);
             statDisplay.UpdateStats();
 

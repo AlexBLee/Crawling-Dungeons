@@ -67,6 +67,7 @@ public class Player : CharacterEntity
         {
             if(hp <= 0)
             {
+                AudioManager.Instance.Play("GameOver");
                 Debug.Log("oof!");
             }
             
@@ -103,6 +104,7 @@ public class Player : CharacterEntity
         }
         else
         {
+            AudioManager.Instance.Play(spell.effect.name);
             uiManager.HideMagicList();
 
             Debug.Log("Casted: " + spell.name);

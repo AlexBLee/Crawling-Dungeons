@@ -122,6 +122,7 @@ public class BattleManager : MonoBehaviour
         // If no more enemies to spawn, floor is complete.
         else
         {
+            AudioManager.Instance.Play("Victory");
             victoryPanel.SetActive(true);
         }
 

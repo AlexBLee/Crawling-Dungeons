@@ -270,6 +270,8 @@ public class CharacterEntity : MonoBehaviour
     {
         if(hpCounter > 0)
         {
+            AudioManager.Instance.Play("UsePotion");
+            
             uiManager.DisableButtons();
             uiManager.HidePotionList();
 
