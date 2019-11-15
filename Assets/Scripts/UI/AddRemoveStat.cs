@@ -16,7 +16,6 @@ public class AddRemoveStat : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-
         if(option)
         {
             AudioManager.Instance.Play("AddClick");
