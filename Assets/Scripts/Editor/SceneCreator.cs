@@ -2,11 +2,12 @@
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine.SceneManagement;
+using UnityEditor.SceneManagement;
 using System.Collections.Generic;
 
 public class SceneCreator : EditorWindow 
 {
-    Object background;
+    Sprite background;
     public string levelName;
     Enemy enemy;
     Enemy enemy2;
@@ -34,7 +35,7 @@ public class SceneCreator : EditorWindow
     {
         GUILayout.Label("Background", EditorStyles.boldLabel);
         GUILayout.Label("A background size of 1280x720 is recommended.");
-        background = EditorGUILayout.ObjectField("Image", background, typeof(Sprite), true);
+        background = (Sprite)EditorGUILayout.ObjectField("Image", background, typeof(Sprite), true);
         
         numberOfEnemies = EditorGUILayout.DelayedIntField("Number of enemies:", numberOfEnemies);
 
@@ -54,9 +55,24 @@ public class SceneCreator : EditorWindow
             else
             {
                 AssetDatabase.CopyAsset("Assets/Scenes/Level1.unity", "Assets/Scenes/" + levelName + ".unity");
+                Scene scene = EditorSceneManager.OpenScene("Assets/Scenes/" + levelName + ".unity");
+
+                GameObject bg = GameObject.Find("BG1");
+                bg.GetComponent<SpriteRenderer>().sprite = background;
+
+                BattleManager bm = GameObject.FindObjectOfType<BattleManager>();
+                bm.spawnableEnemies = new List<GameObject>(numberOfEnemies);
+                bm.spawnableEnemies.Add(enemy.gameObject);
+                bm.spawnableEnemies.Add(enemy2.gameObject);
+                bm.spawnableEnemies.Add(enemy3.gameObject);
+                bm.spawnableEnemies.Add(enemy4.gameObject);
+
+                
+
+
+                
             }
             
         }
-        
     }
 }
