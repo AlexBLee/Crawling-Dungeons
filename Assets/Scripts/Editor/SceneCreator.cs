@@ -22,7 +22,7 @@ public class SceneCreator : EditorWindow
     private void Start() {
         
     }
-    [MenuItem("2D-RPG-Mobile-Game/SceneCreator")]
+    [MenuItem("Tools/SceneCreator")]
     private static void ShowWindow() 
     {
 
@@ -35,16 +35,32 @@ public class SceneCreator : EditorWindow
     {
         GUILayout.Label("Background", EditorStyles.boldLabel);
         GUILayout.Label("A background size of 1280x720 is recommended.");
+
+        EditorGUILayout.Space();
+
         background = (Sprite)EditorGUILayout.ObjectField("Image", background, typeof(Sprite), true);
         
+        EditorGUILayout.Space();
+
         numberOfEnemies = EditorGUILayout.DelayedIntField("Number of enemies:", numberOfEnemies);
+
+
 
         enemy = (Enemy)EditorGUILayout.ObjectField("Enemy 1", enemy, typeof(Enemy), true);
         enemy2 = (Enemy)EditorGUILayout.ObjectField("Enemy 2", enemy2, typeof(Enemy), true);
         enemy3 = (Enemy)EditorGUILayout.ObjectField("Enemy 3", enemy3, typeof(Enemy), true);
         enemy4 = (Enemy)EditorGUILayout.ObjectField("Enemy 4", enemy4, typeof(Enemy), true);
 
+        EditorGUILayout.Space();
+        EditorGUILayout.Space();
+        EditorGUILayout.Space();
+        EditorGUILayout.Space();
+
+
         levelName = EditorGUILayout.TextField("Level Name: ", levelName);
+
+        EditorGUILayout.Space();
+
 
         if(GUILayout.Button("Make Level!"))
         {
