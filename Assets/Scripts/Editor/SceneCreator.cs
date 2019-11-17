@@ -70,8 +70,11 @@ public class SceneCreator : EditorWindow
             }
             else
             {
-                AssetDatabase.CopyAsset("Assets/Scenes/Level1.unity", "Assets/Scenes/" + levelName + ".unity");
-                Scene scene = EditorSceneManager.OpenScene("Assets/Scenes/" + levelName + ".unity");
+                string localPath = "Assets/Scenes/" + levelName + ".unity";
+                localPath = AssetDatabase.GenerateUniqueAssetPath(localPath);
+
+                AssetDatabase.CopyAsset("Assets/Scenes/Level1.unity", localPath);
+                Scene scene = EditorSceneManager.OpenScene(localPath);
 
                 GameObject bg = GameObject.Find("BG1");
                 bg.GetComponent<SpriteRenderer>().sprite = background;
