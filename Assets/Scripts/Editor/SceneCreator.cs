@@ -18,14 +18,9 @@ public class SceneCreator : EditorWindow
     int numberOfEnemies;
     ReorderableList list;
 
-
-    private void Start() {
-        
-    }
     [MenuItem("Tools/SceneCreator")]
     private static void ShowWindow() 
     {
-
         var window = GetWindow<SceneCreator>();
         window.titleContent = new GUIContent("SceneCreator");
         window.Show();
@@ -43,8 +38,6 @@ public class SceneCreator : EditorWindow
         EditorGUILayout.Space();
 
         numberOfEnemies = EditorGUILayout.DelayedIntField("Number of enemies:", numberOfEnemies);
-
-
 
         enemy = (Enemy)EditorGUILayout.ObjectField("Enemy 1", enemy, typeof(Enemy), true);
         enemy2 = (Enemy)EditorGUILayout.ObjectField("Enemy 2", enemy2, typeof(Enemy), true);
