@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor.SceneManagement;
 using System.Collections.Generic;
 
-public class LevelCreator : EditorWindow 
+public class SceneCreator : EditorWindow 
 {
     Sprite background;
     public string levelName;
@@ -21,7 +21,7 @@ public class LevelCreator : EditorWindow
     [MenuItem("Tools/Level Creator")]
     private static void ShowWindow() 
     {
-        var window = GetWindow<LevelCreator>();
+        var window = GetWindow<SceneCreator>();
         window.titleContent = new GUIContent("SceneCreator");
         window.Show();
     }

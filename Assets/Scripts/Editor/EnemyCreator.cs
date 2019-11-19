@@ -10,7 +10,7 @@ public class EnemyCreator : EditorWindow
 
     string enemyName;
 
-    [MenuItem("Tools/EnemyCreator")]
+    [MenuItem("Tools/Enemy Creator")]
     private static void ShowWindow() 
     {
         var window = GetWindow<EnemyCreator>();
@@ -57,6 +57,9 @@ public class EnemyCreator : EditorWindow
                     enemy.GetComponent<SpriteRenderer>().sprite = initialSprite;
                 }
 
+                // Reset the animation
+                enemy.anim.runtimeAnimatorController = null;
+
                 enemy.hp = hp;
                 enemy.maxHP = hp;
                 enemy.mp = mp;
@@ -69,6 +72,7 @@ public class EnemyCreator : EditorWindow
                 enemy.hpCounter = hpCounter;
                 enemy.experiencePoints = experiencePoints;
 
+                // Saving
                 string localPath = "Assets/Prefabs/Enemies/" + enemyName + ".prefab";
                 localPath = AssetDatabase.GenerateUniqueAssetPath(localPath);
 
