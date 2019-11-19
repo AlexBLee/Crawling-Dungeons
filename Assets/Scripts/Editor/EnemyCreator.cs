@@ -5,9 +5,8 @@ public class EnemyCreator : EditorWindow
 {
     Enemy enemy;
     int hp, mp, str, intl, dex, will, def, hpCounter, experiencePoints;
-    AnimationClip attack, cast, hit, heal, run, idle;
     Sprite initialSprite;
-    Animator animator;
+    Animation enemyAnim;
 
     string enemyName;
 
@@ -35,15 +34,6 @@ public class EnemyCreator : EditorWindow
         def = EditorGUILayout.IntField("Def:", def);
         hpCounter = EditorGUILayout.IntField("# of heals:", hpCounter);
         experiencePoints = EditorGUILayout.IntField("EXP:", experiencePoints);
-
-        EditorGUILayout.Space();
-
-        attack = (AnimationClip)EditorGUILayout.ObjectField("Attack:", attack, typeof(AnimationClip), true);
-        cast = (AnimationClip)EditorGUILayout.ObjectField("Cast:", cast, typeof(AnimationClip), true);
-        hit = (AnimationClip)EditorGUILayout.ObjectField("Hit:", hit, typeof(AnimationClip), true);
-        heal = (AnimationClip)EditorGUILayout.ObjectField("Heal:", heal, typeof(AnimationClip), true);
-        run = (AnimationClip)EditorGUILayout.ObjectField("Run:", run, typeof(AnimationClip), true);
-        idle = (AnimationClip)EditorGUILayout.ObjectField("Idle:",idle, typeof(AnimationClip), true);
 
         EditorGUILayout.Space();
         EditorGUILayout.Space();
@@ -79,14 +69,6 @@ public class EnemyCreator : EditorWindow
                 enemy.hpCounter = hpCounter;
                 enemy.experiencePoints = experiencePoints;
 
-                Animation enemyAnim = enemy.GetComponent<Animation>();
-                enemyAnim.AddClip(attack, "Attack");
-                enemyAnim.AddClip(cast, "Cast");
-                enemyAnim.AddClip(hit, "Hit");
-                enemyAnim.AddClip(heal, "Heal");
-                enemyAnim.AddClip(run, "Run");
-                enemyAnim.AddClip(idle, "Idle");
-
                 string localPath = "Assets/Prefabs/Enemies/" + enemyName + ".prefab";
                 localPath = AssetDatabase.GenerateUniqueAssetPath(localPath);
 
@@ -96,9 +78,6 @@ public class EnemyCreator : EditorWindow
             }
 
         }
-        
-
-
-
     }
+    
 }
