@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4452915190085327153}
   - component: {fileID: 4452915190085327165}
   m_Layer: 0
-  m_Name: Heavy Bandit
+  m_Name: Light Bandit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 4f52bfa3f80baef4390837848c8b4390, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 61120cae66afb974bb9420d56333adb5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.26, y: 0.38}
+    oldSize: {x: 0.26, y: 0.37}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -126,21 +126,21 @@ MonoBehaviour:
   exp: 0
   expThreshold: 50
   statPoints: 0
-  hp: 200
-  mp: 200
-  maxHP: 200
-  maxMP: 200
-  str: 50
+  hp: 100
+  mp: 100
+  maxHP: 100
+  maxMP: 100
+  str: 25
   intl: 20
-  dex: 30
-  will: 30
+  dex: 25
+  will: 25
   additionalDamage: 0
   critChance: 0
   minDamage: 5
   maxDamage: 10
   magicMinDamage: 0
   magicMaxDamage: 0
-  def: 15
+  def: 10
   moveSpeed: 5
   inBattle: 1
   targetReached: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   objectID: 0
   hpCounter: 2
   mpCounter: 0
-  experiencePoints: 400
+  experiencePoints: 125
   newBattle: 0
   fightPosition: {x: 4.28, y: 2.58, z: 0}
   canHeal: 0
@@ -169,7 +169,7 @@ Animator:
   m_GameObject: {fileID: 4452915190085327154}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: df96f851507def043899ac2b6def9612, type: 2}
+  m_Controller: {fileID: 9100000, guid: 646d32f39c95d89449685fd3769c06d1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4452915190085327153}
   - component: {fileID: 4452915190085327165}
   m_Layer: 0
-  m_Name: Heavy Bandit
+  m_Name: Slime Devil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,9 +71,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 4f52bfa3f80baef4390837848c8b4390, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2518ce0154599b64492b347fc49fd4cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.64, y: 0.64}
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.26, y: 0.38}
+    oldSize: {x: 0.23, y: 0.29}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -126,21 +126,21 @@ MonoBehaviour:
   exp: 0
   expThreshold: 50
   statPoints: 0
-  hp: 200
-  mp: 200
-  maxHP: 200
-  maxMP: 200
-  str: 50
-  intl: 20
-  dex: 30
-  will: 30
+  hp: 20
+  mp: 20
+  maxHP: 20
+  maxMP: 20
+  str: 5
+  intl: 5
+  dex: 5
+  will: 5
   additionalDamage: 0
   critChance: 0
   minDamage: 5
   maxDamage: 10
   magicMinDamage: 0
   magicMaxDamage: 0
-  def: 15
+  def: 0
   moveSpeed: 5
   inBattle: 1
   targetReached: 0
@@ -152,9 +152,9 @@ MonoBehaviour:
   infoText: {fileID: 5973154270874184695, guid: dc9f3253454acfa4a8730ae96c228bf3,
     type: 3}
   objectID: 0
-  hpCounter: 2
+  hpCounter: 0
   mpCounter: 0
-  experiencePoints: 400
+  experiencePoints: 50
   newBattle: 0
   fightPosition: {x: 4.28, y: 2.58, z: 0}
   canHeal: 0
@@ -169,7 +169,7 @@ Animator:
   m_GameObject: {fileID: 4452915190085327154}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: df96f851507def043899ac2b6def9612, type: 2}
+  m_Controller: {fileID: 9100000, guid: 622065bcaf36c434c9ac1e56ea6607cd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
