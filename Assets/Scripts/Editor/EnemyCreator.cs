@@ -59,7 +59,7 @@ public class EnemyCreator : EditorWindow
                 {
                     enemy.GetComponent<SpriteRenderer>().sprite = initialSprite;
                 }
-                
+
                 enemy.hp = hp;
                 enemy.maxHP = hp;
                 enemy.mp = mp;
@@ -72,7 +72,28 @@ public class EnemyCreator : EditorWindow
                 enemy.hpCounter = hpCounter;
                 enemy.experiencePoints = experiencePoints;
 
-                // Saving
+                // Creating animation folder + animator
+                AssetDatabase.CreateFolder("Assets/Animations", enemyName);
+                var controller = UnityEditor.Animations.AnimatorController.CreateAnimatorControllerAtPath("Assets/Animations/" + enemyName + "/" + enemyName + ".controller");
+
+                string[] animationNames = new string[6];
+                animationNames[0] = "/Idle.anim";
+                animationNames[1] = "/Run.anim";
+                animationNames[2] = "/Attack.anim";
+                animationNames[3] = "/Hit.anim";
+                animationNames[4] = "/Heal.anim";
+                animationNames[5] = "/Cast.anim";
+
+                for(int i = 0; i < animationNames.Length; i++)
+                {
+                    AnimationClip clip = new AnimationClip();
+                    AssetDatabase.CreateAsset(clip, "Assets/Animations/" + enemyName + animationNames[i]);
+                    controller.AddMotion(clip);
+                }
+
+                enemy.anim.runtimeAnimatorController = controller;
+                
+                // Saving prefab
                 string localPath = "Assets/Prefabs/Enemies/" + enemyName + ".prefab";
                 localPath = AssetDatabase.GenerateUniqueAssetPath(localPath);
 
