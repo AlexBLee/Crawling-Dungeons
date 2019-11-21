@@ -52,14 +52,14 @@ public class EnemyCreator : EditorWindow
             {
                 enemy = PrefabUtility.LoadPrefabContents("Assets/Prefabs/Enemies/Enemy.prefab").GetComponent<Enemy>();
 
+                // Reset the animation
+                enemy.anim.runtimeAnimatorController = null;
+
                 if(initialSprite != null)
                 {
                     enemy.GetComponent<SpriteRenderer>().sprite = initialSprite;
                 }
-
-                // Reset the animation
-                enemy.anim.runtimeAnimatorController = null;
-
+                
                 enemy.hp = hp;
                 enemy.maxHP = hp;
                 enemy.mp = mp;
