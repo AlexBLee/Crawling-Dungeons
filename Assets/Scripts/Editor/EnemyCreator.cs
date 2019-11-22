@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using UnityEditor.Animations;
 
 public class EnemyCreator : EditorWindow 
 {
@@ -7,7 +8,6 @@ public class EnemyCreator : EditorWindow
     int hp, mp, str, intl, dex, will, def, hpCounter, experiencePoints;
     Sprite initialSprite;
     Animation enemyAnim;
-
     string enemyName;
 
     [MenuItem("Tools/Enemy Creator")]
@@ -76,22 +76,53 @@ public class EnemyCreator : EditorWindow
                 AssetDatabase.CreateFolder("Assets/Animations", enemyName);
                 var controller = UnityEditor.Animations.AnimatorController.CreateAnimatorControllerAtPath("Assets/Animations/" + enemyName + "/" + enemyName + ".controller");
 
-                string[] animationNames = new string[6];
-                animationNames[0] = "/Idle.anim";
-                animationNames[1] = "/Run.anim";
-                animationNames[2] = "/Attack.anim";
-                animationNames[3] = "/Hit.anim";
-                animationNames[4] = "/Heal.anim";
-                animationNames[5] = "/Cast.anim";
+                string[] animationFilenames = new string[6];
+                animationFilenames[0] = "/Idle.anim";
+                animationFilenames[1] = "/Run.anim";
+                animationFilenames[2] = "/Attack.anim";
+                animationFilenames[3] = "/Hit.anim";
+                animationFilenames[4] = "/Heal.anim";
+                animationFilenames[5] = "/Cast.anim";
 
-                for(int i = 0; i < animationNames.Length; i++)
+                AnimatorState[] animStates = new AnimatorState[6];
+
+                for(int i = 0; i < animationFilenames.Length; i++)
                 {
                     AnimationClip clip = new AnimationClip();
-                    AssetDatabase.CreateAsset(clip, "Assets/Animations/" + enemyName + animationNames[i]);
-                    controller.AddMotion(clip);
+                    AssetDatabase.CreateAsset(clip, "Assets/Animations/" + enemyName + animationFilenames[i]);
+                    animStates[i] = controller.AddMotion(clip);
                 }
 
                 enemy.anim.runtimeAnimatorController = controller;
+
+                // Attaching animation states to each other
+                string[] animationNames = new string[6];
+                animationFilenames[0] = "Attack";
+                animationFilenames[1] = "Hit";
+                animationFilenames[2] = "Run";
+                animationFilenames[3] = "BackwardsRun";
+                animationFilenames[4] = "UseItem";
+                animationFilenames[5] = "Cast";
+                
+                controller.AddParameter(animationNames[0], AnimatorControllerParameterType.Trigger);
+                controller.AddParameter(animationNames[1], AnimatorControllerParameterType.Trigger); 
+                controller.AddParameter(animationNames[2], AnimatorControllerParameterType.Bool); 
+                controller.AddParameter(animationNames[3], AnimatorControllerParameterType.Bool); 
+                controller.AddParameter(animationNames[4], AnimatorControllerParameterType.Trigger); 
+                controller.AddParameter(animationNames[5], AnimatorControllerParameterType.Trigger);
+
+                for(int i = 0; i < animStates.Length; i++)
+                {
+                    var transition = animStates[0].AddTransition(animStates[i]);
+                    transition.AddCondition(AnimatorConditionMode.If, 0, "Idle");
+
+                }
+
+
+
+
+
+
                 
                 // Saving prefab
                 string localPath = "Assets/Prefabs/Enemies/" + enemyName + ".prefab";
