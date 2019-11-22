@@ -74,8 +74,11 @@ public class EnemyCreator : EditorWindow
                 enemy.experiencePoints = experiencePoints;
 
                 // Creating animation folder + animator
-                AssetDatabase.CreateFolder("Assets/Animations", enemyName);
-                var controller = UnityEditor.Animations.AnimatorController.CreateAnimatorControllerAtPath("Assets/Animations/" + enemyName + "/" + enemyName + ".controller");
+                string enemyDestination = AssetDatabase.GUIDToAssetPath(AssetDatabase.CreateFolder("Assets/Enemies", enemyName));
+                AssetDatabase.CreateFolder(enemyDestination, "Animations");
+                AssetDatabase.CreateFolder(enemyDestination, "Art");
+
+                var controller = AnimatorController.CreateAnimatorControllerAtPath(enemyDestination + "/Animations/" + enemyName + ".controller");
 
                 string[] animationFilenames = new string[6];
                 animationFilenames[0] = "/Idle.anim";
@@ -90,7 +93,7 @@ public class EnemyCreator : EditorWindow
                 for(int i = 0; i < animationFilenames.Length; i++)
                 {
                     AnimationClip clip = new AnimationClip();
-                    AssetDatabase.CreateAsset(clip, "Assets/Animations/" + enemyName + animationFilenames[i]);
+                    AssetDatabase.CreateAsset(clip, enemyDestination + "/Animations/" + animationFilenames[i]);
                     animStates[i] = controller.AddMotion(clip);
                 }
 
@@ -140,7 +143,7 @@ public class EnemyCreator : EditorWindow
 
                 
                 // Saving prefab
-                string localPath = "Assets/Prefabs/Enemies/" + enemyName + ".prefab";
+                string localPath = enemyDestination + "/" + enemyName + ".prefab";
                 localPath = AssetDatabase.GenerateUniqueAssetPath(localPath);
 
                 PrefabUtility.SaveAsPrefabAsset(enemy.gameObject, localPath);
