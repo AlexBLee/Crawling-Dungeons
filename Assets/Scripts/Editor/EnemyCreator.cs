@@ -60,6 +60,7 @@ public class EnemyCreator : EditorWindow
                     enemy.GetComponent<SpriteRenderer>().sprite = initialSprite;
                 }
 
+                // Stats
                 enemy.hp = hp;
                 enemy.maxHP = hp;
                 enemy.mp = mp;
@@ -78,9 +79,9 @@ public class EnemyCreator : EditorWindow
 
                 string[] animationFilenames = new string[6];
                 animationFilenames[0] = "/Idle.anim";
-                animationFilenames[1] = "/Run.anim";
-                animationFilenames[2] = "/Attack.anim";
-                animationFilenames[3] = "/Hit.anim";
+                animationFilenames[1] = "/Attack.anim";
+                animationFilenames[2] = "/Hit.anim";
+                animationFilenames[3] = "/Run.anim";
                 animationFilenames[4] = "/Heal.anim";
                 animationFilenames[5] = "/Cast.anim";
 
@@ -96,32 +97,46 @@ public class EnemyCreator : EditorWindow
                 enemy.anim.runtimeAnimatorController = controller;
 
                 // Attaching animation states to each other
-                string[] animationNames = new string[6];
-                animationFilenames[0] = "Attack";
-                animationFilenames[1] = "Hit";
-                animationFilenames[2] = "Run";
-                animationFilenames[3] = "BackwardsRun";
-                animationFilenames[4] = "UseItem";
-                animationFilenames[5] = "Cast";
+                string[] animationNames = new string[5];
+                animationNames[0] = "Attack";
+                animationNames[1] = "Hit";
+                animationNames[2] = "Run";
+                animationNames[3] = "UseItem";
+                animationNames[4] = "Cast";
                 
                 controller.AddParameter(animationNames[0], AnimatorControllerParameterType.Trigger);
                 controller.AddParameter(animationNames[1], AnimatorControllerParameterType.Trigger); 
                 controller.AddParameter(animationNames[2], AnimatorControllerParameterType.Bool); 
-                controller.AddParameter(animationNames[3], AnimatorControllerParameterType.Bool); 
-                controller.AddParameter(animationNames[4], AnimatorControllerParameterType.Trigger); 
-                controller.AddParameter(animationNames[5], AnimatorControllerParameterType.Trigger);
+                controller.AddParameter(animationNames[3], AnimatorControllerParameterType.Trigger); 
+                controller.AddParameter(animationNames[4], AnimatorControllerParameterType.Trigger);
 
-                for(int i = 0; i < animStates.Length; i++)
+
+                for (int i = 1; i < animStates.Length; i++)
                 {
                     var transition = animStates[0].AddTransition(animStates[i]);
-                    transition.AddCondition(AnimatorConditionMode.If, 0, "Idle");
-
+                    transition.AddCondition(AnimatorConditionMode.If, 0, animationNames[i-1]);
                 }
 
+                for (int i = 1; i < animStates.Length; i++)
+                {
+                    var transition = animStates[i].AddTransition(animStates[0]);
+                    transition.hasExitTime = true;
 
+                    if (i == 3)
+                    {
+                        transition.AddCondition(AnimatorConditionMode.IfNot, 0, "Run");
+                    }
+                }
 
+                // These two transitions are manually done due to them not fitting into the transitions from/to idle (default state)
+                // Run to Attack transition
+                var attackTransition = animStates[3].AddTransition(animStates[1]);
+                attackTransition.AddCondition(AnimatorConditionMode.If, 1, "Attack");
+                attackTransition.hasExitTime = false;
 
-
+                // Attack to run transition
+                attackTransition = animStates[1].AddTransition(animStates[3]);
+                attackTransition.hasExitTime = true;
 
                 
                 // Saving prefab
