@@ -7,7 +7,6 @@ public class EnemyCreator : EditorWindow
     Enemy enemy;
     int hp, mp, str, intl, dex, will, def, hpCounter, experiencePoints;
     Sprite initialSprite;
-    Animation enemyAnim;
     string enemyName;
 
     [MenuItem("Tools/Enemy Creator")]
