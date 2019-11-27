@@ -2041,8 +2041,7 @@ MonoBehaviour:
   victoryPanel: {fileID: 2036862401}
   background: {fileID: 1529571563}
   spawnableEnemies:
-  - {fileID: 4452915190085327154, guid: f4a87c3d0e93dd5468d2b26055c9085c, type: 3}
-  - {fileID: 4452915190085327154, guid: f4a87c3d0e93dd5468d2b26055c9085c, type: 3}
+  - {fileID: 4452915190085327154, guid: 0860f235f94e2c145977bb475f51d74a, type: 3}
   enemyCounter: 0
 --- !u!4 &611337057
 Transform:
@@ -7782,7 +7781,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1d361b277a62f3142b5e6525c571642e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a9f4c547438816747967f0304ecc8643, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8684,6 +8683,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemList.Array.data[1]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: hp
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 70495698347628145, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
