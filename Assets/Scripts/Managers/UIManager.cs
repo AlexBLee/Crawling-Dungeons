@@ -26,6 +26,8 @@ public class UIManager : MonoBehaviour
     public AmountBar healthBar;
     public AmountBar manaBar;
 
+    public Button magicBackButton;
+    public Button potionBackButton;
 
     private void Start() 
     {
@@ -54,6 +56,10 @@ public class UIManager : MonoBehaviour
 
         potionButtonList[0].onClick.AddListener(delegate{player.UseHealthItem(healthPot);});
         potionButtonList[1].onClick.AddListener(delegate{player.UseManaItem(manaPot);});
+
+        magicBackButton.onClick.AddListener(HideMagicList);
+        potionBackButton.onClick.AddListener(HidePotionList);
+
 
     }
 
