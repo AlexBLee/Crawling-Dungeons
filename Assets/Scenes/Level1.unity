@@ -2041,7 +2041,7 @@ MonoBehaviour:
   victoryPanel: {fileID: 2036862401}
   background: {fileID: 1529571563}
   spawnableEnemies:
-  - {fileID: 4452915190085327154, guid: f4a87c3d0e93dd5468d2b26055c9085c, type: 3}
+  - {fileID: 4452915190085327154, guid: e6a1377e52f54504989db9d95ddc0730, type: 3}
   - {fileID: 4452915190085327154, guid: f4a87c3d0e93dd5468d2b26055c9085c, type: 3}
   enemyCounter: 0
 --- !u!4 &611337057
