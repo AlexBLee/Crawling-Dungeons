@@ -173,6 +173,15 @@ public class CharacterEntity : MonoBehaviour
 
     }
 
+    public virtual void CheckDeath()
+    {
+        if(hp <= 0 && inBattle)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    
     #endregion
 
     #region Moves
@@ -213,6 +222,7 @@ public class CharacterEntity : MonoBehaviour
         else
         {
             uiManager.UpdateUIHealth();
+            target.GetComponent<Player>().CheckDeath();
         }
 
 
@@ -253,7 +263,8 @@ public class CharacterEntity : MonoBehaviour
         }
         else
         {
-           uiManager.UpdateUIHealth();
+            uiManager.UpdateUIHealth();
+            target.GetComponent<Player>().CheckDeath();
         }
 
     }

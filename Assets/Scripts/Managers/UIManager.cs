@@ -29,6 +29,8 @@ public class UIManager : MonoBehaviour
     public Button magicBackButton;
     public Button potionBackButton;
 
+    public GameObject gameOverPanel;
+
     private void Start() 
     {
         attackButton.onClick.AddListener(player.Attack);
@@ -146,6 +148,12 @@ public class UIManager : MonoBehaviour
     public void UpdateUIMana()
     {
         manaBar.SetAmount(player.mp, player.maxMP);
+    }
+
+    public void ActivateGameOver()
+    {
+        DisableButtons();
+        gameOverPanel.SetActive(true);
     }
 
 }

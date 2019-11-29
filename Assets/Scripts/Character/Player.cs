@@ -31,7 +31,6 @@ public class Player : CharacterEntity
 
     public List<EquippableItem> equipInventory;
 
-
     public int gold;
 
     private void Awake() {
@@ -65,12 +64,6 @@ public class Player : CharacterEntity
 
         if(inBattle && battleManager.playerTurn)
         {
-            if(hp <= 0)
-            {
-                AudioManager.Instance.Play("GameOver");
-                Debug.Log("oof!");
-            }
-            
             if (target != null)
             {     
                 MoveAndAttack(target.transform.position, 1);
@@ -269,6 +262,14 @@ public class Player : CharacterEntity
         battleManager.ToggleNextBattle();
     }
 
+    public override void CheckDeath()
+    {
+        if(hp <= 0 && inBattle)
+        {
+            Destroy(gameObject);
+            uiManager.ActivateGameOver();
+        }
+    }
 
     #endregion
 

@@ -91,7 +91,7 @@ public class Enemy : CharacterEntity
 
     }
 
-    public void CheckDeath()
+    public override void CheckDeath()
     {
         if(hp <= 0 && inBattle)
         {
