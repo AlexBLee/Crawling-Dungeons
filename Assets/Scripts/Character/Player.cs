@@ -262,13 +262,10 @@ public class Player : CharacterEntity
         battleManager.ToggleNextBattle();
     }
 
-    public override void CheckDeath()
+    public override void FinishDeath()
     {
-        if(hp <= 0 && inBattle)
-        {
-            Destroy(gameObject);
-            uiManager.ActivateGameOver();
-        }
+        uiManager.ActivateGameOver();
+        base.FinishDeath();
     }
 
     #endregion

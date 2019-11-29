@@ -173,12 +173,17 @@ public class CharacterEntity : MonoBehaviour
 
     }
 
-    public virtual void CheckDeath()
+    public void CheckDeath()
     {
         if(hp <= 0 && inBattle)
         {
-            Destroy(gameObject);
+            anim.SetTrigger("Death");
         }
+    }
+
+    public virtual void FinishDeath()
+    {
+        Destroy(gameObject);
     }
 
     
@@ -217,12 +222,12 @@ public class CharacterEntity : MonoBehaviour
 
         if(target is Enemy)
         {
-            target.GetComponent<Enemy>().CheckDeath();
+            target.CheckDeath();
         }
         else
         {
             uiManager.UpdateUIHealth();
-            target.GetComponent<Player>().CheckDeath();
+            target.CheckDeath();
         }
 
 

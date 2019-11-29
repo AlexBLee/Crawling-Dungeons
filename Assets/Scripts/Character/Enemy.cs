@@ -91,18 +91,10 @@ public class Enemy : CharacterEntity
 
     }
 
-    public override void CheckDeath()
-    {
-        if(hp <= 0 && inBattle)
-        {
-            anim.SetTrigger("Death");
-        }
-    }
-
-    public void FinishDeath()
+    public override void FinishDeath()
     {
         target.GetComponent<Player>().RecieveXP(experiencePoints);
-        Destroy(gameObject);
+        base.FinishDeath();
     }
 
 
