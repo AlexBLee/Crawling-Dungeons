@@ -95,9 +95,14 @@ public class Enemy : CharacterEntity
     {
         if(hp <= 0 && inBattle)
         {
-            target.GetComponent<Player>().RecieveXP(experiencePoints);
-            Destroy(gameObject);
+            anim.SetTrigger("Death");
         }
+    }
+
+    public void FinishDeath()
+    {
+        target.GetComponent<Player>().RecieveXP(experiencePoints);
+        Destroy(gameObject);
     }
 
 
