@@ -79,15 +79,16 @@ public class EnemyCreator : EditorWindow
 
                 var controller = AnimatorController.CreateAnimatorControllerAtPath(enemyDestination + "/Animations/" + enemyName + ".controller");
 
-                string[] animationFilenames = new string[6];
+                string[] animationFilenames = new string[7];
                 animationFilenames[0] = "/Idle.anim";
                 animationFilenames[1] = "/Attack.anim";
                 animationFilenames[2] = "/Hit.anim";
                 animationFilenames[3] = "/Run.anim";
                 animationFilenames[4] = "/Heal.anim";
                 animationFilenames[5] = "/Cast.anim";
+                animationFilenames[6] = "/Death.anim";
 
-                AnimatorState[] animStates = new AnimatorState[6];
+                AnimatorState[] animStates = new AnimatorState[7];
 
                 for(int i = 0; i < animationFilenames.Length; i++)
                 {
@@ -99,19 +100,20 @@ public class EnemyCreator : EditorWindow
                 enemy.anim.runtimeAnimatorController = controller;
 
                 // Attaching animation states to each other
-                string[] animationNames = new string[5];
+                string[] animationNames = new string[6];
                 animationNames[0] = "Attack";
                 animationNames[1] = "Hit";
                 animationNames[2] = "Run";
                 animationNames[3] = "UseItem";
                 animationNames[4] = "Cast";
+                animationNames[5] = "Death";
                 
                 controller.AddParameter(animationNames[0], AnimatorControllerParameterType.Trigger);
                 controller.AddParameter(animationNames[1], AnimatorControllerParameterType.Trigger); 
                 controller.AddParameter(animationNames[2], AnimatorControllerParameterType.Bool); 
                 controller.AddParameter(animationNames[3], AnimatorControllerParameterType.Trigger); 
                 controller.AddParameter(animationNames[4], AnimatorControllerParameterType.Trigger);
-
+                controller.AddParameter(animationNames[5], AnimatorControllerParameterType.Trigger);
 
                 for (int i = 1; i < animStates.Length; i++)
                 {
@@ -119,7 +121,8 @@ public class EnemyCreator : EditorWindow
                     transition.AddCondition(AnimatorConditionMode.If, 0, animationNames[i-1]);
                 }
 
-                for (int i = 1; i < animStates.Length; i++)
+                // Only going to length - 1 as the Death state does not need to transition back into idle.
+                for (int i = 1; i < animStates.Length - 1; i++)
                 {
                     var transition = animStates[i].AddTransition(animStates[0]);
                     transition.hasExitTime = true;
