@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4452915190085327153}
   - component: {fileID: 4452915190085327165}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Viking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,6 +159,7 @@ MonoBehaviour:
   fightPosition: {x: 4.28, y: 2.58, z: 0}
   canHeal: 0
   healCounter: 1
+  gold: 50
 --- !u!95 &4452915190085327165
 Animator:
   serializedVersion: 3

@@ -606,6 +606,9 @@ MonoBehaviour:
   - {fileID: 0}
   healthBar: {fileID: 0}
   manaBar: {fileID: 0}
+  magicBackButton: {fileID: 0}
+  potionBackButton: {fileID: 0}
+  gameOverPanel: {fileID: 0}
 --- !u!4 &68796134
 Transform:
   m_ObjectHideFlags: 0
@@ -5261,7 +5264,7 @@ MonoBehaviour:
   player: {fileID: 1075298623}
   count: 0
   itemPopup: {fileID: 2060712347}
-  goldText: {fileID: 0}
+  goldText: {fileID: 1066920173}
   inventoryButton: {fileID: 278342471}
   inventory: {fileID: 510461495}
   shop: {fileID: 809160331}

@@ -47,6 +47,7 @@ public class InventoryDisplay : MonoBehaviour
             equippedButtons[x].onClick.AddListener(delegate {DisplayEquippedItemInfo(x,equippedButtons[x].gameObject.transform.position);});
         }
 
+        goldText.text = player.gold.ToString();
     }
 
     public void ShowInventory()
