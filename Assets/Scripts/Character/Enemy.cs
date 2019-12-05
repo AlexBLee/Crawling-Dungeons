@@ -11,6 +11,7 @@ public class Enemy : CharacterEntity
 
     public bool canHeal;
     public int healCounter = 1;
+    public int gold;
 
     private void Start() 
     {   
@@ -93,7 +94,7 @@ public class Enemy : CharacterEntity
 
     public override void FinishDeath()
     {
-        target.GetComponent<Player>().RecieveXP(experiencePoints);
+        target.GetComponent<Player>().RecieveXPAndGold(experiencePoints, gold);
         base.FinishDeath();
     }
 

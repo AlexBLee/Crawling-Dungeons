@@ -174,8 +174,9 @@ public class Player : CharacterEntity
         UpdateDamageStats();
     }
 
-    public void RecieveXP(int expRecieved)
+    public void RecieveXPAndGold(int expRecieved, int goldRecieved)
     {
+        gold += goldRecieved;
         exp += expRecieved;
         infoText.text = "+" + expRecieved.ToString() + " XP";
         Instantiate(infoText, transform.position, Quaternion.identity);
