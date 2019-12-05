@@ -79,7 +79,7 @@ public class SceneCreator : EditorWindow
                 bm.spawnableEnemies.Add(enemy3.gameObject);
                 bm.spawnableEnemies.Add(enemy4.gameObject);
 
-                
+                EditorSceneManager.MarkSceneDirty(scene);
 
 
                 
