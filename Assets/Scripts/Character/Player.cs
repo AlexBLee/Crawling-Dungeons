@@ -280,6 +280,7 @@ public class Player : CharacterEntity
     public void ApplyItemsFrom(Player otherPlayer)
     {
         itemList = otherPlayer.itemList;
+        equipInventory = otherPlayer.equipInventory;
         gold = otherPlayer.gold;
 
         helmet = otherPlayer.helmet;
@@ -294,6 +295,7 @@ public class Player : CharacterEntity
     public void ApplyItemsTo(Player otherPlayer)
     {
         otherPlayer.itemList = itemList;
+        otherPlayer.equipInventory = equipInventory;
         otherPlayer.gold = gold;
 
         otherPlayer.helmet = helmet;
