@@ -33,12 +33,15 @@ public class Player : CharacterEntity
 
     public int gold;
 
-    private void Awake() {
+    private void Awake() 
+    {
         spellList = new Dictionary<Spell, bool>();
         foreach(Spell spell in spells)
         {
             spellList.Add(spell, false);
         }
+        ApplyStatsFrom(GameManager.instance.playerStats);
+        ApplyItemsFrom(GameManager.instance.playerStats);
 
 
     }
@@ -46,8 +49,7 @@ public class Player : CharacterEntity
 
     private void Start()
     {
-        ApplyStatsFrom(GameManager.instance.playerStats);
-        ApplyItemsFrom(GameManager.instance.playerStats);
+
         pos = transform.position;
 
         UnlockSpells();
