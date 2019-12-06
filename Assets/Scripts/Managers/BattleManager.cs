@@ -63,6 +63,7 @@ public class BattleManager : MonoBehaviour
         {
             if(enemy != null)
             {
+                uiManager.DisableButtons();
                 enemy.SetAttackConditions();
             }
             playerTurn = false;
