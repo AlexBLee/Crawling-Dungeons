@@ -46,11 +46,11 @@ public class UIManager : MonoBehaviour
 
         foreach(ConsumableItem item in player.itemList)
         {
-            if(item == healthPot)
+            if((ConsumableItem)item == healthPot)
             {
                 player.hpCounter++;
             }
-            else if(item == manaPot)
+            else if((ConsumableItem)item == manaPot)
             {
                 player.mpCounter++;
             }
