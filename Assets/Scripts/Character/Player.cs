@@ -250,8 +250,16 @@ public class Player : CharacterEntity
                 else if(equipInventory[i] is WeaponItem)
                 {
                     WeaponItem tempItem = (WeaponItem)equipInventory[i];
-                    minDamage += tempItem.minDamage;
-                    maxDamage += tempItem.maxDamage;
+                    if(tempItem.isMagic)
+                    {
+                        magicMinDamage += tempItem.minDamage;
+                        magicMaxDamage += tempItem.maxDamage;
+                    }
+                    else
+                    {
+                        minDamage += tempItem.minDamage;
+                        maxDamage += tempItem.maxDamage;
+                    }
                 }
             }
         }
@@ -362,8 +370,16 @@ public class Player : CharacterEntity
         {
             AudioManager.Instance.Play("WeaponEquip");
             WeaponItem wpn = (WeaponItem)tempItem;
-            minDamage += wpn.minDamage;
-            maxDamage += wpn.maxDamage;
+            if(wpn.isMagic)
+            {
+                magicMinDamage += wpn.minDamage;
+                magicMaxDamage += wpn.maxDamage;
+            }
+            else
+            {
+                minDamage += wpn.minDamage;
+                maxDamage += wpn.maxDamage;
+            }
         }
 
         RemoveItem(invIndex);

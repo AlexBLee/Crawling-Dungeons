@@ -7,5 +7,6 @@ public class WeaponItem : EquippableItem
 {
     public int minDamage;
     public int maxDamage;
+    public bool isMagic;
 
 }
