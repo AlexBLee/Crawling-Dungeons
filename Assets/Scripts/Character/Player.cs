@@ -20,13 +20,6 @@ public class Player : CharacterEntity
     public ItemPopup itemPopup;
     public ShopDisplay shopDisplay;
 
-    public Helmet helmet;
-    public Upper upper;
-    public Lower lower;
-    public RightHand rightHand;
-    public LeftHand leftHand;
-    public Boots boots;
-
     public AudioClip clip;
 
     public List<EquippableItem> equipInventory;
@@ -35,13 +28,14 @@ public class Player : CharacterEntity
 
     private void Awake() 
     {
+        ApplyStatsFrom(GameManager.instance.playerStats);
+        ApplyItemsFrom(GameManager.instance.playerStats);
+
         spellList = new Dictionary<Spell, bool>();
         foreach(Spell spell in spells)
         {
             spellList.Add(spell, false);
         }
-        ApplyStatsFrom(GameManager.instance.playerStats);
-        ApplyItemsFrom(GameManager.instance.playerStats);
 
 
     }
@@ -210,30 +204,19 @@ public class Player : CharacterEntity
 
     public void UnlockSpells()
     {
-        switch(level)
-        {
-            case 1:
-                spellList[spells[0]] = true;
-                break;
-            case 5:
-                spellList[spells[1]] = true;
-                break;
-            case 7:
-                spellList[spells[2]] = true;
-                break;
-            case 12:
-                spellList[spells[3]] = true;
-                break;
-            case 20:
-                spellList[spells[4]] = true;
-                break;
-            case 25:
-                spellList[spells[5]] = true;
-                break;
 
-            default:
-                break;
-        }
+        if(level >= 1) { spellList[spells[0]] = true; }
+
+        if(level >= 5) { spellList[spells[1]] = true; }
+
+        if(level >= 7) { spellList[spells[2]] = true; }
+
+        if(level >= 12) { spellList[spells[3]] = true; }
+
+        if(level >= 20) { spellList[spells[4]] = true; }
+
+        if(level >= 25) { spellList[spells[5]] = true; }
+
     }
 
     public void UpdateItemStats()
@@ -290,14 +273,6 @@ public class Player : CharacterEntity
         itemList = otherPlayer.itemList;
         equipInventory = otherPlayer.equipInventory;
         gold = otherPlayer.gold;
-
-        helmet = otherPlayer.helmet;
-        upper = otherPlayer.upper;
-        lower = otherPlayer.lower;
-        rightHand = otherPlayer.rightHand;
-        leftHand = otherPlayer.leftHand;
-        boots = otherPlayer.boots;
-
     }
 
     public void ApplyItemsTo(Player otherPlayer)
@@ -305,14 +280,6 @@ public class Player : CharacterEntity
         otherPlayer.itemList = itemList;
         otherPlayer.equipInventory = equipInventory;
         otherPlayer.gold = gold;
-
-        otherPlayer.helmet = helmet;
-        otherPlayer.upper = upper;
-        otherPlayer.lower = lower;
-        otherPlayer.rightHand = rightHand;
-        otherPlayer.leftHand = leftHand;
-        otherPlayer.boots = boots;
-        
     }
 
     public void AddItem(Item item)

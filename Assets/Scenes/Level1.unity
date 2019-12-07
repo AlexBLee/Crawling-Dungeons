@@ -2085,6 +2085,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 70495698347628148, guid: fa61940fa5df1b24b9aec3232ab7633c,
         type: 3}
+      propertyPath: equipInventory.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 70495698347628148, guid: fa61940fa5df1b24b9aec3232ab7633c,
+        type: 3}
       propertyPath: itemList.Array.data[0]
       value: 
       objectReference: {fileID: 0}
@@ -9223,6 +9228,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemList.Array.size
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: equipInventory.Array.size
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
