@@ -5272,6 +5272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 368710595}
+  levelNumber: 2
 --- !u!4 &1347749279
 Transform:
   m_ObjectHideFlags: 0
