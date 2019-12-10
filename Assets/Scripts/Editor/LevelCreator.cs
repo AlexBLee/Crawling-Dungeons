@@ -9,10 +9,6 @@ public class SceneCreator : EditorWindow
 {
     Sprite background;
     public string levelName;
-    Enemy enemy;
-    Enemy enemy2;
-    Enemy enemy3;
-    Enemy enemy4;
 
     [SerializeField] List<Object> enemyList = new List<Object>();
     int numberOfEnemies;
@@ -37,12 +33,21 @@ public class SceneCreator : EditorWindow
         
         EditorGUILayout.Space();
 
-        numberOfEnemies = EditorGUILayout.DelayedIntField("Number of enemies:", numberOfEnemies);
+        numberOfEnemies = Mathf.Max(0, EditorGUILayout.DelayedIntField("Number of enemies:", numberOfEnemies));
 
-        enemy = (Enemy)EditorGUILayout.ObjectField("Enemy 1", enemy, typeof(Enemy), true);
-        enemy2 = (Enemy)EditorGUILayout.ObjectField("Enemy 2", enemy2, typeof(Enemy), true);
-        enemy3 = (Enemy)EditorGUILayout.ObjectField("Enemy 3", enemy3, typeof(Enemy), true);
-        enemy4 = (Enemy)EditorGUILayout.ObjectField("Enemy 4", enemy4, typeof(Enemy), true);
+        while (numberOfEnemies < enemyList.Count)
+        {
+            enemyList.RemoveAt( enemyList.Count - 1 );
+        }
+        while (numberOfEnemies > enemyList.Count)
+        {
+            enemyList.Add(null);
+        }
+        
+        for(int i = 0; i < enemyList.Count; i++)
+        {
+            enemyList[i] = (Enemy)EditorGUILayout.ObjectField(enemyList[i], typeof(Enemy), true);
+        }
 
         EditorGUILayout.Space();
         EditorGUILayout.Space();
@@ -74,10 +79,7 @@ public class SceneCreator : EditorWindow
 
                 BattleManager bm = GameObject.FindObjectOfType<BattleManager>();
                 bm.spawnableEnemies = new List<GameObject>(numberOfEnemies);
-                bm.spawnableEnemies.Add(enemy.gameObject);
-                bm.spawnableEnemies.Add(enemy2.gameObject);
-                bm.spawnableEnemies.Add(enemy3.gameObject);
-                bm.spawnableEnemies.Add(enemy4.gameObject);
+
 
                 EditorSceneManager.MarkSceneDirty(scene);
 
