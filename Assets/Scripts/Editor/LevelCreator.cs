@@ -9,9 +9,10 @@ public class SceneCreator : EditorWindow
 {
     Sprite background;
     public string levelName;
+    Vector2 scrollPos;
 
-    [SerializeField] List<Object> enemyList = new List<Object>();
-    int numberOfEnemies;
+    [SerializeField] List<Enemy> enemyList = new List<Enemy>();
+    int numberOfEnemies = 5;
     ReorderableList list;
 
     [MenuItem("Tools/Level Creator")]
@@ -44,10 +45,14 @@ public class SceneCreator : EditorWindow
             enemyList.Add(null);
         }
         
+        scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(310), GUILayout.Height(200));
+
         for(int i = 0; i < enemyList.Count; i++)
         {
             enemyList[i] = (Enemy)EditorGUILayout.ObjectField(enemyList[i], typeof(Enemy), true);
         }
+
+        EditorGUILayout.EndScrollView();
 
         EditorGUILayout.Space();
         EditorGUILayout.Space();
@@ -80,11 +85,12 @@ public class SceneCreator : EditorWindow
                 BattleManager bm = GameObject.FindObjectOfType<BattleManager>();
                 bm.spawnableEnemies = new List<GameObject>(numberOfEnemies);
 
+                for(int i = 0; i < numberOfEnemies; i++)
+                {
+                    bm.spawnableEnemies.Add(enemyList[i].gameObject);
+                }
 
-                EditorSceneManager.MarkSceneDirty(scene);
-
-
-                
+                EditorSceneManager.MarkSceneDirty(scene);                
             }
             
         }
