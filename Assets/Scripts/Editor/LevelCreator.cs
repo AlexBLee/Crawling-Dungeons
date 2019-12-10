@@ -79,8 +79,8 @@ public class SceneCreator : EditorWindow
                 AssetDatabase.CopyAsset("Assets/Scenes/Level1.unity", localPath);
                 Scene scene = EditorSceneManager.OpenScene(localPath);
 
-                GameObject bg = GameObject.Find("BG1");
-                bg.GetComponent<SpriteRenderer>().sprite = background;
+                GameObject.Find("BG1").GetComponent<SpriteRenderer>().sprite = background;
+                GameObject.Find("BG2").GetComponent<SpriteRenderer>().sprite = background;
 
                 BattleManager bm = GameObject.FindObjectOfType<BattleManager>();
                 bm.spawnableEnemies = new List<GameObject>(numberOfEnemies);
