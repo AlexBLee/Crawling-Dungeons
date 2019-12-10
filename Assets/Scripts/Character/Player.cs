@@ -37,6 +37,8 @@ public class Player : CharacterEntity
             spellList.Add(spell, false);
         }
 
+        uiManager.UpdateUIHealth();
+        uiManager.UpdateUIMana();
 
     }
 
@@ -49,6 +51,7 @@ public class Player : CharacterEntity
         UnlockSpells();
         UpdateDamageStats();
         UpdateItemStats();
+
     }
 
     private void Update()
