@@ -19,6 +19,7 @@ public class ShopDisplay : MonoBehaviour
 
     void Start()
     {
+
         shopButton.onClick.AddListener(ShowShop);
         exitButton.onClick.AddListener(ExitShop);
 

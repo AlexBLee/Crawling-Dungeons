@@ -32,8 +32,12 @@ public class InventoryDisplay : MonoBehaviour
 
     private void Start() 
     {
+        player.ApplyItemsFrom(GameManager.instance.playerStats);
+
         items = player.itemList;
         inventoryButton.onClick.AddListener(ShowInventory);
+
+        UpdateInventory();
 
         for(int i = 0; i < buttons.Count; i++)
         {
@@ -55,6 +59,25 @@ public class InventoryDisplay : MonoBehaviour
         AudioManager.Instance.Play("Bag");
         shop.SetActive(false);
         inventory.SetActive(true);
+    }
+
+    public void UpdateInventory()
+    {
+        for(int i = 0; i < items.Count; i++)
+        {
+            if(items[i] != null)
+            {
+                images[i].sprite = items[i].image;
+            }
+        }
+
+        for(int i = 0; i < equippedItems.Count; i++)
+        {
+            if(equippedItems[i] != null)
+            {
+                equippedImages[i].sprite = equippedItems[i].image;
+            }
+        }
     }
 
     public void AddItemImage(Item item, int index)
