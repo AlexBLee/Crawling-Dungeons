@@ -125,6 +125,11 @@ public class BattleManager : MonoBehaviour
         {
             AudioManager.Instance.Play("Victory");
             victoryPanel.SetActive(true);
+            
+            if(player.statPoints == 0)
+            {
+                uiManager.DeactivateAdders();
+            }
         }
 
         
