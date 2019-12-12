@@ -28,7 +28,6 @@ public class ItemPopup : MonoBehaviour
         unequipButton.onClick.AddListener(delegate{player.UnequipItem(index);});
 
 
-        unequipButton.gameObject.SetActive(false);
 
     }
 
