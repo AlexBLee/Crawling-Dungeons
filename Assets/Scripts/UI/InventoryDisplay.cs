@@ -40,6 +40,7 @@ public class InventoryDisplay : MonoBehaviour
         inventoryButton.onClick.AddListener(ShowInventory);
 
         UpdateInventory();
+        player.UpdateItemStats();
 
         for(int i = 0; i < buttons.Count; i++)
         {
