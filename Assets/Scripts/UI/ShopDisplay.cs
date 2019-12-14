@@ -16,10 +16,11 @@ public class ShopDisplay : MonoBehaviour
     public Button exitButton;
     public GameObject shop;
     public GameObject inventory;
+    private GameObject itemPopup;
 
     void Start()
     {
-
+        itemPopup = GameObject.Find("Pivot").transform.Find("ItemPopup").gameObject;
         shopButton.onClick.AddListener(ShowShop);
         exitButton.onClick.AddListener(ExitShop);
 
@@ -46,6 +47,10 @@ public class ShopDisplay : MonoBehaviour
 
     public void ShowShop()
     {
+        if(itemPopup.activeSelf)
+        {
+            itemPopup.SetActive(false);
+        }
         inventory.SetActive(false);
         shop.SetActive(true);
     }
