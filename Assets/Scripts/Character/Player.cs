@@ -326,35 +326,18 @@ public class Player : CharacterEntity
 
         if(equipInventory[equipIndex] != null)
         {
+            EquippableItem equippedItem = equipInventory[equipIndex];
             AddItem(equipInventory[equipIndex]);
+
+            RemoveItemStats(equippedItem);
         }
+
+        AddItemStats(tempItem);
 
         equipInventory[equipIndex] = tempItem;
         inventoryDisplay.AddEquippedItemImage(equipInventory[equipIndex], equipInventory[equipIndex].itemType);
 
         inventoryDisplay.items[invIndex] = null;
-
-        if(tempItem is ArmorItem)
-        {
-            AudioManager.Instance.Play("ArmorEquip");
-            ArmorItem armor = (ArmorItem)tempItem;
-            def += armor.defense;
-        }
-        else if(tempItem is WeaponItem)
-        {
-            AudioManager.Instance.Play("WeaponEquip");
-            WeaponItem wpn = (WeaponItem)tempItem;
-            if(wpn.isMagic)
-            {
-                magicMinDamage += wpn.minDamage;
-                magicMaxDamage += wpn.maxDamage;
-            }
-            else
-            {
-                minDamage += wpn.minDamage;
-                maxDamage += wpn.maxDamage;
-            }
-        }
 
         RemoveItem(invIndex);
     }
@@ -371,22 +354,57 @@ public class Player : CharacterEntity
         equipInventory[index] = null;
 
         // For swapping equips
-        if(tempItem is ArmorItem)
+        RemoveItemStats(tempItem);
+
+        AddItem(tempItem);
+    }
+
+    public void AddItemStats(Item item)
+    {
+        if(item is ArmorItem)
         {
-            ArmorItem armor = (ArmorItem)tempItem;
+            AudioManager.Instance.Play("ArmorEquip");
+            ArmorItem armor = (ArmorItem)item;
+            def += armor.defense;
+        }
+        else if(item is WeaponItem)
+        {
+            AudioManager.Instance.Play("WeaponEquip");
+            WeaponItem wpn = (WeaponItem)item;
+            if(wpn.isMagic)
+            {
+                magicMinDamage += wpn.minDamage;
+                magicMaxDamage += wpn.maxDamage;
+            }
+            else
+            {
+                minDamage += wpn.minDamage;
+                maxDamage += wpn.maxDamage;
+            }
+        }
+    }
+
+    public void RemoveItemStats(Item item)
+    {
+        if(item is ArmorItem)
+        {
+            ArmorItem armor = (ArmorItem)item;
             def -= armor.defense;
         }
-        else if(tempItem is WeaponItem)
+        else if(item is WeaponItem)
         {
-            WeaponItem wpn = (WeaponItem)tempItem;
-            minDamage -= wpn.minDamage;
-            maxDamage -= wpn.maxDamage;
+            WeaponItem wpn = (WeaponItem)item;
+            if(wpn.isMagic)
+            {
+                magicMinDamage -= wpn.minDamage;
+                magicMaxDamage -= wpn.maxDamage;
+            }
+            else
+            {
+                minDamage -= wpn.minDamage;
+                maxDamage -= wpn.maxDamage;
+            }
         }
-
-        int newIndex = LookForFreeInventorySpace();
-
-        itemList[newIndex] = tempItem;
-        inventoryDisplay.AddItemImage(tempItem,newIndex);
     }
 
     // -----------------------------------------------------------------------------
