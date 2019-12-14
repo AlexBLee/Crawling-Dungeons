@@ -20,7 +20,9 @@ public class ShopDisplay : MonoBehaviour
 
     void Start()
     {
+        // GameObject.Find will not find ItemPopup as it is initially disabled so have to use this funky work around
         itemPopup = GameObject.Find("Pivot").transform.Find("ItemPopup").gameObject;
+
         shopButton.onClick.AddListener(ShowShop);
         exitButton.onClick.AddListener(ExitShop);
 
@@ -40,7 +42,7 @@ public class ShopDisplay : MonoBehaviour
         for(int i = 0; i < itemDisplays.Count; i++)
         {
             int x = i;
-            itemDisplays[x].button.onClick.AddListener(delegate {player.AddItem(itemList[x]);});
+            itemDisplays[x].button.onClick.AddListener(delegate {player.BuyItem(itemList[x]);});
         }
         
     }

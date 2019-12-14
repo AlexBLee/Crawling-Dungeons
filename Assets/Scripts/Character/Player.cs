@@ -287,17 +287,21 @@ public class Player : CharacterEntity
 
     public void AddItem(Item item)
     {
+        int index = LookForFreeInventorySpace();
+
+        itemList[index] = item;
+        inventoryDisplay.AddItemImage(item,index);
+    }
+
+    public void BuyItem(Item item)
+    {
         if(gold >= item.cost)
         {
             AudioManager.Instance.Play("Buy");
             gold -= item.cost;
             shopDisplay.UpdateGold();
             Debug.Log("Bought " + item.itemName);
-
-            int index = LookForFreeInventorySpace();
-
-            itemList[index] = item;
-            inventoryDisplay.AddItemImage(item,index);
+            AddItem(item);
         }
         else
         {
