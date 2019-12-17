@@ -22,10 +22,10 @@ public class ItemPopup : MonoBehaviour
 
     private void Start() 
     {
-        equipButton.onClick.AddListener(delegate{player.EquipItem(index, equipIndex);});
-        trashButton.onClick.AddListener(delegate{player.RemoveItem(index);});
+        equipButton.onClick.AddListener(delegate{player.inventory.EquipItem(index, equipIndex);});
+        trashButton.onClick.AddListener(delegate{player.inventory.RemoveItem(index);});
 
-        unequipButton.onClick.AddListener(delegate{player.UnequipItem(index);});
+        unequipButton.onClick.AddListener(delegate{player.inventory.UnequipItem(index);});
 
 
 

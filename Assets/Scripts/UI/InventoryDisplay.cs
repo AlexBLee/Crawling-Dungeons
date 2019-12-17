@@ -32,15 +32,15 @@ public class InventoryDisplay : MonoBehaviour
 
     private void Start() 
     {
-        player.ApplyItemsFrom(GameManager.instance.playerStats);
+        player.inventory.ApplyItemsFrom(GameManager.instance.playerStats);
 
-        items = player.itemList;
-        equippedItems = player.equipInventory;
+        items = player.inventory.itemList;
+        equippedItems = player.inventory.equipInventory;
 
         inventoryButton.onClick.AddListener(ShowInventory);
 
         UpdateInventory();
-        player.UpdateItemStats();
+        player.inventory.UpdateItemStats();
 
         for(int i = 0; i < buttons.Count; i++)
         {
@@ -54,7 +54,7 @@ public class InventoryDisplay : MonoBehaviour
             equippedButtons[x].onClick.AddListener(delegate {DisplayEquippedItemInfo(x,equippedButtons[x].gameObject.transform.position);});
         }
 
-        goldText.text = player.gold.ToString();
+        goldText.text = player.inventory.gold.ToString();
     }
 
     public void ShowInventory()

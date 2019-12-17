@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
             count++;
         }
 
-        foreach(ConsumableItem item in player.itemList)
+        foreach(ConsumableItem item in player.inventory.itemList)
         {
             if((ConsumableItem)item == healthPot)
             {

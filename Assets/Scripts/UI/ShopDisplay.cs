@@ -42,7 +42,7 @@ public class ShopDisplay : MonoBehaviour
         for(int i = 0; i < itemDisplays.Count; i++)
         {
             int x = i;
-            itemDisplays[x].button.onClick.AddListener(delegate {player.BuyItem(itemList[x]);});
+            itemDisplays[x].button.onClick.AddListener(delegate {player.inventory.BuyItem(itemList[x]);});
         }
         
     }
@@ -59,12 +59,12 @@ public class ShopDisplay : MonoBehaviour
 
     public void UpdateGold()
     {
-        moneyText.text = player.gold.ToString();
+        moneyText.text = player.inventory.gold.ToString();
     }
 
     public void ExitShop()
     {
-        player.ApplyItemsTo(GameManager.instance.playerStats);
+        player.inventory.ApplyItemsTo(GameManager.instance.playerStats);
         SceneManager.LoadScene(GameManager.instance.levelNumber);
     }
 }

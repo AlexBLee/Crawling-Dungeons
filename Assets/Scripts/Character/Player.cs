@@ -45,7 +45,7 @@ public class Player : CharacterEntity
 
         UnlockSpells();
         UpdateDamageStats();
-        UpdateItemStats();
+        inventory.UpdateItemStats();
 
     }
 
@@ -170,7 +170,7 @@ public class Player : CharacterEntity
 
     public void RecieveXPAndGold(int expRecieved, int goldRecieved)
     {
-        gold += goldRecieved;
+        inventory.gold += goldRecieved;
         exp += expRecieved;
         infoText.text = "+" + expRecieved.ToString() + " XP";
         Instantiate(infoText, transform.position, Quaternion.identity);
@@ -186,7 +186,7 @@ public class Player : CharacterEntity
             float extraXP = exp - expThreshold;
             LevelUp();
             UnlockSpells();
-            UpdateItemStats();
+            inventory.UpdateItemStats();
 
             
             yield return new WaitForSeconds(0.15f);
