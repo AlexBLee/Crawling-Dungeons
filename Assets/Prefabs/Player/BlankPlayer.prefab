@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 70495698347628150}
   - component: {fileID: 70495698347628151}
   - component: {fileID: 70495698347628148}
+  - component: {fileID: 849329965968919348}
   - component: {fileID: 70495698347628144}
   m_Layer: 0
-  m_Name: Player
+  m_Name: BlankPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 0}
+  uiManager: {fileID: 0}
   level: 1
   exp: 0
   expThreshold: 50
@@ -133,13 +135,15 @@ MonoBehaviour:
   intl: 20
   dex: 20
   will: 20
+  additionalDamage: 0
+  critChance: 0
   minDamage: 5
   maxDamage: 10
+  magicMinDamage: 0
+  magicMaxDamage: 0
   def: 5
   moveSpeed: 5
-  maxSpeed: 10
   inBattle: 1
-  targetChosen: 1
   targetReached: 0
   attacking: 0
   dead: 0
@@ -148,17 +152,33 @@ MonoBehaviour:
   target: {fileID: 0}
   infoText: {fileID: 0}
   objectID: 0
+  hpCounter: 0
+  mpCounter: 0
+  healthBar: {fileID: 0}
+  manaBar: {fileID: 0}
   pos: {x: 0, y: 0, z: 0}
-  enemyPosition: {x: 0, y: 0}
-  btn: {fileID: 0}
-  itemList: []
-  tempItem: {fileID: 0}
-  helmet: {fileID: 0}
-  upper: {fileID: 0}
-  lower: {fileID: 0}
-  rightHand: {fileID: 0}
-  leftHand: {fileID: 0}
+  spellPosition: {x: 0, y: 0, z: 0}
+  inventory: {fileID: 0}
+  spells: []
+  clip: {fileID: 0}
+--- !u!114 &849329965968919348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70495698347628149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ed756d6ee86c744974fc002df4f81b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equips: []
+  items: []
   gold: 0
+  shopDisplay: {fileID: 0}
+  inventoryDisplay: {fileID: 0}
+  itemPopup: {fileID: 0}
 --- !u!95 &70495698347628144
 Animator:
   serializedVersion: 3

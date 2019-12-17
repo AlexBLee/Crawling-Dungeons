@@ -24,6 +24,7 @@ public class Player : CharacterEntity
 
     private void Awake() 
     {
+        inventory = GetComponent<Inventory>();
         ApplyStatsFrom(GameManager.instance.playerStats);
 
         spellList = new Dictionary<Spell, bool>();
