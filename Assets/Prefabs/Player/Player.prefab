@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 70495698347628150}
   - component: {fileID: 70495698347628151}
   - component: {fileID: 70495698347628148}
+  - component: {fileID: 1126867815815248243}
   - component: {fileID: 70495698347628144}
   m_Layer: 0
   m_Name: Player
@@ -142,9 +143,7 @@ MonoBehaviour:
   magicMaxDamage: 0
   def: 5
   moveSpeed: 5
-  maxSpeed: 10
   inBattle: 1
-  targetChosen: 1
   targetReached: 0
   attacking: 0
   dead: 0
@@ -154,11 +153,13 @@ MonoBehaviour:
   infoText: {fileID: 5973154270874184695, guid: dc9f3253454acfa4a8730ae96c228bf3,
     type: 3}
   objectID: 0
+  hpCounter: 0
+  mpCounter: 0
   healthBar: {fileID: 0}
   manaBar: {fileID: 0}
   pos: {x: 1.31, y: 2.68, z: 0}
-  enemyPosition: {x: 0, y: 0}
   spellPosition: {x: 0, y: 0, z: 0}
+  inventory: {fileID: 0}
   spells:
   - {fileID: 11400000, guid: 6286b042dc9e4df4c9651ed76fabebfd, type: 2}
   - {fileID: 11400000, guid: 2e54bacf9d1b5a34f97cc26db19843e1, type: 2}
@@ -166,30 +167,25 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ab96531fcd755fa489e49ad9530a24c7, type: 2}
   - {fileID: 11400000, guid: b893d635ba3a4e64e8fc3c6e1e94d6fc, type: 2}
   - {fileID: 11400000, guid: 41aef99e45692d4488a3fc8bdf6a0f43, type: 2}
-  itemList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  tempItem: {fileID: 0}
+  clip: {fileID: 0}
+--- !u!114 &1126867815815248243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70495698347628149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ed756d6ee86c744974fc002df4f81b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipInventory: []
+  itemList: []
+  gold: 0
+  shopDisplay: {fileID: 0}
   inventoryDisplay: {fileID: 0}
   itemPopup: {fileID: 0}
-  shopDisplay: {fileID: 0}
-  helmet: {fileID: 0}
-  upper: {fileID: 0}
-  lower: {fileID: 0}
-  rightHand: {fileID: 0}
-  leftHand: {fileID: 0}
-  boots: {fileID: 0}
-  gold: 0
 --- !u!95 &70495698347628144
 Animator:
   serializedVersion: 3

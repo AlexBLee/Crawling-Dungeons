@@ -34,8 +34,8 @@ public class InventoryDisplay : MonoBehaviour
     {
         player.inventory.ApplyItemsFrom(GameManager.instance.playerStats);
 
-        items = player.inventory.itemList;
-        equippedItems = player.inventory.equipInventory;
+        items = player.inventory.items;
+        equippedItems = player.inventory.equips;
 
         inventoryButton.onClick.AddListener(ShowInventory);
 

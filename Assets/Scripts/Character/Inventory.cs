@@ -6,8 +6,8 @@ public class Inventory : MonoBehaviour
 {
     private Player player;
 
-    public List<EquippableItem> equipInventory;
-    public List<Item> itemList;
+    public List<EquippableItem> equips;
+    public List<Item> items;
     public int gold;
 
     public ShopDisplay shopDisplay;
@@ -23,15 +23,15 @@ public class Inventory : MonoBehaviour
 
     public void ApplyItemsFrom(Player otherPlayer)
     {
-        itemList = otherPlayer.inventory.itemList;
-        equipInventory = otherPlayer.inventory.equipInventory;
+        items = otherPlayer.inventory.items;
+        equips = otherPlayer.inventory.equips;
         gold = otherPlayer.inventory.gold;
     }
 
     public void ApplyItemsTo(Player otherPlayer)
     {
-        otherPlayer.inventory.itemList = itemList;
-        otherPlayer.inventory.equipInventory = equipInventory;
+        otherPlayer.inventory.items = items;
+        otherPlayer.inventory.equips = equips;
         otherPlayer.inventory.gold = gold;
     }
 
@@ -39,7 +39,7 @@ public class Inventory : MonoBehaviour
     {
         int index = LookForFreeInventorySpace();
 
-        itemList[index] = item;
+        items[index] = item;
         inventoryDisplay.AddItemImage(item,index);
     }
 
@@ -64,7 +64,7 @@ public class Inventory : MonoBehaviour
     {
         AudioManager.Instance.Play("Trash");
         itemPopup.gameObject.SetActive(false);
-        itemList[index] = null;
+        items[index] = null;
         inventoryDisplay.RemoveItemImage(index);
     }
 
@@ -74,18 +74,18 @@ public class Inventory : MonoBehaviour
 
         EquippableItem tempItem = (EquippableItem)inventoryDisplay.items[invIndex];
 
-        if(equipInventory[equipIndex] != null)
+        if(equips[equipIndex] != null)
         {
-            EquippableItem equippedItem = equipInventory[equipIndex];
-            AddItem(equipInventory[equipIndex]);
+            EquippableItem equippedItem = equips[equipIndex];
+            AddItem(equips[equipIndex]);
 
             RemoveItemStats(equippedItem);
         }
 
         AddItemStats(tempItem);
 
-        equipInventory[equipIndex] = tempItem;
-        inventoryDisplay.AddEquippedItemImage(equipInventory[equipIndex], equipInventory[equipIndex].itemType);
+        equips[equipIndex] = tempItem;
+        inventoryDisplay.AddEquippedItemImage(equips[equipIndex], equips[equipIndex].itemType);
 
         inventoryDisplay.items[invIndex] = null;
 
@@ -96,12 +96,12 @@ public class Inventory : MonoBehaviour
     {
         itemPopup.gameObject.SetActive(false);
 
-        Item tempItem = equipInventory[index];
+        Item tempItem = equips[index];
 
         inventoryDisplay.equippedItems[index] = null;
         inventoryDisplay.RemoveEquippedItemImage(index);
 
-        equipInventory[index] = null;
+        equips[index] = null;
 
         // For swapping equips
         RemoveItemStats(tempItem);
@@ -159,18 +159,18 @@ public class Inventory : MonoBehaviour
 
     public void UpdateItemStats()
     {
-        for(int i = 0; i < equipInventory.Count; i++)
+        for(int i = 0; i < equips.Count; i++)
         {
-            if(equipInventory[i] != null)
+            if(equips[i] != null)
             {
-                if(equipInventory[i] is ArmorItem)
+                if(equips[i] is ArmorItem)
                 {
-                    ArmorItem tempItem = (ArmorItem)equipInventory[i];
+                    ArmorItem tempItem = (ArmorItem)equips[i];
                     player.def += tempItem.defense;
                 }
-                else if(equipInventory[i] is WeaponItem)
+                else if(equips[i] is WeaponItem)
                 {
-                    WeaponItem tempItem = (WeaponItem)equipInventory[i];
+                    WeaponItem tempItem = (WeaponItem)equips[i];
                     if(tempItem.isMagic)
                     {
                         player.magicMinDamage += tempItem.minDamage;
@@ -190,9 +190,9 @@ public class Inventory : MonoBehaviour
 
     public void SwapItem(int indexA, int indexB)
     {
-        Item temp = itemList[indexA];
-        itemList[indexA] = itemList[indexB];
-        itemList[indexB] = temp;
+        Item temp = items[indexA];
+        items[indexA] = items[indexB];
+        items[indexB] = temp;
         inventoryDisplay.SwapItem(indexA,indexB);
     }
 
@@ -206,9 +206,9 @@ public class Inventory : MonoBehaviour
     {
         int spot = 0;
 
-        for(int i = 0; i <= itemList.Count; i++)
+        for(int i = 0; i <= items.Count; i++)
         {
-            if(itemList[i] == null)
+            if(items[i] == null)
             {
                 spot = i;
                 break;
