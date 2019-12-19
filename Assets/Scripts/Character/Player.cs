@@ -46,7 +46,6 @@ public class Player : CharacterEntity
 
         UnlockSpells();
         UpdateDamageStats();
-        inventory.UpdateItemStats();
 
     }
 

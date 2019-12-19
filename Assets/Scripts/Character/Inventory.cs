@@ -19,6 +19,7 @@ public class Inventory : MonoBehaviour
         player = GetComponent<Player>();
 
         ApplyItemsFrom(GameManager.instance.playerStats);
+        UpdateItemStats();
     }
 
     public void InitializeInventory()
@@ -41,6 +42,8 @@ public class Inventory : MonoBehaviour
         otherPlayer.inventory.equips = equips;
         otherPlayer.inventory.gold = gold;
     }
+
+    // -----------------------------------------------------------------------------
 
     public void AddItem(Item item)
     {
@@ -115,6 +118,8 @@ public class Inventory : MonoBehaviour
 
         AddItem(tempItem);
     }
+
+    // -----------------------------------------------------------------------------
 
     public void AddItemStats(Item item)
     {
