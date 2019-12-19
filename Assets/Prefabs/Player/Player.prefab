@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 70495698347628151}
   - component: {fileID: 70495698347628148}
   - component: {fileID: 1126867815815248243}
+  - component: {fileID: 8029826314284748128}
   - component: {fileID: 70495698347628144}
   m_Layer: 0
   m_Name: Player
@@ -158,15 +159,8 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   manaBar: {fileID: 0}
   pos: {x: 1.31, y: 2.68, z: 0}
-  spellPosition: {x: 0, y: 0, z: 0}
   inventory: {fileID: 0}
-  spells:
-  - {fileID: 11400000, guid: 6286b042dc9e4df4c9651ed76fabebfd, type: 2}
-  - {fileID: 11400000, guid: 2e54bacf9d1b5a34f97cc26db19843e1, type: 2}
-  - {fileID: 11400000, guid: f31f65fde98d13742be1d3cf249f819a, type: 2}
-  - {fileID: 11400000, guid: ab96531fcd755fa489e49ad9530a24c7, type: 2}
-  - {fileID: 11400000, guid: b893d635ba3a4e64e8fc3c6e1e94d6fc, type: 2}
-  - {fileID: 11400000, guid: 41aef99e45692d4488a3fc8bdf6a0f43, type: 2}
+  spells: {fileID: 0}
   clip: {fileID: 0}
 --- !u!114 &1126867815815248243
 MonoBehaviour:
@@ -217,6 +211,27 @@ MonoBehaviour:
   shopDisplay: {fileID: 0}
   inventoryDisplay: {fileID: 0}
   itemPopup: {fileID: 0}
+--- !u!114 &8029826314284748128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70495698347628149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8b943a06bf4eb947ab09aca11bdd25c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  spellPosition: {x: 0, y: 0, z: 0}
+  spells:
+  - {fileID: 11400000, guid: 6286b042dc9e4df4c9651ed76fabebfd, type: 2}
+  - {fileID: 11400000, guid: 2e54bacf9d1b5a34f97cc26db19843e1, type: 2}
+  - {fileID: 11400000, guid: f31f65fde98d13742be1d3cf249f819a, type: 2}
+  - {fileID: 11400000, guid: ab96531fcd755fa489e49ad9530a24c7, type: 2}
+  - {fileID: 11400000, guid: b893d635ba3a4e64e8fc3c6e1e94d6fc, type: 2}
+  - {fileID: 11400000, guid: 41aef99e45692d4488a3fc8bdf6a0f43, type: 2}
 --- !u!95 &70495698347628144
 Animator:
   serializedVersion: 3

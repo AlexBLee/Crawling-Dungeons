@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviour
         itemButton.onClick.AddListener(ShowPotionList);
 
         int count = 0;
-        foreach(KeyValuePair<Spell, bool> spell in player.spellList)
+        foreach(KeyValuePair<Spell, bool> spell in player.spells.spellList)
         {
             magicButtonList[count].onClick.AddListener(delegate{player.MagicPressed(spell.Key);});
             count++;
@@ -85,7 +85,7 @@ public class UIManager : MonoBehaviour
         magicList.SetActive(true);
         int counter = 0;
 
-        foreach(KeyValuePair<Spell,bool> spells in player.spellList)
+        foreach(KeyValuePair<Spell,bool> spells in player.spells.spellList)
         {
             if(!spells.Value)
             {

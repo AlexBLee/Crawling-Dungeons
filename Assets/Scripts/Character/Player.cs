@@ -9,14 +9,9 @@ public class Player : CharacterEntity
     public AmountBar manaBar;
 
     public Vector3 pos;
-    public Vector3 spellPosition;
 
     public Inventory inventory;
-
-    // Equipped Items
-    public List<Spell> spells;
-    public Dictionary<Spell, bool> spellList;
-
+    public CharacterSpells spells;
 
     public AudioClip clip;
 
@@ -25,14 +20,9 @@ public class Player : CharacterEntity
     private void Awake() 
     {
         inventory = GetComponent<Inventory>();
+        spells = GetComponent<CharacterSpells>();
+        
         ApplyStatsFrom(GameManager.instance.playerStats);
-
-        spellList = new Dictionary<Spell, bool>();
-        foreach(Spell spell in spells)
-        {
-            spellList.Add(spell, false);
-        }
-
 
     }
 
@@ -44,8 +34,9 @@ public class Player : CharacterEntity
         uiManager.UpdateUIHealth();
         uiManager.UpdateUIMana();
 
-        UnlockSpells();
         UpdateDamageStats();
+        spells.UnlockSpells();
+        inventory.UpdateItemStats();
 
     }
 
@@ -105,7 +96,7 @@ public class Player : CharacterEntity
             // Asks if the spell is supposed to be spawned firstly near the player or right on top of the enemy.
             if(spell.atPosition)
             {
-                Instantiate(spell.effect, spellPosition, Quaternion.identity);            
+                Instantiate(spell.effect, spells.spellPosition, Quaternion.identity);            
             }
             else
             {
@@ -185,7 +176,7 @@ public class Player : CharacterEntity
         {
             float extraXP = exp - expThreshold;
             LevelUp();
-            UnlockSpells();
+            spells.UnlockSpells();
             inventory.UpdateItemStats();
 
             
@@ -197,23 +188,6 @@ public class Player : CharacterEntity
 
             exp += extraXP;
         }
-
-    }
-
-    public void UnlockSpells()
-    {
-
-        if(level >= 1) { spellList[spells[0]] = true; }
-
-        if(level >= 5) { spellList[spells[1]] = true; }
-
-        if(level >= 7) { spellList[spells[2]] = true; }
-
-        if(level >= 12) { spellList[spells[3]] = true; }
-
-        if(level >= 20) { spellList[spells[4]] = true; }
-
-        if(level >= 25) { spellList[spells[5]] = true; }
 
     }
 
