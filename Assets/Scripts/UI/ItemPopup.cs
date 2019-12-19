@@ -22,6 +22,8 @@ public class ItemPopup : MonoBehaviour
 
     private void Start() 
     {
+        player.inventory.itemPopup = this;
+
         equipButton.onClick.AddListener(delegate{player.inventory.EquipItem(index, equipIndex);});
         trashButton.onClick.AddListener(delegate{player.inventory.RemoveItem(index);});
 

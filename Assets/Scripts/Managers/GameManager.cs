@@ -22,13 +22,15 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(playerStats.gameObject);
-
-
     }
 
     private void Start() 
     {
-        playerStats.InitalizeStats();    
+        playerStats.gameObject.SetActive(true);
+
+        playerStats.InitalizeStats();
+
+        playerStats.gameObject.SetActive(false);
     }
 
 

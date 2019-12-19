@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -14,11 +14,18 @@ public class Inventory : MonoBehaviour
     public InventoryDisplay inventoryDisplay;
     public ItemPopup itemPopup;
 
-    private void Awake() 
+    private void Start()
     {
         player = GetComponent<Player>();
 
         ApplyItemsFrom(GameManager.instance.playerStats);
+    }
+
+    public void InitializeInventory()
+    {
+        equips = new List<EquippableItem>(6);
+        items = new List<Item>(25);
+        gold = 0;
     }
 
     public void ApplyItemsFrom(Player otherPlayer)

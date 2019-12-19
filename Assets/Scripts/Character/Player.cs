@@ -33,16 +33,16 @@ public class Player : CharacterEntity
             spellList.Add(spell, false);
         }
 
-        uiManager.UpdateUIHealth();
-        uiManager.UpdateUIMana();
 
     }
 
 
     private void Start()
     {
-
         pos = transform.position;
+
+        uiManager.UpdateUIHealth();
+        uiManager.UpdateUIMana();
 
         UnlockSpells();
         UpdateDamageStats();

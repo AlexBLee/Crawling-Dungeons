@@ -6128,6 +6128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 368710595}
+  levelNumber: 2
 --- !u!4 &1347749279
 Transform:
   m_ObjectHideFlags: 0
@@ -10295,7 +10296,7 @@ PrefabInstance:
         type: 3}
       propertyPath: battleManager
       value: 
-      objectReference: {fileID: 611337056}
+      objectReference: {fileID: 0}
     - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
       propertyPath: btn

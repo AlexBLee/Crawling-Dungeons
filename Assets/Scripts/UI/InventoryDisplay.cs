@@ -32,6 +32,7 @@ public class InventoryDisplay : MonoBehaviour
 
     private void Start() 
     {
+        player.inventory.inventoryDisplay = this;
         player.inventory.ApplyItemsFrom(GameManager.instance.playerStats);
 
         items = player.inventory.items;
