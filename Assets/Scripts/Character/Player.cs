@@ -1,11 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class Player : CharacterEntity
 {
+    [HideInInspector]
     public Inventory inventory;
+
+    [HideInInspector]
     public Spells spells;
 
     private void Awake() 
@@ -141,7 +142,7 @@ public class Player : CharacterEntity
         StartCoroutine(NextBattle());
     }
 
-    public IEnumerator CheckForLevelUp()
+    private IEnumerator CheckForLevelUp()
     {
         while (exp >= expThreshold)
         {
@@ -160,7 +161,7 @@ public class Player : CharacterEntity
         }
     }
 
-    public IEnumerator NextBattle()
+    private IEnumerator NextBattle()
     {
         yield return new WaitForSeconds(3);
         anim.SetBool("Run", true);
