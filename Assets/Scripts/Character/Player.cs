@@ -11,21 +11,18 @@ public class Player : CharacterEntity
     public Vector3 pos;
 
     public Inventory inventory;
-    public CharacterSpells spells;
+    public Spells spells;
 
     public AudioClip clip;
-
-
 
     private void Awake() 
     {
         inventory = GetComponent<Inventory>();
-        spells = GetComponent<CharacterSpells>();
-        
+        spells = GetComponent<Spells>();
+
         ApplyStatsFrom(GameManager.instance.playerStats);
 
     }
-
 
     private void Start()
     {

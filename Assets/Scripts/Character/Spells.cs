@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterSpells : MonoBehaviour
+public class Spells : MonoBehaviour
 {
     private Player player;
 
@@ -10,7 +10,6 @@ public class CharacterSpells : MonoBehaviour
     public List<Spell> spells;
     public Dictionary<Spell, bool> spellList;
 
-    // Start is called before the first frame update
     void Start()
     {
         player = GetComponent<Player>();
