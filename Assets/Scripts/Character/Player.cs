@@ -5,15 +5,8 @@ using UnityEngine.Audio;
 
 public class Player : CharacterEntity
 {
-    public AmountBar healthBar;
-    public AmountBar manaBar;
-
-    public Vector3 pos;
-
     public Inventory inventory;
     public Spells spells;
-
-    public AudioClip clip;
 
     private void Awake() 
     {
@@ -21,30 +14,21 @@ public class Player : CharacterEntity
         spells = GetComponent<Spells>();
 
         ApplyStatsFrom(GameManager.instance.playerStats);
-
     }
 
     private void Start()
     {
-        pos = transform.position;
-
         uiManager.UpdateUIHealth();
         uiManager.UpdateUIMana();
 
         UpdateDamageStats();
         spells.UnlockSpells();
         inventory.UpdateItemStats();
-
     }
 
     private void Update()
     {
-        // --------------------------------------------------------------------------------------------------------------------------- //
-        // --------------------------------------------------------------------------------------------------------------------------- //
-        // --------------------------------------------------------------------------------------------------------------------------- //
-
-
-        if(inBattle && battleManager.playerTurn)
+        if (inBattle && battleManager.playerTurn)
         {
             if (target != null)
             {     
@@ -52,11 +36,6 @@ public class Player : CharacterEntity
             }
             StopAttacking();  
         }
-
-        // --------------------------------------------------------------------------------------------------------------------------- //
-        // --------------------------------------------------------------------------------------------------------------------------- //
-        // --------------------------------------------------------------------------------------------------------------------------- //
-
     }
 
     // -----------------------------------------------------------------------------
@@ -100,10 +79,6 @@ public class Player : CharacterEntity
                 Instantiate(spell.effect, target.transform.position, Quaternion.identity);
             }
         }
-
-
-        
-
     }
 
     #region Stats
@@ -164,28 +139,25 @@ public class Player : CharacterEntity
         Instantiate(infoText, transform.position, Quaternion.identity);
         StartCoroutine(CheckForLevelUp());
         StartCoroutine(NextBattle());
-
     }
 
     public IEnumerator CheckForLevelUp()
     {
-        while(exp >= expThreshold)
+        while (exp >= expThreshold)
         {
             float extraXP = exp - expThreshold;
             LevelUp();
             spells.UnlockSpells();
             inventory.UpdateItemStats();
 
-            
             yield return new WaitForSeconds(0.15f);
-            healthBar.SetAmount(hp,maxHP);
-            manaBar.SetAmount(mp,maxMP);
+            uiManager.healthBar.SetAmount(hp,maxHP);
+            uiManager.manaBar.SetAmount(mp,maxMP);
             infoText.text = "Level up!";
             Instantiate(infoText, transform.position, Quaternion.identity);
 
             exp += extraXP;
         }
-
     }
 
     public IEnumerator NextBattle()
