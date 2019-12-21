@@ -25,6 +25,7 @@ public class SceneCreator : EditorWindow
 
     private void OnGUI() 
     {
+        // Background -----------------------------------------
         GUILayout.Label("Background", EditorStyles.boldLabel);
         GUILayout.Label("A background size of 1280x720 is recommended.");
 
@@ -34,6 +35,7 @@ public class SceneCreator : EditorWindow
         
         EditorGUILayout.Space();
 
+        // Enemies -----------------------------------------
         numberOfEnemies = Mathf.Max(0, EditorGUILayout.DelayedIntField("Number of enemies:", numberOfEnemies));
 
         while (numberOfEnemies < enemyList.Count)
@@ -59,7 +61,7 @@ public class SceneCreator : EditorWindow
         EditorGUILayout.Space();
         EditorGUILayout.Space();
 
-
+        // Level name ------------------------------------------------
         levelName = EditorGUILayout.TextField("Level Name: ", levelName);
 
         EditorGUILayout.Space();
