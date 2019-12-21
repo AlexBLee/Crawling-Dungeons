@@ -28,8 +28,8 @@ public class CharacterEntity : MonoBehaviour
     public int dex;
     public int will;
 
-    public int additionalDamage;
-    public float critChance;
+    protected int additionalDamage;
+    protected float critChance;
 
     public float minDamage;
     public float maxDamage;
@@ -39,27 +39,26 @@ public class CharacterEntity : MonoBehaviour
 
     public int def;
 
-    public int moveSpeed = 5;
-
 
     // ---------------------------------------
 
     // Conditions --------------------------
     public bool inBattle;
-    public bool targetReached = true;
-    public bool attacking = false;
-    public bool dead = false;
-    public bool animationDone = false;
+    protected bool targetReached = true;
+    protected bool attacking = false;
+    protected bool dead = false;
+    protected bool animationDone = false;
 
     // ------------------------------------
 
 
     // Others ----------------------------
+    [HideInInspector]
     public Animator anim;
     protected Vector3 initialPos;
     public CharacterEntity target;
+    [HideInInspector]
     public TextMeshPro infoText;
-    public int objectID;
     public int hpCounter;
     public int mpCounter;
 
@@ -144,7 +143,6 @@ public class CharacterEntity : MonoBehaviour
         dex = otherChar.dex;
         will = otherChar.will;
 
-        objectID = otherChar.objectID;
         UpdateDamageStats();
 
     }
@@ -167,13 +165,12 @@ public class CharacterEntity : MonoBehaviour
         otherChar.dex = dex;
         otherChar.will = will;
 
-        otherChar.objectID = objectID;
         UpdateDamageStats();
 
 
     }
 
-    public void CheckDeath()
+    private void CheckDeath()
     {
         if(hp <= 0 && inBattle)
         {
@@ -351,7 +348,7 @@ public class CharacterEntity : MonoBehaviour
         {
             if (Vector2.Distance(transform.position, targetPosition) > 1.0f)
             {
-                transform.position += (transform.right * direction) * Time.deltaTime * moveSpeed;
+                transform.position += (transform.right * direction) * Time.deltaTime * 5;
                 anim.SetBool("Run", true);
             }
             else
