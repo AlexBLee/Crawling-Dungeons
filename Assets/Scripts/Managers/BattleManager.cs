@@ -11,22 +11,19 @@ public class BattleManager : MonoBehaviour
     private bool newBattle = true;
     private bool calculating = true;
     private bool needToSpawn = true;
-    public Vector2 newPosition;
-    public Vector2 enemyPosition;
+    private Vector2 newPosition;
+    private Vector2 enemyPosition = new Vector2(6.88f, 2.68f);
 
     public Enemy enemy;
     public Player player;
 
+    [HideInInspector]
     public UIManager uiManager;
-
     public GameObject victoryPanel;
-
     public GameObject background;
 
     public List<GameObject> spawnableEnemies;
     public int enemyCounter = 0;
-
-
 
     private void Start() 
     {
@@ -44,18 +41,12 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-
-
-    public void TogglePlayerTurn()
+    private void TogglePlayerTurn()
     {
         uiManager.EnableButtons();
         playerTurn = true;
     }
 
-    public void ToggleEnemyTurn()
-    {
-        playerTurn = false;
-    }
 
     public void ToggleNextTurn()
     {
@@ -106,7 +97,7 @@ public class BattleManager : MonoBehaviour
         newBattle = true;
     }
 
-    public void SpawnNextEnemy(int number)
+    private void SpawnNextEnemy(int number)
     {
         if(enemyCounter < spawnableEnemies.Count)
         {
@@ -136,7 +127,7 @@ public class BattleManager : MonoBehaviour
         
     }
     
-    protected IEnumerator MoveToExactPosition(Vector2 start, Vector2 destination)
+    private IEnumerator MoveToExactPosition(Vector2 start, Vector2 destination)
     {
         Vector2 startPos = start;
         Vector2 endPos = destination;
