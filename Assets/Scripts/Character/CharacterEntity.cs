@@ -7,7 +7,6 @@ using TMPro;
 public class CharacterEntity : MonoBehaviour
 {
     // Managers ------------------------------
-
     public BattleManager battleManager;
     public UIManager uiManager;
 
@@ -17,30 +16,17 @@ public class CharacterEntity : MonoBehaviour
     public float expThreshold;
     public int statPoints;
 
-    public int hp;
-    public int mp;
-
-    public int maxHP;
-    public int maxMP;
-
-    public int str;
-    public int intl;
-    public int dex;
-    public int will;
+    public int hp, mp;
+    public int maxHP, maxMP;
+    public int str, intl, dex, will;
 
     protected int additionalDamage;
     protected float critChance;
 
-    public float minDamage;
-    public float maxDamage;
-
-    public float magicMinDamage;
-    public float magicMaxDamage;
+    public float minDamage, maxDamage;
+    public float magicMinDamage, magicMaxDamage;
 
     public int def;
-
-
-    // ---------------------------------------
 
     // Conditions --------------------------
     public bool inBattle;
@@ -48,9 +34,6 @@ public class CharacterEntity : MonoBehaviour
     protected bool attacking = false;
     protected bool dead = false;
     protected bool animationDone = false;
-
-    // ------------------------------------
-
 
     // Others ----------------------------
     [HideInInspector]
