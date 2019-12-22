@@ -6,7 +6,7 @@ using TMPro;
 
 public class InventoryDisplay : MonoBehaviour
 {
-    // Itemslots display
+    // Item slots display
     public List<Item> items;
     public List<Image> images;
     public List<Button> buttons;

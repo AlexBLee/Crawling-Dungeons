@@ -11,10 +11,4 @@ public class Spell : ScriptableObject
     public GameObject effect;
     public bool atPosition;
 
-
-
-
-
-
-
 }

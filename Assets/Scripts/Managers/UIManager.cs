@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
     public Button magicBackButton;
     public Button potionBackButton;
 
+    public GameObject victoryPanel;
     public GameObject gameOverPanel;
 
     private void Start() 
@@ -85,6 +86,7 @@ public class UIManager : MonoBehaviour
         magicList.SetActive(true);
         int counter = 0;
 
+        // Show only unlocked spells
         foreach(KeyValuePair<Spell,bool> spells in player.spells.spellList)
         {
             if(!spells.Value)
@@ -113,9 +115,6 @@ public class UIManager : MonoBehaviour
         
         potionTextList[0].text = "x" + player.hpCounter;
         potionTextList[1].text = "x" + player.mpCounter;
-
-
-
     }
 
     public void HidePotionList()

@@ -374,6 +374,7 @@ MonoBehaviour:
   manaBar: {fileID: 1232276769}
   magicBackButton: {fileID: 1146301985}
   potionBackButton: {fileID: 2138618248}
+  victoryPanel: {fileID: 2036862401}
   gameOverPanel: {fileID: 1431259570}
 --- !u!4 &68796134
 Transform:
@@ -2036,12 +2037,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTurn: 1
   battleDone: 0
-  newPosition: {x: 0, y: 0}
-  enemyPosition: {x: 6.88, y: 2.58}
   enemy: {fileID: 0}
   player: {fileID: 1075298623}
   uiManager: {fileID: 68796133}
-  victoryPanel: {fileID: 2036862401}
   background: {fileID: 1529571563}
   spawnableEnemies:
   - {fileID: 4452915190085327154, guid: 0860f235f94e2c145977bb475f51d74a, type: 3}
@@ -9375,6 +9373,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemList.Array.data[1]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: statPoints
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 70495698347628145, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}

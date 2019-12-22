@@ -14,23 +14,27 @@ public class BattleManager : MonoBehaviour
     private Vector2 newPosition;
     private Vector2 enemyPosition = new Vector2(6.88f, 2.68f);
 
-    public Enemy enemy;
-    public Player player;
+    [SerializeField]
+    private Enemy enemy;
 
-    [HideInInspector]
-    public UIManager uiManager;
-    public GameObject victoryPanel;
-    public GameObject background;
+    [SerializeField]
+    private Player player;
+
+    [SerializeField, HideInInspector]
+    private UIManager uiManager;
+
+    [SerializeField, HideInInspector]
+    private GameObject background;
 
     public List<GameObject> spawnableEnemies;
-    public int enemyCounter = 0;
+    private int enemyCounter = 0;
 
     private void Start() 
     {
         uiManager.DisableButtons();
         SpawnNextEnemy(enemyCounter);
         player.target = enemy;
-        victoryPanel.SetActive(false);
+        uiManager.victoryPanel.SetActive(false);
     }
 
     private void Update() 
@@ -115,7 +119,7 @@ public class BattleManager : MonoBehaviour
         else
         {
             AudioManager.Instance.Play("Victory");
-            victoryPanel.SetActive(true);
+            uiManager.victoryPanel.SetActive(true);
             
             if(player.statPoints == 0)
             {
