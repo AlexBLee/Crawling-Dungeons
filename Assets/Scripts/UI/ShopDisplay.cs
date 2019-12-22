@@ -8,15 +8,23 @@ using TMPro;
 
 public class ShopDisplay : MonoBehaviour
 {
-    public TextMeshProUGUI moneyText;
-    public Player player;
-    public List<Item> itemList;
-    public List<ItemDisplay> itemDisplays;
-    public Button shopButton;
-    public Button exitButton;
-    public GameObject shop;
-    public GameObject inventory;
-    private GameObject itemPopup;
+    [SerializeField]
+    private TextMeshProUGUI moneyText;
+    
+    [SerializeField]
+    private Player player;
+
+    [SerializeField]
+    private List<Item> itemList;
+
+    [SerializeField]
+    private List<ItemDisplay> itemDisplays;
+
+    [SerializeField]
+    private Button shopButton, exitButton;
+
+    [SerializeField]
+    private GameObject shop, inventory, itemPopup;
 
     void Start()
     {
@@ -49,7 +57,7 @@ public class ShopDisplay : MonoBehaviour
         
     }
 
-    public void ShowShop()
+    private void ShowShop()
     {
         if(itemPopup.activeSelf)
         {
@@ -64,7 +72,7 @@ public class ShopDisplay : MonoBehaviour
         moneyText.text = player.inventory.gold.ToString();
     }
 
-    public void ExitShop()
+    private void ExitShop()
     {
         player.inventory.ApplyItemsTo(GameManager.instance.playerStats);
         SceneManager.LoadScene(GameManager.instance.levelNumber);
