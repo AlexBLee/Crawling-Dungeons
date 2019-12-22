@@ -6,12 +6,20 @@ using TMPro;
 
 public class AmountBar : MonoBehaviour
 {
-    public Image bar;
-    public TextMeshProUGUI txtAmount;
-    public int min;
-    public int max;
-    public int mCurrentValue;
-    public float mPercentage;
+    [SerializeField]
+    private Image bar;
+
+    [SerializeField]
+    private TextMeshProUGUI txtAmount;
+
+    [SerializeField]
+    private int min, max;
+
+    [SerializeField]
+    private int mCurrentValue;
+
+    [SerializeField]
+    private float mPercentage;
 
     public void SetAmount(int minAmount, int maxAmount)
     {

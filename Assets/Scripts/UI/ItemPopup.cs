@@ -6,7 +6,9 @@ using TMPro;
 
 public class ItemPopup : MonoBehaviour
 {
-    public Player player;
+    [SerializeField]
+    private Player player;
+    
     public Item item;
     public int index;
     public int equipIndex;
@@ -16,7 +18,6 @@ public class ItemPopup : MonoBehaviour
 
     public Button equipButton;
     public Button trashButton;
-
     public Button unequipButton;
     
 
