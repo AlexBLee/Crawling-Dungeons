@@ -6,16 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
-    public Button button;
-    public Player player;
+    [SerializeField]
+    private Button button;
 
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private Player player;
+
+    private void Start()
     {
         button.onClick.AddListener(GoToNextLevel);
     }
 
-    void GoToNextLevel()
+    private void GoToNextLevel()
     {
         player.ApplyStatsTo(GameManager.instance.playerStats);
         player.inventory.ApplyItemsTo(GameManager.instance.playerStats);
