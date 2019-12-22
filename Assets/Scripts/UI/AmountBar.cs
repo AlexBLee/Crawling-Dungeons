@@ -15,10 +15,7 @@ public class AmountBar : MonoBehaviour
     [SerializeField]
     private int min, max;
 
-    [SerializeField]
     private int mCurrentValue;
-
-    [SerializeField]
     private float mPercentage;
 
     public void SetAmount(int minAmount, int maxAmount)

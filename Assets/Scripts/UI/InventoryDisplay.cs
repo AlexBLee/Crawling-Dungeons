@@ -8,26 +8,37 @@ public class InventoryDisplay : MonoBehaviour
 {
     // Item slots display
     public List<Item> items;
-    public List<Image> images;
-    public List<Button> buttons;
+
+    [SerializeField]
+    private List<Image> images;
+    [SerializeField]
+    private List<Button> buttons;
 
     // Equipped items display
     public List<EquippableItem> equippedItems;
-    public List<Image> equippedImages;
-    public List<Button> equippedButtons;
 
-    public Sprite blankImage;
-    public Sprite blankEquipImage;
+    [SerializeField]
+    private List<Image> equippedImages;
+    [SerializeField]
+    private List<Button> equippedButtons;
 
-    public Player player;
-    public int count = 0;
-    private int tempIndex;
+    [SerializeField]
+    private Sprite blankImage, blankEquipImage;
+
+    [SerializeField]
+    private Player player;
+
+    private int count = 0, tempIndex;
     private bool notFront;
-    public ItemPopup itemPopup;
+
+    [SerializeField]
+    private ItemPopup itemPopup;
+
     public TextMeshProUGUI goldText;
     public Button inventoryButton;
-    public GameObject inventory;
-    public GameObject shop;
+
+    [SerializeField]
+    private GameObject inventory, shop;
 
 
     private void Start() 
@@ -58,14 +69,14 @@ public class InventoryDisplay : MonoBehaviour
         goldText.text = player.inventory.gold.ToString();
     }
 
-    public void ShowInventory()
+    private void ShowInventory()
     {
         AudioManager.Instance.Play("Bag");
         shop.SetActive(false);
         inventory.SetActive(true);
     }
 
-    public void UpdateInventory()
+    private void UpdateInventory()
     {
         // Updating item inventory
         for(int i = 0; i < items.Count; i++)
@@ -133,7 +144,7 @@ public class InventoryDisplay : MonoBehaviour
         images[indexB].sprite = imgTemp;
     }
 
-    public void DisplayItemInfo(int index, Vector3 position)
+    private void DisplayItemInfo(int index, Vector3 position)
     {
         if(items[index] != null)
         {
@@ -166,7 +177,7 @@ public class InventoryDisplay : MonoBehaviour
         }
     }
 
-    public void DisplayEquippedItemInfo(int index, Vector3 position)
+    private void DisplayEquippedItemInfo(int index, Vector3 position)
     {
         if(equippedItems[index] != null)
         {
