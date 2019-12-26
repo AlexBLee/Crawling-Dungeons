@@ -3,11 +3,8 @@ using UnityEngine;
 
 public class Player : CharacterEntity
 {
-    [HideInInspector]
-    public Inventory inventory;
-
-    [HideInInspector]
-    public Spells spells;
+    [HideInInspector] public Inventory inventory;
+    [HideInInspector] public Spells spells;
 
     private void Awake() 
     {
