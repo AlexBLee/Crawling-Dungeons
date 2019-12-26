@@ -5,11 +5,9 @@ using TMPro;
 
 public class StatDisplayer : MonoBehaviour
 {
-    [SerializeField]
-    private Player player;
-
-    [SerializeField]
-    private TextMeshProUGUI str, dex, intl, will, statPoints;
+    
+    [SerializeField] private Player player;
+    [SerializeField] private TextMeshProUGUI str, dex, intl, will, statPoints;
 
     // Start is called before the first frame update
     void Start()

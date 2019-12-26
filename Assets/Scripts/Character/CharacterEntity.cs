@@ -36,12 +36,11 @@ public class CharacterEntity : MonoBehaviour
     protected bool animationDone = false;
 
     // Others ----------------------------
-    [HideInInspector]
-    public Animator anim;
+    
+    [HideInInspector] public Animator anim;
     protected Vector3 initialPos;
     public CharacterEntity target;
-    [HideInInspector]
-    public TextMeshPro infoText;
+    [HideInInspector] public TextMeshPro infoText;
     public int hpCounter;
     public int mpCounter;
 

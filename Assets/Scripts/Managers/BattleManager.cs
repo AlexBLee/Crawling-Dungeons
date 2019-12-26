@@ -14,17 +14,11 @@ public class BattleManager : MonoBehaviour
     private Vector2 newPosition;
     private Vector2 enemyPosition = new Vector2(6.88f, 2.68f);
 
-    [SerializeField]
-    private Enemy enemy;
-
-    [SerializeField]
-    private Player player;
-
-    [SerializeField, HideInInspector]
-    private UIManager uiManager;
-
-    [SerializeField, HideInInspector]
-    private GameObject background;
+    [SerializeField] private Enemy enemy;
+    [SerializeField] private Player player;
+    
+    [SerializeField, HideInInspector] private UIManager uiManager;
+    [SerializeField, HideInInspector] private GameObject background;
 
     public List<GameObject> spawnableEnemies;
     private int enemyCounter = 0;

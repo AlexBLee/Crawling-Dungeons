@@ -8,23 +8,14 @@ using TMPro;
 
 public class ShopDisplay : MonoBehaviour
 {
-    [SerializeField]
-    private TextMeshProUGUI moneyText;
-    
-    [SerializeField]
-    private Player player;
+    [SerializeField] private Player player;
 
-    [SerializeField]
-    private List<Item> itemList;
+    [SerializeField] private List<Item> itemList;
+    [SerializeField] private List<ItemDisplay> itemDisplays;
 
-    [SerializeField]
-    private List<ItemDisplay> itemDisplays;
-
-    [SerializeField]
-    private Button shopButton, exitButton;
-
-    [SerializeField]
-    private GameObject shop, inventory, itemPopup;
+    [SerializeField] private Button shopButton, exitButton;
+    [SerializeField] private TextMeshProUGUI moneyText;
+    [SerializeField] private GameObject shop, inventory, itemPopup;
 
     void Start()
     {

@@ -8,20 +8,12 @@ public class AddRemoveStat : MonoBehaviour, IPointerClickHandler
 {
     // true = add point
     // false = subtract
-    [SerializeField]
-    private bool option = true;
+    [SerializeField] private bool option = true;
+    [SerializeField] private Player player;
+    [SerializeField] private int number;
 
-    [SerializeField]
-    private Player player;
-
-    [SerializeField]
-    private int number;
-
-    [SerializeField, HideInInspector]
-    private StatDisplayer statDisplay;
-
-    [SerializeField, HideInInspector]
-    private UIManager uiManager;
+    [SerializeField, HideInInspector]private StatDisplayer statDisplay;
+    [SerializeField, HideInInspector] private UIManager uiManager;
 
     public void OnPointerClick(PointerEventData eventData)
     {

@@ -6,11 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
-    [SerializeField]
-    private Button button;
-
-    [SerializeField]
-    private Player player;
+    [SerializeField] private Button button;
+    [SerializeField] private Player player;
 
     private void Start()
     {

@@ -6,8 +6,8 @@ using TMPro;
 
 public class ItemPopup : MonoBehaviour
 {
-    [SerializeField]
-    private Player player;
+    
+    [SerializeField] private Player player;
     
     public Item item;
     public int index;

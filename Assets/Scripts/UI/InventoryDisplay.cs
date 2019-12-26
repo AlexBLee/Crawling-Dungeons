@@ -9,36 +9,26 @@ public class InventoryDisplay : MonoBehaviour
     // Item slots display
     public List<Item> items;
 
-    [SerializeField]
-    private List<Image> images;
-    [SerializeField]
-    private List<Button> buttons;
+    [SerializeField] private List<Image> images;
+    [SerializeField] private List<Button> buttons;
 
     // Equipped items display
     public List<EquippableItem> equippedItems;
 
-    [SerializeField]
-    private List<Image> equippedImages;
-    [SerializeField]
-    private List<Button> equippedButtons;
-
-    [SerializeField]
-    private Sprite blankImage, blankEquipImage;
-
-    [SerializeField]
-    private Player player;
+    [SerializeField] private List<Image> equippedImages;
+    [SerializeField] private List<Button> equippedButtons;
+    [SerializeField] private Sprite blankImage, blankEquipImage;
+    
+    [SerializeField] private Player player;
 
     private int count = 0, tempIndex;
     private bool notFront;
-
-    [SerializeField]
-    private ItemPopup itemPopup;
-
+    
+    [SerializeField] private ItemPopup itemPopup;
     public TextMeshProUGUI goldText;
     public Button inventoryButton;
 
-    [SerializeField]
-    private GameObject inventory, shop;
+    [SerializeField] private GameObject inventory, shop;
 
 
     private void Start() 
