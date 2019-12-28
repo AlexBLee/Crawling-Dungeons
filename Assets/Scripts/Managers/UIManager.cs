@@ -45,18 +45,6 @@ public class UIManager : MonoBehaviour
             count++;
         }
 
-        foreach(ConsumableItem item in player.inventory.items)
-        {
-            if((ConsumableItem)item == healthPot)
-            {
-                player.hpCounter++;
-            }
-            else if((ConsumableItem)item == manaPot)
-            {
-                player.mpCounter++;
-            }
-        }
-
         potionButtonList[0].onClick.AddListener(delegate{player.UseHealthItem(healthPot);});
         potionButtonList[1].onClick.AddListener(delegate{player.UseManaItem(manaPot);});
 
