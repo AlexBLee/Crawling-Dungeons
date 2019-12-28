@@ -549,80 +549,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35783319}
   m_CullTransparentMesh: 0
---- !u!1 &68796132
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 68796134}
-  - component: {fileID: 68796133}
-  m_Layer: 0
-  m_Name: UIManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &68796133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 68796132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbad31b0275a17144bd59be2b22bd06a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1075298623}
-  attackButton: {fileID: 0}
-  magicButton: {fileID: 0}
-  itemButton: {fileID: 0}
-  magicList: {fileID: 0}
-  magicButtonList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  potionList: {fileID: 0}
-  potionButtonList: []
-  potionTextList: []
-  healthPot: {fileID: 0}
-  manaPot: {fileID: 0}
-  addRemoves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  healthBar: {fileID: 0}
-  manaBar: {fileID: 0}
-  magicBackButton: {fileID: 0}
-  potionBackButton: {fileID: 0}
-  gameOverPanel: {fileID: 0}
---- !u!4 &68796134
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 68796132}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 437.01935, y: 390.1966, z: -6.5642366}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &68978685
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,7 +1455,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &371786393
 GameObject:
@@ -1858,7 +1784,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b9e6c32a30d36442828bad009020a54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyText: {fileID: 1066920173}
   player: {fileID: 1075298623}
   itemList:
   - {fileID: 11400000, guid: 8756745642afb7a4fb4a7a7211e6cd10, type: 2}
@@ -1882,8 +1807,10 @@ MonoBehaviour:
   - {fileID: 1672431917}
   shopButton: {fileID: 2016208292}
   exitButton: {fileID: 24635378}
+  moneyText: {fileID: 1066920173}
   shop: {fileID: 809160331}
   inventory: {fileID: 510461495}
+  itemPopup: {fileID: 0}
 --- !u!1 &489206670
 GameObject:
   m_ObjectHideFlags: 0
@@ -2676,62 +2603,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1 &611337055
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 611337057}
-  - component: {fileID: 611337056}
-  m_Layer: 0
-  m_Name: BattleManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &611337056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 611337055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b79d3bd940571c04bb93ec42970d0720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTurn: 1
-  battleDone: 0
-  newPosition: {x: 0, y: 0}
-  enemyPosition: {x: 6.88, y: 2.58}
-  enemy: {fileID: 0}
-  player: {fileID: 1075298623}
-  uiManager: {fileID: 0}
-  victoryPanel: {fileID: 0}
-  background: {fileID: 1529571563}
-  spawnableEnemies:
-  - {fileID: 4452915190085327154, guid: f4a87c3d0e93dd5468d2b26055c9085c, type: 3}
-  - {fileID: 4452915190085327154, guid: f4a87c3d0e93dd5468d2b26055c9085c, type: 3}
-  enemyCounter: 0
---- !u!4 &611337057
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 611337055}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.6948392, y: -3.4176393, z: -0.01953125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &629200714
 GameObject:
   m_ObjectHideFlags: 0
@@ -3454,7 +3325,7 @@ PrefabInstance:
     - target: {fileID: 70495698347628145, guid: fa61940fa5df1b24b9aec3232ab7633c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 70495698347628145, guid: fa61940fa5df1b24b9aec3232ab7633c,
         type: 3}
@@ -5777,7 +5648,6 @@ MonoBehaviour:
   blankImage: {fileID: 21300000, guid: 70c500e3f9a702743946d084c36b42c6, type: 3}
   blankEquipImage: {fileID: 21300000, guid: 03435f376320d0e418058b601acc79fd, type: 3}
   player: {fileID: 1075298623}
-  count: 0
   itemPopup: {fileID: 2060712347}
   goldText: {fileID: 1066920173}
   inventoryButton: {fileID: 278342471}
@@ -6141,7 +6011,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1366431906
 GameObject:
@@ -6207,7 +6077,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1390415128
 GameObject:
@@ -7394,7 +7264,7 @@ Transform:
   - {fileID: 629200716}
   - {fileID: 1063956117}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1537580262
 GameObject:
@@ -7649,7 +7519,7 @@ RectTransform:
   - {fileID: 475300282}
   - {fileID: 1802752442}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10433,6 +10303,11 @@ PrefabInstance:
       propertyPath: shopDisplay
       value: 
       objectReference: {fileID: 475300285}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: inBattle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 70495698347628145, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
       propertyPath: m_LocalPosition.x

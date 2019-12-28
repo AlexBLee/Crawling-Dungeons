@@ -16,8 +16,11 @@ public class Player : CharacterEntity
 
     private void Start()
     {
-        uiManager.UpdateUIHealth();
-        uiManager.UpdateUIMana();
+        if(uiManager != null)
+        {
+            uiManager.UpdateUIHealth();
+            uiManager.UpdateUIMana();
+        }
 
         UpdateDamageStats();
         spells.UnlockSpells();
