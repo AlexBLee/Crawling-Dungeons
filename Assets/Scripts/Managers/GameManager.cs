@@ -22,16 +22,16 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(playerStats.gameObject);
-    }
 
-    private void Start() 
-    {
+        // GameManager needs a copy of some player in the scene.. Looking to change this..
         playerStats.gameObject.SetActive(true);
 
         playerStats.InitalizeStats();
+        playerStats.inventory.InitializeInventory();
 
         playerStats.gameObject.SetActive(false);
     }
+
 
 
     

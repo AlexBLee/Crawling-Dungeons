@@ -34,8 +34,6 @@ public class Inventory : MonoBehaviour
         items = otherPlayer.inventory.items;
         equips = otherPlayer.inventory.equips;
         gold = otherPlayer.inventory.gold;
-        player.hpCounter = otherPlayer.hpCounter;
-        player.mpCounter = otherPlayer.mpCounter;
     }
 
     public void ApplyItemsTo(Player otherPlayer)
@@ -43,8 +41,6 @@ public class Inventory : MonoBehaviour
         otherPlayer.inventory.items = items;
         otherPlayer.inventory.equips = equips;
         otherPlayer.inventory.gold = gold;
-        otherPlayer.hpCounter = player.hpCounter;
-        otherPlayer.mpCounter = player.mpCounter;
     }
 
     // -----------------------------------------------------------------------------
