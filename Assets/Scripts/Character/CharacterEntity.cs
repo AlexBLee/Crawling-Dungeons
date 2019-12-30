@@ -261,63 +261,18 @@ public class CharacterEntity : MonoBehaviour
         attacking = false;
     }
 
-    public void UseHealthItem(ConsumableItem item)
+    public void Heal(int amount)
     {
-        if(hpCounter > 0)
+        hp += amount;
+
+        if(hp >= maxHP)
         {
-            AudioManager.Instance.Play("UsePotion");
-            
-            uiManager.DisableButtons();
-            uiManager.HidePotionList();
-
-            int amountToHeal = Mathf.RoundToInt(maxHP * item.hpAdd);
-            hp += amountToHeal;
-
-            if(hp >= maxHP)
-            {
-                hp = maxHP;
-            }
-            
-            infoText.text = amountToHeal.ToString();
-            Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
-            anim.SetTrigger("UseItem");
-
-            if(this is Player)
-            {
-                uiManager.UpdateUIHealth();
-
-            }
-
-            hpCounter--;
+            hp = maxHP;
         }
-    }
 
-    public void UseManaItem(ConsumableItem item)
-    {
-        if(mpCounter > 0)
-        {
-            uiManager.DisableButtons();
-            uiManager.HidePotionList();
-
-            int amountToRestore = Mathf.RoundToInt(maxMP * item.mpAdd);
-            mp += amountToRestore;
-
-            if(mp >= maxMP)
-            {
-                mp = maxMP;
-            }
-
-            infoText.text = amountToRestore.ToString();
-            Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
-            anim.SetTrigger("UseItem");
-
-            if(this is Player)
-            {
-                uiManager.UpdateUIMana();
-            }
-
-            mpCounter--;
-        }
+        infoText.text = amount.ToString();
+        Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
+        anim.SetTrigger("UseItem");
     }
 
     #endregion

@@ -18,9 +18,6 @@ public class UIManager : MonoBehaviour
     public List<Button> potionButtonList;
     public List<TextMeshProUGUI> potionTextList;
 
-    public ConsumableItem healthPot;
-    public ConsumableItem manaPot;
-
     public List<AddRemoveStat> addRemoves;
 
     public AmountBar healthBar;
@@ -45,8 +42,8 @@ public class UIManager : MonoBehaviour
             count++;
         }
 
-        potionButtonList[0].onClick.AddListener(delegate{player.UseHealthItem(healthPot);});
-        potionButtonList[1].onClick.AddListener(delegate{player.UseManaItem(manaPot);});
+        potionButtonList[0].onClick.AddListener(delegate{player.inventory.ConsumeItem();});
+        potionButtonList[1].onClick.AddListener(delegate{player.inventory.ConsumeItem();});
 
         magicBackButton.onClick.AddListener(HideMagicList);
         potionBackButton.onClick.AddListener(HidePotionList);

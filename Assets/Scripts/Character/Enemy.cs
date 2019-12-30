@@ -74,7 +74,7 @@ public class Enemy : CharacterEntity
             hpCounter--;
             canHeal = false;
             healCounter = 2;
-            UseHealthItem(uiManager.healthPot);
+            // Heal(100);
         }
         // Use spell if the player is low on health
         else if(target.hp < target.maxHP * 0.60f)

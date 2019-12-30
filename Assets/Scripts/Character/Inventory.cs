@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using UnityEngine.SceneManagement;
+using System.Linq;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -51,19 +51,6 @@ public class Inventory : MonoBehaviour
 
         items[index] = item;
         inventoryDisplay.AddItemImage(item,index);
-
-        if(item is ConsumableItem)
-        {
-            if(item.name.Equals("Consumable-HealthPot"))
-            {
-                player.hpCounter++;
-            }
-
-            if(item.name.Equals("Consumable-ManaPot"))
-            {
-                player.mpCounter++;
-            }
-        }
     }
 
     public void BuyItem(Item item)
@@ -225,6 +212,11 @@ public class Inventory : MonoBehaviour
     {
         gold += amount;
         inventoryDisplay.goldText.text = gold.ToString();
+    }
+
+    public void ConsumeItem()
+    {
+        
     }
 
     public int LookForFreeInventorySpace()

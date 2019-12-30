@@ -7,7 +7,5 @@ public class ConsumableItem : Item
 {
     public float hpAdd;
     public float mpAdd;
-    
-    
 
 }
