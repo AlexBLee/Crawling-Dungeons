@@ -22,6 +22,17 @@ public class Inventory : MonoBehaviour
         UpdateItemStats();
     }
 
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            foreach(ConsumableItem item in items)
+            {
+                Debug.Log(item.name + " " + item.amount);
+            }
+
+        }
+    }
+
     public void InitializeInventory()
     {
         equips = new List<EquippableItem>(6);
@@ -47,6 +58,35 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(Item item)
     {
+        // If the added item is a Consumable item, it is stackable
+        if(item is ConsumableItem)
+        {
+            int locationOfItem = 0;
+
+            // Find if the added item already exists in the inventory
+            if(items.Count(c => c != null) > 0)
+            {
+                Item x = items.FirstOrDefault(i => i.itemName == item.itemName);
+                if(x != null)
+                {
+                    locationOfItem = items.IndexOf(x);
+                } 
+
+                // If an item is found, stack it.
+                if(items[locationOfItem] != null)
+                {
+                    items[locationOfItem].amount++;
+                    Debug.Log("Found item: " + items[locationOfItem] + "Amount: " + items[locationOfItem].amount);
+                    return;
+                }
+            }
+            // Otherwise, make a new instance of it. (this is necessary as variables on ScriptableObjects are saved unless instantiated on runtime.)
+            else
+            {
+                item = Instantiate(item);
+            }
+        }
+
         int index = LookForFreeInventorySpace();
 
         items[index] = item;
