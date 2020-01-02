@@ -106,6 +106,8 @@ public class Inventory : MonoBehaviour
         AudioManager.Instance.Play("Trash");
         itemPopup.gameObject.SetActive(false);
         items[index] = null;
+
+        inventoryDisplay.UpdateItemAmount(index);
         inventoryDisplay.RemoveItemImage(index);
 
         if(items.Count(c => c != null) == 0)
