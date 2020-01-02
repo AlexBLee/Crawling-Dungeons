@@ -5,6 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     private Player player;
+    private bool isEmpty = true;
 
     public List<EquippableItem> equips;
     public List<Item> items;
@@ -20,17 +21,6 @@ public class Inventory : MonoBehaviour
 
         ApplyItemsFrom(GameManager.instance.playerStats);
         UpdateItemStats();
-    }
-
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            foreach(ConsumableItem item in items)
-            {
-                Debug.Log(item.name + " " + item.amount);
-            }
-
-        }
     }
 
     public void InitializeInventory()
@@ -64,7 +54,7 @@ public class Inventory : MonoBehaviour
             int locationOfItem = 0;
 
             // Find if the added item already exists in the inventory
-            if(items.Count(c => c != null) > 0)
+            if(!isEmpty)
             {
                 Item x = items.FirstOrDefault(i => i.itemName == item.itemName);
                 if(x != null)
@@ -91,6 +81,7 @@ public class Inventory : MonoBehaviour
 
         items[index] = item;
         inventoryDisplay.AddItemImage(item,index);
+        isEmpty = false;
     }
 
     public void BuyItem(Item item)
@@ -116,6 +107,11 @@ public class Inventory : MonoBehaviour
         itemPopup.gameObject.SetActive(false);
         items[index] = null;
         inventoryDisplay.RemoveItemImage(index);
+
+        if(items.Count(c => c != null) == 0)
+        {
+            isEmpty = true;
+        }
     }
 
     public void EquipItem(int invIndex, int equipIndex)

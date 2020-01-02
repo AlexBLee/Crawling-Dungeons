@@ -16,6 +16,6 @@ MonoBehaviour:
   description: Heals 20 HP
   image: {fileID: 21300204, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
   cost: 10
-  amount: 0
+  amount: 1
   hpAdd: 0.2
   mpAdd: 0
