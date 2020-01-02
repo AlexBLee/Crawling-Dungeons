@@ -187,7 +187,12 @@ public class InventoryDisplay : MonoBehaviour
         }
     }
 
-
+    public void UpdateItemAmount(int index)
+    {
+        images[index].transform.GetChild(0).gameObject.SetActive(true);
+        images[index].GetComponentInChildren<TextMeshProUGUI>().text = items[index].amount.ToString();
+        
+    }
     
 
 

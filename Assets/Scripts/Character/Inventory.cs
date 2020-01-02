@@ -66,7 +66,7 @@ public class Inventory : MonoBehaviour
                 if(items[locationOfItem] != null)
                 {
                     items[locationOfItem].amount++;
-                    Debug.Log("Found item: " + items[locationOfItem] + "Amount: " + items[locationOfItem].amount);
+                    inventoryDisplay.UpdateItemAmount(locationOfItem);
                     return;
                 }
             }
