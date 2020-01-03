@@ -245,9 +245,17 @@ public class Inventory : MonoBehaviour
         inventoryDisplay.goldText.text = gold.ToString();
     }
 
-    public void ConsumeItem()
+    public void ConsumeItem(int index)
     {
+        ConsumableItem consumable = (ConsumableItem)items[index];
+
+        consumable.amount--;
+        consumable.ConsumeEffect();
         
+        if(consumable.amount == 0)
+        {
+            consumable = null;
+        }
     }
 
     public int LookForFreeInventorySpace()
