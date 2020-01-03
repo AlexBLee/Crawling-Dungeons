@@ -6,6 +6,7 @@ public class Inventory : MonoBehaviour
 {
     private Player player;
     private bool isEmpty = true;
+    private int indexOfItem;
 
     public List<EquippableItem> equips;
     public List<Item> items;
@@ -51,22 +52,14 @@ public class Inventory : MonoBehaviour
         // If the added item is a Consumable item, it is stackable
         if(item is ConsumableItem)
         {
-            int locationOfItem = 0;
-
             // Find if the added item already exists in the inventory
-            if(!isEmpty)
+            if(!isEmpty && IsItemExisting(item.itemName))
             {
-                Item x = items.FirstOrDefault(i => i.itemName == item.itemName);
-                if(x != null)
-                {
-                    locationOfItem = items.IndexOf(x);
-                } 
-
                 // If an item is found, stack it.
-                if(items[locationOfItem] != null)
+                if(items[indexOfItem] != null)
                 {
-                    items[locationOfItem].amount++;
-                    inventoryDisplay.UpdateItemAmount(locationOfItem);
+                    items[indexOfItem].amount++;
+                    inventoryDisplay.UpdateItemAmount(indexOfItem);
                     return;
                 }
             }
@@ -270,5 +263,21 @@ public class Inventory : MonoBehaviour
             }
         }
         return spot;
+    }
+
+    public bool IsItemExisting(string itemName)
+    {
+        for(int i = 0; i < items.Count; i++)
+        {
+            if(items[i] != null)
+            {
+                if(items[i].itemName == itemName)
+                {
+                    indexOfItem = i;
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
