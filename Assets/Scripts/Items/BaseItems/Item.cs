@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Item/Item")]
 public class Item : ScriptableObject
 {
     public string itemName;
     public string description;
     public Sprite image;
     public int cost;
-    [HideInInspector]
-    public int amount;
+    [HideInInspector] public int amount;
 
     
 }

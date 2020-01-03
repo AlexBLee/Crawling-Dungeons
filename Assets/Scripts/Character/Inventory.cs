@@ -245,12 +245,12 @@ public class Inventory : MonoBehaviour
         inventoryDisplay.goldText.text = gold.ToString();
     }
 
-    public void ConsumeItem(int index)
+    public void ConsumeItem(int index, CharacterEntity character)
     {
         ConsumableItem consumable = (ConsumableItem)items[index];
 
         consumable.amount--;
-        consumable.ConsumeEffect();
+        consumable.ConsumeEffect(character);
         
         if(consumable.amount == 0)
         {

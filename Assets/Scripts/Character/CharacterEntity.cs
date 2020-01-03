@@ -275,6 +275,20 @@ public class CharacterEntity : MonoBehaviour
         anim.SetTrigger("UseItem");
     }
 
+    public void RestoreMP(int amount)
+    {
+        mp += amount;
+
+        if(mp >= maxMP)
+        {
+            mp = maxMP;
+        }
+
+        infoText.text = amount.ToString();
+        Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
+        anim.SetTrigger("UseItem");
+    }
+
     #endregion
 
     #region Animations/Movement

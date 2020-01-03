@@ -7,9 +7,9 @@ public class HealthPot : ConsumableItem
 {
     public float hpPercentageAdd;
 
-    public override void ConsumeEffect()
+    public override void ConsumeEffect(CharacterEntity character)
     {
-        
+        character.Heal((int)(character.maxHP * hpPercentageAdd));
     }
 
 }
