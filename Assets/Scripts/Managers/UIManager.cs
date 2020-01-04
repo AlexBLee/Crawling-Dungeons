@@ -42,13 +42,20 @@ public class UIManager : MonoBehaviour
             magicButtonList[count].onClick.AddListener(delegate{player.MagicPressed(spell.Key);});
             count++;
         }
+        count = 0;
 
-        potionButtonList[0].onClick.AddListener(delegate{player.inventory.ConsumeItem(0, player);});
-        potionButtonList[1].onClick.AddListener(delegate{player.inventory.ConsumeItem(1, player);});
+        foreach(Button b in potionButtonList)
+        {
+            int x = count;
+            if(player.inventory.items[player.inventory.consumableLocations[x]] != null && player.inventory.consumableLocations.Count > 0)
+            {
+                potionButtonList[x].onClick.AddListener(delegate{player.inventory.ConsumeItem(player.inventory.consumableLocations[x], player);});
+            }
+            count++;
+        }
 
         magicBackButton.onClick.AddListener(HideMagicList);
         potionBackButton.onClick.AddListener(HidePotionList);
-
 
     }
 

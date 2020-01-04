@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
         playerStats.gameObject.SetActive(true);
 
         playerStats.InitalizeStats();
-        playerStats.inventory.InitializeInventory();
 
         playerStats.gameObject.SetActive(false);
     }

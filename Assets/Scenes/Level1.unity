@@ -359,8 +359,6 @@ MonoBehaviour:
   potionTextList:
   - {fileID: 1444167827}
   - {fileID: 952114730}
-  healthPot: {fileID: 11400000, guid: 7345e3fa1c1d83642911421812b716ab, type: 2}
-  manaPot: {fileID: 11400000, guid: 11cd3c5dd14a48544a31b2fbb9e87b6d, type: 2}
   addRemoves:
   - {fileID: 1266429448}
   - {fileID: 435997619}
@@ -2044,7 +2042,6 @@ MonoBehaviour:
   spawnableEnemies:
   - {fileID: 4452915190085327154, guid: 0860f235f94e2c145977bb475f51d74a, type: 3}
   - {fileID: 4452915190085327154, guid: e05ec1295217ea94e87feed5ad015656, type: 3}
-  enemyCounter: 0
 --- !u!4 &611337057
 Transform:
   m_ObjectHideFlags: 0
@@ -3762,8 +3759,6 @@ MonoBehaviour:
   txtAmount: {fileID: 1893877122}
   min: 0
   max: 100
-  mCurrentValue: 0
-  mPercentage: 0
 --- !u!114 &1075298623 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
@@ -4655,8 +4650,6 @@ MonoBehaviour:
   txtAmount: {fileID: 1490669582}
   min: 0
   max: 100
-  mCurrentValue: 0
-  mPercentage: 0
 --- !u!1 &1235097826
 GameObject:
   m_ObjectHideFlags: 0
@@ -9442,12 +9435,12 @@ PrefabInstance:
     - target: {fileID: 1126867815815248243, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
       propertyPath: equips.Array.size
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1126867815815248243, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
       propertyPath: items.Array.size
-      value: 0
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6f2ea454a19a0b47b4e14e777baa4da, type: 3}

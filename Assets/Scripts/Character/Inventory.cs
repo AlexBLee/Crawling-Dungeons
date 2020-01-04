@@ -8,6 +8,9 @@ public class Inventory : MonoBehaviour
     private bool isEmpty = true;
     private int indexOfItem;
 
+    // Used for locating which index the consumables are at.
+    public List<int> consumableLocations;
+
     public List<EquippableItem> equips;
     public List<Item> items;
     public int gold;
@@ -36,6 +39,7 @@ public class Inventory : MonoBehaviour
         items = otherPlayer.inventory.items;
         equips = otherPlayer.inventory.equips;
         gold = otherPlayer.inventory.gold;
+        consumableLocations = otherPlayer.inventory.consumableLocations;
     }
 
     public void ApplyItemsTo(Player otherPlayer)
@@ -43,12 +47,15 @@ public class Inventory : MonoBehaviour
         otherPlayer.inventory.items = items;
         otherPlayer.inventory.equips = equips;
         otherPlayer.inventory.gold = gold;
+        otherPlayer.inventory.consumableLocations = consumableLocations;
     }
 
     // -----------------------------------------------------------------------------
 
     public void AddItem(Item item)
     {
+        int index = LookForFreeInventorySpace();
+
         // If the added item is a Consumable item, it is stackable
         if(item is ConsumableItem)
         {
@@ -67,10 +74,9 @@ public class Inventory : MonoBehaviour
             else
             {
                 item = Instantiate(item);
+                consumableLocations.Add(index);
             }
         }
-
-        int index = LookForFreeInventorySpace();
 
         items[index] = item;
         inventoryDisplay.AddItemImage(item,index);

@@ -4,9 +4,5 @@ using UnityEngine;
 
 public class ConsumableItem : Item
 {
-    public virtual void ConsumeEffect(CharacterEntity character)
-    {
-
-    }
-
+    public virtual void ConsumeEffect(CharacterEntity character) {}
 }
