@@ -263,6 +263,12 @@ public class CharacterEntity : MonoBehaviour
 
     public void Heal(int amount)
     {
+        if(this is Player)
+        {
+            uiManager.DisableButtons();
+            uiManager.HidePotionList();
+        }
+
         hp += amount;
 
         if(hp >= maxHP)
@@ -273,10 +279,18 @@ public class CharacterEntity : MonoBehaviour
         infoText.text = amount.ToString();
         Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
         anim.SetTrigger("UseItem");
+
+        
     }
 
     public void RestoreMP(int amount)
     {
+        if(this is Player)
+        {
+            uiManager.DisableButtons();
+            uiManager.HidePotionList();
+        }
+
         mp += amount;
 
         if(mp >= maxMP)
