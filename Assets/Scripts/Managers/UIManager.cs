@@ -47,9 +47,13 @@ public class UIManager : MonoBehaviour
         foreach(Button b in potionButtonList)
         {
             int x = count;
-            if(player.inventory.items[player.inventory.consumableLocations[x]] != null && player.inventory.consumableLocations.Count > 0)
+            if(player.inventory.consumableLocations.Count > 0 && player.inventory.items[player.inventory.consumableLocations[x]] != null)
             {
-                potionButtonList[x].onClick.AddListener(delegate{player.inventory.ConsumeItem(player.inventory.consumableLocations[x], player);});
+                b.GetComponentInChildren<TextMeshProUGUI>().text = 
+                player.inventory.items[player.inventory.consumableLocations[x]].itemName +
+                " x" + player.inventory.items[player.inventory.consumableLocations[x]].amount.ToString();
+
+                b.onClick.AddListener(delegate{player.inventory.ConsumeItem(player.inventory.consumableLocations[x], player);});
             }
             count++;
         }
@@ -105,9 +109,6 @@ public class UIManager : MonoBehaviour
     {
         DisableButtons();
         potionList.SetActive(true);
-        
-        potionTextList[0].text = "x" + player.hpCounter;
-        potionTextList[1].text = "x" + player.mpCounter;
     }
 
     public void HidePotionList()
