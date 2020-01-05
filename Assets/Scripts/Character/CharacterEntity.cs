@@ -277,6 +277,7 @@ public class CharacterEntity : MonoBehaviour
         }
 
         infoText.text = amount.ToString();
+        uiManager.UpdateUIHealth();
         Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
         anim.SetTrigger("UseItem");
 
@@ -299,6 +300,7 @@ public class CharacterEntity : MonoBehaviour
         }
 
         infoText.text = amount.ToString();
+        uiManager.UpdateUIMana();
         Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
         anim.SetTrigger("UseItem");
     }
