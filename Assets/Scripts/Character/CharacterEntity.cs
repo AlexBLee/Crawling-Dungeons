@@ -265,8 +265,8 @@ public class CharacterEntity : MonoBehaviour
     {
         if(this is Player)
         {
-            uiManager.DisableButtons();
             uiManager.HidePotionList();
+            uiManager.DisableButtons();
         }
 
         hp += amount;
@@ -288,8 +288,8 @@ public class CharacterEntity : MonoBehaviour
     {
         if(this is Player)
         {
-            uiManager.DisableButtons();
             uiManager.HidePotionList();
+            uiManager.DisableButtons();
         }
 
         mp += amount;
