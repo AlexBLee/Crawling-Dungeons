@@ -55,6 +55,7 @@ public class UIManager : MonoBehaviour
 
                 b.onClick.AddListener(delegate{player.inventory.ConsumeItem(player.inventory.consumableLocations[x], player);});
             }
+            // When having more buttons.. if the potion does not exist, then disable button? in a queue??
             count++;
         }
 
@@ -109,6 +110,35 @@ public class UIManager : MonoBehaviour
     {
         DisableButtons();
         potionList.SetActive(true);
+
+        int count = 0;
+        foreach(Button b in potionButtonList)
+        {
+            int x = count;
+            if(player.inventory.consumableLocations.Count > 0 && player.inventory.items[player.inventory.consumableLocations[x]] != null)
+            {
+                b.GetComponentInChildren<TextMeshProUGUI>().text = 
+                player.inventory.items[player.inventory.consumableLocations[x]].itemName +
+                " x" + player.inventory.items[player.inventory.consumableLocations[x]].amount.ToString();
+
+            }
+            // If the potion no longer exists..
+            else
+            {
+                // Keep the colour faded and disable the button.
+                Image img = b.GetComponent<Image>();
+                Color tempColor = img.color;
+                tempColor.a = 170f;
+                img.color = tempColor;
+
+                tempColor = b.GetComponentInChildren<TextMeshProUGUI>().color;
+                tempColor.a = 0.5f;
+                b.GetComponentInChildren<TextMeshProUGUI>().color = tempColor;
+
+                b.interactable = false;
+            }
+            count++;
+        }
     }
 
     public void HidePotionList()
