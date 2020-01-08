@@ -134,6 +134,9 @@ public class UIManager : MonoBehaviour
                 tempColor = b.GetComponentInChildren<TextMeshProUGUI>().color;
                 tempColor.a = 0.5f;
                 b.GetComponentInChildren<TextMeshProUGUI>().color = tempColor;
+                
+                b.GetComponentInChildren<TextMeshProUGUI>().text = "N/A";
+
 
                 b.interactable = false;
             }
