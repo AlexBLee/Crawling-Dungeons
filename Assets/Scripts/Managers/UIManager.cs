@@ -49,10 +49,7 @@ public class UIManager : MonoBehaviour
             int x = count;
             if(player.inventory.consumableLocations.Count > 0 && player.inventory.items[player.inventory.consumableLocations[x]] != null)
             {
-                b.GetComponentInChildren<TextMeshProUGUI>().text = 
-                player.inventory.items[player.inventory.consumableLocations[x]].itemName +
-                " x" + player.inventory.items[player.inventory.consumableLocations[x]].amount.ToString();
-
+                DisplayPotionAmount(x);
                 b.onClick.AddListener(delegate{player.inventory.ConsumeItem(player.inventory.consumableLocations[x], player);});
             }
             // When having more buttons.. if the potion does not exist, then disable button? in a queue??
@@ -117,10 +114,7 @@ public class UIManager : MonoBehaviour
             int x = count;
             if(player.inventory.consumableLocations.Count > 0 && player.inventory.items[player.inventory.consumableLocations[x]] != null)
             {
-                b.GetComponentInChildren<TextMeshProUGUI>().text = 
-                player.inventory.items[player.inventory.consumableLocations[x]].itemName +
-                " x" + player.inventory.items[player.inventory.consumableLocations[x]].amount.ToString();
-
+                DisplayPotionAmount(x);
             }
             // If the potion no longer exists..
             else
@@ -128,15 +122,15 @@ public class UIManager : MonoBehaviour
                 // Keep the colour faded and disable the button.
                 Image img = b.GetComponent<Image>();
                 Color tempColor = img.color;
+                
                 tempColor.a = 170f;
                 img.color = tempColor;
 
-                tempColor = b.GetComponentInChildren<TextMeshProUGUI>().color;
+                tempColor = potionTextList[x].color;
                 tempColor.a = 0.5f;
-                b.GetComponentInChildren<TextMeshProUGUI>().color = tempColor;
+                potionTextList[x].color = tempColor;
                 
-                b.GetComponentInChildren<TextMeshProUGUI>().text = "N/A";
-
+                potionTextList[x].text = "N/A";
 
                 b.interactable = false;
             }
@@ -148,6 +142,13 @@ public class UIManager : MonoBehaviour
     {
         EnableButtons();
         potionList.SetActive(false);
+    }
+
+    private void DisplayPotionAmount(int index)
+    {
+        potionTextList[index].text = 
+        player.inventory.items[player.inventory.consumableLocations[index]].itemName +
+        " x" + player.inventory.items[player.inventory.consumableLocations[index]].amount.ToString();
     }
 
     public void DeactivateAdders()
