@@ -44,17 +44,7 @@ public class UIManager : MonoBehaviour
         }
         count = 0;
 
-        foreach(Button b in potionButtonList)
-        {
-            int x = count;
-            if(player.inventory.consumableLocations.Count > 0 && player.inventory.items[player.inventory.consumableLocations[x]] != null)
-            {
-                DisplayPotionAmount(x);
-                b.onClick.AddListener(delegate{player.inventory.ConsumeItem(player.inventory.consumableLocations[x], player);});
-            }
-            // When having more buttons.. if the potion does not exist, then disable button? in a queue??
-            count++;
-        }
+        DisplayPotionAmount();
 
         magicBackButton.onClick.AddListener(HideMagicList);
         potionBackButton.onClick.AddListener(HidePotionList);
@@ -107,14 +97,26 @@ public class UIManager : MonoBehaviour
     {
         DisableButtons();
         potionList.SetActive(true);
+        DisplayPotionAmount();
+    }
 
+    public void HidePotionList()
+    {
+        EnableButtons();
+        potionList.SetActive(false);
+    }
+
+    private void DisplayPotionAmount()
+    {
         int count = 0;
         foreach(Button b in potionButtonList)
         {
             int x = count;
             if(player.inventory.consumableLocations.Count > 0 && player.inventory.items[player.inventory.consumableLocations[x]] != null)
             {
-                DisplayPotionAmount(x);
+                potionTextList[x].text = 
+                player.inventory.items[player.inventory.consumableLocations[x]].itemName +
+                " x" + player.inventory.items[player.inventory.consumableLocations[x]].amount.ToString();
             }
             // If the potion no longer exists..
             else
@@ -122,7 +124,7 @@ public class UIManager : MonoBehaviour
                 // Keep the colour faded and disable the button.
                 Image img = b.GetComponent<Image>();
                 Color tempColor = img.color;
-                
+
                 tempColor.a = 170f;
                 img.color = tempColor;
 
@@ -136,19 +138,6 @@ public class UIManager : MonoBehaviour
             }
             count++;
         }
-    }
-
-    public void HidePotionList()
-    {
-        EnableButtons();
-        potionList.SetActive(false);
-    }
-
-    private void DisplayPotionAmount(int index)
-    {
-        potionTextList[index].text = 
-        player.inventory.items[player.inventory.consumableLocations[index]].itemName +
-        " x" + player.inventory.items[player.inventory.consumableLocations[index]].amount.ToString();
     }
 
     public void DeactivateAdders()

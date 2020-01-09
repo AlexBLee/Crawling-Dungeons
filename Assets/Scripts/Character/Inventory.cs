@@ -10,6 +10,7 @@ public class Inventory : MonoBehaviour
 
     // Used for locating which index the consumables are at.
     public List<int> consumableLocations;
+    private int listIndex;
 
     public List<EquippableItem> equips;
     public List<Item> items;
@@ -74,7 +75,8 @@ public class Inventory : MonoBehaviour
             else
             {
                 item = Instantiate(item);
-                consumableLocations.Add(index);
+                consumableLocations[listIndex] = index;
+                listIndex++;
             }
         }
 
