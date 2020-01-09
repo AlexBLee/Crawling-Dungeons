@@ -5,7 +5,7 @@ using UnityEditor.Animations;
 public class EnemyCreator : EditorWindow 
 {
     Enemy enemy;
-    int hp, mp, str, intl, dex, will, def, hpCounter, experiencePoints, gold;
+    int hp, mp, str, intl, dex, will, def, experiencePoints, gold;
     Sprite initialSprite;
     string enemyName;
 
@@ -31,7 +31,6 @@ public class EnemyCreator : EditorWindow
         dex = EditorGUILayout.IntField("Dex:", dex);
         will = EditorGUILayout.IntField("Will:" ,will);
         def = EditorGUILayout.IntField("Def:", def);
-        hpCounter = EditorGUILayout.IntField("# of heals:", hpCounter);
         experiencePoints = EditorGUILayout.IntField("EXP:", experiencePoints);
         gold = EditorGUILayout.IntField("Gold:", gold);
 
@@ -70,7 +69,6 @@ public class EnemyCreator : EditorWindow
                 enemy.dex = dex;
                 enemy.will = will;
                 enemy.def = def;
-                enemy.hpCounter = hpCounter;
                 enemy.experiencePoints = experiencePoints;
                 enemy.gold = gold;
 

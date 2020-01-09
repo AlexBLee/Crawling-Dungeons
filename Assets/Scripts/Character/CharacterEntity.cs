@@ -41,8 +41,6 @@ public class CharacterEntity : MonoBehaviour
     protected Vector3 initialPos;
     public CharacterEntity target;
     [HideInInspector] public TextMeshPro infoText;
-    public int hpCounter;
-    public int mpCounter;
 
 
     // ------------------------------------
