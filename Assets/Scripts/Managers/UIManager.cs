@@ -44,6 +44,13 @@ public class UIManager : MonoBehaviour
         }
         count = 0;
 
+        foreach(Button b in potionButtonList)
+        {
+            int x = count;
+            b.onClick.AddListener(delegate{player.inventory.ConsumeItem(player.inventory.consumableLocations[x], player);});
+            count++;
+        }
+
         DisplayPotionAmount();
 
         magicBackButton.onClick.AddListener(HideMagicList);
