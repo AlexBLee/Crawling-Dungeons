@@ -256,7 +256,6 @@ public class Inventory : MonoBehaviour
     public void ConsumeItem(int index, CharacterEntity character)
     {
         // if 0, then display no more potions left!
-
         ConsumableItem consumable = (ConsumableItem)items[index];
 
         consumable.amount--;
