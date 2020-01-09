@@ -158,6 +158,21 @@ public class Inventory : MonoBehaviour
         AddItem(tempItem);
     }
 
+    public void ConsumeItem(int index, CharacterEntity character)
+    {
+        // if 0, then display no more potions left!
+        ConsumableItem consumable = (ConsumableItem)items[index];
+
+        consumable.amount--;
+        Debug.Log(consumable.amount);
+        consumable.ConsumeEffect(character);
+        
+        if(consumable.amount == 0)
+        {
+            items[index] = null;
+        }
+    }
+
     // -----------------------------------------------------------------------------
 
     public void AddItemStats(Item item)
@@ -251,21 +266,6 @@ public class Inventory : MonoBehaviour
     {
         gold += amount;
         inventoryDisplay.goldText.text = gold.ToString();
-    }
-
-    public void ConsumeItem(int index, CharacterEntity character)
-    {
-        // if 0, then display no more potions left!
-        ConsumableItem consumable = (ConsumableItem)items[index];
-
-        consumable.amount--;
-        Debug.Log(consumable.amount);
-        consumable.ConsumeEffect(character);
-        
-        if(consumable.amount == 0)
-        {
-            items[index] = null;
-        }
     }
 
     public int LookForFreeInventorySpace()
