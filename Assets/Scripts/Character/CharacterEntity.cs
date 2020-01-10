@@ -190,6 +190,7 @@ public class CharacterEntity : MonoBehaviour
         // Apply damage
         target.hp -= damage;
         target.anim.SetTrigger("Hit");
+        AudioManager.Instance.Play("SlashHit");
         
         // Spawning text
         infoText.text = damage.ToString();
@@ -277,6 +278,7 @@ public class CharacterEntity : MonoBehaviour
         infoText.text = amount.ToString();
         uiManager.UpdateUIHealth();
         Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
+        AudioManager.Instance.Play("UsePotion");
         anim.SetTrigger("UseItem");
 
         
