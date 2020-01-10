@@ -17,6 +17,7 @@ public class Enemy : CharacterEntity
     {   
         initialPos = transform.position;
         uiManager = FindObjectOfType<UIManager>();
+        UpdateDamageStats();
     }
 
     void Update()
