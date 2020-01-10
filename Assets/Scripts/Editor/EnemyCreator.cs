@@ -94,6 +94,15 @@ public class EnemyCreator : EditorWindow
                 {
                     AnimationClip clip = new AnimationClip();
                     AssetDatabase.CreateAsset(clip, enemyDestination + "/Animations/" + animationFilenames[i]);
+
+                    // Setting loop for Idle and Run animations.
+                    if(i == 0 || i == 3)
+                    {
+                        AnimationClipSettings settings = AnimationUtility.GetAnimationClipSettings(clip);
+                        settings.loopTime = true;
+                        AnimationUtility.SetAnimationClipSettings(clip, settings);
+                    }
+
                     animStates[i] = controller.AddMotion(clip);
                 }
 

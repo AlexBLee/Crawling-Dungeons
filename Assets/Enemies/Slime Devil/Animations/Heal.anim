@@ -88,14 +88,6 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.33333334
-    functionName: UseHealthItem
-    data: 
-    objectReferenceParameter: {fileID: 11400000, guid: 7345e3fa1c1d83642911421812b716ab,
-      type: 2}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.33333334
     functionName: PlaySound
     data: UsePotion
     objectReferenceParameter: {fileID: 0}
