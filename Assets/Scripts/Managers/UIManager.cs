@@ -47,7 +47,10 @@ public class UIManager : MonoBehaviour
         foreach(Button b in potionButtonList)
         {
             int x = count;
-            b.onClick.AddListener(delegate{player.inventory.ConsumeItem(player.inventory.consumableLocations[x], player);});
+            if(player.inventory.consumableLocations[x] < 24)
+            {
+                b.onClick.AddListener(delegate{player.inventory.ConsumeItem(player.inventory.consumableLocations[x], player);});
+            }
             count++;
         }
 
@@ -119,11 +122,14 @@ public class UIManager : MonoBehaviour
         foreach(Button b in potionButtonList)
         {
             int x = count;
-            if(player.inventory.consumableLocations.Count > 0 && player.inventory.items[player.inventory.consumableLocations[x]] != null)
+            if(player.inventory.consumableLocations[x] < 24)
             {
-                potionTextList[x].text = 
-                player.inventory.items[player.inventory.consumableLocations[x]].itemName +
-                " x" + player.inventory.items[player.inventory.consumableLocations[x]].amount.ToString();
+                if(player.inventory.items[player.inventory.consumableLocations[x]] != null)
+                {
+                    potionTextList[x].text = 
+                    player.inventory.items[player.inventory.consumableLocations[x]].itemName +
+                    " x" + player.inventory.items[player.inventory.consumableLocations[x]].amount.ToString();
+                }
             }
             // If the potion no longer exists..
             else
