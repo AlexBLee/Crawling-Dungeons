@@ -2040,7 +2040,7 @@ MonoBehaviour:
   uiManager: {fileID: 68796133}
   background: {fileID: 1529571563}
   spawnableEnemies:
-  - {fileID: 4452915190085327154, guid: 4acb50b23196b114d92db15bbf3d001c, type: 3}
+  - {fileID: 4452915190085327154, guid: a6a9302333553454b805b2f9d1432466, type: 3}
   - {fileID: 4452915190085327154, guid: 4cef138db1eb0f044850d840065c5a39, type: 3}
   - {fileID: 4452915190085327154, guid: e26baad26c598b745aca5fc2296b1938, type: 3}
   - {fileID: 4452915190085327154, guid: 4acb50b23196b114d92db15bbf3d001c, type: 3}
@@ -9111,7 +9111,7 @@ PrefabInstance:
     - target: {fileID: 70495698347628150, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1126867815815248243, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}

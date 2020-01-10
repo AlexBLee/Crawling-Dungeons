@@ -9108,7 +9108,7 @@ PrefabInstance:
     - target: {fileID: 70495698347628150, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1126867815815248243, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
@@ -9119,6 +9119,41 @@ PrefabInstance:
         type: 3}
       propertyPath: items.Array.size
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126867815815248243, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: consumableLocations.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126867815815248243, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: consumableLocations.Array.data[0]
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126867815815248243, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: consumableLocations.Array.data[1]
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126867815815248243, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: consumableLocations.Array.data[2]
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126867815815248243, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: consumableLocations.Array.data[3]
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126867815815248243, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: consumableLocations.Array.data[4]
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126867815815248243, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: consumableLocations.Array.data[5]
+      value: 24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6f2ea454a19a0b47b4e14e777baa4da, type: 3}
