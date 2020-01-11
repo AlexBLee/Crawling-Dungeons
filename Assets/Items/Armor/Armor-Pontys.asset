@@ -15,7 +15,8 @@ MonoBehaviour:
   itemName: Pontys
   description: Ponny pon pon!
   image: {fileID: 21300172, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
-  cost: 250
-  durability: 22
+  cost: 100
+  amount: 0
+  durability: 25
   itemType: 4
-  defense: 222
+  defense: 6

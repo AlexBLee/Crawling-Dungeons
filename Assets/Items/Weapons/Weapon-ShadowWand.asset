@@ -16,8 +16,9 @@ MonoBehaviour:
   description: shadowy shadows!
   image: {fileID: 21300146, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
   cost: 250
-  durability: 69
+  amount: 0
+  durability: 50
   itemType: 2
-  minDamage: 100
-  maxDamage: 120
+  minDamage: 25
+  maxDamage: 50
   isMagic: 1

@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Weapon-Axey
   m_EditorClassIdentifier: 
   itemName: Axey
-  description: axx
+  description: Sharpest of axes
   image: {fileID: 21300238, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
   cost: 145
-  durability: 69
+  amount: 0
+  durability: 26
   itemType: 2
-  minDamage: 100
-  maxDamage: 120
+  minDamage: 23
+  maxDamage: 46
+  isMagic: 0

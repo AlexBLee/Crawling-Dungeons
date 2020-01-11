@@ -16,6 +16,7 @@ MonoBehaviour:
   description: the hellest of helmets
   image: {fileID: 21300158, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
   cost: 250
-  durability: 2
+  amount: 0
+  durability: 10
   itemType: 0
-  defense: 22
+  defense: 7
