@@ -2041,7 +2041,8 @@ MonoBehaviour:
   background: {fileID: 1529571563}
   spawnableEnemies:
   - {fileID: 4452915190085327154, guid: 0860f235f94e2c145977bb475f51d74a, type: 3}
-  - {fileID: 4452915190085327154, guid: e05ec1295217ea94e87feed5ad015656, type: 3}
+  - {fileID: 4452915190085327154, guid: fcba2c932338492448839a8b61cf1dc5, type: 3}
+  - {fileID: 4452915190085327154, guid: 4cef138db1eb0f044850d840065c5a39, type: 3}
 --- !u!4 &611337057
 Transform:
   m_ObjectHideFlags: 0

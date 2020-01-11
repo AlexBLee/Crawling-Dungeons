@@ -2040,11 +2040,10 @@ MonoBehaviour:
   uiManager: {fileID: 68796133}
   background: {fileID: 1529571563}
   spawnableEnemies:
-  - {fileID: 4452915190085327154, guid: a6a9302333553454b805b2f9d1432466, type: 3}
-  - {fileID: 4452915190085327154, guid: 4cef138db1eb0f044850d840065c5a39, type: 3}
+  - {fileID: 4452915190085327154, guid: 6cd9b18e896b06b41b30ce273e91eec8, type: 3}
+  - {fileID: 4452915190085327154, guid: e6a1377e52f54504989db9d95ddc0730, type: 3}
   - {fileID: 4452915190085327154, guid: e26baad26c598b745aca5fc2296b1938, type: 3}
   - {fileID: 4452915190085327154, guid: 4acb50b23196b114d92db15bbf3d001c, type: 3}
-  - {fileID: 4452915190085327154, guid: a6a9302333553454b805b2f9d1432466, type: 3}
 --- !u!4 &611337057
 Transform:
   m_ObjectHideFlags: 0

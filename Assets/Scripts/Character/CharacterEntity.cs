@@ -72,7 +72,7 @@ public class CharacterEntity : MonoBehaviour
     {
         level++;
         exp = 0;
-        expThreshold += 300;
+        expThreshold += 200;
         statPoints += 3;
 
         hp += 10;

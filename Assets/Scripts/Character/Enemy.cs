@@ -81,9 +81,9 @@ public class Enemy : CharacterEntity
             Heal((int)(maxHP * 0.20f));
         }
         // Use spell if the player is low on health
-        else if(target.hp < target.maxHP * 0.60f)
+        else if(target.hp < target.maxHP * 0.40f)
         {
-            additionalDamage = (int)maxDamage * 2;
+            additionalDamage = (int)(maxDamage * 1.25f);
             RangedAttack();
         }
         // Normal Attack

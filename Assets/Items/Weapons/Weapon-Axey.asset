@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Axey
   description: Sharpest of axes
   image: {fileID: 21300238, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
-  cost: 145
+  cost: 90
   amount: 0
   durability: 26
   itemType: 2
