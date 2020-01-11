@@ -122,14 +122,11 @@ public class UIManager : MonoBehaviour
         foreach(Button b in potionButtonList)
         {
             int x = count;
-            if(player.inventory.consumableLocations[x] < 24)
+            if(player.inventory.consumableLocations[x] < 24 && player.inventory.items[player.inventory.consumableLocations[x]] != null)
             {
-                if(player.inventory.items[player.inventory.consumableLocations[x]] != null)
-                {
-                    potionTextList[x].text = 
-                    player.inventory.items[player.inventory.consumableLocations[x]].itemName +
-                    " x" + player.inventory.items[player.inventory.consumableLocations[x]].amount.ToString();
-                }
+                potionTextList[x].text = 
+                player.inventory.items[player.inventory.consumableLocations[x]].itemName +
+                " x" + player.inventory.items[player.inventory.consumableLocations[x]].amount.ToString();
             }
             // If the potion no longer exists..
             else
