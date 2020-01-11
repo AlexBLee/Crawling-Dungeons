@@ -336,7 +336,7 @@ public class CharacterEntity : MonoBehaviour
             
             if(transform.position == initialPos)
             {
-                battleManager.ToggleNextTurn();
+                StartCoroutine(battleManager.ToggleNextTurn());
                 targetReached = false;
                 attacking = false;
                 animationDone = false;                   
@@ -368,7 +368,7 @@ public class CharacterEntity : MonoBehaviour
 
     public void MagicAnimationFinish()
     {
-        battleManager.ToggleNextTurn();
+        StartCoroutine(battleManager.ToggleNextTurn());
     }
 
         

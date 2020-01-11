@@ -17,6 +17,6 @@ public class SpellFunctions : MonoBehaviour
 
     public void MagicAnimationFinish()
     {
-        FindObjectOfType<BattleManager>().ToggleNextTurn();
+        FindObjectOfType<BattleManager>().BeginWait();
     }
 }

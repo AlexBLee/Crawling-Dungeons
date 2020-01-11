@@ -46,14 +46,21 @@ public class BattleManager : MonoBehaviour
         uiManager.EnableButtons();
         playerTurn = true;
     }
+    
+    // Only for the spells as the triggers cannot start coroutines themselves.
+    public void BeginWait()
+    {
+        StartCoroutine(ToggleNextTurn());
+    }
 
 
-    public void ToggleNextTurn()
+    public IEnumerator ToggleNextTurn()
     {
         if(playerTurn)
         {
             if(enemy != null)
             {
+                yield return new WaitForSeconds(0.75f);
                 uiManager.DisableButtons();
                 enemy.SetAttackConditions();
             }
