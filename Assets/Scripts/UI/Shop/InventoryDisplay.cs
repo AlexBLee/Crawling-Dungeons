@@ -42,7 +42,6 @@ public class InventoryDisplay : MonoBehaviour
 
         inventoryButton.onClick.AddListener(ShowInventory);
 
-        UpdateInventory();
         // player.inventory.UpdateItemStats();
 
         for(int i = 0; i < buttons.Count; i++)
@@ -57,6 +56,7 @@ public class InventoryDisplay : MonoBehaviour
             equippedButtons[x].onClick.AddListener(delegate {DisplayEquippedItemInfo(x,equippedButtons[x].gameObject.transform.position);});
         }
 
+        UpdateInventory();
         goldText.text = player.inventory.gold.ToString();
     }
 
