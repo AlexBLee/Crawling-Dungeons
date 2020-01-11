@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private Player player;
+    public Player player;
     private bool isEmpty = true;
     private int indexOfItem;
 

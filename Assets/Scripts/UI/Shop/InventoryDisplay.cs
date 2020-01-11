@@ -35,7 +35,7 @@ public class InventoryDisplay : MonoBehaviour
     private void Start() 
     {
         player.inventory.inventoryDisplay = this;
-        player.inventory.ApplyItemsFrom(GameManager.instance.playerStats);
+        // player.inventory.ApplyItemsFrom(GameManager.instance.playerStats);
 
         items = player.inventory.items;
         equippedItems = player.inventory.equips;
@@ -43,7 +43,7 @@ public class InventoryDisplay : MonoBehaviour
         inventoryButton.onClick.AddListener(ShowInventory);
 
         UpdateInventory();
-        player.inventory.UpdateItemStats();
+        // player.inventory.UpdateItemStats();
 
         for(int i = 0; i < buttons.Count; i++)
         {
