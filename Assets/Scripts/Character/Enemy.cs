@@ -53,16 +53,20 @@ public class Enemy : CharacterEntity
     {
         // The AI can only heal once every two turns.
         // The counter is there to keep count of how manys turns its been since it last healed.
-        if(!canHeal)
-        {
-            healCounter--;
-        }
-        if(healCounter == 0)
-        {
-            canHeal = true;
-        }
 
-        FindBestMove();
+        if(!dead)
+        {
+            if(!canHeal)
+            {
+                healCounter--;
+            }
+            if(healCounter == 0)
+            {
+                canHeal = true;
+            }
+
+            FindBestMove();
+        }
 
         
     }

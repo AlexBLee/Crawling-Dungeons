@@ -47,7 +47,7 @@ public class BattleManager : MonoBehaviour
         playerTurn = true;
     }
     
-    // Only for the spells as the triggers cannot start coroutines themselves.
+    // Only for the spells as the animation triggers cannot start coroutines themselves.
     public void BeginWait()
     {
         StartCoroutine(ToggleNextTurn());

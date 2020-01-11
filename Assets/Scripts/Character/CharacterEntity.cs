@@ -154,6 +154,7 @@ public class CharacterEntity : MonoBehaviour
     {
         if(hp <= 0 && inBattle)
         {
+            dead = true;
             anim.SetTrigger("Death");
         }
     }
