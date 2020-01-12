@@ -143,7 +143,7 @@ public class BattleManager : MonoBehaviour
         while(timer < 2)
         {
             timer += Time.deltaTime;
-            background.transform.position = Vector2.Lerp(startPos,endPos, timer/2);
+            background.transform.position = Vector2.Lerp(startPos,endPos, timer/1.20f);
             yield return null;
         }
 

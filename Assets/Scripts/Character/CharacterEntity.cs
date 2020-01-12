@@ -355,7 +355,7 @@ public class CharacterEntity : MonoBehaviour
         while(timer < 2)
         {
             timer += Time.deltaTime;
-            transform.position = Vector2.Lerp(startPos,endPos, timer/2);
+            transform.position = Vector2.Lerp(startPos,endPos, timer/1.20f);
             yield return null;
         }
 
