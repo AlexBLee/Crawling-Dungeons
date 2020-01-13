@@ -99,7 +99,6 @@ public class BattleManager : MonoBehaviour
         battleDone = false;
         player.anim.SetBool("Run", false);
         TogglePlayerTurn();
-        uiManager.EnableButtons();
         needToSpawn = true;
         newBattle = true;
     }
@@ -129,9 +128,6 @@ public class BattleManager : MonoBehaviour
                 uiManager.DeactivateAdders();
             }
         }
-
-        
-        
     }
     
     private IEnumerator MoveToExactPosition(Vector2 start, Vector2 destination)
@@ -150,7 +146,6 @@ public class BattleManager : MonoBehaviour
         if(newBattle)
         {
             calculating = true;
-            StartNewBattle();
             newBattle = false;
         }
 
