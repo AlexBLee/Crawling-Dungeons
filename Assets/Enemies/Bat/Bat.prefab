@@ -149,7 +149,7 @@ MonoBehaviour:
   fightPosition: {x: 4.28, y: 2.58, z: 0}
   canHeal: 0
   healCounter: 1
-  gold: 50
+  gold: 80
 --- !u!95 &4452915190085327165
 Animator:
   serializedVersion: 3

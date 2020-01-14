@@ -134,32 +134,22 @@ MonoBehaviour:
   intl: 30
   dex: 30
   will: 20
-  additionalDamage: 0
-  critChance: 0
   minDamage: 5
   maxDamage: 10
   magicMinDamage: 0
   magicMaxDamage: 0
-  def: 15
-  moveSpeed: 5
+  def: 10
   inBattle: 1
-  targetReached: 0
-  attacking: 0
-  dead: 0
-  animationDone: 0
   anim: {fileID: 4452915190085327165}
   target: {fileID: 0}
   infoText: {fileID: 5973154270874184695, guid: dc9f3253454acfa4a8730ae96c228bf3,
     type: 3}
-  objectID: 0
-  hpCounter: 1
-  mpCounter: 0
   experiencePoints: 150
   newBattle: 0
   fightPosition: {x: 4.28, y: 2.58, z: 0}
   canHeal: 0
   healCounter: 1
-  gold: 100
+  gold: 120
 --- !u!95 &4452915190085327165
 Animator:
   serializedVersion: 3

@@ -130,7 +130,7 @@ MonoBehaviour:
   mp: 200
   maxHP: 350
   maxMP: 200
-  str: 89
+  str: 75
   intl: 40
   dex: 56
   will: 25
@@ -138,7 +138,7 @@ MonoBehaviour:
   maxDamage: 10
   magicMinDamage: 0
   magicMaxDamage: 0
-  def: 25
+  def: 20
   inBattle: 1
   anim: {fileID: 4452915190085327165}
   target: {fileID: 0}

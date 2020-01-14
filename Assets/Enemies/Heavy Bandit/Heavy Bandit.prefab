@@ -126,7 +126,7 @@ MonoBehaviour:
   exp: 0
   expThreshold: 50
   statPoints: 0
-  hp: 200
+  hp: 180
   mp: 200
   maxHP: 200
   maxMP: 200
@@ -134,26 +134,16 @@ MonoBehaviour:
   intl: 20
   dex: 30
   will: 30
-  additionalDamage: 0
-  critChance: 0
   minDamage: 5
   maxDamage: 10
   magicMinDamage: 0
   magicMaxDamage: 0
-  def: 15
-  moveSpeed: 5
+  def: 12
   inBattle: 1
-  targetReached: 0
-  attacking: 0
-  dead: 0
-  animationDone: 0
   anim: {fileID: 4452915190085327165}
   target: {fileID: 0}
   infoText: {fileID: 5973154270874184695, guid: dc9f3253454acfa4a8730ae96c228bf3,
     type: 3}
-  objectID: 0
-  hpCounter: 2
-  mpCounter: 0
   experiencePoints: 400
   newBattle: 0
   fightPosition: {x: 4.28, y: 2.58, z: 0}
