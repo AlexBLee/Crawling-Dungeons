@@ -374,7 +374,7 @@ MonoBehaviour:
   potionBackButton: {fileID: 2138618248}
   victoryPanel: {fileID: 2036862401}
   gameOverPanel: {fileID: 1431259570}
-  winPanel: {fileID: 0}
+  winPanel: {fileID: 1999733005}
 --- !u!4 &68796134
 Transform:
   m_ObjectHideFlags: 0
