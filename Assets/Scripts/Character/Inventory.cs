@@ -30,8 +30,8 @@ public class Inventory : MonoBehaviour
 
     public void InitializeInventory()
     {
-        equips = new List<EquippableItem>(6);
-        items = new List<Item>(25);
+        equips = new List<EquippableItem>(new EquippableItem[6]);
+        items = new List<Item>(new Item[12]);
         gold = 0;
     }
 

@@ -31,6 +31,13 @@ public class GameManager : MonoBehaviour
         playerStats.gameObject.SetActive(false);
     }
 
+    public void ResetGame()
+    {
+        GameManager.instance.playerStats.InitalizeStats();
+        GameManager.instance.playerStats.inventory.InitializeInventory();
+        GameManager.instance.levelNumber = 2;
+    }
+
 
 
     
