@@ -121,12 +121,21 @@ public class BattleManager : MonoBehaviour
         else
         {
             AudioManager.Instance.Play("Victory");
-            uiManager.victoryPanel.SetActive(true);
-            
+            if(SceneManager.GetActiveScene().buildIndex == 5)
+            {
+                uiManager.ActivateGameWin();
+            }
+            else
+            {
+                uiManager.victoryPanel.SetActive(true);
+            }
+
             if(player.statPoints == 0)
             {
                 uiManager.DeactivateAdders();
             }
+            
+            
         }
     }
     

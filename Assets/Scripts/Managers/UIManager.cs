@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject victoryPanel;
     public GameObject gameOverPanel;
+    public GameObject winPanel;
 
     private void Start() 
     {
@@ -180,6 +181,16 @@ public class UIManager : MonoBehaviour
     {
         DisableButtons();
         gameOverPanel.SetActive(true);
+    }
+
+    public void ActivateGameWin()
+    {
+        if(winPanel != null)
+        {
+            DisableButtons();
+            victoryPanel.SetActive(false);
+            winPanel.SetActive(true);
+        }
     }
 
 }
