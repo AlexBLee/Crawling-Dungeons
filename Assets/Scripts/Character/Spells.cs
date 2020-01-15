@@ -25,15 +25,15 @@ public class Spells : MonoBehaviour
     {
         if(player.level >= 1) { spellList[spells[0]] = true; }
 
-        if(player.level >= 5) { spellList[spells[1]] = true; }
+        if(player.level >= 3) { spellList[spells[1]] = true; }
 
-        if(player.level >= 7) { spellList[spells[2]] = true; }
+        if(player.level >= 5) { spellList[spells[2]] = true; }
 
-        if(player.level >= 12) { spellList[spells[3]] = true; }
+        if(player.level >= 10) { spellList[spells[3]] = true; }
 
-        if(player.level >= 20) { spellList[spells[4]] = true; }
+        if(player.level >= 15) { spellList[spells[4]] = true; }
 
-        if(player.level >= 25) { spellList[spells[5]] = true; }
+        if(player.level >= 20) { spellList[spells[5]] = true; }
 
     }
 
