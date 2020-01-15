@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Bootys
   description: Arr heres the booty
   image: {fileID: 21300190, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
-  cost: 70
+  cost: 100
   amount: 0
   durability: 58
   itemType: 5

@@ -15,10 +15,10 @@ MonoBehaviour:
   itemName: Excalibur
   description: The legendary sword.
   image: {fileID: 21300098, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
-  cost: 180
+  cost: 250
   amount: 0
   durability: 50
   itemType: 2
-  minDamage: 65
-  maxDamage: 100
+  minDamage: 45
+  maxDamage: 80
   isMagic: 0
