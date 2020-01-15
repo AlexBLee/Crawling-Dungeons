@@ -235,7 +235,8 @@ public class CharacterEntity : MonoBehaviour
         // Apply damage
         target.hp -= damage;
         target.anim.SetTrigger("Hit");
-        
+        AudioManager.Instance.Play("SlashHit");
+
         // Spawn text
         infoText.text = damage.ToString();
         Instantiate(infoText, target.transform.position + new Vector3(0,0,-1), Quaternion.identity);
