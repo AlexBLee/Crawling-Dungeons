@@ -7,7 +7,7 @@ public class GameOverScreen : MonoBehaviour
     void Update()
     {
         #if UNITY_ANDROID
-        if(Input.GetKey(KeyCode.Return))
+        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             GameManager.instance.ResetGame();
             SceneManager.LoadScene("Level1");
