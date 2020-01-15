@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public Player playerStats;
     public int levelNumber = 2;
+    public bool endlessMode = false;
 
     void Awake()
     {

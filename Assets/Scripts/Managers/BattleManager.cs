@@ -22,7 +22,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField, HideInInspector] private UIManager uiManager;
     [SerializeField, HideInInspector] private GameObject background;
 
-    public List<GameObject> spawnableEnemies;
+    public List<Enemy> spawnableEnemies;
     private int enemyCounter = 0;
 
     private void Start() 
@@ -52,7 +52,6 @@ public class BattleManager : MonoBehaviour
     {
         StartCoroutine(ToggleNextTurn());
     }
-
 
     public IEnumerator ToggleNextTurn()
     {
@@ -107,7 +106,7 @@ public class BattleManager : MonoBehaviour
     {
         if(enemyCounter < spawnableEnemies.Count)
         {
-            GameObject enemyObject = Instantiate(spawnableEnemies[number], enemyPosition, Quaternion.Euler(0,180,0));
+            GameObject enemyObject = Instantiate(spawnableEnemies[number].gameObject, enemyPosition, Quaternion.Euler(0,180,0));
             enemy = enemyObject.GetComponent<Enemy>();
             enemy.battleManager = this;
             enemy.target = FindObjectOfType<Player>();
@@ -139,6 +138,12 @@ public class BattleManager : MonoBehaviour
         }
     }
     
+    public void BuffEndlessEnemyStats()
+    {
+        for(int i = 0; i < spawnableEnemies.Count; i++)
+        {
+        }
+    }
     private IEnumerator MoveToExactPosition(Vector2 start, Vector2 destination)
     {
         Vector2 startPos = start;

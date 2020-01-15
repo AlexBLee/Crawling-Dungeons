@@ -374,6 +374,7 @@ MonoBehaviour:
   potionBackButton: {fileID: 2138618248}
   victoryPanel: {fileID: 2036862401}
   gameOverPanel: {fileID: 1431259570}
+  winPanel: {fileID: 0}
 --- !u!4 &68796134
 Transform:
   m_ObjectHideFlags: 0
@@ -2167,9 +2168,9 @@ MonoBehaviour:
   uiManager: {fileID: 68796133}
   background: {fileID: 1529571563}
   spawnableEnemies:
-  - {fileID: 4452915190085327154, guid: 0860f235f94e2c145977bb475f51d74a, type: 3}
-  - {fileID: 4452915190085327154, guid: fcba2c932338492448839a8b61cf1dc5, type: 3}
-  - {fileID: 4452915190085327154, guid: 4cef138db1eb0f044850d840065c5a39, type: 3}
+  - {fileID: 4452915190085327153, guid: 0860f235f94e2c145977bb475f51d74a, type: 3}
+  - {fileID: 4452915190085327153, guid: fcba2c932338492448839a8b61cf1dc5, type: 3}
+  - {fileID: 4452915190085327153, guid: 4cef138db1eb0f044850d840065c5a39, type: 3}
 --- !u!4 &611337057
 Transform:
   m_ObjectHideFlags: 0
@@ -5286,6 +5287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 368710595}
   levelNumber: 2
+  endlessMode: 0
 --- !u!4 &1347749279
 Transform:
   m_ObjectHideFlags: 0
