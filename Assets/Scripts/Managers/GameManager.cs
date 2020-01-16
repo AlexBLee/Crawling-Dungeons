@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
 
     public Player playerStats;
     public int levelNumber = 2;
-    public bool endlessMode = false;
+
+    // static as it needs to be accessed from title screen without GameManager existing in the menu.
+    public static bool endlessMode = false;
     public int endlessNumber = 2;
 
     void Awake()

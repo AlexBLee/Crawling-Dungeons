@@ -9,7 +9,7 @@ public class VictoryScreen : MonoBehaviour
         #if UNITY_ANDROID
         if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            if(GameManager.instance.endlessMode)
+            if(GameManager.endlessMode)
             {
                 GameManager.instance.endlessNumber++;
             }
@@ -24,7 +24,7 @@ public class VictoryScreen : MonoBehaviour
         #if UNITY_EDITOR || UNITY_STANDALONE
         if(Input.GetKey(KeyCode.Return))
         {
-            if(GameManager.instance.endlessMode)
+            if(GameManager.endlessMode)
             {
                 GameManager.instance.endlessNumber++;
             }

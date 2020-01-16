@@ -109,7 +109,7 @@ public class BattleManager : MonoBehaviour
             GameObject enemyObject = Instantiate(spawnableEnemies[number].gameObject, enemyPosition, Quaternion.Euler(0,180,0));
             enemy = enemyObject.GetComponent<Enemy>();
 
-            if(GameManager.instance.endlessMode)
+            if(GameManager.endlessMode)
             {
                 BuffEndlessEnemyStats(enemy);
             }

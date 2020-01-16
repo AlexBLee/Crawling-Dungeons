@@ -1470,18 +1470,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309717375}
   m_CullTransparentMesh: 0
---- !u!114 &368710595 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 70495698347628148, guid: fa61940fa5df1b24b9aec3232ab7633c,
-    type: 3}
-  m_PrefabInstance: {fileID: 722881227}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cecc79a26e3ab594fb759a694c1c5513, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &425622173
 GameObject:
   m_ObjectHideFlags: 0
@@ -2329,6 +2317,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa61940fa5df1b24b9aec3232ab7633c, type: 3}
+--- !u!114 &722881228 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 70495698347628148, guid: fa61940fa5df1b24b9aec3232ab7633c,
+    type: 3}
+  m_PrefabInstance: {fileID: 722881227}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cecc79a26e3ab594fb759a694c1c5513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &753091358
 GameObject:
   m_ObjectHideFlags: 0
@@ -5285,9 +5285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00ac890fbd6d6074b90b1721633dee0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 368710595}
+  playerStats: {fileID: 722881228}
   levelNumber: 2
-  endlessMode: 0
   endlessNumber: 1
 --- !u!4 &1347749279
 Transform:
