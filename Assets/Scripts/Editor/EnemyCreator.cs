@@ -113,7 +113,7 @@ public class EnemyCreator : EditorWindow
                 animationNames[0] = "Attack";
                 animationNames[1] = "Hit";
                 animationNames[2] = "Run";
-                animationNames[3] = "UseItem";
+                animationNames[3] = "Heal";
                 animationNames[4] = "Cast";
                 animationNames[5] = "Death";
                 

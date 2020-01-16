@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor.SceneManagement;
 using System.Collections.Generic;
 
-public class SceneCreator : EditorWindow 
+public class LevelCreator : EditorWindow 
 {
     Sprite background;
     public string levelName;
@@ -18,8 +18,8 @@ public class SceneCreator : EditorWindow
     [MenuItem("Tools/Level Creator")]
     private static void ShowWindow() 
     {
-        var window = GetWindow<SceneCreator>();
-        window.titleContent = new GUIContent("SceneCreator");
+        var window = GetWindow<LevelCreator>();
+        window.titleContent = new GUIContent("LevelCreator");
         window.Show();
     }
 
@@ -27,7 +27,6 @@ public class SceneCreator : EditorWindow
     {
         // Background -----------------------------------------
         GUILayout.Label("Background", EditorStyles.boldLabel);
-        GUILayout.Label("A background size of 1280x720 is recommended.");
         GUILayout.Label("Note: It will have to be scaled/fitted on your own.");
 
         EditorGUILayout.Space();
