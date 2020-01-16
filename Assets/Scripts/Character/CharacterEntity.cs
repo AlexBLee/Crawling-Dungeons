@@ -100,7 +100,7 @@ public class CharacterEntity : MonoBehaviour
         magicMinDamage = intl / 5;
         magicMaxDamage = intl / 2;
 
-        critChance = (will - 10)/10;
+        critChance = will / 2;
 
         def = str / 10;
     }
