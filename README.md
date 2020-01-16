@@ -17,7 +17,7 @@ git clone https://github.com/AlexBLee/Crawling-Dungeons.git
 
 ## Documentation
 
-TBD
+[Enemy/Level Creator](CreatorDocumentation.md)
 
 ## Credits
 
