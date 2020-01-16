@@ -5288,6 +5288,7 @@ MonoBehaviour:
   playerStats: {fileID: 368710595}
   levelNumber: 2
   endlessMode: 0
+  endlessNumber: 1
 --- !u!4 &1347749279
 Transform:
   m_ObjectHideFlags: 0

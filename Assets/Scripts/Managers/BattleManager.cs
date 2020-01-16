@@ -108,6 +108,12 @@ public class BattleManager : MonoBehaviour
         {
             GameObject enemyObject = Instantiate(spawnableEnemies[number].gameObject, enemyPosition, Quaternion.Euler(0,180,0));
             enemy = enemyObject.GetComponent<Enemy>();
+
+            if(GameManager.instance.endlessMode)
+            {
+                BuffEndlessEnemyStats(enemy);
+            }
+            
             enemy.battleManager = this;
             enemy.target = FindObjectOfType<Player>();
             enemy.newBattle = true;
@@ -138,12 +144,21 @@ public class BattleManager : MonoBehaviour
         }
     }
     
-    public void BuffEndlessEnemyStats()
+    public void BuffEndlessEnemyStats(Enemy enemy)
     {
-        for(int i = 0; i < spawnableEnemies.Count; i++)
-        {
-        }
+        float x = Mathf.Pow(1.25f,GameManager.instance.endlessNumber);
+        
+        enemy.hp = (int)(enemy.hp * x);
+        enemy.mp = (int)(enemy.mp * x);
+        enemy.maxHP = (int)(enemy.maxHP * x);
+        enemy.maxMP = (int)(enemy.maxMP * x);
+        enemy.str = (int)(enemy.str * x);
+        enemy.dex = (int)(enemy.dex * x);
+        enemy.intl = (int)(enemy.intl * x);
+        enemy.will = (int)(enemy.will * x);
+        
     }
+
     private IEnumerator MoveToExactPosition(Vector2 start, Vector2 destination)
     {
         Vector2 startPos = start;
