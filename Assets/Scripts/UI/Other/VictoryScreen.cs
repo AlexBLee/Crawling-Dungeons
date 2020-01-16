@@ -9,8 +9,14 @@ public class VictoryScreen : MonoBehaviour
         #if UNITY_ANDROID
         if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            GameManager.instance.endlessNumber++;
-            GameManager.instance.ResetGame();
+            if(GameManager.instance.endlessMode)
+            {
+                GameManager.instance.endlessNumber++;
+            }
+            else
+            {
+                GameManager.instance.ResetGame();
+            }
             SceneManager.LoadScene("Level1");
         }
         #endif
@@ -18,8 +24,14 @@ public class VictoryScreen : MonoBehaviour
         #if UNITY_EDITOR || UNITY_STANDALONE
         if(Input.GetKey(KeyCode.Return))
         {
-            GameManager.instance.endlessNumber++;
-            GameManager.instance.ResetGame();
+            if(GameManager.instance.endlessMode)
+            {
+                GameManager.instance.endlessNumber++;
+            }
+            else
+            {
+                GameManager.instance.ResetGame();
+            }
             SceneManager.LoadScene("Level1");
         }
         #endif
