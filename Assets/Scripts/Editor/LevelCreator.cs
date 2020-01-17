@@ -85,13 +85,13 @@ public class LevelCreator : EditorWindow
                 GameObject.Find("BG2").GetComponent<SpriteRenderer>().sprite = background;
 
                 BattleManager bm = GameObject.FindObjectOfType<BattleManager>();
-                bm.spawnableEnemies = new List<GameObject>(numberOfEnemies);
+                bm.spawnableEnemies = new List<Enemy>(numberOfEnemies);
 
                 for(int i = 0; i < numberOfEnemies; i++)
                 {
                     if(enemyList[i] != null)
                     {
-                        bm.spawnableEnemies.Add(enemyList[i].gameObject);
+                        bm.spawnableEnemies.Add(enemyList[i]);
                     }
                 }
 

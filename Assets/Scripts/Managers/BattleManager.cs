@@ -22,7 +22,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField, HideInInspector] private UIManager uiManager;
     [SerializeField, HideInInspector] private GameObject background;
 
-    public List<GameObject> spawnableEnemies;
+    public List<Enemy> spawnableEnemies;
     private int enemyCounter = 0;
 
     private void Start() 
@@ -52,7 +52,6 @@ public class BattleManager : MonoBehaviour
     {
         StartCoroutine(ToggleNextTurn());
     }
-
 
     public IEnumerator ToggleNextTurn()
     {
@@ -107,8 +106,14 @@ public class BattleManager : MonoBehaviour
     {
         if(enemyCounter < spawnableEnemies.Count)
         {
-            GameObject enemyObject = Instantiate(spawnableEnemies[number], enemyPosition, Quaternion.Euler(0,180,0));
+            GameObject enemyObject = Instantiate(spawnableEnemies[number].gameObject, enemyPosition, Quaternion.Euler(0,180,0));
             enemy = enemyObject.GetComponent<Enemy>();
+
+            if(GameManager.endlessMode)
+            {
+                BuffEndlessEnemyStats(enemy);
+            }
+            
             enemy.battleManager = this;
             enemy.target = FindObjectOfType<Player>();
             enemy.newBattle = true;
@@ -139,6 +144,21 @@ public class BattleManager : MonoBehaviour
         }
     }
     
+    public void BuffEndlessEnemyStats(Enemy enemy)
+    {
+        float x = Mathf.Pow(1.25f,GameManager.instance.endlessNumber);
+        
+        enemy.hp = (int)(enemy.hp * x);
+        enemy.mp = (int)(enemy.mp * x);
+        enemy.maxHP = (int)(enemy.maxHP * x);
+        enemy.maxMP = (int)(enemy.maxMP * x);
+        enemy.str = (int)(enemy.str * x);
+        enemy.dex = (int)(enemy.dex * x);
+        enemy.intl = (int)(enemy.intl * x);
+        enemy.will = (int)(enemy.will * x);
+        
+    }
+
     private IEnumerator MoveToExactPosition(Vector2 start, Vector2 destination)
     {
         Vector2 startPos = start;

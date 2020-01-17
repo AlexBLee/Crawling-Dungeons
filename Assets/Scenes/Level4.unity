@@ -2041,7 +2041,7 @@ MonoBehaviour:
   uiManager: {fileID: 68796133}
   background: {fileID: 1529571563}
   spawnableEnemies:
-  - {fileID: 4452915190085327154, guid: a6a9302333553454b805b2f9d1432466, type: 3}
+  - {fileID: 4452915190085327153, guid: a6a9302333553454b805b2f9d1432466, type: 3}
 --- !u!4 &611337057
 Transform:
   m_ObjectHideFlags: 0
@@ -2104,7 +2104,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 715784194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7668a984f1fa6744a9e113ccf24124d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 1abac4545440ec644a3400225b0da938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!95 &715784197
@@ -5478,6 +5478,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 368710595}
   levelNumber: 2
+  endlessMode: 0
+  endlessNumber: 2
 --- !u!4 &1347749279
 Transform:
   m_ObjectHideFlags: 0

@@ -60,10 +60,10 @@ public class CharacterEntity : MonoBehaviour
         maxHP = 100;
         maxMP = 100;
 
-        str = 20;
-        intl = 20;
-        dex = 20;
-        will = 20;
+        str = 20 + Random.Range(-2,2);
+        intl = 20 + Random.Range(-2,2);
+        dex = 20 + Random.Range(-2,2);
+        will = 20 + Random.Range(-2,2);
 
         UpdateDamageStats();
     }
@@ -100,7 +100,7 @@ public class CharacterEntity : MonoBehaviour
         magicMinDamage = intl / 5;
         magicMaxDamage = intl / 2;
 
-        critChance = (will - 10)/10;
+        critChance = will / 2;
 
         def = str / 10;
     }
