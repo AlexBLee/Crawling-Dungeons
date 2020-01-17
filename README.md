@@ -22,5 +22,6 @@ git clone https://github.com/AlexBLee/Crawling-Dungeons.git
 ## Credits
 
 - Art: [Open Game Art](https://opengameart.org/) & [Itch.io Game Assets](https://itch.io/game-assets)
-- Sounds: [FreeSound](https://freesound.org/) & music from various games
+- Sounds: [FreeSound](https://freesound.org/) & [music from various games](MusicCredits.txt)
+- Audio Manager: [Brackeys - Audio Manager](https://www.youtube.com/watch?v=6OT43pvUyfY)
 - Game Engine: [Unity](https://unity3d.com/)
