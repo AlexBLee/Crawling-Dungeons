@@ -21,8 +21,8 @@ public class VictoryScreen : MonoBehaviour
         }
         #endif
 
-        #if UNITY_EDITOR || UNITY_STANDALONE
-        if(Input.GetKey(KeyCode.Return))
+        #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
+        if(Input.GetKey(KeyCode.Return) || Input.GetMouseButtonDown(0))
         {
             if(GameManager.endlessMode)
             {

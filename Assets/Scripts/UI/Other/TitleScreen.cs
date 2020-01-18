@@ -25,8 +25,8 @@ public class TitleScreen : MonoBehaviour
         }
         #endif
 
-        #if UNITY_EDITOR || UNITY_STANDALONE
-        if(Input.GetKey(KeyCode.Return))
+        #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
+        if(Input.GetKey(KeyCode.Return) || Input.GetMouseButtonDown(0))
         {
             tapToStart.SetActive(false);
             standardButton.gameObject.SetActive(true);
