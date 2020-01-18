@@ -1767,6 +1767,11 @@ PrefabInstance:
       propertyPath: itemList.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 70495698347628148, guid: fa61940fa5df1b24b9aec3232ab7633c,
+        type: 3}
+      propertyPath: level
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 70495698347628145, guid: fa61940fa5df1b24b9aec3232ab7633c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3936,7 +3941,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: -1.1576004, y: -2.4143803}
   m_AnchorMax: {x: 1.6722034, y: 3.2933757}
-  m_AnchoredPosition: {x: -0.0000019073486, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.0000019073486, y: -0.0000019073486}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1076630978
@@ -9224,6 +9229,11 @@ PrefabInstance:
         type: 3}
       propertyPath: statPoints
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 70495698347628148, guid: f6f2ea454a19a0b47b4e14e777baa4da,
+        type: 3}
+      propertyPath: level
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 70495698347628145, guid: f6f2ea454a19a0b47b4e14e777baa4da,
         type: 3}
