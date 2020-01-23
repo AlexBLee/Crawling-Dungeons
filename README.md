@@ -1,11 +1,14 @@
 # Crawling Dungeons
-A turn-based RPG game made in Unity and C#. It is currently available to be played on Android.
+A turn-based RPG game made in Unity and C#. It is currently available to be played on Android and in the browser.
 
 ## Getting started
 
 ### Release
 
-The game is available for download [here](https://www.dropbox.com/s/di6840mfmxgrsz7/CrawlingDungeons.apk?dl=0).
+The game is available here:
+
+| [Android - apk](https://www.dropbox.com/s/di6840mfmxgrsz7/CrawlingDungeons.apk?dl=0)  | [itch.io - Browser](https://alexblee.itch.io/crawling-dungeons) 
+| ------------- | ------------- |
 
 ### Downloading the source code
 
