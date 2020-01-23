@@ -7,8 +7,8 @@ A turn-based RPG game made in Unity and C#. It is currently available to be play
 
 The game is available here:
 
-| [Android - apk](https://www.dropbox.com/s/di6840mfmxgrsz7/CrawlingDungeons.apk?dl=0)  | [itch.io - Browser](https://alexblee.itch.io/crawling-dungeons) 
-| ------------- | ------------- |
+<a href='https://play.google.com/store/apps/details?id=com.AlexLee.RPGGAME&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height="100"></a>
+<a href='https://alexblee.itch.io/crawling-dungeons'><img alt='Play on Itch.io' src='http://jessemillar.github.io/available-on-itchio-badge/badge-bw.png' height="100"></a>
 
 ### Downloading the source code
 
