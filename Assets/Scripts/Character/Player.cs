@@ -134,7 +134,9 @@ public class Player : CharacterEntity
 
     public void RecieveXPAndGold(int expRecieved, int goldRecieved)
     {
-        inventory.gold += goldRecieved;
+        // Randomized gold - to vary playstyle
+        int randomGold = Random.Range(goldRecieved - 10, goldRecieved + 15);
+        inventory.gold += randomGold;
         exp += expRecieved;
         infoText.text = "+" + expRecieved.ToString() + " XP";
         Instantiate(infoText, transform.position, Quaternion.identity);
