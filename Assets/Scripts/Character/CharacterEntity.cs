@@ -230,6 +230,7 @@ public class CharacterEntity : MonoBehaviour
         if(chance < critChance)
         {
             damage *= 2;
+            infoText.color = new Color(255,255,0);
         }
 
         // Apply damage
@@ -278,6 +279,7 @@ public class CharacterEntity : MonoBehaviour
         }
 
         infoText.text = amount.ToString();
+        infoText.color = new Color(0,255,0);
         uiManager.UpdateUIHealth();
         Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
         AudioManager.Instance.Play("UsePotion");
@@ -301,6 +303,7 @@ public class CharacterEntity : MonoBehaviour
             mp = maxMP;
         }
 
+        infoText.color = new Color(0,205,255);
         infoText.text = amount.ToString();
         uiManager.UpdateUIMana();
         Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);

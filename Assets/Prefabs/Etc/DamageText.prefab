@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 21346443854219676, guid: b937577658a836a4ca46a0e641fcf2fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,7 +116,8 @@ MonoBehaviour:
   m_text: Level up!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b937577658a836a4ca46a0e641fcf2fd, type: 2}
-  m_sharedMaterial: {fileID: 0}
+  m_sharedMaterial: {fileID: 21346443854219676, guid: b937577658a836a4ca46a0e641fcf2fd,
+    type: 2}
   m_fontSharedMaterials:
   - {fileID: 0}
   m_fontMaterial: {fileID: 0}
@@ -124,8 +125,8 @@ MonoBehaviour:
   - {fileID: 0}
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 255, g: 255, b: 255, a: 1}
+    rgba: 4294954240
+  m_fontColor: {r: 0, g: 0.8039216, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -184,20 +185,20 @@ MonoBehaviour:
   m_margin: {x: -1.2605896, y: 0, z: -1.342453, w: 0}
   m_textInfo:
     textComponent: {fileID: 5973154270874184695}
-    characterCount: 1
+    characterCount: 9
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
-  m_inputSource: 3
+  m_isInputParsingRequired: 0
+  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 7017952840558918751}
   m_subTextObjects:

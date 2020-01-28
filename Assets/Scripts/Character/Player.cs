@@ -54,6 +54,7 @@ public class Player : CharacterEntity
         if((mp - spell.cost) < 0)
         {
             Debug.Log("not enough mana!");
+            infoText.color = new Color(0,205,255);
             infoText.text = "Not enough mana!";
             Instantiate(infoText, transform.position, Quaternion.identity);
         }
