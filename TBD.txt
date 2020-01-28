@@ -1,19 +1,25 @@
 fix:
+
+important:
+
 intelligence not viable
-lower magic wand price
-randomize money
-remove final fantasy music
-armor a little too expensive
-will -> luck!!
-being able to sell would be good!
-add sound options? (Volume)
+	magic sucks - up the spells? or get spells faster!
+
 can trash axe other times but not other times (implement a sell thing)
+	being able to sell would be good!
+
 shield - reduce the damage on crit
-colour some text!
-add explanation of stats?
-spread the min/max damage of enemies
-magic sucks - up the spells? or get spells faster!
-once beat the first wave on endless - not continuing
-iOS app store maybe??
+level isnt updating correctly on panel	
+
+
+
+other:
+update README.md to reflect music changes
+add sound options? (Volume)
 icons arent clear
 stat allocation too small?
+add explanation of stats?
+spread the min/max damage of enemies
+
+maybe?? (suspected bugs but not 100%?):
+once beat the first wave on endless - not continuing

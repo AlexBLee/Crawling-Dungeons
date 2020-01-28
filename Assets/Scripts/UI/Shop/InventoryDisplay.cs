@@ -145,11 +145,13 @@ public class InventoryDisplay : MonoBehaviour
             {
                 itemPopup.equipButton.gameObject.SetActive(false);
                 itemPopup.unequipButton.gameObject.SetActive(false);
+                itemPopup.sellButton.gameObject.SetActive(true);
             }
             else
             {
                 itemPopup.equipButton.gameObject.SetActive(true);
                 itemPopup.unequipButton.gameObject.SetActive(false);
+                itemPopup.sellButton.gameObject.SetActive(true);
             }
 
             itemPopup.nameOfItem.text = items[index].itemName;
@@ -176,6 +178,7 @@ public class InventoryDisplay : MonoBehaviour
             itemPopup.unequipButton.gameObject.SetActive(true);
             itemPopup.equipButton.gameObject.SetActive(false);
             itemPopup.trashButton.gameObject.SetActive(false);
+            itemPopup.sellButton.gameObject.SetActive(false);
 
             itemPopup.nameOfItem.text = equippedItems[index].itemName;
             itemPopup.description.text = equippedItems[index].description;

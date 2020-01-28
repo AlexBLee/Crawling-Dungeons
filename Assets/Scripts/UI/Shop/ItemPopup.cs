@@ -21,6 +21,7 @@ public class ItemPopup : MonoBehaviour
     public Button equipButton;
     public Button trashButton;
     public Button unequipButton;
+    public Button sellButton;
     
 
     private void Start() 
@@ -28,9 +29,10 @@ public class ItemPopup : MonoBehaviour
         player.inventory.itemPopup = this;
 
         equipButton.onClick.AddListener(delegate{player.inventory.EquipItem(index, equipIndex);});
-        trashButton.onClick.AddListener(delegate{player.inventory.RemoveItem(index);});
+        trashButton.onClick.AddListener(delegate{player.inventory.RemoveItem(index, false);});
 
         unequipButton.onClick.AddListener(delegate{player.inventory.UnequipItem(index);});
+        sellButton.onClick.AddListener(delegate{player.inventory.SellItem(index);});
 
 
 

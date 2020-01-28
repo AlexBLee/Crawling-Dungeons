@@ -102,9 +102,35 @@ public class Inventory : MonoBehaviour
             
     }
 
-    public void RemoveItem(int index)
+    public void SellItem(int index)
     {
-        AudioManager.Instance.Play("Trash");
+        Item item = items[index];
+        AudioManager.Instance.Play("Buy");
+
+        int sellPrice = (int)((float)item.cost * 0.5f);
+        gold += sellPrice;
+
+        if(item is ConsumableItem && item.amount > 1)
+        {
+            ConsumableItem consumableItem = (ConsumableItem)item;
+            consumableItem.amount--;
+            inventoryDisplay.UpdateItemAmount(index);
+        }
+        else
+        {
+            RemoveItem(index, true);
+        }
+
+        shopDisplay.UpdateGold();
+    }
+
+    public void RemoveItem(int index, bool selling)
+    {
+        // selling bool is only to differ between sounds
+        if(!selling)
+        {
+            AudioManager.Instance.Play("Trash");
+        }
         itemPopup.gameObject.SetActive(false);
         items[index] = null;
 
@@ -138,7 +164,7 @@ public class Inventory : MonoBehaviour
 
         inventoryDisplay.items[invIndex] = null;
 
-        RemoveItem(invIndex);
+        RemoveItem(invIndex, false);
     }
     
     public void UnequipItem(int index)
