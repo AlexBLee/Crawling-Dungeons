@@ -2,13 +2,8 @@ fix:
 
 important:
 
-intelligence not viable
-	magic sucks - up the spells? or get spells faster!
-
 shield - reduce the damage on crit
-level isnt updating correctly on panel	
-
-
+fade spells when you run out of mana
 
 other:
 update README.md to reflect music changes

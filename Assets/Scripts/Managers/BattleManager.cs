@@ -133,6 +133,7 @@ public class BattleManager : MonoBehaviour
             else
             {
                 uiManager.victoryPanel.SetActive(true);
+                uiManager.levelNumber.text = player.level.ToString();
             }
 
             if(player.statPoints == 0)

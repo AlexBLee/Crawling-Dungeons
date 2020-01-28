@@ -27,6 +27,8 @@ public class UIManager : MonoBehaviour
     public Button magicBackButton;
     public Button potionBackButton;
 
+    public TextMeshProUGUI levelNumber;
+
     public GameObject victoryPanel;
     public GameObject gameOverPanel;
     public GameObject winPanel;
