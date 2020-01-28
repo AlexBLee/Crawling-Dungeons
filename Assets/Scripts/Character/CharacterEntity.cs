@@ -195,8 +195,8 @@ public class CharacterEntity : MonoBehaviour
         
         // Spawning text
         infoText.text = damage.ToString();
-        Instantiate(infoText, target.transform.position + new Vector3(0,0,-1), Quaternion.identity);
         infoText.color = new Color(255,255,255);
+        Instantiate(infoText, target.transform.position + new Vector3(0,0,-1), Quaternion.identity);
         Debug.Log(gameObject.name + " dealt " + damage + " damage to " + target.name);
 
         if(target is Enemy)
@@ -240,6 +240,7 @@ public class CharacterEntity : MonoBehaviour
 
         // Spawn text
         infoText.text = damage.ToString();
+        infoText.color = new Color(255,255,255);
         Instantiate(infoText, target.transform.position + new Vector3(0,0,-1), Quaternion.identity);
         Debug.Log(gameObject.name + " dealt " + damage + " damage to " + target.name);
 
