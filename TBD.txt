@@ -5,9 +5,6 @@ important:
 intelligence not viable
 	magic sucks - up the spells? or get spells faster!
 
-can trash axe other times but not other times (implement a sell thing)
-	being able to sell would be good!
-
 shield - reduce the damage on crit
 level isnt updating correctly on panel	
 
