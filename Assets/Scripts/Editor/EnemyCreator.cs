@@ -67,7 +67,7 @@ public class EnemyCreator : EditorWindow
                 enemy.str = str;
                 enemy.intl = intl;
                 enemy.dex = dex;
-                enemy.will = will;
+                enemy.luck = will;
                 enemy.def = def;
                 enemy.experiencePoints = experiencePoints;
                 enemy.gold = gold;

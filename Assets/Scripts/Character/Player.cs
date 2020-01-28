@@ -98,7 +98,7 @@ public class Player : CharacterEntity
                 intl++;
                 break;
             case 4:
-                will++;
+                luck++;
                 break;
             default:
                 break;
@@ -122,7 +122,7 @@ public class Player : CharacterEntity
                 intl--;
                 break;
             case 4:
-                will--;
+                luck--;
                 break;
             default:
                 break;

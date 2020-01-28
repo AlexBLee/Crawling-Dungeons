@@ -133,7 +133,7 @@ MonoBehaviour:
   str: 25
   intl: 20
   dex: 20
-  will: 10
+  luck: 10
   additionalDamage: 0
   critChance: 0
   minDamage: 5

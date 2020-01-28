@@ -155,7 +155,7 @@ public class BattleManager : MonoBehaviour
         enemy.str = (int)(enemy.str * x);
         enemy.dex = (int)(enemy.dex * x);
         enemy.intl = (int)(enemy.intl * x);
-        enemy.will = (int)(enemy.will * x);
+        enemy.luck = (int)(enemy.luck * x);
         
     }
 

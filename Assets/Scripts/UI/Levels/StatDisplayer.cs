@@ -43,7 +43,7 @@ public class StatDisplayer : MonoBehaviour
 
     public void UpdateWill()
     {
-        will.text = player.will.ToString();
+        will.text = player.luck.ToString();
     }
 
 

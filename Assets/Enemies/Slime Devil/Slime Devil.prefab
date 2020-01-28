@@ -133,7 +133,7 @@ MonoBehaviour:
   str: 5
   intl: 5
   dex: 10
-  will: 10
+  luck: 10
   minDamage: 5
   maxDamage: 10
   magicMinDamage: 0

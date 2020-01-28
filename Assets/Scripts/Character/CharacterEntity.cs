@@ -18,7 +18,7 @@ public class CharacterEntity : MonoBehaviour
 
     public int hp, mp;
     public int maxHP, maxMP;
-    public int str, intl, dex, will;
+    public int str, intl, dex, luck;
 
     protected int additionalDamage;
     protected float critChance;
@@ -63,7 +63,7 @@ public class CharacterEntity : MonoBehaviour
         str = 20 + Random.Range(-2,2);
         intl = 20 + Random.Range(-2,2);
         dex = 20 + Random.Range(-2,2);
-        will = 20 + Random.Range(-2,2);
+        luck = 20 + Random.Range(-2,2);
 
         UpdateDamageStats();
     }
@@ -84,7 +84,7 @@ public class CharacterEntity : MonoBehaviour
         str += 3;
         intl += 3;
         dex += 3;
-        will += 3;
+        luck += 3;
 
         UpdateDamageStats();
     }
@@ -100,7 +100,7 @@ public class CharacterEntity : MonoBehaviour
         magicMinDamage = intl / 5;
         magicMaxDamage = intl / 2;
 
-        critChance = will / 2;
+        critChance = luck / 2;
 
         def = str / 10;
     }
@@ -121,7 +121,7 @@ public class CharacterEntity : MonoBehaviour
         str = otherChar.str;
         intl = otherChar.intl;
         dex = otherChar.dex;
-        will = otherChar.will;
+        luck = otherChar.luck;
 
         UpdateDamageStats();
 
@@ -143,7 +143,7 @@ public class CharacterEntity : MonoBehaviour
         otherChar.str = str;
         otherChar.intl = intl;
         otherChar.dex = dex;
-        otherChar.will = will;
+        otherChar.luck = luck;
 
         UpdateDamageStats();
 
