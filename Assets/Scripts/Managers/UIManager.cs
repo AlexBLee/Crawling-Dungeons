@@ -93,7 +93,12 @@ public class UIManager : MonoBehaviour
             }
             else
             {
-                magicButtonList[counter].gameObject.SetActive(true);                
+                magicButtonList[counter].gameObject.SetActive(true);
+
+                if(player.mp < spells.Key.cost)
+                {
+                    FadeButtons(magicButtonList[counter], magicButtonList[counter].GetComponentInChildren<TextMeshProUGUI>());
+                }             
             }
             counter++;
         }
@@ -134,20 +139,7 @@ public class UIManager : MonoBehaviour
             // If the potion no longer exists..
             else
             {
-                // Keep the colour faded and disable the button.
-                Image img = b.GetComponent<Image>();
-                Color tempColor = img.color;
-
-                tempColor.a = 170f;
-                img.color = tempColor;
-
-                tempColor = potionTextList[x].color;
-                tempColor.a = 0.5f;
-                potionTextList[x].color = tempColor;
-                
-                potionTextList[x].text = "N/A";
-
-                b.interactable = false;
+                FadeButtons(b, potionTextList[x], "N/A");
             }
             count++;
         }
@@ -177,6 +169,40 @@ public class UIManager : MonoBehaviour
     public void UpdateUIMana()
     {
         manaBar.SetAmount(player.mp, player.maxMP);
+    }
+
+    private void FadeButtons(Button button, TextMeshProUGUI text)
+    {
+        // Keep the colour faded and disable the button.
+        Image img = button.GetComponent<Image>();
+        Color tempColor = img.color;
+
+        tempColor.a = 170f;
+        img.color = tempColor;
+
+        tempColor = text.color;
+        tempColor.a = 0.5f;
+        text.color = tempColor;
+        
+        button.interactable = false;
+    }
+
+    private void FadeButtons(Button button, TextMeshProUGUI text, string message)
+    {
+        // Keep the colour faded and disable the button.
+        Image img = button.GetComponent<Image>();
+        Color tempColor = img.color;
+
+        tempColor.a = 170f;
+        img.color = tempColor;
+
+        tempColor = text.color;
+        tempColor.a = 0.5f;
+        text.color = tempColor;
+        
+        text.text = message;
+
+        button.interactable = false;
     }
 
     public void ActivateGameOver()

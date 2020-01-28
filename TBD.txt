@@ -1,11 +1,12 @@
 fix:
 
 important:
-
 shield - reduce the damage on crit
 fade spells when you run out of mana
 
 other:
+text can be wrong color sometimes
+tap to start doesnt exist on title
 update README.md to reflect music changes
 add sound options? (Volume)
 icons arent clear
