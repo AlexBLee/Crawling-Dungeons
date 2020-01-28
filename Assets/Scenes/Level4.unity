@@ -2061,8 +2061,8 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: Victory
-    clip: {fileID: 8300000, guid: 81ada4c8f411dd14b9708730e26caac2, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 66ad9d07672396f4193a21626bc9a7de, type: 3}
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
 --- !u!4 &597520652
