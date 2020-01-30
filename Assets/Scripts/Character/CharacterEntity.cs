@@ -21,7 +21,7 @@ public class CharacterEntity : MonoBehaviour
     public int str, intl, dex, luck;
 
     protected int additionalDamage;
-    protected float critChance;
+    [SerializeField] protected float critChance;
 
     public float minDamage, maxDamage;
     public float magicMinDamage, magicMaxDamage;
@@ -185,6 +185,16 @@ public class CharacterEntity : MonoBehaviour
         if(chance < critChance)
         {
             damage *= 2;
+            
+            if(target is Player)
+            {
+                LeftHand shield = (LeftHand)target.GetComponent<Inventory>().equips[3];
+                if(shield != null)
+                {
+                    damage = shield.ReduceCrit(damage);
+                }
+            }
+
             infoText.color = new Color(255,255,0);
         }
 

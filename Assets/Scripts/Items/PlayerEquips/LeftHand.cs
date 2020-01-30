@@ -6,5 +6,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Item/Armor/LeftHand")]
 public class LeftHand : ArmorItem
 {
+    public float percentageOfCritBlocked;
 
+    public int ReduceCrit(float value)
+    {
+        return (int)(value * (1.00 - percentageOfCritBlocked));
+    }
 }
