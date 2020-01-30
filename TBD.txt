@@ -1,12 +1,8 @@
 fix:
 
-important:
-shield - reduce the damage on crit
-
 other:
 update README.md to reflect music changes
-add sound options? (Volume)
-icons arent clear
+add sound options? (Volume) 
 stat allocation too small?
 add explanation of stats?
 spread the min/max damage of enemies
