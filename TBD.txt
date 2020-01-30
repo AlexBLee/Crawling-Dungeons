@@ -4,7 +4,6 @@ other:
 update README.md to reflect music changes
 add sound options? (Volume) 
 stat allocation too small?
-add explanation of stats?
 spread the min/max damage of enemies
 
 maybe?? (suspected bugs but not 100%?):
