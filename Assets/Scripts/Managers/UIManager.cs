@@ -144,10 +144,26 @@ public class UIManager : MonoBehaviour
             count++;
         }
     }
+    
+    public void DeactivateSubtractors()
+    {
+        for(int i = 1; i < addRemoves.Count; i += 2)
+        {
+            addRemoves[i].gameObject.SetActive(false);
+        }
+    }
+
+    public void ActivateSubtractors()
+    {
+        for(int i = 1; i < addRemoves.Count; i += 2)
+        {
+            addRemoves[i].gameObject.SetActive(true);
+        }
+    }
 
     public void DeactivateAdders()
     {
-        for(int i = 0; i < addRemoves.Count; i++)
+        for(int i = 0; i < addRemoves.Count; i += 2)
         {
             addRemoves[i].gameObject.SetActive(false);
         }
@@ -155,7 +171,7 @@ public class UIManager : MonoBehaviour
 
     public void ActivateAdders()
     {
-        for(int i = 0; i < addRemoves.Count; i++)
+        for(int i = 0; i < addRemoves.Count; i += 2)
         {
             addRemoves[i].gameObject.SetActive(true);
         }

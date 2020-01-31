@@ -133,12 +133,14 @@ public class BattleManager : MonoBehaviour
             else
             {
                 uiManager.victoryPanel.SetActive(true);
+                AddRemoveStat.numberOfStatPoints = player.statPoints;
                 uiManager.levelNumber.text = player.level.ToString();
             }
 
             if(player.statPoints == 0)
             {
                 uiManager.DeactivateAdders();
+                uiManager.DeactivateSubtractors();
             }
             
             

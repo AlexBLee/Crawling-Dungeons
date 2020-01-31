@@ -3,6 +3,8 @@ fix:
 other:
 update README.md to reflect music changes
 add sound options? (Volume) 
+
+things to think about but no solution to:
 stat allocation too small?
 spread the min/max damage of enemies
 

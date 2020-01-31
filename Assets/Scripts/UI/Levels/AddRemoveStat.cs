@@ -13,9 +13,11 @@ public class AddRemoveStat : MonoBehaviour, IPointerClickHandler
     [SerializeField] private bool option = true;
     [SerializeField] private Player player;
     [SerializeField] private int number;
+    [SerializeField] public static int numberOfStatPoints;
 
     [SerializeField, HideInInspector]private StatDisplayer statDisplay;
     [SerializeField, HideInInspector] private UIManager uiManager;
+
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -36,6 +38,18 @@ public class AddRemoveStat : MonoBehaviour, IPointerClickHandler
         if(player.statPoints == 0)
         {
             uiManager.DeactivateAdders();
+            uiManager.ActivateSubtractors();
         }
+        else if(player.statPoints == numberOfStatPoints)
+        {
+            uiManager.DeactivateSubtractors();
+            uiManager.ActivateAdders();
+        }
+        else if(player.statPoints > 0)
+        {
+            uiManager.ActivateSubtractors();
+            uiManager.ActivateAdders();
+        }
+        
     }
 }
