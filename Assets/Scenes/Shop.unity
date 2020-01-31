@@ -2509,6 +2509,7 @@ MonoBehaviour:
   pages:
   - {fileID: 207375095}
   - {fileID: 159276190}
+  currentPage: 0
   itemList:
   - {fileID: 11400000, guid: 8756745642afb7a4fb4a7a7211e6cd10, type: 2}
   - {fileID: 11400000, guid: 5dc5a03c10241ae4db247655da4417bd, type: 2}
@@ -2535,7 +2536,8 @@ MonoBehaviour:
   - {fileID: 1070386208}
   shopButton: {fileID: 2016208292}
   exitButton: {fileID: 24635378}
-  switchPageButton: {fileID: 1729012548}
+  switchPageForwardButton: {fileID: 1729012548}
+  switchPageBackwardsButton: {fileID: 993099724}
   moneyText: {fileID: 1066920173}
   shop: {fileID: 809160331}
   inventory: {fileID: 510461495}
@@ -6394,7 +6396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &993099723
 RectTransform:
   m_ObjectHideFlags: 0
