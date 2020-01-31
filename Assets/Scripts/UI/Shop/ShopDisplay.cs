@@ -11,10 +11,13 @@ public class ShopDisplay : MonoBehaviour
 {
     [SerializeField] private Player player;
 
+    [SerializeField] private List<GameObject> pages;
+    [SerializeField] private int currentPage;
+
     [SerializeField] private List<Item> itemList;
     [SerializeField] private List<ItemDisplay> itemDisplays;
 
-    [SerializeField] private Button shopButton, exitButton;
+    [SerializeField] private Button shopButton, exitButton, switchPageForwardButton, switchPageBackwardsButton;
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private GameObject shop, inventory, itemPopup;
 
@@ -27,6 +30,9 @@ public class ShopDisplay : MonoBehaviour
 
         shopButton.onClick.AddListener(ShowShop);
         exitButton.onClick.AddListener(ExitShop);
+        switchPageForwardButton.onClick.AddListener(SwitchPageForward);
+        switchPageBackwardsButton.onClick.AddListener(SwitchPageBackwards);
+
 
         if(moneyText != null)
         {
@@ -68,5 +74,39 @@ public class ShopDisplay : MonoBehaviour
     {
         player.inventory.ApplyItemsTo(GameManager.instance.playerStats);
         SceneManager.LoadScene(GameManager.instance.levelNumber);
+    }
+
+    private void SwitchPageForward()
+    {
+        if(pages[currentPage].activeSelf && pages[currentPage + 1] != null)
+        {
+            pages[currentPage].SetActive(false);
+            pages[currentPage + 1].SetActive(true);
+            currentPage++;
+        }
+
+        if(currentPage == pages.Count - 1)
+        {
+            switchPageForwardButton.gameObject.SetActive(false);
+            switchPageBackwardsButton.gameObject.SetActive(true);
+
+        }
+    }
+
+    private void SwitchPageBackwards()
+    {
+        if(pages[currentPage].activeSelf && pages[currentPage - 1] != null)
+        {
+            pages[currentPage].SetActive(false);
+            pages[currentPage - 1].SetActive(true);
+            currentPage--;
+        }
+
+        if(currentPage == 0)
+        {
+            switchPageBackwardsButton.gameObject.SetActive(false);
+            switchPageForwardButton.gameObject.SetActive(true);
+
+        }
     }
 }

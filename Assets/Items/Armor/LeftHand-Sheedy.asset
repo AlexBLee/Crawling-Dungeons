@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92564112a1d7487499362b2ab5b4cbe8, type: 3}
+  m_Name: LeftHand-Sheedy
+  m_EditorClassIdentifier: 
+  itemName: Sheedy
+  description: Blocks all shady things
+  image: {fileID: 21300130, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
+  cost: 125
+  amount: 0
+  durability: 1
+  itemType: 3
+  defense: 4
+  percentageOfCritBlocked: 0.12
