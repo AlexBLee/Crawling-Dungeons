@@ -194,8 +194,12 @@ public class CharacterEntity : MonoBehaviour
                     damage = shield.ReduceCrit(damage);
                 }
             }
-
+            
             infoText.color = new Color(255,255,0);
+        }
+        else
+        {
+            infoText.color = new Color(255,255,255);
         }
 
         // Apply damage
@@ -205,7 +209,6 @@ public class CharacterEntity : MonoBehaviour
         
         // Spawning text
         infoText.text = damage.ToString();
-        infoText.color = new Color(255,255,255);
         Instantiate(infoText, target.transform.position + new Vector3(0,0,-1), Quaternion.identity);
         Debug.Log(gameObject.name + " dealt " + damage + " damage to " + target.name);
 
@@ -240,7 +243,21 @@ public class CharacterEntity : MonoBehaviour
         if(chance < critChance)
         {
             damage *= 2;
+            
+            if(target is Player)
+            {
+                LeftHand shield = (LeftHand)target.GetComponent<Inventory>().equips[3];
+                if(shield != null)
+                {
+                    damage = shield.ReduceCrit(damage);
+                }
+            }
+            
             infoText.color = new Color(255,255,0);
+        }
+        else
+        {
+            infoText.color = new Color(255,255,255);
         }
 
         // Apply damage
@@ -250,7 +267,6 @@ public class CharacterEntity : MonoBehaviour
 
         // Spawn text
         infoText.text = damage.ToString();
-        infoText.color = new Color(255,255,255);
         Instantiate(infoText, target.transform.position + new Vector3(0,0,-1), Quaternion.identity);
         Debug.Log(gameObject.name + " dealt " + damage + " damage to " + target.name);
 

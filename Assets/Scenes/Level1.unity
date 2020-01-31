@@ -212,7 +212,7 @@ MonoBehaviour:
   manaBar: {fileID: 1232276769}
   magicBackButton: {fileID: 1391364657}
   potionBackButton: {fileID: 1093269235}
-  levelNumber: {fileID: 0}
+  levelNumber: {fileID: 179811015}
   victoryPanel: {fileID: 2036862401}
   gameOverPanel: {fileID: 1431259570}
   winPanel: {fileID: 0}
