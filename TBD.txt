@@ -1,5 +1,16 @@
 fix:
 
+bugs:
+can still subtract stat points from elsewhere
+magic is busted - buttons dont reenable.
+start endless mode at ^0
+restore some health/mana after level
+mana potions 10% -> ??%
+possibly adding something to crit damage - bow item?
+an amulet -> increases crit chance?
+something with potions going n/a -- buying mana pot after hp, overwrite health slot
+sound is slightly delayed? (only on my phone)
+
 other:
 update README.md to reflect music changes
 add sound options? (Volume) 
