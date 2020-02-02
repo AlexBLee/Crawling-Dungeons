@@ -98,7 +98,11 @@ public class UIManager : MonoBehaviour
                 if(player.mp < spells.Key.cost)
                 {
                     FadeButtons(magicButtonList[counter], magicButtonList[counter].GetComponentInChildren<TextMeshProUGUI>());
-                }             
+                }
+                else
+                {
+                    RestoreButtonDefaults(magicButtonList[counter], magicButtonList[counter].GetComponentInChildren<TextMeshProUGUI>());
+                }        
             }
             counter++;
         }
@@ -187,38 +191,40 @@ public class UIManager : MonoBehaviour
         manaBar.SetAmount(player.mp, player.maxMP);
     }
 
+    // For magic list
     private void FadeButtons(Button button, TextMeshProUGUI text)
     {
         // Keep the colour faded and disable the button.
-        Image img = button.GetComponent<Image>();
-        Color tempColor = img.color;
+        Color tempColor = text.color;
 
-        tempColor.a = 170f;
-        img.color = tempColor;
-
-        tempColor = text.color;
         tempColor.a = 0.5f;
         text.color = tempColor;
         
         button.interactable = false;
     }
 
+    // For potion list
     private void FadeButtons(Button button, TextMeshProUGUI text, string message)
     {
         // Keep the colour faded and disable the button.
-        Image img = button.GetComponent<Image>();
-        Color tempColor = img.color;
+        Color tempColor = text.color;
 
-        tempColor.a = 170f;
-        img.color = tempColor;
-
-        tempColor = text.color;
         tempColor.a = 0.5f;
         text.color = tempColor;
-        
-        text.text = message;
 
+        text.text = message;
+        
         button.interactable = false;
+    }
+
+    private void RestoreButtonDefaults(Button button, TextMeshProUGUI text)
+    {
+        Color tempColor = text.color;
+
+        tempColor.a = 1.0f;
+        text.color = tempColor;
+
+        button.interactable = true;
     }
 
     public void ActivateGameOver()
