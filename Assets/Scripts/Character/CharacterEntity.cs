@@ -102,7 +102,7 @@ public class CharacterEntity : MonoBehaviour
 
         critChance = luck / 2;
 
-        def = str / 10;
+        def = dex / 10;
     }
 
     public void ApplyStatsFrom(CharacterEntity otherChar)
