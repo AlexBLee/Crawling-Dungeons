@@ -10,7 +10,7 @@ public class Inventory : MonoBehaviour
 
     // Used for locating which index the consumables are at.
     public List<int> consumableLocations;
-    private int listIndex;
+    public static int listIndex;
 
     public List<EquippableItem> equips;
     public List<Item> items;

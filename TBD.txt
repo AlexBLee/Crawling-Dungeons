@@ -2,9 +2,7 @@ fix:
 
 bugs:
 can still subtract stat points from elsewhere
-restore some health/mana after level
-something with potions going n/a -- buying mana pot after hp, overwrite health slot
-sound is slightly delayed? (only on my phone)
+some ui elements off screen
 
 suggestions:
 possibly adding something to crit damage - bow item?
@@ -20,3 +18,4 @@ spread the min/max damage of enemies
 
 maybe?? (suspected bugs but not 100%?):
 once beat the first wave on endless - not continuing
+sound is slightly delayed? (only on my phone)
