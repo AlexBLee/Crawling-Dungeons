@@ -6057,7 +6057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 722881228}
   levelNumber: 2
-  endlessNumber: 1
+  endlessNumber: 0
 --- !u!4 &1347749279
 Transform:
   m_ObjectHideFlags: 0

@@ -139,6 +139,7 @@ public class Player : CharacterEntity
         int randomGold = Random.Range(goldRecieved - 10, goldRecieved + 15);
         inventory.gold += randomGold;
         exp += expRecieved;
+        infoText.color = new Color(255,255,255);
         infoText.text = "+" + expRecieved.ToString() + " XP";
         Instantiate(infoText, transform.position, Quaternion.identity);
         StartCoroutine(CheckForLevelUp());
