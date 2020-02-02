@@ -290,7 +290,7 @@ public class CharacterEntity : MonoBehaviour
         attacking = false;
     }
 
-    public void Heal(int amount)
+    public void Heal(int amount, bool battleFinish)
     {
         if(this is Player)
         {
@@ -305,17 +305,20 @@ public class CharacterEntity : MonoBehaviour
             hp = maxHP;
         }
 
-        infoText.text = amount.ToString();
-        infoText.color = new Color(0,255,0);
-        uiManager.UpdateUIHealth();
-        Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
-        AudioManager.Instance.Play("UsePotion");
-        anim.SetTrigger("UseItem");
+        if(!battleFinish)
+        {
+            infoText.text = amount.ToString();
+            infoText.color = new Color(0,255,0);
+            Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
+            AudioManager.Instance.Play("UsePotion");
+            anim.SetTrigger("UseItem");
+        }
 
-        
+        uiManager.UpdateUIHealth();
+
     }
 
-    public void RestoreMP(int amount)
+    public void RestoreMP(int amount, bool battleFinish)
     {
         if(this is Player)
         {
@@ -330,11 +333,16 @@ public class CharacterEntity : MonoBehaviour
             mp = maxMP;
         }
 
-        infoText.color = new Color(0,205,255);
-        infoText.text = amount.ToString();
+        if(!battleFinish)
+        {
+            infoText.text = amount.ToString();
+            infoText.color = new Color(0,255,0);
+            Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
+            AudioManager.Instance.Play("UsePotion");
+            anim.SetTrigger("UseItem");
+        }
+
         uiManager.UpdateUIMana();
-        Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
-        anim.SetTrigger("UseItem");
     }
 
     #endregion

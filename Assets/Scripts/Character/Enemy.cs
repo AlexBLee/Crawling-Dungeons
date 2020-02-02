@@ -78,7 +78,7 @@ public class Enemy : CharacterEntity
         {
             canHeal = false;
             healCounter = 2;
-            Heal((int)(maxHP * 0.20f));
+            Heal((int)(maxHP * 0.20f), false);
         }
         // Use spell if the player is low on health
         else if(target.hp < target.maxHP * 0.40f)

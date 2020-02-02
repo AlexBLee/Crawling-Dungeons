@@ -9,7 +9,7 @@ public class ManaPot : ConsumableItem
 
     public override void ConsumeEffect(CharacterEntity character)
     {
-        character.RestoreMP((int)(character.maxMP * mpPercentageAdd));
+        character.RestoreMP((int)(character.maxMP * mpPercentageAdd), false);
     }
 
 }

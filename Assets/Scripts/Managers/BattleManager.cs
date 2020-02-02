@@ -133,6 +133,10 @@ public class BattleManager : MonoBehaviour
             else
             {
                 uiManager.victoryPanel.SetActive(true);
+
+                player.Heal((int)(player.maxHP * 0.15f), true);
+                player.RestoreMP((int)(player.maxMP * 0.15f), true);
+
                 AddRemoveStat.numberOfStatPoints = player.statPoints;
                 uiManager.levelNumber.text = player.level.ToString();
             }
