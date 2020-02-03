@@ -167,6 +167,19 @@ public class InventoryDisplay : MonoBehaviour
                 itemPopup.equipIndex = item.itemType;
             }
 
+            if(index == 3)
+            {
+                RectTransform rct = itemPopup.GetComponent<RectTransform>();
+                rct.offsetMin = new Vector2(400,0);
+                rct.offsetMax = new Vector2(400,0);
+            }
+            else
+            {
+                RectTransform rct = itemPopup.GetComponent<RectTransform>();
+                rct.offsetMin = new Vector2(0,0);
+                rct.offsetMax = new Vector2(0,0);
+            }
+
         }
     }
 

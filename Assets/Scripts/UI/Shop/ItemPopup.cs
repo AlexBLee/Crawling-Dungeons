@@ -34,8 +34,5 @@ public class ItemPopup : MonoBehaviour
         unequipButton.onClick.AddListener(delegate{player.inventory.UnequipItem(index);});
         sellButton.onClick.AddListener(delegate{player.inventory.SellItem(index);});
 
-
-
     }
-
 }
