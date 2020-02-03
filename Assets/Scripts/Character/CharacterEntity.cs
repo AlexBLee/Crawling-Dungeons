@@ -52,7 +52,7 @@ public class CharacterEntity : MonoBehaviour
         level = 1;
         exp = 0;
         expThreshold = 50;
-        statPoints = 0;
+        statPoints = 3;
 
         hp = 100;
         mp = 100;
@@ -60,10 +60,10 @@ public class CharacterEntity : MonoBehaviour
         maxHP = 100;
         maxMP = 100;
 
-        str = 20 + Random.Range(-2,2);
-        intl = 20 + Random.Range(-2,2);
-        dex = 20 + Random.Range(-2,2);
-        luck = 20 + Random.Range(-2,2);
+        str = 20;
+        intl = 20;
+        dex = 20;
+        luck = 20;
 
         UpdateDamageStats();
     }
