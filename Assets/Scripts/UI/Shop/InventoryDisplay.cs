@@ -167,18 +167,7 @@ public class InventoryDisplay : MonoBehaviour
                 itemPopup.equipIndex = item.itemType;
             }
 
-            if(index == 3)
-            {
-                RectTransform rct = itemPopup.GetComponent<RectTransform>();
-                rct.offsetMin = new Vector2(400,0);
-                rct.offsetMax = new Vector2(400,0);
-            }
-            else
-            {
-                RectTransform rct = itemPopup.GetComponent<RectTransform>();
-                rct.offsetMin = new Vector2(0,0);
-                rct.offsetMax = new Vector2(0,0);
-            }
+
 
         }
     }
@@ -199,6 +188,25 @@ public class InventoryDisplay : MonoBehaviour
 
             itemPopup.item = equippedItems[index];
             itemPopup.index = index;
+
+            if(index == 2)
+            {
+                RectTransform rct = itemPopup.transform.parent.GetComponent<RectTransform>();
+                rct.offsetMin = new Vector2(235, rct.offsetMin.y);
+                rct.offsetMax = new Vector2(235, rct.offsetMin.y);
+            }
+            else if(index == 3)
+            {
+                RectTransform rct = itemPopup.transform.parent.GetComponent<RectTransform>();
+                rct.offsetMin = new Vector2(-74, rct.offsetMin.y);
+                rct.offsetMax = new Vector2(-74, rct.offsetMin.y);
+            }
+            else
+            {
+                RectTransform rct = itemPopup.transform.parent.GetComponent<RectTransform>();
+                rct.offsetMin = new Vector2(77, rct.offsetMin.y);
+                rct.offsetMax = new Vector2(77, rct.offsetMin.y);
+            }
 
         }
     }
