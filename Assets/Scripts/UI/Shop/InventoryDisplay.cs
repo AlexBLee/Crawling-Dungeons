@@ -189,12 +189,15 @@ public class InventoryDisplay : MonoBehaviour
             itemPopup.item = equippedItems[index];
             itemPopup.index = index;
 
+            // For position the UI correctly so everything fits on screen.
+            // For right hand slot
             if(index == 2)
             {
                 RectTransform rct = itemPopup.transform.parent.GetComponent<RectTransform>();
                 rct.offsetMin = new Vector2(235, rct.offsetMin.y);
                 rct.offsetMax = new Vector2(235, rct.offsetMin.y);
             }
+            // For left hand slot
             else if(index == 3)
             {
                 RectTransform rct = itemPopup.transform.parent.GetComponent<RectTransform>();
