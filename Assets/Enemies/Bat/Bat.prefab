@@ -130,10 +130,23 @@ MonoBehaviour:
   mp: 20
   maxHP: 30
   maxMP: 20
-  str: 10
-  intl: 10
-  dex: 10
-  luck: 10
+  str:
+    amount: 10
+    pointsAllocated: 0
+    modified: 0
+  intl:
+    amount: 10
+    pointsAllocated: 0
+    modified: 0
+  dex:
+    amount: 10
+    pointsAllocated: 0
+    modified: 0
+  luck:
+    amount: 10
+    pointsAllocated: 0
+    modified: 0
+  critChance: 0
   minDamage: 5
   maxDamage: 10
   magicMinDamage: 0

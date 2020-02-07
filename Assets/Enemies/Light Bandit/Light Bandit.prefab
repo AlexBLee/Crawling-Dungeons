@@ -130,30 +130,33 @@ MonoBehaviour:
   mp: 50
   maxHP: 50
   maxMP: 50
-  str: 25
-  intl: 20
-  dex: 20
-  luck: 10
-  additionalDamage: 0
+  str:
+    amount: 25
+    pointsAllocated: 0
+    modified: 0
+  intl:
+    amount: 20
+    pointsAllocated: 0
+    modified: 0
+  dex:
+    amount: 20
+    pointsAllocated: 0
+    modified: 0
+  luck:
+    amount: 10
+    pointsAllocated: 0
+    modified: 0
   critChance: 0
   minDamage: 5
   maxDamage: 10
   magicMinDamage: 0
   magicMaxDamage: 0
   def: 10
-  moveSpeed: 5
   inBattle: 1
-  targetReached: 0
-  attacking: 0
-  dead: 0
-  animationDone: 0
   anim: {fileID: 4452915190085327165}
   target: {fileID: 0}
   infoText: {fileID: 5973154270874184695, guid: dc9f3253454acfa4a8730ae96c228bf3,
     type: 3}
-  objectID: 0
-  hpCounter: 2
-  mpCounter: 0
   experiencePoints: 125
   newBattle: 0
   fightPosition: {x: 4.28, y: 2.58, z: 0}
