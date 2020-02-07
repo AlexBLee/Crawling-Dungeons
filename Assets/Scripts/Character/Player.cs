@@ -90,16 +90,24 @@ public class Player : CharacterEntity
         switch (number)
         {
             case 1:
-                str++;
+                str.amount++;
+                str.pointsAllocated++;
+                str.modified = true;
                 break;
             case 2:
-                dex++;
+                dex.amount++;
+                dex.pointsAllocated++;
+                dex.modified = true;
                 break;
             case 3:
-                intl++;
+                intl.amount++;
+                intl.pointsAllocated++;
+                intl.modified = true;
                 break;
             case 4:
-                luck++;
+                luck.amount++;
+                luck.pointsAllocated++;
+                luck.modified = true;
                 break;
             default:
                 break;
@@ -114,16 +122,24 @@ public class Player : CharacterEntity
         switch (number)
         {
             case 1:
-                str--;
+                str.amount--;
+                str.pointsAllocated--;
+                if(str.pointsAllocated == 0) str.modified = false;
                 break;
             case 2:
-                dex--;
+                dex.amount--;
+                dex.pointsAllocated--;
+                if(dex.pointsAllocated == 0) dex.modified = false;
                 break;
             case 3:
-                intl--;
+                intl.amount--;
+                intl.pointsAllocated--;
+                if(intl.pointsAllocated == 0) intl.modified = false;
                 break;
             case 4:
-                luck--;
+                luck.amount--;
+                luck.pointsAllocated--;
+                if(luck.pointsAllocated == 0) luck.modified = false;
                 break;
             default:
                 break;

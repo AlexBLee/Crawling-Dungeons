@@ -159,10 +159,10 @@ public class BattleManager : MonoBehaviour
         enemy.mp = (int)(enemy.mp * x);
         enemy.maxHP = (int)(enemy.maxHP * x);
         enemy.maxMP = (int)(enemy.maxMP * x);
-        enemy.str = (int)(enemy.str * x);
-        enemy.dex = (int)(enemy.dex * x);
-        enemy.intl = (int)(enemy.intl * x);
-        enemy.luck = (int)(enemy.luck * x);
+        enemy.str.amount = (int)(enemy.str.amount * x);
+        enemy.dex.amount = (int)(enemy.dex.amount * x);
+        enemy.intl.amount = (int)(enemy.intl.amount * x);
+        enemy.luck.amount = (int)(enemy.luck.amount * x);
         
     }
 

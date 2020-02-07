@@ -15,7 +15,7 @@ public class AddRemoveStat : MonoBehaviour, IPointerClickHandler
     [SerializeField] private int number;
     [SerializeField] public static int numberOfStatPoints;
 
-    [SerializeField, HideInInspector]private StatDisplayer statDisplay;
+    [SerializeField, HideInInspector] private StatDisplayer statDisplay;
     [SerializeField, HideInInspector] private UIManager uiManager;
 
 

@@ -18,7 +18,7 @@ public class CharacterEntity : MonoBehaviour
 
     public int hp, mp;
     public int maxHP, maxMP;
-    public int str, intl, dex, luck;
+    public Stat str, intl, dex, luck;
 
     protected int additionalDamage;
     [SerializeField] protected float critChance;
@@ -60,10 +60,10 @@ public class CharacterEntity : MonoBehaviour
         maxHP = 100;
         maxMP = 100;
 
-        str = 20;
-        intl = 20;
-        dex = 20;
-        luck = 20;
+        str.amount = 20;
+        intl.amount = 20;
+        dex.amount = 20;
+        luck.amount = 20;
 
         UpdateDamageStats();
     }
@@ -81,28 +81,28 @@ public class CharacterEntity : MonoBehaviour
         maxHP += 10;
         maxMP += 10;
 
-        str += 3;
-        intl += 3;
-        dex += 3;
-        luck += 3;
+        str.amount += 3;
+        intl.amount += 3;
+        dex.amount += 3;
+        luck.amount += 3;
 
         UpdateDamageStats();
     }
 
     protected void UpdateDamageStats()
     {
-        minDamage = str / 3;
-        maxDamage = str / 2.5f;
+        minDamage = str.amount / 3;
+        maxDamage = str.amount / 2.5f;
 
-        minDamage += dex / 3.5f;
-        maxDamage += dex / 4.5f;
+        minDamage += dex.amount / 3.5f;
+        maxDamage += dex.amount / 4.5f;
 
-        magicMinDamage = intl / 5;
-        magicMaxDamage = intl / 2;
+        magicMinDamage = intl.amount / 5;
+        magicMaxDamage = intl.amount / 2;
 
-        critChance = luck / 2;
+        critChance = luck.amount / 2;
 
-        def = dex / 10;
+        def = dex.amount / 10;
     }
 
     public void ApplyStatsFrom(CharacterEntity otherChar)
