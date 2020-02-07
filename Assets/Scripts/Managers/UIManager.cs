@@ -151,33 +151,43 @@ public class UIManager : MonoBehaviour
     
     public void DeactivateSubtractors()
     {
-        for(int i = 1; i < addRemoves.Count; i += 2)
+        for(int i = 0; i < addRemoves.Count; i++)
         {
-            addRemoves[i].gameObject.SetActive(false);
+            if(!addRemoves[i].modified)
+            {
+                addRemoves[i].minus.gameObject.SetActive(false);
+            }
         }
     }
 
     public void ActivateSubtractors()
     {
-        for(int i = 1; i < addRemoves.Count; i += 2)
+        for(int i = 0; i < addRemoves.Count; i++)
         {
-            addRemoves[i].gameObject.SetActive(true);
+            if(addRemoves[i].modified)
+            {
+                addRemoves[i].minus.gameObject.SetActive(true);
+            }
+            else
+            {
+                addRemoves[i].minus.gameObject.SetActive(false);
+            }
         }
     }
 
     public void DeactivateAdders()
     {
-        for(int i = 0; i < addRemoves.Count; i += 2)
+        for(int i = 0; i < addRemoves.Count; i++)
         {
-            addRemoves[i].gameObject.SetActive(false);
+            addRemoves[i].plus.gameObject.SetActive(false);      
         }
     }
 
     public void ActivateAdders()
     {
-        for(int i = 0; i < addRemoves.Count; i += 2)
+        for(int i = 0; i < addRemoves.Count; i++)
         {
-            addRemoves[i].gameObject.SetActive(true);
+            addRemoves[i].plus.gameObject.SetActive(true);
         }
     }
 

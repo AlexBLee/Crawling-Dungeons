@@ -28,22 +28,22 @@ public class StatDisplayer : MonoBehaviour
 
     public void UpdateStr()
     {
-        str.text = player.str.ToString();
+        str.text = player.str.amount.ToString();
     }
 
     public void UpdateDex()
     {
-        dex.text = player.dex.ToString();
+        dex.text = player.dex.amount.ToString();
     }
 
     public void UpdateInt()
     {
-        intl.text = player.intl.ToString();
+        intl.text = player.intl.amount.ToString();
     }
 
     public void UpdateWill()
     {
-        will.text = player.luck.ToString();
+        will.text = player.luck.amount.ToString();
     }
 
 

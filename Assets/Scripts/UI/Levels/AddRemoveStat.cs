@@ -4,37 +4,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;// Required when using Event data.
+using UnityEngine.UI;
 
 
-public class AddRemoveStat : MonoBehaviour, IPointerClickHandler
+public class AddRemoveStat : MonoBehaviour
 {
     // true = add point
     // false = subtract
-    [SerializeField] private bool option = true;
     [SerializeField] private Player player;
     [SerializeField] private int number;
     [SerializeField] public static int numberOfStatPoints;
+    public Button plus;
+    public Button minus;
+    public bool modified;
 
-    [SerializeField, HideInInspector] private StatDisplayer statDisplay;
-    [SerializeField, HideInInspector] private UIManager uiManager;
+    [SerializeField] private StatDisplayer statDisplay;
+    [SerializeField] private UIManager uiManager;
 
-
-    public void OnPointerClick(PointerEventData eventData)
+    private void Start() 
     {
-        if(option)
-        {
-            AudioManager.Instance.Play("AddClick");
-            player.AddToStat(number);
-            statDisplay.UpdateStats();
-        }
-        else
-        {
-            AudioManager.Instance.Play("RemoveClick");
-            player.RemoveFromStat(number);
-            statDisplay.UpdateStats();
+        plus.onClick.AddListener(AddStat);
+        minus.onClick.AddListener(RemoveStat);
+    }
 
-        }
-        
+    private void AddStat()
+    {
+        AudioManager.Instance.Play("AddClick");
+        modified = player.AddToStat(number);
+        statDisplay.UpdateStats();
+        CheckStatAmount();
+        Debug.Log(modified);
+    }
+
+    private void RemoveStat()
+    {
+        AudioManager.Instance.Play("RemoveClick");
+        modified = player.RemoveFromStat(number);
+        statDisplay.UpdateStats();
+        CheckStatAmount();
+        Debug.Log(modified);
+
+    }
+
+
+    private void CheckStatAmount()
+    {
         if(player.statPoints == 0)
         {
             uiManager.DeactivateAdders();
@@ -50,6 +64,5 @@ public class AddRemoveStat : MonoBehaviour, IPointerClickHandler
             uiManager.ActivateSubtractors();
             uiManager.ActivateAdders();
         }
-        
     }
 }

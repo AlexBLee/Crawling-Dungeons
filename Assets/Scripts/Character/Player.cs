@@ -85,7 +85,7 @@ public class Player : CharacterEntity
 
     #region Stats
 
-    public void AddToStat(int number)
+    public bool AddToStat(int number)
     {
         switch (number)
         {
@@ -115,38 +115,62 @@ public class Player : CharacterEntity
 
         statPoints--;
         UpdateDamageStats();
+        return true;
     }
 
-    public void RemoveFromStat(int number)
+    public bool RemoveFromStat(int number)
     {
         switch (number)
         {
             case 1:
                 str.amount--;
                 str.pointsAllocated--;
-                if(str.pointsAllocated == 0) str.modified = false;
+                if(str.pointsAllocated == 0)
+                {
+                    statPoints++;
+                    return str.modified = false;
+                }
                 break;
             case 2:
                 dex.amount--;
                 dex.pointsAllocated--;
-                if(dex.pointsAllocated == 0) dex.modified = false;
+                if(dex.pointsAllocated == 0)
+                {
+                    statPoints++;
+
+                    return dex.modified = false;
+                }
                 break;
             case 3:
                 intl.amount--;
                 intl.pointsAllocated--;
-                if(intl.pointsAllocated == 0) intl.modified = false;
+                if(intl.pointsAllocated == 0)
+                {
+                    statPoints++;
+
+                    return intl.modified = false;
+                }
                 break;
             case 4:
                 luck.amount--;
                 luck.pointsAllocated--;
-                if(luck.pointsAllocated == 0) luck.modified = false;
+                if(luck.pointsAllocated == 0)
+                {
+                    statPoints++;
+
+                    return luck.modified = false;
+                }
                 break;
             default:
-                break;
+                return false;
+
+                
         }
 
         statPoints++;
         UpdateDamageStats();
+        return true;
+
     }
 
     public void RecieveXPAndGold(int expRecieved, int goldRecieved)
