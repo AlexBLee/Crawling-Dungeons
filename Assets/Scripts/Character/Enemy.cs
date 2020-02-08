@@ -6,12 +6,12 @@ using UnityEngine;
 public class Enemy : CharacterEntity
 {
     public int experiencePoints;
-    public bool newBattle;
-    public Vector3 fightPosition;
-
-    public bool canHeal;
-    public int healCounter = 1;
     public int gold;
+
+    public bool newBattle;
+    [SerializeField] private Vector3 fightPosition;
+    [SerializeField] private bool canHeal;
+    private int healCounter = 1;
 
     private void Start() 
     {   

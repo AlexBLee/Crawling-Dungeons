@@ -85,29 +85,21 @@ public class Player : CharacterEntity
 
     #region Stats
 
-    public bool AddToStat(int number)
+    public bool AllocatePoints(int number)
     {
         switch (number)
         {
             case 1:
-                str.amount++;
-                str.pointsAllocated++;
-                str.modified = true;
+                str = AddStat(str);
                 break;
             case 2:
-                dex.amount++;
-                dex.pointsAllocated++;
-                dex.modified = true;
+                dex = AddStat(dex);
                 break;
             case 3:
-                intl.amount++;
-                intl.pointsAllocated++;
-                intl.modified = true;
+                intl = AddStat(intl);
                 break;
             case 4:
-                luck.amount++;
-                luck.pointsAllocated++;
-                luck.modified = true;
+                luck = AddStat(luck);
                 break;
             default:
                 break;
@@ -118,13 +110,12 @@ public class Player : CharacterEntity
         return true;
     }
 
-    public bool RemoveFromStat(int number)
+    public bool DeallocatePoints(int number)
     {
         switch (number)
         {
             case 1:
-                str.amount--;
-                str.pointsAllocated--;
+                str = RemoveStat(str);
                 if(str.pointsAllocated == 0)
                 {
                     statPoints++;
@@ -132,45 +123,52 @@ public class Player : CharacterEntity
                 }
                 break;
             case 2:
-                dex.amount--;
-                dex.pointsAllocated--;
+                dex = RemoveStat(dex);
                 if(dex.pointsAllocated == 0)
                 {
                     statPoints++;
-
                     return dex.modified = false;
                 }
                 break;
             case 3:
-                intl.amount--;
-                intl.pointsAllocated--;
+                intl = RemoveStat(intl);
                 if(intl.pointsAllocated == 0)
                 {
                     statPoints++;
-
                     return intl.modified = false;
                 }
                 break;
             case 4:
-                luck.amount--;
-                luck.pointsAllocated--;
+                luck = RemoveStat(luck);
                 if(luck.pointsAllocated == 0)
                 {
                     statPoints++;
-
                     return luck.modified = false;
                 }
                 break;
             default:
                 return false;
-
-                
         }
 
         statPoints++;
         UpdateDamageStats();
         return true;
 
+    }
+
+    private Stat AddStat(Stat stat)
+    {
+        stat.amount++;
+        stat.pointsAllocated++;
+        stat.modified = true;
+        return stat;
+    }
+
+    private Stat RemoveStat(Stat stat)
+    {
+        stat.amount--;
+        stat.pointsAllocated--;
+        return stat;
     }
 
     public void RecieveXPAndGold(int expRecieved, int goldRecieved)
