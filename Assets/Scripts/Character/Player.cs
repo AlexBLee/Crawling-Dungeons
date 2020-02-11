@@ -5,6 +5,7 @@ public class Player : CharacterEntity
 {
     [HideInInspector] public Inventory inventory;
     [HideInInspector] public Spells spells;
+    public enum StatType { Str, Dex, Intl, Luck };
 
     private void Awake() 
     {
@@ -85,20 +86,20 @@ public class Player : CharacterEntity
 
     #region Stats
 
-    public bool AllocatePoints(int number)
+    public bool AllocatePoints(StatType type)
     {
-        switch (number)
+        switch (type)
         {
-            case 1:
+            case StatType.Str:
                 str = AddStat(str);
                 break;
-            case 2:
+            case StatType.Dex:
                 dex = AddStat(dex);
                 break;
-            case 3:
+            case StatType.Intl:
                 intl = AddStat(intl);
                 break;
-            case 4:
+            case StatType.Luck:
                 luck = AddStat(luck);
                 break;
             default:
@@ -110,11 +111,11 @@ public class Player : CharacterEntity
         return true;
     }
 
-    public bool DeallocatePoints(int number)
+    public bool DeallocatePoints(StatType type)
     {
-        switch (number)
+        switch (type)
         {
-            case 1:
+            case StatType.Str:
                 str = RemoveStat(str);
                 if(str.pointsAllocated == 0)
                 {
@@ -122,7 +123,7 @@ public class Player : CharacterEntity
                     return str.modified = false;
                 }
                 break;
-            case 2:
+            case StatType.Dex:
                 dex = RemoveStat(dex);
                 if(dex.pointsAllocated == 0)
                 {
@@ -130,7 +131,7 @@ public class Player : CharacterEntity
                     return dex.modified = false;
                 }
                 break;
-            case 3:
+            case StatType.Intl:
                 intl = RemoveStat(intl);
                 if(intl.pointsAllocated == 0)
                 {
@@ -138,7 +139,7 @@ public class Player : CharacterEntity
                     return intl.modified = false;
                 }
                 break;
-            case 4:
+            case StatType.Luck:
                 luck = RemoveStat(luck);
                 if(luck.pointsAllocated == 0)
                 {
@@ -170,6 +171,9 @@ public class Player : CharacterEntity
         stat.pointsAllocated--;
         return stat;
     }
+
+    #endregion
+
 
     public void RecieveXPAndGold(int expRecieved, int goldRecieved)
     {
@@ -217,7 +221,6 @@ public class Player : CharacterEntity
         base.FinishDeath();
     }
 
-    #endregion
 
     // -----------------------------------------------------------------------------
 

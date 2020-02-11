@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1075298623}
-  number: 1
+  statType: 0
   plus: {fileID: 1266429448}
   minus: {fileID: 435997619}
   modified: 0
@@ -1343,7 +1343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1075298623}
-  number: 3
+  statType: 2
   plus: {fileID: 1584427757}
   minus: {fileID: 2051620472}
   modified: 0
@@ -3718,7 +3718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1075298623}
-  number: 2
+  statType: 1
   plus: {fileID: 1537546145}
   minus: {fileID: 1079737161}
   modified: 0
@@ -8819,7 +8819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1075298623}
-  number: 4
+  statType: 3
   plus: {fileID: 1079312284}
   minus: {fileID: 2105414286}
   modified: 0
