@@ -28,6 +28,44 @@ public class CharacterEntity : MonoBehaviour
 
     public int def;
 
+    // Stat Calculating ----------------------------------
+    private const int initial_level = 1;
+    private const int initial_exp = 0;
+    private const int initial_expThreshold = 50;
+    private const int initial_statPoints = 3;
+    private const int initial_maxHP = 100;
+    private const int initial_maxMP = 100;
+    private const int initial_stat_amount = 20;
+
+    private const int growth_expThreshold = 200;
+    private const int growth_statPoints = 3;
+    private const int growth_hpGrowth = 10;
+    private const int growth_mpGrowth = 10;
+    private const int growth_statAmount = 3;
+
+    private const int minDamageStrCalc = 3;
+    private const float maxDamageStrCalc = 2.5f;
+    private const float minDamageDexCalc = 3.5f;
+    private const float maxDamageDexCalc = 4.5f;
+    private const int magicMinDamageCalc = 5;
+    private const int magicMaxDamageCalc = 2;
+    private const int critChanceCalc = 2;
+    private const int defCalc = 10;
+
+    private const float defPercentageCalc = 1.00f;
+    private const float defFactorDiv = 100;
+
+    private const int critBonusDamage = 2;
+
+    private const int randomMin = 0;
+    private const int randomMax = 100;
+
+    private const float approachDistance = 1.0f;
+    private const float approachSpeed = 5;
+    private const float timeApproachSpeed = 1.20f;
+
+    
+
     // Conditions --------------------------
     public bool inBattle;
     protected bool targetReached = true;
@@ -49,21 +87,21 @@ public class CharacterEntity : MonoBehaviour
 
     public void InitalizeStats()
     {
-        level = 1;
-        exp = 0;
-        expThreshold = 50;
-        statPoints = 3;
+        level = initial_level;
+        exp = initial_exp;
+        expThreshold = initial_expThreshold;
+        statPoints = initial_statPoints;
 
-        hp = 100;
-        mp = 100;
+        maxHP = initial_maxHP;
+        maxMP = initial_maxMP;
 
-        maxHP = 100;
-        maxMP = 100;
+        hp = maxHP;
+        mp = maxMP;
 
-        str.amount = 20;
-        intl.amount = 20;
-        dex.amount = 20;
-        luck.amount = 20;
+        str.amount = initial_stat_amount;
+        intl.amount = initial_stat_amount;
+        dex.amount = initial_stat_amount;
+        luck.amount = initial_stat_amount;
 
         UpdateDamageStats();
     }
@@ -71,38 +109,38 @@ public class CharacterEntity : MonoBehaviour
     protected void LevelUp()
     {
         level++;
-        exp = 0;
-        expThreshold += 200;
-        statPoints += 3;
+        exp = initial_exp;
+        expThreshold += growth_expThreshold;
+        statPoints += growth_statPoints;
 
-        hp += 10;
-        mp += 10;
+        hp += growth_hpGrowth;
+        mp += growth_mpGrowth;
 
-        maxHP += 10;
-        maxMP += 10;
+        maxHP += growth_hpGrowth;
+        maxMP += growth_mpGrowth;
 
-        str.amount += 3;
-        intl.amount += 3;
-        dex.amount += 3;
-        luck.amount += 3;
+        str.amount += growth_statAmount;
+        intl.amount += growth_statAmount;
+        dex.amount += growth_statAmount;
+        luck.amount += growth_statAmount;
 
         UpdateDamageStats();
     }
 
     protected void UpdateDamageStats()
     {
-        minDamage = str.amount / 3;
-        maxDamage = str.amount / 2.5f;
+        minDamage = str.amount / minDamageStrCalc;
+        maxDamage = str.amount / maxDamageStrCalc;
 
-        minDamage += dex.amount / 3.5f;
-        maxDamage += dex.amount / 4.5f;
+        minDamage += dex.amount / minDamageDexCalc;
+        maxDamage += dex.amount / maxDamageDexCalc;
 
-        magicMinDamage = intl.amount / 5;
-        magicMaxDamage = intl.amount / 2;
+        magicMinDamage = intl.amount / magicMinDamageCalc;
+        magicMaxDamage = intl.amount / magicMaxDamageCalc;
 
-        critChance = luck.amount / 2;
+        critChance = luck.amount / critChanceCalc;
 
-        def = dex.amount / 10;
+        def = dex.amount / defCalc;
     }
 
     public void ApplyStatsFrom(CharacterEntity otherChar)
@@ -177,14 +215,14 @@ public class CharacterEntity : MonoBehaviour
         
         // Initial damage calculation
         float x = Random.Range(minDamage,maxDamage);
-        x *= (1.00f - ((float)target.def/100));
+        x *= (defPercentageCalc - ((float)target.def/defFactorDiv));
         int damage = Mathf.RoundToInt(x);
 
         // Critcal chance calculation
-        float chance = Random.Range(0, 100);
+        float chance = Random.Range(randomMin, randomMax);
         if(chance < critChance)
         {
-            damage *= 2;
+            damage *= critBonusDamage;
             
             if(target is Player)
             {
@@ -195,11 +233,11 @@ public class CharacterEntity : MonoBehaviour
                 }
             }
             
-            infoText.color = new Color(255,255,0);
+            infoText.color = Color.yellow;
         }
         else
         {
-            infoText.color = new Color(255,255,255);
+            infoText.color = Color.white;
         }
 
         // Apply damage
@@ -209,7 +247,7 @@ public class CharacterEntity : MonoBehaviour
         
         // Spawning text
         infoText.text = damage.ToString();
-        Instantiate(infoText, target.transform.position + new Vector3(0,0,-1), Quaternion.identity);
+        Instantiate(infoText, target.transform.position, Quaternion.identity);
         Debug.Log(gameObject.name + " dealt " + damage + " damage to " + target.name);
 
         if(target is Enemy)
@@ -234,15 +272,15 @@ public class CharacterEntity : MonoBehaviour
         
         // Initial Damage Calculation
         float x = Random.Range(magicMinDamage,magicMaxDamage);
-        x *= (1.00f - ((float)target.def/100));
+        x *= (defPercentageCalc - ((float)target.def/defFactorDiv));
         int damage = Mathf.RoundToInt(x);
         damage += additionalDamage;
 
         // Critical chance calculation
-        float chance = Random.Range(0, 100);
+        float chance = Random.Range(randomMin, randomMax);
         if(chance < critChance)
         {
-            damage *= 2;
+            damage *= critBonusDamage;
             
             if(target is Player)
             {
@@ -253,11 +291,11 @@ public class CharacterEntity : MonoBehaviour
                 }
             }
             
-            infoText.color = new Color(255,255,0);
+            infoText.color = Color.yellow;
         }
         else
         {
-            infoText.color = new Color(255,255,255);
+            infoText.color = Color.white;
         }
 
         // Apply damage
@@ -267,7 +305,7 @@ public class CharacterEntity : MonoBehaviour
 
         // Spawn text
         infoText.text = damage.ToString();
-        Instantiate(infoText, target.transform.position + new Vector3(0,0,-1), Quaternion.identity);
+        Instantiate(infoText, target.transform.position, Quaternion.identity);
         Debug.Log(gameObject.name + " dealt " + damage + " damage to " + target.name);
 
         if(target is Enemy)
@@ -308,8 +346,8 @@ public class CharacterEntity : MonoBehaviour
         if(!battleFinish)
         {
             infoText.text = amount.ToString();
-            infoText.color = new Color(0,255,0);
-            Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
+            infoText.color = Color.green;
+            Instantiate(infoText, transform.position, Quaternion.identity);
             AudioManager.Instance.Play("UsePotion");
             anim.SetTrigger("UseItem");
         }
@@ -336,8 +374,8 @@ public class CharacterEntity : MonoBehaviour
         if(!battleFinish)
         {
             infoText.text = amount.ToString();
-            infoText.color = new Color(0,255,0);
-            Instantiate(infoText, transform.position + new Vector3(0,0,-1), Quaternion.identity);
+            infoText.color = Color.green;
+            Instantiate(infoText, transform.position, Quaternion.identity);
             AudioManager.Instance.Play("UsePotion");
             anim.SetTrigger("UseItem");
         }
@@ -353,9 +391,9 @@ public class CharacterEntity : MonoBehaviour
     {
         if(!targetReached && attacking)
         {
-            if (Vector2.Distance(transform.position, targetPosition) > 1.0f)
+            if (Vector2.Distance(transform.position, targetPosition) > approachDistance)
             {
-                transform.position += (transform.right * direction) * Time.deltaTime * 5;
+                transform.position += (transform.right * direction) * Time.deltaTime * approachSpeed;
                 anim.SetBool("Run", true);
             }
             else
@@ -394,7 +432,7 @@ public class CharacterEntity : MonoBehaviour
         while(timer < 2)
         {
             timer += Time.deltaTime;
-            transform.position = Vector2.Lerp(startPos,endPos, timer/1.20f);
+            transform.position = Vector2.Lerp(startPos,endPos, timer/timeApproachSpeed);
             yield return null;
         }
 
