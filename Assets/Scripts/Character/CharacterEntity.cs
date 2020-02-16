@@ -387,13 +387,13 @@ public class CharacterEntity : MonoBehaviour
 
     #region Animations/Movement
    
-    protected void MoveAndAttack(Vector2 targetPosition, int direction)
+    protected void MoveAndAttack(Vector2 targetPosition)
     {
         if(!targetReached && attacking)
         {
             if (Vector2.Distance(transform.position, targetPosition) > approachDistance)
             {
-                transform.position += (transform.right * direction) * Time.deltaTime * approachSpeed;
+                transform.position += transform.right * Time.deltaTime * approachSpeed;
                 anim.SetBool("Run", true);
             }
             else

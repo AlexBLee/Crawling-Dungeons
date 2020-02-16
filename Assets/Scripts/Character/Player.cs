@@ -34,7 +34,7 @@ public class Player : CharacterEntity
         {
             if (target != null)
             {     
-                MoveAndAttack(target.transform.position, 1);
+                MoveAndAttack(target.transform.position);
             }
             StopAttacking();  
         }
