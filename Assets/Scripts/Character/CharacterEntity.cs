@@ -52,8 +52,8 @@ public class CharacterEntity : MonoBehaviour
     private const int critChanceCalc = 2;
     private const int defCalc = 10;
 
-    private const float defPercentageCalc = 1.00f;
-    private const float defFactorDiv = 100;
+    private const float defStartPointCalc = 1.00f;
+    private const float convertToPercentageCalc = 100;
 
     private const int critBonusDamage = 2;
 
@@ -215,7 +215,7 @@ public class CharacterEntity : MonoBehaviour
         
         // Initial damage calculation
         float x = Random.Range(minDamage,maxDamage);
-        x *= (defPercentageCalc - ((float)target.def/defFactorDiv));
+        x *= (defStartPointCalc - ((float)target.def/convertToPercentageCalc)); 
         int damage = Mathf.RoundToInt(x);
 
         // Critcal chance calculation
@@ -272,7 +272,7 @@ public class CharacterEntity : MonoBehaviour
         
         // Initial Damage Calculation
         float x = Random.Range(magicMinDamage,magicMaxDamage);
-        x *= (defPercentageCalc - ((float)target.def/defFactorDiv));
+        x *= (defStartPointCalc - ((float)target.def/convertToPercentageCalc));
         int damage = Mathf.RoundToInt(x);
         damage += additionalDamage;
 
