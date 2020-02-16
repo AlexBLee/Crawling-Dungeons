@@ -7,6 +7,12 @@ public class Player : CharacterEntity
     [HideInInspector] public Spells spells;
     public enum StatType { Str, Dex, Intl, Luck };
 
+    private Color lightBlue = new Color(0,205,255);
+    private const int goldMinValue = 10;
+    private const int goldMaxValue = 15;
+    private const float levelDelayTime = 0.15f;
+    private const float battleDelayTime = 3;
+
     private void Awake() 
     {
         inventory = GetComponent<Inventory>();
@@ -55,7 +61,7 @@ public class Player : CharacterEntity
         if((mp - spell.cost) < 0)
         {
             Debug.Log("not enough mana!");
-            infoText.color = new Color(0,205,255);
+            infoText.color = lightBlue;
             infoText.text = "Not enough mana!";
             Instantiate(infoText, transform.position, Quaternion.identity);
         }
@@ -178,10 +184,10 @@ public class Player : CharacterEntity
     public void RecieveXPAndGold(int expRecieved, int goldRecieved)
     {
         // Randomized gold - to vary playstyle
-        int randomGold = Random.Range(goldRecieved - 10, goldRecieved + 15);
+        int randomGold = Random.Range(goldRecieved - goldMinValue, goldRecieved + goldMaxValue);
         inventory.gold += randomGold;
         exp += expRecieved;
-        infoText.color = new Color(255,255,255);
+        infoText.color = Color.white;
         infoText.text = "+" + expRecieved.ToString() + " XP";
         Instantiate(infoText, transform.position, Quaternion.identity);
         StartCoroutine(CheckForLevelUp());
@@ -197,7 +203,7 @@ public class Player : CharacterEntity
             spells.UnlockSpells();
             inventory.UpdateItemStats();
 
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(levelDelayTime);
             uiManager.healthBar.SetAmount(hp,maxHP);
             uiManager.manaBar.SetAmount(mp,maxMP);
             infoText.text = "Level up!";
@@ -209,7 +215,7 @@ public class Player : CharacterEntity
 
     private IEnumerator NextBattle()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(battleDelayTime);
         anim.SetBool("Run", true);
         battleManager.battleDone = true;
         battleManager.ToggleNextBattle();

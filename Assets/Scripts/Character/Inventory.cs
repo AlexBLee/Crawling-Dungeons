@@ -20,6 +20,11 @@ public class Inventory : MonoBehaviour
     public InventoryDisplay inventoryDisplay;
     public ItemPopup itemPopup;
 
+    private const int equipSlotCount = 6;
+    private const int itemSlotCount = 12;
+    private const float sellFactor = 0.5f;
+
+
     private void Start()
     {
         player = GetComponent<Player>();
@@ -30,8 +35,8 @@ public class Inventory : MonoBehaviour
 
     public void InitializeInventory()
     {
-        equips = new List<EquippableItem>(new EquippableItem[6]);
-        items = new List<Item>(new Item[12]);
+        equips = new List<EquippableItem>(new EquippableItem[equipSlotCount]);
+        items = new List<Item>(new Item[itemSlotCount]);
         gold = 0;
     }
 
@@ -107,7 +112,7 @@ public class Inventory : MonoBehaviour
         Item item = items[index];
         AudioManager.Instance.Play("Buy");
 
-        int sellPrice = (int)((float)item.cost * 0.5f);
+        int sellPrice = (int)((float)item.cost * sellFactor);
         gold += sellPrice;
 
         if(item is ConsumableItem && item.amount > 1)
