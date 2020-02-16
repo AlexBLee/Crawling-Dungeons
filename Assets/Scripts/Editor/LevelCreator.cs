@@ -8,6 +8,7 @@ using System.Collections.Generic;
 public class LevelCreator : EditorWindow 
 {
     Sprite background;
+    AudioClip music;
     public string levelName;
     Vector2 scrollPos;
 
@@ -32,6 +33,7 @@ public class LevelCreator : EditorWindow
         EditorGUILayout.Space();
 
         background = (Sprite)EditorGUILayout.ObjectField("Image", background, typeof(Sprite), true);
+        music = (AudioClip)EditorGUILayout.ObjectField("Music", music, typeof(AudioClip), true);
         
         EditorGUILayout.Space();
 
@@ -83,6 +85,8 @@ public class LevelCreator : EditorWindow
 
                 GameObject.Find("BG1").GetComponent<SpriteRenderer>().sprite = background;
                 GameObject.Find("BG2").GetComponent<SpriteRenderer>().sprite = background;
+
+                GameObject.Find("Music").GetComponent<AudioSource>().clip = music;
 
                 BattleManager bm = GameObject.FindObjectOfType<BattleManager>();
                 bm.spawnableEnemies = new List<Enemy>(numberOfEnemies);
