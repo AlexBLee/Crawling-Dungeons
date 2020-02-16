@@ -22,8 +22,19 @@ public class BattleManager : MonoBehaviour
     [SerializeField, HideInInspector] private UIManager uiManager;
     [SerializeField, HideInInspector] private GameObject background;
 
+    private const float beginAttackDelay = 0.5f;
+    private const float backgroundMoveFactor = 4.0f;
+
     public List<Enemy> spawnableEnemies;
     private int enemyCounter = 0;
+
+    private Vector2 reverseRotation = new Vector2(0,180);
+    private const int finalLevelNumber = 5;
+    private const float hpHeal = 0.15f;
+    private const float mpHeal = 0.15f;
+    private const float endlessModeFactor = 1.25f;
+    private const float timeApproachSpeed = 1.20f;
+
 
     private void Start() 
     {
@@ -59,7 +70,7 @@ public class BattleManager : MonoBehaviour
         {
             if(enemy != null)
             {
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(beginAttackDelay);
                 uiManager.DisableButtons();
                 enemy.SetAttackConditions();
             }
@@ -78,7 +89,7 @@ public class BattleManager : MonoBehaviour
         if(calculating)
         {
             float backgroundX = background.transform.position.x;
-            newPosition = new Vector2(backgroundX -= 4.0f, background.transform.position.y);
+            newPosition = new Vector2(backgroundX -= backgroundMoveFactor, background.transform.position.y);
             calculating = false;
         }
 
@@ -106,7 +117,7 @@ public class BattleManager : MonoBehaviour
     {
         if(enemyCounter < spawnableEnemies.Count)
         {
-            GameObject enemyObject = Instantiate(spawnableEnemies[number].gameObject, enemyPosition, Quaternion.Euler(0,180,0));
+            GameObject enemyObject = Instantiate(spawnableEnemies[number].gameObject, enemyPosition, Quaternion.Euler(reverseRotation));
             enemy = enemyObject.GetComponent<Enemy>();
 
             if(GameManager.endlessMode)
@@ -126,7 +137,7 @@ public class BattleManager : MonoBehaviour
         else
         {
             AudioManager.Instance.Play("Victory");
-            if(SceneManager.GetActiveScene().buildIndex == 5)
+            if(SceneManager.GetActiveScene().buildIndex == finalLevelNumber)
             {
                 uiManager.ActivateGameWin();
             }
@@ -134,8 +145,8 @@ public class BattleManager : MonoBehaviour
             {
                 uiManager.victoryPanel.SetActive(true);
 
-                player.Heal((int)(player.maxHP * 0.15f), true);
-                player.RestoreMP((int)(player.maxMP * 0.15f), true);
+                player.Heal((int)(player.maxHP * hpHeal), true);
+                player.RestoreMP((int)(player.maxMP * mpHeal), true);
 
                 AddRemoveStat.numberOfStatPoints = player.statPoints;
                 uiManager.levelNumber.text = player.level.ToString();
@@ -153,7 +164,7 @@ public class BattleManager : MonoBehaviour
     
     public void BuffEndlessEnemyStats(Enemy enemy)
     {
-        float x = Mathf.Pow(1.25f,GameManager.instance.endlessNumber);
+        float x = Mathf.Pow(endlessModeFactor, GameManager.instance.endlessNumber);
         
         enemy.hp = (int)(enemy.hp * x);
         enemy.mp = (int)(enemy.mp * x);
@@ -175,7 +186,7 @@ public class BattleManager : MonoBehaviour
         while(timer < 2)
         {
             timer += Time.deltaTime;
-            background.transform.position = Vector2.Lerp(startPos,endPos, timer/1.20f);
+            background.transform.position = Vector2.Lerp(startPos,endPos, timer/timeApproachSpeed);
             yield return null;
         }
 

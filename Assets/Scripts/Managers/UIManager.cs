@@ -33,6 +33,9 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject winPanel;
 
+    private const int itemMaxLocationCount = 24; // need an alternative for this number
+    private const float buttonFadeAmount = 0.5f;
+
     private void Start() 
     {
         attackButton.onClick.AddListener(player.Attack);
@@ -50,7 +53,7 @@ public class UIManager : MonoBehaviour
         foreach(Button b in potionButtonList)
         {
             int x = count;
-            if(player.inventory.consumableLocations[x] < 24)
+            if(player.inventory.consumableLocations[x] < itemMaxLocationCount)
             {
                 b.onClick.AddListener(delegate{player.inventory.ConsumeItem(player.inventory.consumableLocations[x], player);});
             }
@@ -134,7 +137,7 @@ public class UIManager : MonoBehaviour
         foreach(Button b in potionButtonList)
         {
             int x = count;
-            if(player.inventory.consumableLocations[x] < 24 && player.inventory.items[player.inventory.consumableLocations[x]] != null)
+            if(player.inventory.consumableLocations[x] < itemMaxLocationCount && player.inventory.items[player.inventory.consumableLocations[x]] != null)
             {
                 potionTextList[x].text = 
                 player.inventory.items[player.inventory.consumableLocations[x]].itemName +
@@ -207,7 +210,7 @@ public class UIManager : MonoBehaviour
         // Keep the colour faded and disable the button.
         Color tempColor = text.color;
 
-        tempColor.a = 0.5f;
+        tempColor.a = buttonFadeAmount;
         text.color = tempColor;
         
         button.interactable = false;
@@ -219,7 +222,7 @@ public class UIManager : MonoBehaviour
         // Keep the colour faded and disable the button.
         Color tempColor = text.color;
 
-        tempColor.a = 0.5f;
+        tempColor.a = buttonFadeAmount;
         text.color = tempColor;
 
         text.text = message;
