@@ -13,6 +13,7 @@ public class Player : CharacterEntity
     private const float levelDelayTime = 0.15f;
     private const float battleDelayTime = 3;
 
+
     private void Awake() 
     {
         inventory = GetComponent<Inventory>();
@@ -119,39 +120,26 @@ public class Player : CharacterEntity
 
     public bool DeallocatePoints(StatType type)
     {
+        // exists to match the modified bool of the stat and return the correct value to the stat remover
+        bool statZero = false;
+
         switch (type)
         {
             case StatType.Str:
-                str = RemoveStat(str);
-                if(str.pointsAllocated == 0)
-                {
-                    statPoints++;
-                    return str.modified = false;
-                }
+                str = RemoveStat(str, statZero);
+                statZero = str.modified;
                 break;
             case StatType.Dex:
-                dex = RemoveStat(dex);
-                if(dex.pointsAllocated == 0)
-                {
-                    statPoints++;
-                    return dex.modified = false;
-                }
+                dex = RemoveStat(dex, statZero);
+                statZero = dex.modified;
                 break;
             case StatType.Intl:
-                intl = RemoveStat(intl);
-                if(intl.pointsAllocated == 0)
-                {
-                    statPoints++;
-                    return intl.modified = false;
-                }
+                intl = RemoveStat(intl, statZero);
+                statZero = intl.modified;
                 break;
             case StatType.Luck:
-                luck = RemoveStat(luck);
-                if(luck.pointsAllocated == 0)
-                {
-                    statPoints++;
-                    return luck.modified = false;
-                }
+                luck = RemoveStat(luck, statZero);
+                statZero = luck.modified;
                 break;
             default:
                 return false;
@@ -159,7 +147,7 @@ public class Player : CharacterEntity
 
         statPoints++;
         UpdateDamageStats();
-        return true;
+        return statZero;
 
     }
 
@@ -171,10 +159,15 @@ public class Player : CharacterEntity
         return stat;
     }
 
-    private Stat RemoveStat(Stat stat)
+    private Stat RemoveStat(Stat stat, bool result)
     {
         stat.amount--;
         stat.pointsAllocated--;
+
+        if(stat.pointsAllocated == 0)
+        {
+            stat.modified = false;
+        }
         return stat;
     }
 
