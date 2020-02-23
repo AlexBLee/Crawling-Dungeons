@@ -1,7 +1,55 @@
 fileFormatVersion: 2
 guid: 9c64c366611b7e049910b5b372fb11c4
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -888564834599944150
+    second: elite_skeleton_attack_b_0
+  - first:
+      213: 58626815063658957
+    second: elite_skeleton_attack_b_1
+  - first:
+      213: -8831560447047735841
+    second: elite_skeleton_attack_b_2
+  - first:
+      213: -6897303006387903920
+    second: elite_skeleton_attack_b_3
+  - first:
+      213: -3350721565173927245
+    second: elite_skeleton_attack_b_4
+  - first:
+      213: -6091707834974972342
+    second: elite_skeleton_attack_b_5
+  - first:
+      213: -2558276859155467557
+    second: elite_skeleton_attack_b_6
+  - first:
+      213: 8745643386347896484
+    second: elite_skeleton_attack_b_7
+  - first:
+      213: -6023134287202716462
+    second: elite_skeleton_attack_b_8
+  - first:
+      213: -5342526602007453421
+    second: elite_skeleton_attack_b_9
+  - first:
+      213: -5857851837378255147
+    second: elite_skeleton_attack_b_10
+  - first:
+      213: -3827687078591282611
+    second: elite_skeleton_attack_b_11
+  - first:
+      213: -4675124640237245701
+    second: elite_skeleton_attack_b_12
+  - first:
+      213: -7463330435858475513
+    second: elite_skeleton_attack_b_13
+  - first:
+      213: -3881110735248668024
+    second: elite_skeleton_attack_b_14
+  - first:
+      213: -4085501628399055872
+    second: elite_skeleton_attack_b_15
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -31,7 +79,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,7 +88,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,9 +118,276 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: elite_skeleton_attack_b_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 48
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2044c1adfe2ba3f0800000000000000
+      internalID: -888564834599944150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite_skeleton_attack_b_1
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 0
+        width: 48
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc19e2617c840d000800000000000000
+      internalID: 58626815063658957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite_skeleton_attack_b_2
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 0
+        width: 67
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd56455a09eff6580800000000000000
+      internalID: -8831560447047735841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite_skeleton_attack_b_3
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 0
+        width: 62
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 052e30c857bd740a0800000000000000
+      internalID: -6897303006387903920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite_skeleton_attack_b_5
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 0
+        width: 52
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a465ad4dff7e57ba0800000000000000
+      internalID: -6091707834974972342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite_skeleton_attack_b_6
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 0
+        width: 41
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd2bfec30cc2f7cd0800000000000000
+      internalID: -2558276859155467557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite_skeleton_attack_b_7
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 0
+        width: 41
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aeb28fc254ce5970800000000000000
+      internalID: 8745643386347896484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite_skeleton_attack_b_10
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 0
+        width: 73
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d623364acab4bea0800000000000000
+      internalID: -5857851837378255147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite_skeleton_attack_b_11
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 0
+        width: 66
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d42c639c1e251eac0800000000000000
+      internalID: -3827687078591282611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite_skeleton_attack_b_13
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 0
+        width: 68
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7065b41d28cec6890800000000000000
+      internalID: -7463330435858475513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elite_skeleton_attack_b_15
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 0
+        width: 43
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00c8ef53ae16d47c0800000000000000
+      internalID: -4085501628399055872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -20,7 +20,7 @@ public class CharacterEntity : MonoBehaviour
     public int maxHP, maxMP;
     public Stat str, intl, dex, luck;
 
-    protected int additionalDamage;
+    [SerializeField] protected int additionalDamage;
     [SerializeField] protected float critChance;
 
     public float minDamage, maxDamage;
@@ -349,7 +349,7 @@ public class CharacterEntity : MonoBehaviour
             infoText.color = Color.green;
             Instantiate(infoText, transform.position, Quaternion.identity);
             AudioManager.Instance.Play("UsePotion");
-            anim.SetTrigger("UseItem");
+            anim.SetTrigger("Heal");
         }
 
         uiManager.UpdateUIHealth();

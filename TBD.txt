@@ -1,8 +1,3 @@
-fix:
-
-bugs:
-can still subtract stat points from elsewhere
-
 suggestions:
 possibly adding something to crit damage - bow item?
 an amulet -> increases crit chance?
@@ -10,7 +5,10 @@ classes - swashbuckler, etc
 
 other:
 update README.md to reflect music changes
-add sound options? (Volume) 
+add sound options? (Volume)
+add pause menu
+tutorial
+highscore
 
 things to think about but no solution to:
 stat allocation too small?

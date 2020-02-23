@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4452915190085327153}
   - component: {fileID: 4452915190085327165}
   m_Layer: 0
-  m_Name: Spear Skeleton
+  m_Name: Armored Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1981913480884596681, guid: 566b749bd6907dc45a210b5626831a41,
+  m_Sprite: {fileID: 4255783417199320901, guid: 56dc60dc68a91584d8b439cf79bd228b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102,7 +102,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.63, y: 0.55}
+    oldSize: {x: 0.29, y: 0.6}
     newSize: {x: 0.29, y: 0.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

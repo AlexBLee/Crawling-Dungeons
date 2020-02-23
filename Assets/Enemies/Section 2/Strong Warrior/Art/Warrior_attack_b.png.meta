@@ -229,7 +229,7 @@ TextureImporter:
         serializedVersion: 2
         x: 531
         y: 16
-        width: 83
+        width: 92
         height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -240,27 +240,6 @@ TextureImporter:
       bones: []
       spriteID: dcbb9dd3dcdcab010800000000000000
       internalID: 1205502131664698317
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Warrior_attack_b_5
-      rect:
-        serializedVersion: 2
-        x: 612
-        y: 44
-        width: 8
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 609263686b779fb20800000000000000
-      internalID: 3168695438651304198
       vertices: []
       indices: 
       edges: []
