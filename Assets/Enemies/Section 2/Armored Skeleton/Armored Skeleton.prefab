@@ -101,7 +101,7 @@ BoxCollider2D:
   m_Offset: {x: -0.03432402, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.2837824}
     oldSize: {x: 0.29, y: 0.6}
     newSize: {x: 0.29, y: 0.6}
     adaptiveTilingThreshold: 0.5
@@ -129,12 +129,12 @@ MonoBehaviour:
   exp: 0
   expThreshold: 50
   statPoints: 0
-  hp: 180
+  hp: 160
   mp: 180
-  maxHP: 180
+  maxHP: 160
   maxMP: 180
   str:
-    amount: 100
+    amount: 90
     pointsAllocated: 0
     modified: 0
   intl:
@@ -149,12 +149,13 @@ MonoBehaviour:
     amount: 20
     pointsAllocated: 0
     modified: 0
+  additionalDamage: 0
   critChance: 0
   minDamage: 5
   maxDamage: 10
   magicMinDamage: 0
   magicMaxDamage: 0
-  def: 15
+  def: 25
   inBattle: 1
   anim: {fileID: 4452915190085327165}
   target: {fileID: 0}

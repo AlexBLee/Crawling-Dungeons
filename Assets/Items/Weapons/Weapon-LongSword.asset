@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b24a031e6bb0c9040af02662617448d8, type: 3}
-  m_Name: Weapon-Excalibur
+  m_Name: Weapon-LongSword
   m_EditorClassIdentifier: 
-  itemName: Excalibur
-  description: The legendary sword.
-  image: {fileID: 21300100, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
-  cost: 500
+  itemName: Long Sword
+  description: It's a LOOOOONG one
+  image: {fileID: 21300108, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
+  cost: 350
   amount: 0
-  durability: 50
+  durability: 1
   itemType: 2
-  minDamage: 45
-  maxDamage: 80
+  minDamage: 35
+  maxDamage: 65
   isMagic: 0

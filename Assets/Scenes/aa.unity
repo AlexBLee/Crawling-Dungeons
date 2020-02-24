@@ -2002,7 +2002,11 @@ MonoBehaviour:
   uiManager: {fileID: 68796133}
   background: {fileID: 1529571563}
   spawnableEnemies:
-  - {fileID: 4452915190085327153, guid: f8a0e4eaa6f2a3a43beccae0c5226efa, type: 3}
+  - {fileID: 4452915190085327153, guid: 616f501544c47f242b7c861a53d54493, type: 3}
+  - {fileID: 4452915190085327153, guid: 1e022cab89cc91b47bbcf4492d2be6dd, type: 3}
+  - {fileID: 4452915190085327153, guid: dfe27cd9190aa404c830360015fc4c02, type: 3}
+  - {fileID: 4452915190085327153, guid: ec9ca4a127308ad488cc8112c630ecd4, type: 3}
+  - {fileID: 4452915190085327153, guid: 55b83882215024d479ff77bec4181f8f, type: 3}
 --- !u!4 &611337057
 Transform:
   m_ObjectHideFlags: 0

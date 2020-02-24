@@ -19,6 +19,6 @@ MonoBehaviour:
   amount: 0
   durability: 26
   itemType: 2
-  minDamage: 23
-  maxDamage: 46
+  minDamage: 15
+  maxDamage: 30
   isMagic: 0

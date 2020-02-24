@@ -2,6 +2,13 @@ suggestions:
 possibly adding something to crit damage - bow item?
 an amulet -> increases crit chance?
 classes - swashbuckler, etc
+ability to miss attacks
+UI Overhaul
+more items
+Luck on victory panel doesnt have space between number and colon
+Show not enough money notification
+show item bought notification + do you want to equip
+display stats of items
 
 other:
 update README.md to reflect music changes
@@ -16,3 +23,7 @@ spread the min/max damage of enemies
 
 maybe?? (suspected bugs but not 100%?):
 sound is slightly delayed? (only on my phone)
+
+patch notes:
+axey 23-46 -> 15-30
+new item: scimmy
