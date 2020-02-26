@@ -22,6 +22,8 @@ public class ItemPopup : MonoBehaviour
     public Button trashButton;
     public Button unequipButton;
     public Button sellButton;
+    public Button buyButton;
+    public Button buyAndEquipButton;
     
 
     private void Start() 
@@ -33,6 +35,17 @@ public class ItemPopup : MonoBehaviour
 
         unequipButton.onClick.AddListener(delegate{player.inventory.UnequipItem(index);});
         sellButton.onClick.AddListener(delegate{player.inventory.SellItem(index);});
+
+    }
+
+    public void DisableAllButtons()
+    {
+        equipButton.gameObject.SetActive(false);
+        trashButton.gameObject.SetActive(false);
+        unequipButton.gameObject.SetActive(false);
+        sellButton.gameObject.SetActive(false);
+        buyButton.gameObject.SetActive(false);
+        buyAndEquipButton.gameObject.SetActive(false);
 
     }
 }

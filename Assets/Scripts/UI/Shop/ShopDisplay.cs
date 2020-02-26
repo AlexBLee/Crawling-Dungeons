@@ -19,14 +19,14 @@ public class ShopDisplay : MonoBehaviour
 
     [SerializeField] private Button shopButton, exitButton, switchPageForwardButton, switchPageBackwardsButton;
     [SerializeField] private TextMeshProUGUI moneyText;
-    [SerializeField] private GameObject shop, inventory, itemPopup;
+    [SerializeField] private GameObject shop, inventory;
+    [SerializeField] private ItemPopup itemPopup;
+    private RectTransform itemPopupRect;
 
     void Start()
     {
         player.inventory.shopDisplay = this;
-
-        // GameObject.Find will not find ItemPopup as it is initially disabled so have to use this funky work around
-        itemPopup = GameObject.Find("Pivot").transform.Find("ItemPopup").gameObject;
+        itemPopupRect = itemPopup.GetComponent<RectTransform>();
 
         shopButton.onClick.AddListener(ShowShop);
         exitButton.onClick.AddListener(ExitShop);
@@ -50,16 +50,16 @@ public class ShopDisplay : MonoBehaviour
         for(int i = 0; i < itemDisplays.Count; i++)
         {
             int x = i;
-            itemDisplays[x].button.onClick.AddListener(delegate {player.inventory.BuyItem(itemList[x]);});
+            itemDisplays[x].button.onClick.AddListener(delegate {DisplayItemInfo(x, itemDisplays[x].gameObject.transform.position);});
         }
         
     }
 
     private void ShowShop()
     {
-        if(itemPopup.activeSelf)
+        if(itemPopup.gameObject.activeSelf)
         {
-            itemPopup.SetActive(false);
+            itemPopup.gameObject.SetActive(false);
         }
         inventory.SetActive(false);
         shop.SetActive(true);
@@ -106,6 +106,49 @@ public class ShopDisplay : MonoBehaviour
         {
             switchPageBackwardsButton.gameObject.SetActive(false);
             switchPageForwardButton.gameObject.SetActive(true);
+
+        }
+    }
+
+    private void DisplayItemInfo(int index, Vector3 position)
+    {
+        if(itemList[index] != null)
+        {
+            itemPopup.gameObject.SetActive(true);
+            
+            if(itemList[index] is ConsumableItem)
+            {
+                itemPopup.DisableAllButtons();
+                itemPopup.buyButton.gameObject.SetActive(true);
+                itemPopup.buyAndEquipButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                itemPopup.DisableAllButtons();
+                itemPopup.buyButton.gameObject.SetActive(true);
+                itemPopup.buyAndEquipButton.gameObject.SetActive(true);
+            }
+
+            // For position the UI correctly so everything fits on screen.
+            if((index >= 0 && index <= 2) || (index >= 9 && index <= 11))
+            {
+                itemPopupRect.offsetMin = new Vector2(429, itemPopupRect.offsetMin.y);
+                itemPopupRect.offsetMax = new Vector2(429, itemPopupRect.offsetMin.y);
+            }
+            else
+            {
+                itemPopupRect.offsetMin = new Vector2(0, itemPopupRect.offsetMin.y);
+                itemPopupRect.offsetMax = new Vector2(0, itemPopupRect.offsetMin.y);
+            }
+
+            itemPopup.nameOfItem.text = itemList[index].itemName;
+            itemPopup.description.text = itemList[index].description;
+            itemPopup.transform.parent.position = position;
+
+            itemPopup.item = itemList[index];
+            itemPopup.index = index;
+
+
 
         }
     }
