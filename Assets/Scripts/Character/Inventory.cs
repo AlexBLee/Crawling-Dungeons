@@ -58,7 +58,7 @@ public class Inventory : MonoBehaviour
 
     // -----------------------------------------------------------------------------
 
-    public void AddItem(Item item)
+    public int AddItem(Item item)
     {
         int index = LookForFreeInventorySpace();
 
@@ -73,7 +73,7 @@ public class Inventory : MonoBehaviour
                 {
                     items[indexOfItem].amount++;
                     inventoryDisplay.UpdateItemAmount(indexOfItem);
-                    return;
+                    return 0;
                 }
             }
             // Otherwise, make a new instance of it. (this is necessary as variables on ScriptableObjects are saved unless instantiated on runtime.)
@@ -88,9 +88,10 @@ public class Inventory : MonoBehaviour
         items[index] = item;
         inventoryDisplay.AddItemImage(item,index);
         isEmpty = false;
+        return index;
     }
 
-    public void BuyItem(Item item)
+    public void BuyItem(Item item, bool wantToEquip)
     {
         if(gold >= item.cost)
         {
@@ -98,7 +99,16 @@ public class Inventory : MonoBehaviour
             gold -= item.cost;
             shopDisplay.UpdateGold();
             Debug.Log("Bought " + item.itemName);
-            AddItem(item);
+            
+            if(wantToEquip)
+            {
+                EquippableItem tempItem = (EquippableItem)item;
+                EquipItem(AddItem(tempItem), tempItem.itemType);
+            }
+            else
+            {
+                AddItem(item);
+            }
         }
         else
         {

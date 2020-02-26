@@ -62,6 +62,7 @@ public class InventoryDisplay : MonoBehaviour
 
     private void ShowInventory()
     {
+        itemPopup.gameObject.SetActive(false);
         AudioManager.Instance.Play("Bag");
         shop.SetActive(false);
         inventory.SetActive(true);
@@ -143,14 +144,13 @@ public class InventoryDisplay : MonoBehaviour
             
             if(items[index] is ConsumableItem)
             {
-                itemPopup.equipButton.gameObject.SetActive(false);
-                itemPopup.unequipButton.gameObject.SetActive(false);
+                itemPopup.DisableAllButtons();
                 itemPopup.sellButton.gameObject.SetActive(true);
             }
             else
             {
+                itemPopup.DisableAllButtons();
                 itemPopup.equipButton.gameObject.SetActive(true);
-                itemPopup.unequipButton.gameObject.SetActive(false);
                 itemPopup.sellButton.gameObject.SetActive(true);
             }
 
@@ -176,11 +176,9 @@ public class InventoryDisplay : MonoBehaviour
     {
         if(equippedItems[index] != null)
         {
+            itemPopup.DisableAllButtons();
             itemPopup.gameObject.SetActive(true);
             itemPopup.unequipButton.gameObject.SetActive(true);
-            itemPopup.equipButton.gameObject.SetActive(false);
-            itemPopup.trashButton.gameObject.SetActive(false);
-            itemPopup.sellButton.gameObject.SetActive(false);
 
             itemPopup.nameOfItem.text = equippedItems[index].itemName;
             itemPopup.description.text = equippedItems[index].description;

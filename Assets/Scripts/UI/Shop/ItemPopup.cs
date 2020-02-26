@@ -36,8 +36,8 @@ public class ItemPopup : MonoBehaviour
         unequipButton.onClick.AddListener(delegate{player.inventory.UnequipItem(index);});
         sellButton.onClick.AddListener(delegate{player.inventory.SellItem(index);});
 
-        buyButton.onClick.AddListener(delegate{player.inventory.BuyItem(item);});
-        buyAndEquipButton.onClick.AddListener(delegate{player.inventory.BuyItem(item);});
+        buyButton.onClick.AddListener(delegate{player.inventory.BuyItem(item, false);});
+        buyAndEquipButton.onClick.AddListener(delegate{player.inventory.BuyItem(item, true);});
     }
 
     public void DisableAllButtons()
