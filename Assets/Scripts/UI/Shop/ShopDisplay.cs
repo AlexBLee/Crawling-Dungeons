@@ -22,6 +22,8 @@ public class ShopDisplay : MonoBehaviour
     [SerializeField] private GameObject shop, inventory;
     [SerializeField] private ItemPopup itemPopup;
     private RectTransform itemPopupRect;
+    
+    private const float textFadeAmount = 0.5f;
 
     void Start()
     {
@@ -131,13 +133,13 @@ public class ShopDisplay : MonoBehaviour
 
             if(player.inventory.gold <= itemList[index].cost)
             {
-                itemPopup.buyButton.interactable = false;
-                itemPopup.buyAndEquipButton.interactable = false;
+                DisableShopButton(itemPopup.buyButton);
+                DisableShopButton(itemPopup.buyAndEquipButton);
             }
             else
             {
-                itemPopup.buyButton.interactable = true;
-                itemPopup.buyAndEquipButton.interactable = true;
+                EnableShopButton(itemPopup.buyButton);
+                EnableShopButton(itemPopup.buyAndEquipButton);
             }
             // For position the UI correctly so everything fits on screen.
             if((index >= 0 && index <= 2) || (index >= 9 && index <= 11))
@@ -161,5 +163,30 @@ public class ShopDisplay : MonoBehaviour
 
 
         }
+    }
+
+    // Only for shop buttons due to being the only ones that can have their interactable turned off.
+    private void DisableShopButton(Button button)
+    {
+        TextMeshProUGUI text = button.GetComponentInChildren<TextMeshProUGUI>();
+
+        Color tempColor = text.color;
+
+        tempColor.a = textFadeAmount;
+        text.color = tempColor;
+        
+        button.interactable = false;
+    }
+
+    private void EnableShopButton(Button button)
+    {
+        TextMeshProUGUI text = button.GetComponentInChildren<TextMeshProUGUI>();
+
+        Color tempColor = text.color;
+
+        tempColor.a = 255f;
+        text.color = tempColor;
+        
+        button.interactable = true;
     }
 }
