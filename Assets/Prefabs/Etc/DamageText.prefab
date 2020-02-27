@@ -78,7 +78,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
 --- !u!33 &432977482032996341
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level up!
+  m_text: 84
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b937577658a836a4ca46a0e641fcf2fd, type: 2}
   m_sharedMaterial: {fileID: 21346443854219676, guid: b937577658a836a4ca46a0e641fcf2fd,
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

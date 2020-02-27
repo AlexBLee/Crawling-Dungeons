@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 6
   m_Sprite: {fileID: 9168396658961621293, guid: 13dd01e6779f6cc43a50cc3e31cd7cde,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -149,7 +149,9 @@ MonoBehaviour:
     amount: 40
     pointsAllocated: 0
     modified: 0
+  additionalDamage: 0
   critChance: 0
+  dodgeChance: 0
   minDamage: 5
   maxDamage: 10
   magicMinDamage: 0

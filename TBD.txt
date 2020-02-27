@@ -3,13 +3,11 @@ possibly adding something to crit damage - bow item?
 an amulet -> increases crit chance?
 classes - swashbuckler, etc
 UI Overhaul
-display stats of items
 
 other:
 update README.md to reflect music changes
 add sound options? (Volume)
 add pause menu
-tutorial
 highscore
 
 things to think about but no solution to:
@@ -18,6 +16,7 @@ spread the min/max damage of enemies
 
 maybe?? (suspected bugs but not 100%?):
 sound is slightly delayed? (only on my phone)
+tutorial
 
 patch notes:
 axey 23-46 -> 15-30
