@@ -22,6 +22,7 @@ public class CharacterEntity : MonoBehaviour
 
     [SerializeField] protected int additionalDamage;
     [SerializeField] protected float critChance;
+    [SerializeField] protected float dodgeChance;
 
     public float minDamage, maxDamage;
     public float magicMinDamage, magicMaxDamage;
@@ -50,6 +51,7 @@ public class CharacterEntity : MonoBehaviour
     private const int magicMinDamageCalc = 5;
     private const int magicMaxDamageCalc = 2;
     private const int critChanceCalc = 2;
+    private const int dodgeChanceCalc = 8;
     private const int defCalc = 10;
 
     private const float defStartPointCalc = 1.00f;
@@ -139,8 +141,9 @@ public class CharacterEntity : MonoBehaviour
         magicMaxDamage = intl.amount / magicMaxDamageCalc;
 
         critChance = luck.amount / critChanceCalc;
+        dodgeChance = dex.amount / dodgeChanceCalc;
 
-        def = dex.amount / defCalc;
+        def = str.amount / defCalc;
     }
 
     public void ApplyStatsFrom(CharacterEntity otherChar)
@@ -212,7 +215,16 @@ public class CharacterEntity : MonoBehaviour
         // Damage is calculated by finding a random value between the minimum/maximum damage, and then taking the damage reduced by the enemy's defense.
         // for clarification, 1 def is equal to 1% of damage reduced.
         // so in this case, the enemy takes 99% of the damage.
-        
+
+        float missChance = Random.Range(randomMin,randomMax);
+        if (missChance < target.dodgeChance)
+        {
+            infoText.text = "Miss!";
+            AudioManager.Instance.Play("Woosh");
+            Instantiate(infoText, target.transform.position, Quaternion.identity);
+            return;
+        }
+
         // Initial damage calculation
         float x = Random.Range(minDamage,maxDamage);
         x *= (defStartPointCalc - ((float)target.def/convertToPercentageCalc)); 
@@ -269,6 +281,15 @@ public class CharacterEntity : MonoBehaviour
         // Damage is calculated by finding a random value between the minimum/maximum damage, and then taking the damage reduced by the enemy's defense.
         // for clarification, 1 def is equal to 1% of damage reduced.
         // so in this case, the enemy takes 99% of the damage.
+
+        float missChance = Random.Range(randomMin,randomMax);
+        if (missChance < target.dodgeChance)
+        {
+            infoText.text = "Miss!";
+            AudioManager.Instance.Play("Woosh");
+            Instantiate(infoText, target.transform.position, Quaternion.identity);
+            return;
+        }
         
         // Initial Damage Calculation
         float x = Random.Range(magicMinDamage,magicMaxDamage);

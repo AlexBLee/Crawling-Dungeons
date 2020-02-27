@@ -5,7 +5,6 @@ classes - swashbuckler, etc
 ability to miss attacks
 UI Overhaul
 display stats of items
-add drop shadow or outline for damage text
 
 other:
 update README.md to reflect music changes

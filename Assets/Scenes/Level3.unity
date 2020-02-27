@@ -2309,6 +2309,11 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     source: {fileID: 0}
+  - name: Woosh
+    clip: {fileID: 8300000, guid: 30fe11abfa28c9341a30eba8b9377e51, type: 3}
+    volume: 0.7
+    pitch: 1
+    source: {fileID: 0}
 --- !u!4 &597520652
 Transform:
   m_ObjectHideFlags: 0

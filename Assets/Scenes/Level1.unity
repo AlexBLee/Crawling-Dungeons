@@ -1332,7 +1332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &256438346
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2664,6 +2664,11 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     source: {fileID: 0}
+  - name: Woosh
+    clip: {fileID: 8300000, guid: 30fe11abfa28c9341a30eba8b9377e51, type: 3}
+    volume: 0.7
+    pitch: 1
+    source: {fileID: 0}
 --- !u!4 &597520652
 Transform:
   m_ObjectHideFlags: 0
@@ -3352,7 +3357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &754336924
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6701,7 +6706,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1299836354
 RectTransform:
   m_ObjectHideFlags: 0
