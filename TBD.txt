@@ -4,8 +4,6 @@ an amulet -> increases crit chance?
 classes - swashbuckler, etc
 ability to miss attacks
 UI Overhaul
-Luck on victory panel doesnt have space between number and colon
-Show not enough money notification
 display stats of items
 add drop shadow or outline for damage text
 
