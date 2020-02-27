@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weapon-LongSword
   m_EditorClassIdentifier: 
   itemName: Long Sword
-  description: It's a LOOOOONG one
+  description: It's a LOOOOONG one \n+35-65 damage
   image: {fileID: 21300108, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
   cost: 350
   amount: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Armor-LeatherBoots
   m_EditorClassIdentifier: 
   itemName: Leather Boots
-  description: 100% genuine leather
+  description: 100% genuine leather \n+2 def
   image: {fileID: 21300188, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
   cost: 30
   amount: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weapon-Scimmy
   m_EditorClassIdentifier: 
   itemName: Scimmy
-  description: The good ol' scimmy
+  description: The good ol' scimmy \n+20-40 damage
   image: {fileID: 21300106, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
   cost: 140
   amount: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weapon-Excalibur
   m_EditorClassIdentifier: 
   itemName: Excalibur
-  description: The legendary sword.
+  description: The legendary sword. \n+45-80 damage
   image: {fileID: 21300100, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
   cost: 500
   amount: 0

@@ -152,7 +152,7 @@ public class ShopDisplay : MonoBehaviour
             }
 
             itemPopup.nameOfItem.text = itemList[index].itemName;
-            itemPopup.description.text = itemList[index].description;
+            itemPopup.description.text = itemList[index].description.Replace("\\n", "\n");
             itemPopup.transform.parent.position = position;
 
             itemPopup.item = itemList[index];

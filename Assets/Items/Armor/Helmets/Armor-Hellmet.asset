@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Armor-Hellmet
   m_EditorClassIdentifier: 
   itemName: Hellmet
-  description: the hellest of helmets
+  description: the hellest of helmets \n+7 def
   image: {fileID: 21300158, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
   cost: 250
   amount: 0

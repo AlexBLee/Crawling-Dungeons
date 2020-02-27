@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Armor-Hat
   m_EditorClassIdentifier: 
   itemName: Fancy Hat
-  description: 'Makes you look rich '
+  description: Makes you look rich \n+3 def
   image: {fileID: 21300152, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
   cost: 70
   amount: 0

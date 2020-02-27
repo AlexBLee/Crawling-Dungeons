@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Armor-Boxers
   m_EditorClassIdentifier: 
   itemName: Boxers
-  description: A real fashion statement.
+  description: A real fashion statement. \n+3 def
   image: {fileID: 21300176, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
   cost: 50
   amount: 0

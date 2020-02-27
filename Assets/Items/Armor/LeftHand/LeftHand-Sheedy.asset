@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LeftHand-Sheedy
   m_EditorClassIdentifier: 
   itemName: Sheedy
-  description: Blocks all shady things
+  description: Blocks all shady things \n+4 def \nBlocks 12% of crit damage
   image: {fileID: 21300130, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
   cost: 125
   amount: 0

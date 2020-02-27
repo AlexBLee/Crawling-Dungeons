@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LeftHand-StrongShield
   m_EditorClassIdentifier: 
   itemName: Strong Shield
-  description: A normal shield, but stronger.
+  description: A normal shield, but stronger. \n+7 def \nBlocks 16% of crit damage
   image: {fileID: 21300132, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
   cost: 200
   amount: 0

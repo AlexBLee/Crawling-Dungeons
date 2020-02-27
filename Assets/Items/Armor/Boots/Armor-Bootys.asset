@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Armor-Bootys
   m_EditorClassIdentifier: 
   itemName: Bootys
-  description: Arr heres the booty
+  description: Arr heres the booty \n+3 def
   image: {fileID: 21300190, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
   cost: 100
   amount: 0

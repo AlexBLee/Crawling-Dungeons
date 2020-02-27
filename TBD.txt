@@ -2,7 +2,6 @@ suggestions:
 possibly adding something to crit damage - bow item?
 an amulet -> increases crit chance?
 classes - swashbuckler, etc
-ability to miss attacks
 UI Overhaul
 display stats of items
 

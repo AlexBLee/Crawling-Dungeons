@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weapon-Axey
   m_EditorClassIdentifier: 
   itemName: Axey
-  description: Sharpest of axes
+  description: Sharpest of axes \n+15-30 damage
   image: {fileID: 21300238, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
   cost: 90
   amount: 0

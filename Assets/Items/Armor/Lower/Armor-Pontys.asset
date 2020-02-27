@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Armor-Pontys
   m_EditorClassIdentifier: 
   itemName: Pontys
-  description: Ponny pon pon!
+  description: Ponny pon pon! \n+6 def
   image: {fileID: 21300172, guid: f36cd5799ba31824489ed31b4888c924, type: 3}
   cost: 150
   amount: 0
