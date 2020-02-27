@@ -129,6 +129,16 @@ public class ShopDisplay : MonoBehaviour
                 itemPopup.buyAndEquipButton.gameObject.SetActive(true);
             }
 
+            if(player.inventory.gold <= itemList[index].cost)
+            {
+                itemPopup.buyButton.interactable = false;
+                itemPopup.buyAndEquipButton.interactable = false;
+            }
+            else
+            {
+                itemPopup.buyButton.interactable = true;
+                itemPopup.buyAndEquipButton.interactable = true;
+            }
             // For position the UI correctly so everything fits on screen.
             if((index >= 0 && index <= 2) || (index >= 9 && index <= 11))
             {

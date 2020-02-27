@@ -6,7 +6,6 @@ ability to miss attacks
 UI Overhaul
 Luck on victory panel doesnt have space between number and colon
 Show not enough money notification
-show item bought notification + do you want to equip
 display stats of items
 add drop shadow or outline for damage text
 
