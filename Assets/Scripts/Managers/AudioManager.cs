@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
 {
     private static AudioManager _instance;
     public static AudioManager Instance { get { return _instance; } }
+    public AudioMixerGroup mixerGroup;
 
     public Sound[] sounds;
 
@@ -30,6 +31,8 @@ public class AudioManager : MonoBehaviour
 
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
+
+            s.source.outputAudioMixerGroup = mixerGroup;
 
         }
     }

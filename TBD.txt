@@ -8,7 +8,6 @@ highscore
 other:
 update README.md to reflect music changes
 add sound options? (Volume)
-add pause menu
 
 
 things to think about but no solution to:
