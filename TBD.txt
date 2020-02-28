@@ -1,14 +1,15 @@
-suggestions:
+next patch:
 possibly adding something to crit damage - bow item?
 an amulet -> increases crit chance?
 classes - swashbuckler, etc
 UI Overhaul
+highscore
 
 other:
 update README.md to reflect music changes
 add sound options? (Volume)
 add pause menu
-highscore
+
 
 things to think about but no solution to:
 stat allocation too small?

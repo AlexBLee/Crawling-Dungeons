@@ -129,7 +129,7 @@ MonoBehaviour:
   exp: 0
   expThreshold: 50
   statPoints: 0
-  hp: 1000
+  hp: 700
   mp: 250
   maxHP: 1000
   maxMP: 250
