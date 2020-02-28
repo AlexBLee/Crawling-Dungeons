@@ -29,7 +29,7 @@ public class BattleManager : MonoBehaviour
     private int enemyCounter = 0;
 
     private Vector2 reverseRotation = new Vector2(0,180);
-    private const int finalLevelNumber = 6;
+    private const int finalLevelNumber = 8;
     private const float hpHeal = 0.15f;
     private const float mpHeal = 0.15f;
     private const float endlessModeFactor = 1.25f;

@@ -24,6 +24,7 @@ public class ShopDisplay : MonoBehaviour
     private RectTransform itemPopupRect;
     
     private const float textFadeAmount = 0.5f;
+    private const float fitOnScreenFactor = 0.397f;
 
     void Start()
     {
@@ -82,6 +83,7 @@ public class ShopDisplay : MonoBehaviour
     {
         if(pages[currentPage].activeSelf && pages[currentPage + 1] != null)
         {
+            itemPopup.gameObject.SetActive(false);
             pages[currentPage].SetActive(false);
             pages[currentPage + 1].SetActive(true);
             currentPage++;
@@ -99,6 +101,7 @@ public class ShopDisplay : MonoBehaviour
     {
         if(pages[currentPage].activeSelf && pages[currentPage - 1] != null)
         {
+            itemPopup.gameObject.SetActive(false);
             pages[currentPage].SetActive(false);
             pages[currentPage - 1].SetActive(true);
             currentPage--;
@@ -144,8 +147,8 @@ public class ShopDisplay : MonoBehaviour
             // For position the UI correctly so everything fits on screen.
             if((index >= 0 && index <= 2) || (index >= 9 && index <= 11))
             {
-                itemPopupRect.offsetMin = new Vector2(429, itemPopupRect.offsetMin.y);
-                itemPopupRect.offsetMax = new Vector2(429, itemPopupRect.offsetMin.y);
+                itemPopupRect.offsetMin = new Vector2(Screen.width * fitOnScreenFactor, itemPopupRect.offsetMin.y);
+                itemPopupRect.offsetMax = new Vector2(Screen.width * fitOnScreenFactor, itemPopupRect.offsetMin.y);
             }
             else
             {

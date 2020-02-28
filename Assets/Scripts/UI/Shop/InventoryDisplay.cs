@@ -155,8 +155,12 @@ public class InventoryDisplay : MonoBehaviour
             }
 
             itemPopup.nameOfItem.text = items[index].itemName;
-            itemPopup.description.text = items[index].description;
+            itemPopup.description.text = items[index].description.Replace("\\n", "\n");
             itemPopup.transform.parent.position = position;
+
+            RectTransform rct = itemPopup.transform.GetComponent<RectTransform>();
+            rct.offsetMin = new Vector2(0, rct.offsetMin.y);
+            rct.offsetMax = new Vector2(0, rct.offsetMin.y);
 
             itemPopup.item = items[index];
             itemPopup.index = index;
@@ -181,32 +185,19 @@ public class InventoryDisplay : MonoBehaviour
             itemPopup.unequipButton.gameObject.SetActive(true);
 
             itemPopup.nameOfItem.text = equippedItems[index].itemName;
-            itemPopup.description.text = equippedItems[index].description;
-            itemPopup.transform.parent.position = position;
+            itemPopup.description.text = equippedItems[index].description.Replace("\\n", "\n");
 
             itemPopup.item = equippedItems[index];
+            itemPopup.transform.parent.position = position;
             itemPopup.index = index;
 
             // For position the UI correctly so everything fits on screen.
-            // For right hand slot
-            if(index == 2)
+            // // For left hand slot
+            if(index == 3)
             {
-                RectTransform rct = itemPopup.transform.parent.GetComponent<RectTransform>();
-                rct.offsetMin = new Vector2(235, rct.offsetMin.y);
-                rct.offsetMax = new Vector2(235, rct.offsetMin.y);
-            }
-            // For left hand slot
-            else if(index == 3)
-            {
-                RectTransform rct = itemPopup.transform.parent.GetComponent<RectTransform>();
-                rct.offsetMin = new Vector2(-74, rct.offsetMin.y);
-                rct.offsetMax = new Vector2(-74, rct.offsetMin.y);
-            }
-            else
-            {
-                RectTransform rct = itemPopup.transform.parent.GetComponent<RectTransform>();
-                rct.offsetMin = new Vector2(77, rct.offsetMin.y);
-                rct.offsetMax = new Vector2(77, rct.offsetMin.y);
+                RectTransform rct = itemPopup.transform.GetComponent<RectTransform>();
+                rct.offsetMin = new Vector2(Screen.width * 0.400f, rct.offsetMin.y);
+                rct.offsetMax = new Vector2(Screen.width * 0.400f, rct.offsetMin.y);
             }
 
         }
