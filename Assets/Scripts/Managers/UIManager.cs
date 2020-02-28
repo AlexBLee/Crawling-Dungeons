@@ -29,6 +29,9 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI levelNumber;
 
+    public Button pauseButton;
+    public GameObject pauseScreen;
+
     public GameObject victoryPanel;
     public GameObject gameOverPanel;
     public GameObject winPanel;
@@ -64,6 +67,7 @@ public class UIManager : MonoBehaviour
 
         magicBackButton.onClick.AddListener(HideMagicList);
         potionBackButton.onClick.AddListener(HidePotionList);
+        pauseButton.onClick.AddListener(ActivatePause);
 
     }
 
@@ -256,4 +260,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ActivatePause()
+    {
+        pauseScreen.SetActive(true);
+        Time.timeScale = 0.0f;
+    }
 }
