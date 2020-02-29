@@ -134,7 +134,7 @@ public class ShopDisplay : MonoBehaviour
                 itemPopup.buyAndEquipButton.gameObject.SetActive(true);
             }
 
-            if(player.inventory.gold <= itemList[index].cost)
+            if(player.inventory.gold < itemList[index].cost)
             {
                 DisableShopButton(itemPopup.buyButton);
                 DisableShopButton(itemPopup.buyAndEquipButton);
