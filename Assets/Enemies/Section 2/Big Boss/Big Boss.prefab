@@ -131,7 +131,7 @@ MonoBehaviour:
   statPoints: 0
   hp: 700
   mp: 250
-  maxHP: 1000
+  maxHP: 750
   maxMP: 250
   str:
     amount: 120
