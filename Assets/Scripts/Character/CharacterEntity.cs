@@ -395,7 +395,7 @@ public class CharacterEntity : MonoBehaviour
         if(!battleFinish)
         {
             infoText.text = amount.ToString();
-            infoText.color = Color.green;
+            infoText.color = Color.cyan;
             Instantiate(infoText, transform.position, Quaternion.identity);
             AudioManager.Instance.Play("UsePotion");
             anim.SetTrigger("Heal");
