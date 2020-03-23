@@ -66,7 +66,7 @@ public class Inventory : MonoBehaviour
         if(item is ConsumableItem)
         {
             // Find if the added item already exists in the inventory
-            if(!isEmpty && IsItemExisting(item.itemName))
+            if(IsItemExisting(item.itemName))
             {
                 // If an item is found, stack it.
                 if(items[indexOfItem] != null)
