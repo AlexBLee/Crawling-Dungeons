@@ -66,7 +66,7 @@ public class UIManager : MonoBehaviour
         {
             foreach (ConsumableItem potion in player.inventory.items)
             {
-                if(!potion.marked)
+                if(potion != null && !potion.marked)
                 {
                     potion.marked = true;
                     potionUI.button.onClick.AddListener(delegate{player.inventory.ConsumeItem(player.inventory.items.IndexOf(potion), player);});
@@ -163,6 +163,10 @@ public class UIManager : MonoBehaviour
                 {
                     potionUI.text.text = potionUI.item.itemName + " x" + potionUI.item.amount.ToString();
                 }
+            }
+            else
+            {
+                FadeButtons(potionUI.button, potionUI.text, "N/A");
             }
         }
         
