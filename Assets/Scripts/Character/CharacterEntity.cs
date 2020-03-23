@@ -398,7 +398,7 @@ public class CharacterEntity : MonoBehaviour
             infoText.color = Color.green;
             Instantiate(infoText, transform.position, Quaternion.identity);
             AudioManager.Instance.Play("UsePotion");
-            anim.SetTrigger("UseItem");
+            anim.SetTrigger("Heal");
         }
 
         uiManager.UpdateUIMana();
