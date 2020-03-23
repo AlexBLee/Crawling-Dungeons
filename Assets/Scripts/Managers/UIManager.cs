@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     public GameObject potionList;
     public List<Button> potionButtonList;
     public List<TextMeshProUGUI> potionTextList;
+    public List<PotionUI> potionUIList;
 
     public List<AddRemoveStat> addRemoves;
 
@@ -51,16 +52,28 @@ public class UIManager : MonoBehaviour
             magicButtonList[count].onClick.AddListener(delegate{player.MagicPressed(spell.Key);});
             count++;
         }
-        count = 0;
 
-        foreach(Button b in potionButtonList)
+        // reset the potions so the buttons can re-link to the potions in the new scene.
+        foreach (ConsumableItem potion in player.inventory.items)
         {
-            int x = count;
-            if(player.inventory.consumableLocations[x] < itemMaxLocationCount)
+            if (potion != null)
             {
-                b.onClick.AddListener(delegate{player.inventory.ConsumeItem(player.inventory.consumableLocations[x], player);});
+                potion.marked = false;
             }
-            count++;
+        }
+
+        foreach(PotionUI potionUI in potionUIList)
+        {
+            foreach (ConsumableItem potion in player.inventory.items)
+            {
+                if(!potion.marked)
+                {
+                    potion.marked = true;
+                    potionUI.button.onClick.AddListener(delegate{player.inventory.ConsumeItem(player.inventory.items.IndexOf(potion), player);});
+                    potionUI.item = potion;
+                    break;
+                }
+            }
         }
 
         DisplayPotionAmount();
@@ -137,23 +150,22 @@ public class UIManager : MonoBehaviour
 
     private void DisplayPotionAmount()
     {
-        int count = 0;
-        foreach(Button b in potionButtonList)
+        foreach (PotionUI potionUI in potionUIList)
         {
-            int x = count;
-            if(player.inventory.consumableLocations[x] < itemMaxLocationCount && player.inventory.items[player.inventory.consumableLocations[x]] != null)
+            if(potionUI.item != null)
             {
-                potionTextList[x].text = 
-                player.inventory.items[player.inventory.consumableLocations[x]].itemName +
-                " x" + player.inventory.items[player.inventory.consumableLocations[x]].amount.ToString();
+                if (potionUI.item.amount == 0)
+                {
+                    potionUI.item = null;
+                    FadeButtons(potionUI.button, potionUI.text, "N/A");
+                }
+                else
+                {
+                    potionUI.text.text = potionUI.item.itemName + " x" + potionUI.item.amount.ToString();
+                }
             }
-            // If the potion no longer exists..
-            else
-            {
-                FadeButtons(b, potionTextList[x], "N/A");
-            }
-            count++;
         }
+        
     }
     
     public void DeactivateSubtractors()

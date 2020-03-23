@@ -8,8 +8,6 @@ public class Inventory : MonoBehaviour
     private bool isEmpty = true;
     private int indexOfItem;
 
-    // Used for locating which index the consumables are at.
-    public List<int> consumableLocations;
     public static int listIndex;
 
     public List<EquippableItem> equips;
@@ -45,7 +43,6 @@ public class Inventory : MonoBehaviour
         items = otherPlayer.inventory.items;
         equips = otherPlayer.inventory.equips;
         gold = otherPlayer.inventory.gold;
-        consumableLocations = otherPlayer.inventory.consumableLocations;
     }
 
     public void ApplyItemsTo(Player otherPlayer)
@@ -53,7 +50,6 @@ public class Inventory : MonoBehaviour
         otherPlayer.inventory.items = items;
         otherPlayer.inventory.equips = equips;
         otherPlayer.inventory.gold = gold;
-        otherPlayer.inventory.consumableLocations = consumableLocations;
     }
 
     // -----------------------------------------------------------------------------
@@ -80,7 +76,6 @@ public class Inventory : MonoBehaviour
             else
             {
                 item = Instantiate(item);
-                consumableLocations[listIndex] = index;
                 listIndex++;
             }
         }
@@ -201,6 +196,7 @@ public class Inventory : MonoBehaviour
 
     public void ConsumeItem(int index, CharacterEntity character)
     {
+        Debug.Log(index);
         // if 0, then display no more potions left!
         ConsumableItem consumable = (ConsumableItem)items[index];
 

@@ -407,6 +407,13 @@ MonoBehaviour:
   potionTextList:
   - {fileID: 835221990}
   - {fileID: 1607982322}
+  potionUIList:
+  - button: {fileID: 954262405}
+    text: {fileID: 835221990}
+    item: {fileID: 0}
+  - button: {fileID: 993212214}
+    text: {fileID: 1607982322}
+    item: {fileID: 0}
   addRemoves:
   - {fileID: 1234366603}
   - {fileID: 412490841}
