@@ -136,29 +136,32 @@ public class BattleManager : MonoBehaviour
         // If no more enemies to spawn, floor is complete.
         else
         {
-            AudioManager.Instance.Play("Victory");
-            if(SceneManager.GetActiveScene().buildIndex == finalLevelNumber)
-            {
-                uiManager.ActivateGameWin();
-            }
-            else
-            {
-                uiManager.victoryPanel.SetActive(true);
+            DeclareVictory();
+        }
+    }
 
-                player.Heal((int)(player.maxHP * hpHeal), true);
-                player.RestoreMP((int)(player.maxMP * mpHeal), true);
+    public void DeclareVictory()
+    {
+        AudioManager.Instance.Play("Victory");
+        if(SceneManager.GetActiveScene().buildIndex == finalLevelNumber)
+        {
+            uiManager.ActivateGameWin();
+        }
+        else
+        {
+            uiManager.victoryPanel.SetActive(true);
 
-                AddRemoveStat.numberOfStatPoints = player.statPoints;
-                uiManager.levelNumber.text = player.level.ToString();
-            }
+            player.Heal((int)(player.maxHP * hpHeal), true);
+            player.RestoreMP((int)(player.maxMP * mpHeal), true);
 
-            if(player.statPoints == 0)
-            {
-                uiManager.DeactivateAdders();
-                uiManager.DeactivateSubtractors();
-            }
-            
-            
+            AddRemoveStat.numberOfStatPoints = player.statPoints;
+            uiManager.levelNumber.text = player.level.ToString();
+        }
+
+        if(player.statPoints == 0)
+        {
+            uiManager.DeactivateAdders();
+            uiManager.DeactivateSubtractors();
         }
     }
     

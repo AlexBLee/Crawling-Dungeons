@@ -16,8 +16,6 @@ public class UIManager : MonoBehaviour
     public List<Button> magicButtonList;
 
     public GameObject potionList;
-    public List<Button> potionButtonList;
-    public List<TextMeshProUGUI> potionTextList;
     public List<PotionUI> potionUIList;
 
     public List<AddRemoveStat> addRemoves;
