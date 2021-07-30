@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour
         itemButton.onClick.AddListener(ShowPotionList);
 
         int count = 0;
-        foreach(KeyValuePair<Spell, bool> spell in player.spells.spellList)
+        foreach(KeyValuePair<SpellNew, bool> spell in player.spells.spellList)
         {
             magicButtonList[count].onClick.AddListener(delegate{player.MagicPressed(spell.Key);});
             count++;
@@ -103,7 +103,7 @@ public class UIManager : MonoBehaviour
         int counter = 0;
 
         // Show only unlocked spells
-        foreach(KeyValuePair<Spell,bool> spells in player.spells.spellList)
+        foreach(KeyValuePair<SpellNew,bool> spells in player.spells.spellList)
         {
             if(!spells.Value)
             {
@@ -113,7 +113,7 @@ public class UIManager : MonoBehaviour
             {
                 magicButtonList[counter].gameObject.SetActive(true);
 
-                if(player.mp < spells.Key.cost)
+                if(player.mp < spells.Key.Cost)
                 {
                     FadeButtons(magicButtonList[counter], magicButtonList[counter].GetComponentInChildren<TextMeshProUGUI>());
                 }

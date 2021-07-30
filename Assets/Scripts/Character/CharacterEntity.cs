@@ -81,6 +81,7 @@ public class CharacterEntity : MonoBehaviour
     protected Vector3 initialPos;
     public CharacterEntity target;
     [HideInInspector] public TextMeshPro infoText;
+    public SpellNew spellUsed;
 
 
     // ------------------------------------
@@ -210,7 +211,7 @@ public class CharacterEntity : MonoBehaviour
 
     #region Moves
     
-    protected void DoDamage()
+    public void DoDamage()
     {
         // Damage is calculated by finding a random value between the minimum/maximum damage, and then taking the damage reduced by the enemy's defense.
         // for clarification, 1 def is equal to 1% of damage reduced.
@@ -295,7 +296,7 @@ public class CharacterEntity : MonoBehaviour
         float x = Random.Range(magicMinDamage,magicMaxDamage);
         x *= (defStartPointCalc - ((float)target.def/convertToPercentageCalc));
         int damage = Mathf.RoundToInt(x);
-        damage += additionalDamage;
+        damage += spellUsed.Damage;
 
         // Critical chance calculation
         float chance = Random.Range(randomMin, randomMax);
@@ -321,6 +322,7 @@ public class CharacterEntity : MonoBehaviour
 
         // Apply damage
         target.hp -= damage;
+        spellUsed.ApplyDebuffs(target);
         target.anim.SetTrigger("Hit");
         AudioManager.Instance.Play("SlashHit");
 
@@ -338,7 +340,7 @@ public class CharacterEntity : MonoBehaviour
             uiManager.UpdateUIHealth();
             target.GetComponent<Player>().CheckDeath();
         }
-
+        spellUsed = null;
     }
  
     // Next turn setting + damage is done through animation

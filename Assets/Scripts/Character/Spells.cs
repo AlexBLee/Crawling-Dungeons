@@ -7,8 +7,10 @@ public class Spells : MonoBehaviour
     private Player player;
 
     public Vector3 spellPosition;
-    public List<Spell> spells;
-    public Dictionary<Spell, bool> spellList;
+    public List<SpellNew> spells = new List<SpellNew>();
+    public Dictionary<SpellNew, bool> spellList;
+
+    public SpellFactory spellFactory = new SpellFactory();
 
     private const int first_spellUnlockLevel = 1;
     private const int second_spellUnlockLevel = 2;
@@ -23,8 +25,13 @@ public class Spells : MonoBehaviour
     {
         player = GetComponent<Player>();
 
-        spellList = new Dictionary<Spell, bool>();
-        foreach(Spell spell in spells)
+        spellList = new Dictionary<SpellNew, bool>();
+
+        spells.Add(spellFactory.GetSpell("ice"));
+        spells.Add(spellFactory.GetSpell("fire"));
+
+
+        foreach(SpellNew spell in spells)
         {
             spellList.Add(spell, false);
         }

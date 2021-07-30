@@ -401,12 +401,6 @@ MonoBehaviour:
   - {fileID: 573475550}
   - {fileID: 1772848254}
   potionList: {fileID: 1771009879}
-  potionButtonList:
-  - {fileID: 954262405}
-  - {fileID: 993212214}
-  potionTextList:
-  - {fileID: 835221990}
-  - {fileID: 1607982322}
   potionUIList:
   - button: {fileID: 954262405}
     text: {fileID: 835221990}
@@ -3210,7 +3204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &573475547
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3571,7 +3565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &637908782
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4560,7 +4554,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &760154067
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7796,7 +7790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1225782016
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10776,7 +10770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1772848251
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10894,7 +10888,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1784702233
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12246,4 +12240,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellPosition: {x: 0, y: 0, z: 0}
-  spells: []

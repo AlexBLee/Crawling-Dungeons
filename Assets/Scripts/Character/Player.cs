@@ -57,9 +57,9 @@ public class Player : CharacterEntity
         attacking = true;
     }
 
-    public void MagicPressed(Spell spell)
+    public void MagicPressed(SpellNew spell)
     {
-        if((mp - spell.cost) < 0)
+        if((mp - spell.Cost) < 0)
         {
             Debug.Log("not enough mana!");
             infoText.color = lightBlue;
@@ -68,26 +68,27 @@ public class Player : CharacterEntity
         }
         else
         {
-            AudioManager.Instance.Play(spell.effect.name);
+            // AudioManager.Instance.Play(spell.effect.name);
             uiManager.HideMagicList();
 
-            Debug.Log("Casted: " + spell.name);
-            additionalDamage = spell.additionalDamage;
-            mp -= spell.cost;
+            Debug.Log("Casted: " + spell.Name);
+            spellUsed = spell;
+            mp -= spellUsed.Cost;
+            
             uiManager.UpdateUIMana();
 
             attacking = true;
             RangedAttack();
 
             // Asks if the spell is supposed to be spawned firstly near the player or right on top of the enemy.
-            if(spell.atPosition)
-            {
-                Instantiate(spell.effect, spells.spellPosition, Quaternion.identity);            
-            }
-            else
-            {
-                Instantiate(spell.effect, target.transform.position, Quaternion.identity);
-            }
+            // if(spell.atPosition)
+            // {
+            //     Instantiate(spell.effect, spells.spellPosition, Quaternion.identity);            
+            // }
+            // else
+            // {
+            //     Instantiate(spell.effect, target.transform.position, Quaternion.identity);
+            // }
         }
     }
 
