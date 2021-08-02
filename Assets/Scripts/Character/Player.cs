@@ -35,26 +35,13 @@ public class Player : CharacterEntity
         inventory.UpdateItemStats();
     }
 
-    private void Update()
-    {
-        if (inBattle && battleManager.playerTurn)
-        {
-            if (target != null)
-            {     
-                MoveAndAttack(target.transform.position);
-            }
-            StopAttacking();  
-        }
-    }
-
     // -----------------------------------------------------------------------------
 
     public void Attack()
     {
         uiManager.DisableButtons();
         initialPos = transform.position;
-        targetReached = false;
-        attacking = true;
+        MoveToAttackPosition(target.transform.position);
     }
 
     public void MagicPressed(SpellNew spell)
@@ -77,7 +64,6 @@ public class Player : CharacterEntity
             
             uiManager.UpdateUIMana();
 
-            attacking = true;
             RangedAttack();
 
             // Asks if the spell is supposed to be spawned firstly near the player or right on top of the enemy.

@@ -62,7 +62,7 @@ public class CharacterEntity : MonoBehaviour
     private const int randomMin = 0;
     private const int randomMax = 100;
 
-    private const float approachDistance = 1.0f;
+    private const float approachDistance = 1.5f;
     private const float approachSpeed = 5;
     private const float timeApproachSpeed = 1.20f;
 
@@ -70,10 +70,7 @@ public class CharacterEntity : MonoBehaviour
 
     // Conditions --------------------------
     public bool inBattle;
-    protected bool targetReached = true;
-    protected bool attacking = false;
     protected bool dead = false;
-    protected bool animationDone = false;
 
     // Others ----------------------------
     
@@ -348,7 +345,6 @@ public class CharacterEntity : MonoBehaviour
     {
         uiManager.DisableButtons();
         anim.SetTrigger("Cast");
-        attacking = false;
     }
 
     public void Heal(int amount, bool battleFinish)
@@ -410,61 +406,23 @@ public class CharacterEntity : MonoBehaviour
 
     #region Animations/Movement
    
-    protected void MoveAndAttack(Vector2 targetPosition)
+    protected void MoveToAttackPosition(Vector2 targetPosition)
     {
-        if(!targetReached && attacking)
-        {
-            if (Vector2.Distance(transform.position, targetPosition) > approachDistance)
-            {
-                transform.position += transform.right * Time.deltaTime * approachSpeed;
-                anim.SetBool("Run", true);
-            }
-            else
-            {
-                anim.SetBool("Run", false);
-                anim.SetTrigger("Attack");
-                targetReached = true;
-            }
-
-        }
+        anim.SetBool("Run", true);
+        iTween.MoveTo(gameObject, iTween.Hash("x", targetPosition.x - approachDistance, "onComplete", "StartAttacking"));
     }
 
-    protected void StopAttacking()
+    void StartAttacking()
     {
-        if(targetReached && attacking && animationDone)
-        {
-            StartCoroutine(MoveToExactPosition(initialPos));
-            
-            if(transform.position == initialPos)
-            {
-                StartCoroutine(battleManager.ToggleNextTurn());
-                targetReached = false;
-                attacking = false;
-                animationDone = false;                   
-            }
-
-        }
-    }
-
-    protected IEnumerator MoveToExactPosition(Vector2 destination)
-    {
-        Vector2 startPos = transform.position;
-        Vector2 endPos = destination;
-
-        float timer = 0;
-        while(timer < 2)
-        {
-            timer += Time.deltaTime;
-            transform.position = Vector2.Lerp(startPos,endPos, timer/timeApproachSpeed);
-            yield return null;
-        }
-
+        anim.SetBool("Run", false);
+        anim.SetTrigger("Attack");
     }
 
     // Animation Finishes - triggered in animations.
     public void AnimationFinish()
     {
-        animationDone = true;
+        iTween.MoveTo(gameObject, iTween.Hash("x", initialPos.x));
+        battleManager.ToggleNextTurn();
     }
 
     public void MagicAnimationFinish()

@@ -24,35 +24,20 @@ public class Enemy : CharacterEntity
         initialPos = transform.position;
         uiManager = FindObjectOfType<UIManager>();
         UpdateDamageStats();
+
+        MoveToStartPosition(fightPosition);
     }
 
-    void Update()
+    protected void MoveToStartPosition(Vector2 position)
     {
-        if(newBattle)
-        {
-            MoveToPosition();
-        }
-
-        if(inBattle && !battleManager.playerTurn)
-        {            
-            MoveAndAttack(target.transform.position);
-        }
-        StopAttacking();
+        anim.SetBool("Run", true);
+        iTween.MoveTo(gameObject, iTween.Hash("x", position.x, "onComplete", "StartBattle"));
     }
 
-    public void MoveToPosition()
+    private void StartBattle()
     {
-        if (transform.position != fightPosition)
-        {
-            StartCoroutine(MoveToExactPosition(fightPosition));
-            anim.SetBool("Run", true);
-        }
-        else
-        {
-            anim.SetBool("Run", false);
-            newBattle = false;
-            battleManager.StartNewBattle();
-        }
+        anim.SetBool("Run", false);
+        battleManager.StartNewBattle();
     }
 
     public void SetAttackConditions()
@@ -96,8 +81,7 @@ public class Enemy : CharacterEntity
         else
         {
             initialPos = transform.position;
-            targetReached = false;
-            attacking = true;
+            MoveToAttackPosition(target.transform.position);
         }
 
     }
