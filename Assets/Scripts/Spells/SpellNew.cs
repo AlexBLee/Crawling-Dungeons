@@ -7,5 +7,6 @@ public abstract class SpellNew
     public abstract string Name { get; }
     public abstract int Damage { get; }
     public abstract int Cost { get; }
+    public abstract int LevelRequired { get; }
     public abstract void ApplyDebuffs(CharacterEntity entity);
 }
