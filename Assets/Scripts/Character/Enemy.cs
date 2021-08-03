@@ -1,7 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using DG.Tweening;
 
 public class Enemy : CharacterEntity
 {
@@ -21,7 +22,6 @@ public class Enemy : CharacterEntity
 
     private void Start() 
     {   
-        initialPos = transform.position;
         uiManager = FindObjectOfType<UIManager>();
         UpdateDamageStats();
 
@@ -31,11 +31,13 @@ public class Enemy : CharacterEntity
     protected void MoveToStartPosition(Vector2 position)
     {
         anim.SetBool("Run", true);
-        iTween.MoveTo(gameObject, iTween.Hash("x", position.x, "onComplete", "StartBattle"));
+        transform.DOMove(position, 1).OnComplete(StartBattle);
     }
 
     private void StartBattle()
     {
+        initialPos = transform.position;
+
         anim.SetBool("Run", false);
         battleManager.StartNewBattle();
     }
@@ -80,7 +82,6 @@ public class Enemy : CharacterEntity
         // Normal Attack
         else
         {
-            initialPos = transform.position;
             MoveToAttackPosition(target.transform.position);
         }
 

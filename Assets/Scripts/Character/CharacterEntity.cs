@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 // the class for all Characters in the game.
 public class CharacterEntity : MonoBehaviour
@@ -62,11 +63,7 @@ public class CharacterEntity : MonoBehaviour
     private const int randomMin = 0;
     private const int randomMax = 100;
 
-    private const float approachDistance = 1.5f;
-    private const float approachSpeed = 5;
-    private const float timeApproachSpeed = 1.20f;
-
-    
+    private const float APPROACH_DISTANCE = 1.0f;
 
     // Conditions --------------------------
     public bool inBattle;
@@ -409,10 +406,12 @@ public class CharacterEntity : MonoBehaviour
     protected void MoveToAttackPosition(Vector2 targetPosition)
     {
         anim.SetBool("Run", true);
-        iTween.MoveTo(gameObject, iTween.Hash("x", targetPosition.x - approachDistance, "onComplete", "StartAttacking"));
+        
+        float modifiedTargetPos = targetPosition.x - (APPROACH_DISTANCE * transform.right.x);
+        transform.DOMoveX(modifiedTargetPos, 1).OnComplete(StartAttack);
     }
 
-    void StartAttacking()
+    private void StartAttack()
     {
         anim.SetBool("Run", false);
         anim.SetTrigger("Attack");
@@ -421,19 +420,24 @@ public class CharacterEntity : MonoBehaviour
     // Animation Finishes - triggered in animations.
     public void AnimationFinish()
     {
-        iTween.MoveTo(gameObject, iTween.Hash("x", initialPos.x));
-        battleManager.ToggleNextTurn();
+        transform.DOMove(initialPos, 1);
+        ToggleNextTurn();
     }
 
     public void MagicAnimationFinish()
     {
-        StartCoroutine(battleManager.ToggleNextTurn());
+        ToggleNextTurn();
     }
 
-        
+    #endregion
+
     public void PlaySound(string n)
     {
         AudioManager.Instance.Play(n);
     }
-    #endregion
+
+    private void ToggleNextTurn()
+    {
+        StartCoroutine(battleManager.ToggleNextTurn());
+    }
 }

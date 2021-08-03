@@ -22,7 +22,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField, HideInInspector] private UIManager uiManager;
     [SerializeField, HideInInspector] private GameObject background;
 
-    private const float beginAttackDelay = 0.5f;
+    private const float beginAttackDelay = 0.8f;
     private const float backgroundMoveFactor = 4.0f;
 
     public List<Enemy> spawnableEnemies;

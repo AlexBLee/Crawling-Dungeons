@@ -24,6 +24,8 @@ public class Player : CharacterEntity
 
     private void Start()
     {
+        initialPos = transform.position;
+
         if(uiManager != null)
         {
             uiManager.UpdateUIHealth();
@@ -40,7 +42,6 @@ public class Player : CharacterEntity
     public void Attack()
     {
         uiManager.DisableButtons();
-        initialPos = transform.position;
         MoveToAttackPosition(target.transform.position);
     }
 
