@@ -8,11 +8,11 @@ public class SpellFactory
     {
         switch (type)
         {
-            case "fire":
-                return new FireBolt();
-
-            case "ice":
+            case GameConstants.IceSpellName:
                 return new IceBolt();
+
+            case GameConstants.FireSpellName:
+                return new FireBolt();
 
             default:
                 return null;

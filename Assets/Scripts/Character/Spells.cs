@@ -4,29 +4,31 @@ using UnityEngine;
 
 public class Spells : MonoBehaviour
 {
-    private Player player;
+    private List<SpellNew> spells = new List<SpellNew>();
+    private SpellFactory spellFactory = new SpellFactory();
 
-    public List<SpellNew> spells = new List<SpellNew>();
-    public SpellFactory spellFactory = new SpellFactory();
-
-    void Start()
+    private void Start()
     {
-        player = GetComponent<Player>();
-
-        spells.Add(spellFactory.GetSpell("ice"));
-        spells.Add(spellFactory.GetSpell("fire"));
+        foreach (string spellName in GameConstants.PlayerAvailableSpells)
+        {
+            spells.Add(spellFactory.GetSpell(spellName));
+        }
     }
 
-    public void UnlockSpells()
+    public List<SpellNew> GetSpellList()
+    {
+        return spells;
+    }
+
+    public void UnlockSpells(int playerLevel)
     {
         foreach (SpellNew spell in spells)
         {
-            if (player.level >= spell.LevelRequired)
+            if (playerLevel >= spell.LevelRequired)
             {
                 spell.unlocked = true;
             }
         }
-
     }
 
 }

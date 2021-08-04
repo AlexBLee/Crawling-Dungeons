@@ -33,7 +33,7 @@ public class Player : CharacterEntity
         }
 
         UpdateDamageStats();
-        spells.UnlockSpells();
+        spells.UnlockSpells(level);
         inventory.UpdateItemStats();
     }
 
@@ -181,7 +181,7 @@ public class Player : CharacterEntity
         {
             float extraXP = exp - expThreshold;
             LevelUp();
-            spells.UnlockSpells();
+            spells.UnlockSpells(level);
             inventory.UpdateItemStats();
 
             yield return new WaitForSeconds(levelDelayTime);

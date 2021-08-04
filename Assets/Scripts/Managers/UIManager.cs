@@ -44,9 +44,10 @@ public class UIManager : MonoBehaviour
         magicButton.onClick.AddListener(ShowMagicList);
         itemButton.onClick.AddListener(ShowPotionList);
 
-        for (int i = 0; i < player.spells.spells.Count; i++)
+        List<SpellNew> spellList = player.spells.GetSpellList();
+        for (int i = 0; i < spellList.Count; i++)
         {
-            SpellNew spell = player.spells.spells[i];
+            SpellNew spell = spellList[i];
             magicButtonList[i].onClick.AddListener(() => { player.MagicPressed(spell); });
         }
 
@@ -99,31 +100,33 @@ public class UIManager : MonoBehaviour
     {
         DisableButtons();
         magicList.SetActive(true);
-        int counter = 0;
 
         // Show only unlocked spells
-        foreach(SpellNew spell in player.spells.spells)
+        List<SpellNew> spellList = player.spells.GetSpellList();
+
+        for (int i = 0; i < spellList.Count; i++)
         {
-            if(!spell.unlocked)
+            SpellNew spell = spellList[i];
+            Button magicButton = magicButtonList[i];
+            TextMeshProUGUI buttonText = magicButton.GetComponentInChildren<TextMeshProUGUI>();
+
+            if (!spell.unlocked)
             {
-                magicButtonList[counter].gameObject.SetActive(false);
+                magicButton.gameObject.SetActive(false);
+                continue;
+            }
+
+            magicButtonList[i].gameObject.SetActive(true);
+
+            if (player.mp < spell.Cost)
+            {
+                FadeButtons(magicButton, buttonText);
             }
             else
             {
-                magicButtonList[counter].gameObject.SetActive(true);
-
-                if(player.mp < spell.Cost)
-                {
-                    FadeButtons(magicButtonList[counter], magicButtonList[counter].GetComponentInChildren<TextMeshProUGUI>());
-                }
-                else
-                {
-                    RestoreButtonDefaults(magicButtonList[counter], magicButtonList[counter].GetComponentInChildren<TextMeshProUGUI>());
-                }        
+                RestoreButtonDefaults(magicButton, buttonText);
             }
-            counter++;
         }
-
     }
 
     public void HideMagicList()
