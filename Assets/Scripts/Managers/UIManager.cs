@@ -44,11 +44,10 @@ public class UIManager : MonoBehaviour
         magicButton.onClick.AddListener(ShowMagicList);
         itemButton.onClick.AddListener(ShowPotionList);
 
-        int count = 0;
-        foreach(KeyValuePair<SpellNew, bool> spell in player.spells.spellList)
+        for (int i = 0; i < player.spells.spells.Count; i++)
         {
-            magicButtonList[count].onClick.AddListener(delegate{player.MagicPressed(spell.Key);});
-            count++;
+            SpellNew spell = player.spells.spells[i];
+            magicButtonList[i].onClick.AddListener(() => { player.MagicPressed(spell); });
         }
 
         // reset the potions so the buttons can re-link to the potions in the new scene.
@@ -103,9 +102,9 @@ public class UIManager : MonoBehaviour
         int counter = 0;
 
         // Show only unlocked spells
-        foreach(KeyValuePair<SpellNew,bool> spells in player.spells.spellList)
+        foreach(SpellNew spell in player.spells.spells)
         {
-            if(!spells.Value)
+            if(!spell.unlocked)
             {
                 magicButtonList[counter].gameObject.SetActive(false);
             }
@@ -113,7 +112,7 @@ public class UIManager : MonoBehaviour
             {
                 magicButtonList[counter].gameObject.SetActive(true);
 
-                if(player.mp < spells.Key.Cost)
+                if(player.mp < spell.Cost)
                 {
                     FadeButtons(magicButtonList[counter], magicButtonList[counter].GetComponentInChildren<TextMeshProUGUI>());
                 }

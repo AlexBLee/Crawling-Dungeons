@@ -8,5 +8,6 @@ public abstract class SpellNew
     public abstract int Damage { get; }
     public abstract int Cost { get; }
     public abstract int LevelRequired { get; }
+    public bool unlocked = false;
     public abstract void ApplyDebuffs(CharacterEntity entity);
 }
