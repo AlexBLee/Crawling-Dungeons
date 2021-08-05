@@ -45,6 +45,11 @@ public class Player : CharacterEntity
         MoveToAttackPosition(target.transform.position);
     }
 
+    public bool HasEnoughManaForSpell(SpellNew spell)
+    {
+        return (spell.Cost <= mp);
+    }
+
     public void MagicPressed(SpellNew spell)
     {
         if((mp - spell.Cost) < 0)

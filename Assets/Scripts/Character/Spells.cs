@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Spells : MonoBehaviour
 {
@@ -15,9 +16,9 @@ public class Spells : MonoBehaviour
         }
     }
 
-    public List<SpellNew> GetSpellList()
+    public List<SpellNew> GetUnlockedSpells()
     {
-        return spells;
+        return spells.Where((spell) => spell.unlocked).ToList();
     }
 
     public void UnlockSpells(int playerLevel)

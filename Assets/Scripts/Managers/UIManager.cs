@@ -44,13 +44,6 @@ public class UIManager : MonoBehaviour
         magicButton.onClick.AddListener(ShowMagicList);
         itemButton.onClick.AddListener(ShowPotionList);
 
-        List<SpellNew> spellList = player.spells.GetSpellList();
-        for (int i = 0; i < spellList.Count; i++)
-        {
-            SpellNew spell = spellList[i];
-            magicButtonList[i].onClick.AddListener(() => { player.MagicPressed(spell); });
-        }
-
         // reset the potions so the buttons can re-link to the potions in the new scene.
         foreach (ConsumableItem potion in player.inventory.items)
         {
@@ -101,31 +94,17 @@ public class UIManager : MonoBehaviour
         DisableButtons();
         magicList.SetActive(true);
 
-        // Show only unlocked spells
-        List<SpellNew> spellList = player.spells.GetSpellList();
+        List<SpellNew> spellList = player.spells.GetUnlockedSpells();
 
         for (int i = 0; i < spellList.Count; i++)
         {
             SpellNew spell = spellList[i];
             Button magicButton = magicButtonList[i];
-            TextMeshProUGUI buttonText = magicButton.GetComponentInChildren<TextMeshProUGUI>();
 
-            if (!spell.unlocked)
-            {
-                magicButton.gameObject.SetActive(false);
-                continue;
-            }
-
-            magicButtonList[i].gameObject.SetActive(true);
-
-            if (player.mp < spell.Cost)
-            {
-                FadeButtons(magicButton, buttonText);
-            }
-            else
-            {
-                RestoreButtonDefaults(magicButton, buttonText);
-            }
+            magicButton.gameObject.SetActive(true);
+            magicButton.GetComponentInChildren<TextMeshProUGUI>().text = spell.Name;
+            magicButton.onClick.AddListener(() => { player.MagicPressed(spell); });
+            magicButton.interactable = player.HasEnoughManaForSpell(spell) ? true : false;
         }
     }
 
@@ -133,6 +112,7 @@ public class UIManager : MonoBehaviour
     {
         EnableButtons();
         magicList.SetActive(false);
+        magicButtonList.ForEach(button => button.gameObject.SetActive(false));
     }
 
     public void ShowPotionList()
