@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Spell", menuName = "Spell/Spell")]
-public class Spell : ScriptableObject
+public abstract class Spell
 {
-    public string spellName;
-    public int cost;
-    public int additionalDamage;
-    public GameObject effect;
-    public bool atPosition;
-
+    public abstract string Name { get; }
+    public abstract int Damage { get; }
+    public abstract int Cost { get; }
+    public abstract int LevelRequired { get; }
+    public bool unlocked = false;
+    public abstract void ApplyDebuffs(CharacterEntity entity);
 }

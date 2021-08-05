@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBolt : SpellNew
+public class FireBolt : Spell
 {
     public override string Name { get { return "FireBolt"; }}
     public override int Damage { get { return 25; }}

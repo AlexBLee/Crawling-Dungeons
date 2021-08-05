@@ -5,7 +5,7 @@ using System.Linq;
 
 public class Spells : MonoBehaviour
 {
-    private List<SpellNew> spells = new List<SpellNew>();
+    private List<Spell> spells = new List<Spell>();
     private SpellFactory spellFactory = new SpellFactory();
 
     private void Start()
@@ -16,14 +16,14 @@ public class Spells : MonoBehaviour
         }
     }
 
-    public List<SpellNew> GetUnlockedSpells()
+    public List<Spell> GetUnlockedSpells()
     {
         return spells.Where((spell) => spell.unlocked).ToList();
     }
 
     public void UnlockSpells(int playerLevel)
     {
-        foreach (SpellNew spell in spells)
+        foreach (Spell spell in spells)
         {
             if (playerLevel >= spell.LevelRequired)
             {

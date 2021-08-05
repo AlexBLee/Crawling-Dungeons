@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpellFactory
 {
-    public SpellNew GetSpell(string type)
+    public Spell GetSpell(string type)
     {
         switch (type)
         {

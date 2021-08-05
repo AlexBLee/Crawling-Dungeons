@@ -94,11 +94,11 @@ public class UIManager : MonoBehaviour
         DisableButtons();
         magicList.SetActive(true);
 
-        List<SpellNew> spellList = player.spells.GetUnlockedSpells();
+        List<Spell> spellList = player.spells.GetUnlockedSpells();
 
         for (int i = 0; i < spellList.Count; i++)
         {
-            SpellNew spell = spellList[i];
+            Spell spell = spellList[i];
             Button magicButton = magicButtonList[i];
 
             magicButton.gameObject.SetActive(true);
