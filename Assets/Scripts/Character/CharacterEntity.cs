@@ -247,6 +247,8 @@ public class CharacterEntity : MonoBehaviour
             infoText.color = Color.white;
         }
 
+        damage += additionalDamage;
+
         // Apply damage
         target.hp -= damage;
         target.anim.SetTrigger("Hit");
@@ -267,7 +269,7 @@ public class CharacterEntity : MonoBehaviour
             target.CheckDeath();
         }
 
-
+        additionalDamage = 0;
     }
 
     // Currently a seperate funciton due to magic possibly not being just a basic attack?
