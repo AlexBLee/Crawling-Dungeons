@@ -14,11 +14,11 @@ public class Enemy : CharacterEntity
     [SerializeField] private bool canHeal;
     private int healCounter = 1;
 
-    private const int healCounterDefault = 2;
-    private const float bonusDamage = 1.25f;
-    private const float enemyLowHealthPercentage = 0.40f;
-    private const float selfLowHealthPercentage = 0.30f;
-    private const float healFactor = 0.20f;
+    private const int HealCounterDefault = 2;
+    private const float BonusDamage = 1.07f;
+    private const float EnemyLowHealthPercentage = 0.40f;
+    private const float SelfLowHealthPercentage = 0.30f;
+    private const float HealFactor = 0.15f;
 
     private void Start() 
     {   
@@ -67,16 +67,16 @@ public class Enemy : CharacterEntity
     public void FindBestMove()
     {
         // Heal if self is low on health and is able to heal
-        if(hp < maxHP * selfLowHealthPercentage && canHeal)
+        if(hp < maxHP * SelfLowHealthPercentage && canHeal)
         {
             canHeal = false;
-            healCounter = healCounterDefault;
-            Heal((int)(maxHP * healFactor), false);
+            healCounter = HealCounterDefault;
+            Heal((int)(maxHP * HealFactor), false);
         }
         // Use spell if the player is low on health
-        else if(target.hp < target.maxHP * enemyLowHealthPercentage)
+        else if(target.hp < target.maxHP * EnemyLowHealthPercentage)
         {
-            additionalDamage = (int)(maxDamage * bonusDamage);
+            additionalDamage = (int)(maxDamage * BonusDamage);
             RangedAttack();
         }
         // Normal Attack
