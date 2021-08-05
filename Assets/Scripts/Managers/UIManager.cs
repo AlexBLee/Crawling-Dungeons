@@ -204,18 +204,6 @@ public class UIManager : MonoBehaviour
         manaBar.SetAmount(player.mp, player.maxMP);
     }
 
-    // For magic list
-    private void FadeButtons(Button button, TextMeshProUGUI text)
-    {
-        // Keep the colour faded and disable the button.
-        Color tempColor = text.color;
-
-        tempColor.a = buttonFadeAmount;
-        text.color = tempColor;
-        
-        button.interactable = false;
-    }
-
     // For potion list
     private void FadeButtons(Button button, TextMeshProUGUI text, string message)
     {
