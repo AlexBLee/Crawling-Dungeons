@@ -30,41 +30,6 @@ public class CharacterEntity : MonoBehaviour
 
     public int def;
 
-    // Stat Calculating ----------------------------------
-    private const int initial_level = 1;
-    private const int initial_exp = 0;
-    private const int initial_expThreshold = 50;
-    private const int initial_statPoints = 3;
-    private const int initial_maxHP = 100;
-    private const int initial_maxMP = 100;
-    private const int initial_stat_amount = 20;
-
-    private const int growth_expThreshold = 200;
-    private const int growth_statPoints = 3;
-    private const int growth_hpGrowth = 10;
-    private const int growth_mpGrowth = 10;
-    private const int growth_statAmount = 3;
-
-    private const int minDamageStrCalc = 3;
-    private const float maxDamageStrCalc = 2.5f;
-    private const float minDamageDexCalc = 3.5f;
-    private const float maxDamageDexCalc = 4.5f;
-    private const int magicMinDamageCalc = 5;
-    private const int magicMaxDamageCalc = 2;
-    private const int critChanceCalc = 2;
-    private const int dodgeChanceCalc = 8;
-    private const int defCalc = 10;
-
-    private const float defStartPointCalc = 1.00f;
-    private const float convertToPercentageCalc = 100;
-
-    private const int critBonusDamage = 2;
-
-    private const int randomMin = 0;
-    private const int randomMax = 100;
-
-    private const float APPROACH_DISTANCE = 1.0f;
-
     // Conditions --------------------------
     public bool inBattle;
     protected bool dead = false;
@@ -84,21 +49,21 @@ public class CharacterEntity : MonoBehaviour
 
     public void InitalizeStats()
     {
-        level = initial_level;
-        exp = initial_exp;
-        expThreshold = initial_expThreshold;
-        statPoints = initial_statPoints;
+        level =         PlayerDefaultConstants.InitialLevel;
+        exp =           PlayerDefaultConstants.InitialExp;
+        expThreshold =  PlayerDefaultConstants.InitialExpThreshold;
+        statPoints =    PlayerDefaultConstants.InitialStatAmount;
 
-        maxHP = initial_maxHP;
-        maxMP = initial_maxMP;
+        maxHP =         PlayerDefaultConstants.InitialMaxHP;
+        maxMP =         PlayerDefaultConstants.InitialMaxMP;
 
         hp = maxHP;
         mp = maxMP;
 
-        str.amount = initial_stat_amount;
-        intl.amount = initial_stat_amount;
-        dex.amount = initial_stat_amount;
-        luck.amount = initial_stat_amount;
+        str.amount =    PlayerDefaultConstants.InitialStatAmount;
+        intl.amount =   PlayerDefaultConstants.InitialStatAmount;
+        dex.amount =    PlayerDefaultConstants.InitialStatAmount;
+        luck.amount =   PlayerDefaultConstants.InitialStatAmount;
 
         UpdateDamageStats();
     }
@@ -106,39 +71,39 @@ public class CharacterEntity : MonoBehaviour
     protected void LevelUp()
     {
         level++;
-        exp = initial_exp;
-        expThreshold += growth_expThreshold;
-        statPoints += growth_statPoints;
+        exp = 0;
+        expThreshold += PlayerDefaultConstants.ExpThresholdGrowth;
+        statPoints +=   PlayerDefaultConstants.StatPointsGrowth;
 
-        hp += growth_hpGrowth;
-        mp += growth_mpGrowth;
+        hp += PlayerDefaultConstants.HpGrowth;
+        mp += PlayerDefaultConstants.MpGrowth;
 
-        maxHP += growth_hpGrowth;
-        maxMP += growth_mpGrowth;
+        maxHP += PlayerDefaultConstants.HpGrowth;
+        maxMP += PlayerDefaultConstants.MpGrowth;
 
-        str.amount += growth_statAmount;
-        intl.amount += growth_statAmount;
-        dex.amount += growth_statAmount;
-        luck.amount += growth_statAmount;
+        str.amount += PlayerDefaultConstants.StatAmountGrowth;
+        intl.amount += PlayerDefaultConstants.StatAmountGrowth;
+        dex.amount += PlayerDefaultConstants.StatAmountGrowth;
+        luck.amount += PlayerDefaultConstants.StatAmountGrowth;
 
         UpdateDamageStats();
     }
 
     protected void UpdateDamageStats()
     {
-        minDamage = str.amount / minDamageStrCalc;
-        maxDamage = str.amount / maxDamageStrCalc;
+        minDamage = (str.amount / PlayerDefaultConstants.MinDamageStrCalc);
+        maxDamage = (str.amount / PlayerDefaultConstants.MaxDamageStrCalc);
 
-        minDamage += dex.amount / minDamageDexCalc;
-        maxDamage += dex.amount / maxDamageDexCalc;
+        minDamage += (dex.amount / PlayerDefaultConstants.MinDamageDexCalc);
+        maxDamage += (dex.amount / PlayerDefaultConstants.MinDamageStrCalc);
 
-        magicMinDamage = intl.amount / magicMinDamageCalc;
-        magicMaxDamage = intl.amount / magicMaxDamageCalc;
+        magicMinDamage = (intl.amount / PlayerDefaultConstants.MagicMinDamageCalc);
+        magicMaxDamage = (intl.amount / PlayerDefaultConstants.MagicMaxDamageCalc);
 
-        critChance = luck.amount / critChanceCalc;
-        dodgeChance = dex.amount / dodgeChanceCalc;
+        critChance = (luck.amount / PlayerDefaultConstants.CritChanceCalc);
+        dodgeChance = (dex.amount / PlayerDefaultConstants.DodgeChanceCalc);
 
-        def = str.amount / defCalc;
+        def = (str.amount / PlayerDefaultConstants.DefCalc);
     }
 
     public void ApplyStatsFrom(CharacterEntity otherChar)
@@ -211,6 +176,13 @@ public class CharacterEntity : MonoBehaviour
         // for clarification, 1 def is equal to 1% of damage reduced.
         // so in this case, the enemy takes 99% of the damage.
 
+        // TODO reorganize this whole function
+        int randomMin = 0;
+        int randomMax = 100;
+        float defStartPointCalc = 1f;
+        float convertToPercentageCalc = 100;
+        int critBonusDamage = 2;
+
         float missChance = Random.Range(randomMin,randomMax);
         if (missChance < target.dodgeChance)
         {
@@ -278,6 +250,13 @@ public class CharacterEntity : MonoBehaviour
         // Damage is calculated by finding a random value between the minimum/maximum damage, and then taking the damage reduced by the enemy's defense.
         // for clarification, 1 def is equal to 1% of damage reduced.
         // so in this case, the enemy takes 99% of the damage.
+
+        // TODO reorganize this whole function
+        int randomMin = 0;
+        int randomMax = 100;
+        float defStartPointCalc = 1f;
+        float convertToPercentageCalc = 100;
+        int critBonusDamage = 2;
 
         float missChance = Random.Range(randomMin,randomMax);
         if (missChance < target.dodgeChance)
@@ -408,8 +387,8 @@ public class CharacterEntity : MonoBehaviour
     protected void MoveToAttackPosition(Vector2 targetPosition)
     {
         anim.SetBool("Run", true);
-        
-        float modifiedTargetPos = targetPosition.x - (APPROACH_DISTANCE * transform.right.x);
+
+        float modifiedTargetPos = targetPosition.x - transform.right.x;
         transform.DOMoveX(modifiedTargetPos, 1).OnComplete(StartAttack);
     }
 
