@@ -6,6 +6,7 @@ using DG.Tweening;
 
 public class Enemy : CharacterEntity
 {
+    public string enemyName;
     public int experiencePoints;
     public int gold;
 
@@ -23,9 +24,31 @@ public class Enemy : CharacterEntity
     private void Start() 
     {   
         uiManager = FindObjectOfType<UIManager>();
+        
+        DeserializeData();
         UpdateDamageStats();
 
         MoveToStartPosition(fightPosition);
+    }
+
+    private void DeserializeData()
+    {
+        EnemyData data = GameDatabase.instance.GetEnemyData(enemyName);
+        
+        maxHP = data.maxHP;
+        hp = maxHP;
+
+        maxMP = data.maxMP;
+        mp = maxMP;
+
+        str.amount = data.str;
+        intl.amount = data.intl;
+        dex.amount = data.dex;
+        luck.amount = data.luck;
+
+        def = data.def;
+        experiencePoints = data.exp;
+        gold = data.gold;
     }
 
     protected void MoveToStartPosition(Vector2 position)
