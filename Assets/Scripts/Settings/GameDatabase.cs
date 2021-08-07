@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
 
 [System.Serializable]
 public class EnemyData
@@ -17,18 +18,16 @@ public class EnemyData
     public int gold;
 }
 
-[System.Serializable]
-public class EnemyObj
-{
-    public EnemyData[] Enemies;
-}
-
 public class GameDatabase : MonoBehaviour
 {
     public static GameDatabase instance;
 
     [SerializeField]
     private TextAsset enemyJson;
+
+    [SerializeField]
+    private TextAsset levelJson;
+
     private Dictionary<string, EnemyData> enemyData = new Dictionary<string, EnemyData>();
 
     void Awake()
@@ -45,17 +44,24 @@ public class GameDatabase : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         LoadEnemyData(enemyJson.text);
+        LoadData(levelJson.text);
     }
 
     public void LoadEnemyData(string json)
     {
         enemyData.Clear();
-        EnemyObj data = JsonUtility.FromJson<EnemyObj>(json);
+        EnemyData[] data = JsonConvert.DeserializeObject<EnemyData[]>(json);
 
-        foreach (EnemyData enemy in data.Enemies)
+        foreach (EnemyData enemy in data)
         {
             enemyData.Add(enemy.name, enemy);
         }
+    }
+
+    public void LoadData(string json)
+    {
+        string[][] vv = JsonConvert.DeserializeObject<string[][]>(json);
+
     }
 
     public EnemyData GetEnemyData(string name)
