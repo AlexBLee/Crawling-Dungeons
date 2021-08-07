@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     // static as it needs to be accessed from title screen without GameManager existing in the menu.
     public static bool endlessMode = false;
-    public int endlessNumber = 2;
+    public int endlessNumber = 1;
 
     void Awake()
     {
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     {
         GameManager.instance.playerStats.InitalizeStats();
         GameManager.instance.playerStats.inventory.InitializeInventory();
-        GameManager.instance.levelNumber = 2;
+        GameManager.instance.levelNumber = 1;
     }
 
 

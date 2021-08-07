@@ -3345,10 +3345,24 @@ MonoBehaviour:
   player: {fileID: 1075298623}
   uiManager: {fileID: 68796133}
   background: {fileID: 1529571563}
-  spawnableEnemies:
-  - {fileID: 4452915190085327153, guid: 0860f235f94e2c145977bb475f51d74a, type: 3}
+  enemyList:
   - {fileID: 4452915190085327153, guid: fcba2c932338492448839a8b61cf1dc5, type: 3}
   - {fileID: 4452915190085327153, guid: 4cef138db1eb0f044850d840065c5a39, type: 3}
+  - {fileID: 4452915190085327153, guid: e6a1377e52f54504989db9d95ddc0730, type: 3}
+  - {fileID: 4452915190085327153, guid: e26baad26c598b745aca5fc2296b1938, type: 3}
+  - {fileID: 4452915190085327153, guid: e05ec1295217ea94e87feed5ad015656, type: 3}
+  - {fileID: 4452915190085327153, guid: a6a9302333553454b805b2f9d1432466, type: 3}
+  - {fileID: 4452915190085327153, guid: 6cd9b18e896b06b41b30ce273e91eec8, type: 3}
+  - {fileID: 4452915190085327153, guid: 0860f235f94e2c145977bb475f51d74a, type: 3}
+  - {fileID: 4452915190085327153, guid: 4acb50b23196b114d92db15bbf3d001c, type: 3}
+  - {fileID: 4452915190085327153, guid: f4a87c3d0e93dd5468d2b26055c9085c, type: 3}
+  - {fileID: 4452915190085327153, guid: dfe27cd9190aa404c830360015fc4c02, type: 3}
+  - {fileID: 4452915190085327153, guid: f8a0e4eaa6f2a3a43beccae0c5226efa, type: 3}
+  - {fileID: 4452915190085327153, guid: 1e022cab89cc91b47bbcf4492d2be6dd, type: 3}
+  - {fileID: 4452915190085327153, guid: 616f501544c47f242b7c861a53d54493, type: 3}
+  - {fileID: 4452915190085327153, guid: ec9ca4a127308ad488cc8112c630ecd4, type: 3}
+  - {fileID: 4452915190085327153, guid: 55b83882215024d479ff77bec4181f8f, type: 3}
+  spawnableEnemies: []
 --- !u!4 &611337057
 Transform:
   m_ObjectHideFlags: 0
@@ -8133,7 +8147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 722881228}
-  levelNumber: 2
+  levelNumber: 1
   endlessNumber: 0
 --- !u!4 &1347749279
 Transform:
@@ -10857,6 +10871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyJson: {fileID: 4900000, guid: ce948a33e91a77740a2a0bb47cb35495, type: 3}
+  levelJson: {fileID: 4900000, guid: 812b5703ecab3dd46b692acb29249a8a, type: 3}
 --- !u!4 &1904934565
 Transform:
   m_ObjectHideFlags: 0

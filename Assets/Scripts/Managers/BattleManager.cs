@@ -19,12 +19,13 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private Enemy enemy;
     [SerializeField] private Player player;
     
-    [SerializeField, HideInInspector] private UIManager uiManager;
-    [SerializeField, HideInInspector] private GameObject background;
+    [SerializeField] private UIManager uiManager;
+    [SerializeField] private GameObject background;
 
     private const float beginAttackDelay = 0.8f;
     private const float backgroundMoveFactor = 4.0f;
 
+    public List<Enemy> enemyList;
     public List<Enemy> spawnableEnemies;
     private int enemyCounter = 0;
 
@@ -38,7 +39,10 @@ public class BattleManager : MonoBehaviour
 
     private void Start() 
     {
+        player = FindObjectOfType<Player>();
+
         uiManager.DisableButtons();
+        InitializeEnemiesForBattle();
         SpawnNextEnemy(enemyCounter);
         player.target = enemy;
         uiManager.victoryPanel.SetActive(false);
@@ -49,6 +53,22 @@ public class BattleManager : MonoBehaviour
         if(battleDone)
         {
             ToggleNextBattle();
+        }
+    }
+
+    private void InitializeEnemiesForBattle()
+    {
+        string[] enemies = GameDatabase.instance.GetLevelData(GameManager.instance.levelNumber - 1);
+        spawnableEnemies.Clear();
+
+        foreach(string enemyName in enemies)
+        {
+            if (enemyName == "")
+            {
+                continue;
+            }
+
+            spawnableEnemies.Add(enemyList.Find(enemy => enemy.name == enemyName));
         }
     }
 

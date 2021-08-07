@@ -29,8 +29,9 @@ public class GameDatabase : MonoBehaviour
     private TextAsset levelJson;
 
     private Dictionary<string, EnemyData> enemyData = new Dictionary<string, EnemyData>();
+    private List<string[]> levelData = new List<string[]>();
 
-    void Awake()
+    protected void Awake()
     {
         if (instance == null)
         {
@@ -44,10 +45,10 @@ public class GameDatabase : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         LoadEnemyData(enemyJson.text);
-        LoadData(levelJson.text);
+        LoadLevelData(levelJson.text);
     }
 
-    public void LoadEnemyData(string json)
+    private void LoadEnemyData(string json)
     {
         enemyData.Clear();
         EnemyData[] data = JsonConvert.DeserializeObject<EnemyData[]>(json);
@@ -58,10 +59,15 @@ public class GameDatabase : MonoBehaviour
         }
     }
 
-    public void LoadData(string json)
+    private void LoadLevelData(string json)
     {
-        string[][] vv = JsonConvert.DeserializeObject<string[][]>(json);
+        levelData.Clear();
+        string[][] data = JsonConvert.DeserializeObject<string[][]>(json);
 
+        foreach (string[] level in data)
+        {
+            levelData.Add(level);
+        }
     }
 
     public EnemyData GetEnemyData(string name)
@@ -72,5 +78,10 @@ public class GameDatabase : MonoBehaviour
         }
 
         return null;
+    }
+
+    public string[] GetLevelData(int index)
+    {
+        return levelData[index];
     }
 }

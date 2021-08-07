@@ -27,7 +27,7 @@ public class VictoryScreen : MonoBehaviour
             if(GameManager.endlessMode)
             {
                 GameManager.instance.endlessNumber++;
-                GameManager.instance.levelNumber = 2;
+                GameManager.instance.levelNumber = 1;
             }
             else
             {
