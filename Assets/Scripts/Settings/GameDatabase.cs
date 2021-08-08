@@ -38,8 +38,6 @@ public class GameDatabase : MonoBehaviour
     private Dictionary<string, EnemyData> enemyData = new Dictionary<string, EnemyData>();
     private Dictionary<string, LevelData> levelData = new Dictionary<string, LevelData>();
 
-    private List<string[]> levelDatas = new List<string[]>();
-
     protected void Awake()
     {
         if (instance == null)
@@ -97,8 +95,10 @@ public class GameDatabase : MonoBehaviour
         return null;
     }
 
-    public string[] GetLevelData(int index)
+    public LevelData GetLevelData(int levelNumber)
     {
-        return levelDatas[index];
+        string levelName = "Level " + levelNumber.ToString();
+
+        return levelData[levelName];
     }
 }
