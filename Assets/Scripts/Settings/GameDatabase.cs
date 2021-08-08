@@ -18,6 +18,13 @@ public class EnemyData
     public int gold;
 }
 
+[System.Serializable]
+public class LevelData
+{
+    public string name;
+    public string[] enemies;
+}
+
 public class GameDatabase : MonoBehaviour
 {
     public static GameDatabase instance;
@@ -29,7 +36,9 @@ public class GameDatabase : MonoBehaviour
     private TextAsset levelJson;
 
     private Dictionary<string, EnemyData> enemyData = new Dictionary<string, EnemyData>();
-    private List<string[]> levelData = new List<string[]>();
+    private Dictionary<string, LevelData> levelData = new Dictionary<string, LevelData>();
+
+    private List<string[]> levelDatas = new List<string[]>();
 
     protected void Awake()
     {
@@ -44,29 +53,37 @@ public class GameDatabase : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        LoadEnemyData(enemyJson.text);
-        LoadLevelData(levelJson.text);
+        InitializeData();
     }
 
-    private void LoadEnemyData(string json)
+    private void InitializeData()
     {
-        enemyData.Clear();
-        EnemyData[] data = JsonConvert.DeserializeObject<EnemyData[]>(json);
+        InitializeEnemyData();
+        InitializeLevelData();
+    }
 
-        foreach (EnemyData enemy in data)
+    private T[] LoadJsonData<T>(string json)
+    {
+        return JsonConvert.DeserializeObject<T[]>(json);
+    }
+
+    private void InitializeEnemyData()
+    {
+        EnemyData[] data = LoadJsonData<EnemyData>(enemyJson.text);
+
+        foreach (var enemy in data)
         {
             enemyData.Add(enemy.name, enemy);
         }
     }
 
-    private void LoadLevelData(string json)
+    private void InitializeLevelData()
     {
-        levelData.Clear();
-        string[][] data = JsonConvert.DeserializeObject<string[][]>(json);
+        LevelData[] data = LoadJsonData<LevelData>(levelJson.text);
 
-        foreach (string[] level in data)
+        foreach (var level in data)
         {
-            levelData.Add(level);
+            levelData.Add(level.name, level);
         }
     }
 
@@ -82,6 +99,6 @@ public class GameDatabase : MonoBehaviour
 
     public string[] GetLevelData(int index)
     {
-        return levelData[index];
+        return levelDatas[index];
     }
 }
