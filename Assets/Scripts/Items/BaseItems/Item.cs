@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Item : ScriptableObject
+public class Item
 {
     public string itemName;
     public string description;

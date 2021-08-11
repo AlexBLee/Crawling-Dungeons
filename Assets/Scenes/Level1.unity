@@ -10872,6 +10872,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyJson: {fileID: 4900000, guid: ce948a33e91a77740a2a0bb47cb35495, type: 3}
   levelJson: {fileID: 4900000, guid: 812b5703ecab3dd46b692acb29249a8a, type: 3}
+  armorJson: {fileID: 4900000, guid: 506c392bfd7d8514fa580b150f5b81e6, type: 3}
+  weaponJson: {fileID: 4900000, guid: f5668cce57790a94d81f410b70803ee8, type: 3}
 --- !u!4 &1904934565
 Transform:
   m_ObjectHideFlags: 0

@@ -75,7 +75,7 @@ public class Inventory : MonoBehaviour
             // Otherwise, make a new instance of it. (this is necessary as variables on ScriptableObjects are saved unless instantiated on runtime.)
             else
             {
-                item = Instantiate(item);
+                item = new Item();
                 listIndex++;
             }
         }

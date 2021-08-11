@@ -35,8 +35,16 @@ public class GameDatabase : MonoBehaviour
     [SerializeField]
     private TextAsset levelJson;
 
+    [SerializeField]
+    private TextAsset armorJson;
+
+    [SerializeField]
+    private TextAsset weaponJson;
+
     private Dictionary<string, EnemyData> enemyData = new Dictionary<string, EnemyData>();
     private Dictionary<string, LevelData> levelData = new Dictionary<string, LevelData>();
+    private Dictionary<string, ArmorItem> armorData = new Dictionary<string, ArmorItem>();
+    private Dictionary<string, WeaponItem> weaponData = new Dictionary<string, WeaponItem>();
 
     protected void Awake()
     {
@@ -58,6 +66,8 @@ public class GameDatabase : MonoBehaviour
     {
         InitializeEnemyData();
         InitializeLevelData();
+        InitializeArmorData();
+        InitializeWeaponData();
     }
 
     private T[] LoadJsonData<T>(string json)
@@ -82,6 +92,26 @@ public class GameDatabase : MonoBehaviour
         foreach (var level in data)
         {
             levelData.Add(level.name, level);
+        }
+    }
+
+    private void InitializeArmorData()
+    {
+        ArmorItem[] data = LoadJsonData<ArmorItem>(armorJson.text);
+
+        foreach (var item in data)
+        {
+            armorData.Add(item.itemName, item);
+        }
+    }
+
+    private void InitializeWeaponData()
+    {
+        WeaponItem[] data = LoadJsonData<WeaponItem>(weaponJson.text);
+
+        foreach (var item in data)
+        {
+            weaponData.Add(item.itemName, item);
         }
     }
 
