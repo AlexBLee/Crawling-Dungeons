@@ -7,6 +7,7 @@ public class Item
 {
     public string itemName;
     public string description;
+    public string imageName;
     public Sprite image;
     public int cost;
     [HideInInspector] public int amount;

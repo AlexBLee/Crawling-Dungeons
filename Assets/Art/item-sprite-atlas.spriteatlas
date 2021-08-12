@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: item-sprite-atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 01ad825fe69635b48bea70a38f55c841, type: 3}
+    totalSpriteSurfaceArea: 17408
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: b3fd9f107c07088439df4104fd11ceab, type: 3}
+  - {fileID: 21300000, guid: 9f8805c06e77344478ac900bcf48eb2e, type: 3}
+  - {fileID: 21300000, guid: 33bbc1d0485853145b2523ab0261b025, type: 3}
+  - {fileID: 21300000, guid: 60779a0121bfb0243ac3efc228d35e5a, type: 3}
+  - {fileID: 21300000, guid: eb9379318a516f2409ffb1eb8a1103c3, type: 3}
+  - {fileID: 21300000, guid: d9751d31debc858488ddc17f5fc00ef8, type: 3}
+  - {fileID: 21300000, guid: c7801012f4fd6f54f8cb24e9631cc6a7, type: 3}
+  - {fileID: 21300000, guid: bf8b34a20a92d4a4f910127d9a4357c0, type: 3}
+  - {fileID: 21300000, guid: beb1a743c9db0094fb6b9b79444250c9, type: 3}
+  - {fileID: 21300000, guid: 3a19ebe3cb4ee7f47af6f282379694bd, type: 3}
+  - {fileID: 21300000, guid: 72352214e3e891a4999e8dae0d997e6b, type: 3}
+  - {fileID: 21300000, guid: 6c73dba4773f42545b87cc2e77b73088, type: 3}
+  - {fileID: 21300000, guid: 9aeb9005b8626dc42859f7e21b9f7b1c, type: 3}
+  - {fileID: 21300000, guid: 83c5e59766c44c14d9e46e0a81927971, type: 3}
+  - {fileID: 21300000, guid: 10f1b938b55edf947b6009ccf8d6db95, type: 3}
+  - {fileID: 21300000, guid: 530be21ca1b7de543875da579d69e0d9, type: 3}
+  - {fileID: 21300000, guid: b8256cfe1faef384d9f115038b51c53a, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Health Pot
+  - Axey
+  - Strong Shield
+  - Sheedy
+  - Wando
+  - Iron Man
+  - Pontys
+  - Leather Boots
+  - Excalibur
+  - Bootys
+  - Casual Shirt
+  - Mana Pot
+  - Boxers
+  - Fancy Hat
+  - Scimmy
+  - Hellmet
+  - Long Sword
+  m_Tag: item-sprite-atlas
+  m_IsVariant: 0

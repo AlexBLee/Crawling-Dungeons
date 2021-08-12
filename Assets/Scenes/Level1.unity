@@ -10873,6 +10873,8 @@ MonoBehaviour:
   armorJson: {fileID: 4900000, guid: 506c392bfd7d8514fa580b150f5b81e6, type: 3}
   weaponJson: {fileID: 4900000, guid: f5668cce57790a94d81f410b70803ee8, type: 3}
   shopListJson: {fileID: 4900000, guid: 649a1f9651fec7242bbd8039efc7a7e8, type: 3}
+  spriteAtlas: {fileID: 4343727234628468602, guid: 3c7a643f3fbf5f54cb1ea28e415d1cfc,
+    type: 2}
 --- !u!4 &1904934565
 Transform:
   m_ObjectHideFlags: 0

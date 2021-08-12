@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 using Newtonsoft.Json;
 
 [System.Serializable]
@@ -48,6 +49,9 @@ public class GameDatabase : MonoBehaviour
 
     private List<string[]> levelData = new List<string[]>();
     private List<string> shopListData = new List<string>();
+
+    [SerializeField]
+    private SpriteAtlas spriteAtlas = null;
 
     protected void Awake()
     {
@@ -105,11 +109,13 @@ public class GameDatabase : MonoBehaviour
 
         foreach (var item in armorData)
         {
+            item.image = spriteAtlas.GetSprite(item.itemName);
             itemData.Add(item.itemName, item);
         }
 
         foreach (var item in weaponData)
         {
+            item.image = spriteAtlas.GetSprite(item.itemName);
             itemData.Add(item.itemName, item);
         }
     }
