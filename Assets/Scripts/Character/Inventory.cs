@@ -27,6 +27,7 @@ public class Inventory : MonoBehaviour
     {
         player = GetComponent<Player>();
 
+        InitializeInventory();
         ApplyItemsFrom(GameManager.instance.playerStats);
         UpdateItemStats();
     }

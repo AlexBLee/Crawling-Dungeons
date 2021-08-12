@@ -2,7 +2,6 @@
   {
     "itemName": "Fancy Hat",
     "description": "Makes you look rich \\n+3 def",
-    "imageName": null,
     "cost": 70,
     "durability": 1,
     "defense": 3,
@@ -12,7 +11,6 @@
   {
     "itemName": "Hellmet",
     "description": "the hellest of helmets \\n+7 def",
-    "imageName": null,
     "cost": 250,
     "durability": 10,
     "defense": 7,
@@ -22,7 +20,6 @@
   {
     "itemName": "Casual Shirt",
     "description": "You see these everywhere! \\n+5 def",
-    "imageName": null,
     "cost": 70,
     "durability": 1,
     "defense": 5,
@@ -32,7 +29,6 @@
   {
     "itemName": "Iron Man",
     "description": "clink! \\n+15 def",
-    "imageName": null,
     "cost": 500,
     "durability": 50,
     "defense": 15,
@@ -42,7 +38,6 @@
   {
     "itemName": "Sheedy",
     "description": "Blocks all shady things \\n+4 def \\nBlocks 12% of crit damage",
-    "imageName": null,
     "cost": 125,
     "durability": 1,
     "defense": 4,
@@ -52,7 +47,6 @@
   {
     "itemName": "Strong Shield",
     "description": "A normal shield but stronger. \\n+7 def \\nBlocks 16% of crit damage",
-    "imageName": null,
     "cost": 200,
     "durability": 1,
     "defense": 7,
@@ -62,7 +56,6 @@
   {
     "itemName": "Boxers",
     "description": "A real fashion statement. \\n+3 def",
-    "imageName": null,
     "cost": 50,
     "durability": 1,
     "defense": 3,
@@ -72,7 +65,6 @@
   {
     "itemName": "Pontys",
     "description": "Ponny pon pon! \\n+6 def",
-    "imageName": null,
     "cost": 150,
     "durability": 25,
     "defense": 6,
@@ -82,7 +74,6 @@
   {
     "itemName": "Bootys",
     "description": "Arr heres the booty \\n+3 def",
-    "imageName": null,
     "cost": 100,
     "durability": 58,
     "defense": 3,
@@ -92,7 +83,6 @@
   {
     "itemName": "Leather Boots",
     "description": "100% genuine leather \\n+2 def",
-    "imageName": null,
     "cost": 30,
     "durability": 0,
     "defense": 2,

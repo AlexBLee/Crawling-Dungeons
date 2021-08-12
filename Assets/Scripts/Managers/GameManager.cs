@@ -30,16 +30,17 @@ public class GameManager : MonoBehaviour
         // GameManager needs a copy of some player in the scene.. Looking to change this..
         playerStats.gameObject.SetActive(true);
 
-        playerStats.InitalizeStats();
+        ResetGame();
+
 
         playerStats.gameObject.SetActive(false);
     }
 
     public void ResetGame()
     {
-        GameManager.instance.playerStats.InitalizeStats();
-        GameManager.instance.playerStats.inventory.InitializeInventory();
-        GameManager.instance.levelNumber = 1;
+        playerStats.InitalizeStats();
+        playerStats.inventory.InitializeInventory();
+        levelNumber = 1;
     }
 
 

@@ -2,7 +2,6 @@
   {
     "itemName": "Axey",
     "description": "Sharpest of axes \\n+15-30 damage",
-    "imageName": null,
     "cost": 90,
     "durability": 26,
     "minDamage": 15,
@@ -13,7 +12,6 @@
   {
     "itemName": "Scimmy",
     "description": "The good ol' scimmy \\n+20-40 damage",
-    "imageName": null,
     "cost": 140,
     "durability": 1,
     "minDamage": 20,
@@ -24,7 +22,6 @@
   {
     "itemName": "Wando",
     "description": "shadowy shadows! \\n+25-50 magic damage",
-    "imageName": null,
     "cost": 160,
     "durability": 50,
     "minDamage": 25,
@@ -35,7 +32,6 @@
   {
     "itemName": "Long Sword",
     "description": "It's a LOOOOONG one \\n+35-65 damage",
-    "imageName": null,
     "cost": 350,
     "durability": 1,
     "minDamage": 35,
@@ -46,7 +42,6 @@
   {
     "itemName": "Excalibur",
     "description": "The legendary sword. \\n+45-80 damage",
-    "imageName": null,
     "cost": 500,
     "durability": 50,
     "minDamage": 45,
