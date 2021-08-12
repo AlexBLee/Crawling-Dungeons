@@ -1,57 +1,36 @@
 [
-  {
-    "name": "Level 1",
-    "enemies": [
-      "Slime Devil",
-      "Bat",
-      "Beast"
-    ]
-  },
-  {
-    "name": "Level 2",
-    "enemies": [
-      "Viking",
-      "Light Bandit",
-      "Skeleton"
-    ]
-  },
-  {
-    "name": "Level 3",
-    "enemies": [
-      "Skeleton",
-      "Heavy Bandit",
-      "Imp",
-      "Undead"
-    ]
-  },
-  {
-    "name": "Level 4",
-    "enemies": [
-      "Minotaur",
-      ""
-    ]
-  },
-  {
-    "name": "Level 5",
-    "enemies": [
-      "Elite Skeleton",
-      "Armored Skeleton",
-      "Spear Skeleton"
-    ]
-  },
-  {
-    "name": "Level 6",
-    "enemies": [
-      "Undead",
-      "Shadow",
-      "Strong Warrior"
-    ]
-  },
-  {
-    "name": "Level 7",
-    "enemies": [
-      "Big Boss",
-      ""
-    ]
-  }
+  [
+    "Slime Devil",
+    "Bat",
+    "Beast"
+  ],
+  [
+    "Viking",
+    "Light Bandit",
+    "Skeleton"
+  ],
+  [
+    "Skeleton",
+    "Heavy Bandit",
+    "Imp",
+    "Undead"
+  ],
+  [
+    "Minotaur",
+    ""
+  ],
+  [
+    "Elite Skeleton",
+    "Armored Skeleton",
+    "Spear Skeleton"
+  ],
+  [
+    "Undead",
+    "Shadow",
+    "Strong Warrior"
+  ],
+  [
+    "Big Boss",
+    ""
+  ]
 ]

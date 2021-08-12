@@ -387,10 +387,8 @@ MonoBehaviour:
   potionUIList:
   - button: {fileID: 954262405}
     text: {fileID: 835221990}
-    item: {fileID: 0}
   - button: {fileID: 993212214}
     text: {fileID: 1607982322}
-    item: {fileID: 0}
   addRemoves:
   - {fileID: 1234366603}
   - {fileID: 412490841}
@@ -10874,6 +10872,7 @@ MonoBehaviour:
   levelJson: {fileID: 4900000, guid: 812b5703ecab3dd46b692acb29249a8a, type: 3}
   armorJson: {fileID: 4900000, guid: 506c392bfd7d8514fa580b150f5b81e6, type: 3}
   weaponJson: {fileID: 4900000, guid: f5668cce57790a94d81f410b70803ee8, type: 3}
+  shopListJson: {fileID: 4900000, guid: 649a1f9651fec7242bbd8039efc7a7e8, type: 3}
 --- !u!4 &1904934565
 Transform:
   m_ObjectHideFlags: 0

@@ -51,10 +51,7 @@
   },
   {
     "itemName": "Strong Shield",
-    "description": [
-      "A normal shield",
-      "but stronger. \\n+7 def \\nBlocks 16% of crit damage"
-    ],
+    "description": "A normal shield but stronger. \\n+7 def \\nBlocks 16% of crit damage",
     "imageName": null,
     "cost": 200,
     "durability": 1,

@@ -10,8 +10,8 @@ public class Inventory : MonoBehaviour
 
     public static int listIndex;
 
-    public List<EquippableItem> equips;
-    public List<Item> items;
+    public List<EquippableItem> equips = new List<EquippableItem>();
+    public List<Item> items = new List<Item>();
     public int gold;
 
     public ShopDisplay shopDisplay;

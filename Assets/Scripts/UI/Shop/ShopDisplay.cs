@@ -14,7 +14,7 @@ public class ShopDisplay : MonoBehaviour
     [SerializeField] private List<GameObject> pages;
     [SerializeField] private int currentPage;
 
-    [SerializeField] private List<Item> itemList;
+    [SerializeField] private List<Item> itemList = new List<Item>();
     [SerializeField] private List<ItemDisplay> itemDisplays;
 
     [SerializeField] private Button shopButton, exitButton, switchPageForwardButton, switchPageBackwardsButton;
@@ -22,12 +22,14 @@ public class ShopDisplay : MonoBehaviour
     [SerializeField] private GameObject shop, inventory;
     [SerializeField] private ItemPopup itemPopup;
     private RectTransform itemPopupRect;
-    
+
     private const float textFadeAmount = 0.5f;
     private const float fitOnScreenFactor = 0.397f;
 
     void Start()
     {
+        InitializeItemList();
+
         player.inventory.shopDisplay = this;
         itemPopupRect = itemPopup.GetComponent<RectTransform>();
 
@@ -56,6 +58,16 @@ public class ShopDisplay : MonoBehaviour
             itemDisplays[x].button.onClick.AddListener(delegate {DisplayItemInfo(x, itemDisplays[x].gameObject.transform.position);});
         }
         
+    }
+
+    private void InitializeItemList()
+    {
+        List<string> shopData = GameDatabase.instance.GetShopListData();
+
+        foreach (string item in shopData)
+        {
+            itemList.Add(GameDatabase.instance.GetItemData(item));
+        }
     }
 
     private void ShowShop()

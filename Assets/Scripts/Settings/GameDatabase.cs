@@ -21,7 +21,6 @@ public class EnemyData
 [System.Serializable]
 public class LevelData
 {
-    public string name;
     public string[] enemies;
 }
 
@@ -30,21 +29,25 @@ public class GameDatabase : MonoBehaviour
     public static GameDatabase instance;
 
     [SerializeField]
-    private TextAsset enemyJson;
+    private TextAsset enemyJson = null;
 
     [SerializeField]
-    private TextAsset levelJson;
+    private TextAsset levelJson = null;
 
     [SerializeField]
-    private TextAsset armorJson;
+    private TextAsset armorJson = null;
 
     [SerializeField]
-    private TextAsset weaponJson;
+    private TextAsset weaponJson = null;
+
+    [SerializeField]
+    private TextAsset shopListJson = null;
 
     private Dictionary<string, EnemyData> enemyData = new Dictionary<string, EnemyData>();
-    private Dictionary<string, LevelData> levelData = new Dictionary<string, LevelData>();
-    private Dictionary<string, ArmorItem> armorData = new Dictionary<string, ArmorItem>();
-    private Dictionary<string, WeaponItem> weaponData = new Dictionary<string, WeaponItem>();
+    private Dictionary<string, Item> itemData = new Dictionary<string, Item>();
+
+    private List<string[]> levelData = new List<string[]>();
+    private List<string> shopListData = new List<string>();
 
     protected void Awake()
     {
@@ -66,8 +69,8 @@ public class GameDatabase : MonoBehaviour
     {
         InitializeEnemyData();
         InitializeLevelData();
-        InitializeArmorData();
-        InitializeWeaponData();
+        InitializeItemData();
+        InitializeShopListData();
     }
 
     private T[] LoadJsonData<T>(string json)
@@ -87,32 +90,48 @@ public class GameDatabase : MonoBehaviour
 
     private void InitializeLevelData()
     {
-        LevelData[] data = LoadJsonData<LevelData>(levelJson.text);
+        string[][] data = LoadJsonData<string[]>(levelJson.text);
 
         foreach (var level in data)
         {
-            levelData.Add(level.name, level);
+            levelData.Add(level);
         }
     }
 
-    private void InitializeArmorData()
+    private void InitializeItemData()
     {
-        ArmorItem[] data = LoadJsonData<ArmorItem>(armorJson.text);
+        ArmorItem[] armorData = LoadJsonData<ArmorItem>(armorJson.text);
+        WeaponItem[] weaponData = LoadJsonData<WeaponItem>(weaponJson.text);
 
-        foreach (var item in data)
+        foreach (var item in armorData)
         {
-            armorData.Add(item.itemName, item);
+            itemData.Add(item.itemName, item);
+        }
+
+        foreach (var item in weaponData)
+        {
+            itemData.Add(item.itemName, item);
         }
     }
 
-    private void InitializeWeaponData()
+    private void InitializeShopListData()
     {
-        WeaponItem[] data = LoadJsonData<WeaponItem>(weaponJson.text);
+        string[] data = LoadJsonData<string>(shopListJson.text);
 
         foreach (var item in data)
         {
-            weaponData.Add(item.itemName, item);
+            shopListData.Add(item);
         }
+    }
+
+    public List<string> GetShopListData()
+    {
+        return shopListData;
+    }
+
+    public Item GetItemData(string itemName)
+    {
+        return itemData[itemName];
     }
 
     public EnemyData GetEnemyData(string name)
@@ -125,10 +144,8 @@ public class GameDatabase : MonoBehaviour
         return null;
     }
 
-    public LevelData GetLevelData(int levelNumber)
+    public string[] GetLevelData(int levelNumber)
     {
-        string levelName = "Level " + levelNumber.ToString();
-
-        return levelData[levelName];
+        return levelData[levelNumber - 1];
     }
 }
