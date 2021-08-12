@@ -19,12 +19,6 @@ public class EnemyData
     public int gold;
 }
 
-[System.Serializable]
-public class LevelData
-{
-    public string[] enemies;
-}
-
 public class GameDatabase : MonoBehaviour
 {
     public static GameDatabase instance;

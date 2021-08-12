@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class HealthPot : ConsumableItem
 {
-    public float hpPercentageAdd;
-
     public override void ConsumeEffect(CharacterEntity character)
     {
-        character.Heal((int)(character.maxHP * hpPercentageAdd), false);
+        character.Heal((int)(character.maxHP * percentageAdd), false);
     }
 
 }
