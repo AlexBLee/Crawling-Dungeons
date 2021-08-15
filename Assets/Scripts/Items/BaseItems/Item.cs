@@ -12,5 +12,8 @@ public class Item
     public int cost;
     [HideInInspector] public int amount;
 
-    
+    public void SetImage()
+    {
+        image = GameDatabase.instance.GetSprite(itemName);
+    }
 }

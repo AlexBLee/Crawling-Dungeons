@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 
 public class ItemFactory
 {
-    private const string ITEM_TYPE_KEY = "itemType";
+    private const string ItemTypeKey = "itemType";
 
     public enum ItemType
     {
@@ -15,32 +15,43 @@ public class ItemFactory
         Boots
     }
 
-    public static EquippableItem CreateItem(JToken item)
+    public static EquippableItem CreateItem(JToken itemToken)
     {
-        ItemType armorType = (ItemType)(int)item[ITEM_TYPE_KEY];
+        ItemType armorType = (ItemType)(int)itemToken[ItemTypeKey];
+        string itemJson = itemToken.ToString();
+        EquippableItem item = null;
 
         switch (armorType)
         {
             case ItemType.Helmet:
-                return JsonConvert.DeserializeObject<Helmet>(item.ToString());
+                item = JsonConvert.DeserializeObject<Helmet>(itemJson);
+                break;
 
             case ItemType.Upper:
-                return JsonConvert.DeserializeObject<Upper>(item.ToString());
+                item = JsonConvert.DeserializeObject<Upper>(itemJson);
+                break;
 
             case ItemType.RightHand:
-                return JsonConvert.DeserializeObject<RightHand>(item.ToString());
+                item = JsonConvert.DeserializeObject<RightHand>(itemJson);
+                break;
 
             case ItemType.LeftHand:
-                return JsonConvert.DeserializeObject<LeftHand>(item.ToString());
+                item = JsonConvert.DeserializeObject<LeftHand>(itemJson);
+                break;
 
             case ItemType.Lower:
-                return JsonConvert.DeserializeObject<Lower>(item.ToString());
+                item = JsonConvert.DeserializeObject<Lower>(itemJson);
+                break;
 
             case ItemType.Boots:
-                return JsonConvert.DeserializeObject<Boots>(item.ToString());
+                item = JsonConvert.DeserializeObject<Boots>(itemJson);
+                break;
 
             default:
                 return null;
         }
+
+        item.SetImage();
+        return item;
     }
 }

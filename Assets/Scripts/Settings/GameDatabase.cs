@@ -104,16 +104,11 @@ public class GameDatabase : MonoBehaviour
 
         armorData.Merge(weaponData);
 
-        const string ItemNameKey = "itemName";
-
         foreach (var item in armorData)
         {
-            EquippableItem equippableItem = ItemFactory.CreateItem(item);
+            var equippableItem = ItemFactory.CreateItem(item);
 
-            string itemName = (string)item[ItemNameKey];
-            equippableItem.image = spriteAtlas.GetSprite(itemName);
-
-            itemData.Add(itemName, equippableItem);
+            itemData.Add(equippableItem.itemName, equippableItem);
         }
     }
 
