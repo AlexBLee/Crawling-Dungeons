@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 [System.Serializable]
 public class EnemyData
@@ -98,22 +99,21 @@ public class GameDatabase : MonoBehaviour
 
     private void InitializeItemData()
     {
-        ArmorItem[] armorData = LoadJsonData<ArmorItem>(armorJson.text);
-        RightHand[] weaponData = LoadJsonData<RightHand>(weaponJson.text);
+        JArray armorData = JArray.Parse(armorJson.text);
+        JArray weaponData = JArray.Parse(weaponJson.text);
+
+        armorData.Merge(weaponData);
+
+        const string ItemNameKey = "itemName";
 
         foreach (var item in armorData)
         {
-            var itemJson = JsonConvert.SerializeObject(item);
-            var castedData = ArmorFactory.CreateArmor(item.itemType, itemJson);
-            castedData.image = spriteAtlas.GetSprite(item.itemName);
+            EquippableItem equippableItem = ItemFactory.CreateItem(item);
 
-            itemData.Add(item.itemName, castedData);
-        }
+            string itemName = (string)item[ItemNameKey];
+            equippableItem.image = spriteAtlas.GetSprite(itemName);
 
-        foreach (var item in weaponData)
-        {
-            item.image = spriteAtlas.GetSprite(item.itemName);
-            itemData.Add(item.itemName, item);
+            itemData.Add(itemName, equippableItem);
         }
     }
 
