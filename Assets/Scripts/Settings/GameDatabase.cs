@@ -67,33 +67,18 @@ public class GameDatabase : MonoBehaviour
     private void InitializeData()
     {
         InitializeEnemyData();
-        InitializeLevelData();
         InitializeItemData();
-        InitializeShopListData();
-    }
-
-    private T[] LoadJsonData<T>(string json)
-    {
-        return JsonConvert.DeserializeObject<T[]>(json);
+        levelData = JsonConvert.DeserializeObject<List<string[]>>(levelJson.text);
+        shopListData = JsonConvert.DeserializeObject<List<string>>(shopListJson.text);();
     }
 
     private void InitializeEnemyData()
     {
-        EnemyData[] data = LoadJsonData<EnemyData>(enemyJson.text);
+        EnemyData[] data = JsonConvert.DeserializeObject<EnemyData[]>(enemyJson.text);
 
         foreach (var enemy in data)
         {
             enemyData.Add(enemy.name, enemy);
-        }
-    }
-
-    private void InitializeLevelData()
-    {
-        string[][] data = LoadJsonData<string[]>(levelJson.text);
-
-        foreach (var level in data)
-        {
-            levelData.Add(level);
         }
     }
 
@@ -109,16 +94,6 @@ public class GameDatabase : MonoBehaviour
             var equippableItem = ItemFactory.CreateItem(item);
 
             itemData.Add(equippableItem.itemName, equippableItem);
-        }
-    }
-
-    private void InitializeShopListData()
-    {
-        string[] data = LoadJsonData<string>(shopListJson.text);
-
-        foreach (var item in data)
-        {
-            shopListData.Add(item);
         }
     }
 
