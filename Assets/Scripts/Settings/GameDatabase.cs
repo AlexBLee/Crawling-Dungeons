@@ -69,7 +69,7 @@ public class GameDatabase : MonoBehaviour
         InitializeEnemyData();
         InitializeItemData();
         levelData = JsonConvert.DeserializeObject<List<string[]>>(levelJson.text);
-        shopListData = JsonConvert.DeserializeObject<List<string>>(shopListJson.text);();
+        shopListData = JsonConvert.DeserializeObject<List<string>>(shopListJson.text);
     }
 
     private void InitializeEnemyData()
