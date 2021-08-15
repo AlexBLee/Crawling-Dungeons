@@ -99,12 +99,15 @@ public class GameDatabase : MonoBehaviour
     private void InitializeItemData()
     {
         ArmorItem[] armorData = LoadJsonData<ArmorItem>(armorJson.text);
-        WeaponItem[] weaponData = LoadJsonData<WeaponItem>(weaponJson.text);
+        RightHand[] weaponData = LoadJsonData<RightHand>(weaponJson.text);
 
         foreach (var item in armorData)
         {
-            item.image = spriteAtlas.GetSprite(item.itemName);
-            itemData.Add(item.itemName, item);
+            var itemJson = JsonConvert.SerializeObject(item);
+            var castedData = ArmorFactory.CreateArmor(item.itemType, itemJson);
+            castedData.image = spriteAtlas.GetSprite(item.itemName);
+
+            itemData.Add(item.itemName, castedData);
         }
 
         foreach (var item in weaponData)
@@ -147,5 +150,10 @@ public class GameDatabase : MonoBehaviour
     public string[] GetLevelData(int levelNumber)
     {
         return levelData[levelNumber - 1];
+    }
+
+    public Sprite GetSprite(string itemName)
+    {
+        return spriteAtlas.GetSprite(itemName);
     }
 }
