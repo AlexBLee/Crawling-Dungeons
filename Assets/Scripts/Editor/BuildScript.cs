@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
 
-namespace Poop
+namespace BuildScript
 {
 	// ahhh
 	class MyEditorScript
@@ -16,8 +16,15 @@ namespace Poop
 		[MenuItem("Custom/CI/Build WebGL")]
 		static void PerformWebGLBuild()
 		{
-			string target_dir = APP_NAME + ".exe";
+			string target_dir = APP_NAME;
 			GenericBuild(SCENES, TARGET_DIR + "/" + target_dir, BuildTarget.WebGL, BuildOptions.None);
+		}
+
+		[MenuItem("Custom/CI/Build Android")]
+		static void PerformAndroidBuild()
+		{
+			string target_dir = APP_NAME;
+			GenericBuild(SCENES, TARGET_DIR + "/" + target_dir, BuildTarget.Android, BuildOptions.None);
 		}
 
 		private static string[] FindEnabledEditorScenes()
