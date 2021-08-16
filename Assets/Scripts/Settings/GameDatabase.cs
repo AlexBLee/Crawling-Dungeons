@@ -109,7 +109,12 @@ public class GameDatabase : MonoBehaviour
 
     public Item GetItemData(string itemName)
     {
-        return itemData[itemName];
+        if (itemData.ContainsKey(itemName))
+        {
+            return itemData[itemName];
+        }
+
+        return null;
     }
 
     public EnemyData GetEnemyData(string name)

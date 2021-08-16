@@ -95,7 +95,7 @@ public class CharacterEntity : MonoBehaviour
         maxDamage = (str.amount / PlayerDefaultConstants.MaxDamageStrCalc);
 
         minDamage += (dex.amount / PlayerDefaultConstants.MinDamageDexCalc);
-        maxDamage += (dex.amount / PlayerDefaultConstants.MinDamageStrCalc);
+        maxDamage += (dex.amount / PlayerDefaultConstants.MaxDamageDexCalc);
 
         magicMinDamage = (intl.amount / PlayerDefaultConstants.MagicMinDamageCalc);
         magicMaxDamage = (intl.amount / PlayerDefaultConstants.MagicMaxDamageCalc);

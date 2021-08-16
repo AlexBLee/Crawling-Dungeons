@@ -19,11 +19,11 @@ public class ItemFactory
 
     public static Item CreateItem(JToken itemToken)
     {
-        ItemType armorType = (ItemType)(int)itemToken[ItemTypeKey];
+        ItemType itemType = (ItemType)(int)itemToken[ItemTypeKey];
         string itemJson = itemToken.ToString();
         Item item = null;
 
-        switch (armorType)
+        switch (itemType)
         {
             case ItemType.Helmet:
                 item = JsonConvert.DeserializeObject<Helmet>(itemJson);

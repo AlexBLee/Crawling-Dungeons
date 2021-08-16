@@ -63,12 +63,14 @@ public class BattleManager : MonoBehaviour
         string[] levelData = GameDatabase.instance.GetLevelData(GameManager.instance.levelNumber);
         foreach(string enemyName in levelData)
         {
-            if (enemyName == "")
+            Enemy enemyFound = enemyList.Find(enemy => enemy.name == enemyName);
+
+            if (enemyFound == null)
             {
                 continue;
             }
 
-            spawnableEnemies.Add(enemyList.Find(enemy => enemy.name == enemyName));
+            spawnableEnemies.Add(enemyFound);
         }
     }
 
