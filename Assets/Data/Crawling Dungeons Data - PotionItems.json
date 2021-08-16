@@ -1,0 +1,16 @@
+[
+  {
+    "itemName": "Health Pot",
+    "description": "Heals 40% of your HP",
+    "cost": 25,
+    "percentageAdd": 0.4,
+    "itemType": 6
+  },
+  {
+    "itemName": "Mana Pot",
+    "description": "Restores 30% of your MP",
+    "cost": 20,
+    "percentageAdd": 0.3,
+    "itemType": 7
+  }
+]

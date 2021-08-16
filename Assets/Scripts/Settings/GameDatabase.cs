@@ -37,6 +37,9 @@ public class GameDatabase : MonoBehaviour
     private TextAsset weaponJson = null;
 
     [SerializeField]
+    private TextAsset potionJson = null;
+
+    [SerializeField]
     private TextAsset shopListJson = null;
 
     private Dictionary<string, EnemyData> enemyData = new Dictionary<string, EnemyData>();
@@ -86,8 +89,10 @@ public class GameDatabase : MonoBehaviour
     {
         JArray armorData = JArray.Parse(armorJson.text);
         JArray weaponData = JArray.Parse(weaponJson.text);
+        JArray potionData = JArray.Parse(potionJson.text);
 
         armorData.Merge(weaponData);
+        armorData.Merge(potionData);
 
         foreach (var item in armorData)
         {

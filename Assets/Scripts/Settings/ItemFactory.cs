@@ -12,14 +12,16 @@ public class ItemFactory
         RightHand,
         LeftHand,
         Lower,
-        Boots
+        Boots,
+        HealthPot,
+        ManaPot
     }
 
-    public static EquippableItem CreateItem(JToken itemToken)
+    public static Item CreateItem(JToken itemToken)
     {
         ItemType armorType = (ItemType)(int)itemToken[ItemTypeKey];
         string itemJson = itemToken.ToString();
-        EquippableItem item = null;
+        Item item = null;
 
         switch (armorType)
         {
@@ -45,6 +47,14 @@ public class ItemFactory
 
             case ItemType.Boots:
                 item = JsonConvert.DeserializeObject<Boots>(itemJson);
+                break;
+
+            case ItemType.HealthPot:
+                item = JsonConvert.DeserializeObject<HealthPot>(itemJson);
+                break;
+            
+            case ItemType.ManaPot:
+                item = JsonConvert.DeserializeObject<ManaPot>(itemJson);
                 break;
 
             default:
