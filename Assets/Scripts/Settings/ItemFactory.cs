@@ -49,6 +49,7 @@ public class ItemFactory
                 item = JsonConvert.DeserializeObject<Boots>(itemJson);
                 break;
 
+            // TODO: Find a way to deserialize more types of pots without bloating the code.
             case ItemType.HealthPot:
                 item = JsonConvert.DeserializeObject<HealthPot>(itemJson);
                 break;
