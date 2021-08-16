@@ -52,7 +52,7 @@ public class CharacterEntity : MonoBehaviour
         level =         PlayerDefaultConstants.InitialLevel;
         exp =           PlayerDefaultConstants.InitialExp;
         expThreshold =  PlayerDefaultConstants.InitialExpThreshold;
-        statPoints =    PlayerDefaultConstants.InitialStatAmount;
+        statPoints =    PlayerDefaultConstants.InitialStatPoints;
 
         maxHP =         PlayerDefaultConstants.InitialMaxHP;
         maxMP =         PlayerDefaultConstants.InitialMaxMP;

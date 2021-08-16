@@ -3,7 +3,7 @@
     public const int InitialLevel = 1;
     public const int InitialExp = 0;
     public const int InitialExpThreshold = 50;
-    public const int InitialXtatPoints = 3;
+    public const int InitialStatPoints = 3;
     public const int InitialMaxHP = 100;
     public const int InitialMaxMP = 100;
     public const int InitialStatAmount = 20;
