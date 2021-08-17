@@ -23,8 +23,8 @@ namespace BuildScript
 		[MenuItem("Custom/CI/Build Android")]
 		static void PerformAndroidBuild()
 		{
-			string query = "%AndroidKeystorePassword%";
-			string keystorePassword = Environment.ExpandEnvironmentVariables(query);
+			string query = "AndroidKeystorePassword";
+			string keystorePassword = Environment.GetEnvironmentVariable(query);
 
 			PlayerSettings.keyaliasPass = keystorePassword;
 			PlayerSettings.keystorePass = keystorePassword;
