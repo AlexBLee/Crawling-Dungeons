@@ -23,8 +23,13 @@ namespace BuildScript
 		[MenuItem("Custom/CI/Build Android")]
 		static void PerformAndroidBuild()
 		{
-			string target_dir = APP_NAME;
-			GenericBuild(SCENES, TARGET_DIR + "/" + target_dir, BuildTarget.Android, BuildOptions.None);
+			string query = "%AndroidKeystorePassword%";
+			string keystorePassword = Environment.ExpandEnvironmentVariables(query);
+
+			string target_dir = "build";
+			string target = APP_NAME + ".apk";
+
+			GenericBuild(SCENES, target_dir + "/" + target, BuildTarget.Android, BuildOptions.None);
 		}
 
 		private static string[] FindEnabledEditorScenes()
