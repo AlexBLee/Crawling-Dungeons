@@ -26,6 +26,9 @@ namespace BuildScript
 			string query = "%AndroidKeystorePassword%";
 			string keystorePassword = Environment.ExpandEnvironmentVariables(query);
 
+			PlayerSettings.keyaliasPass = keystorePassword;
+			PlayerSettings.keystorePass = keystorePassword;
+
 			string target_dir = "build";
 			string target = APP_NAME + ".apk";
 
