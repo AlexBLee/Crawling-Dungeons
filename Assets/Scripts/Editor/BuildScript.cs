@@ -28,6 +28,7 @@ namespace BuildScript
 
 			PlayerSettings.keyaliasPass = keystorePassword;
 			PlayerSettings.keystorePass = keystorePassword;
+			PlayerSettings.Android.bundleVersionCode++;
 			EditorUserBuildSettings.buildAppBundle = true;
 
 			string target_dir = "build";
