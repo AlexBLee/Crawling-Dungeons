@@ -7,13 +7,6 @@ public class Player : CharacterEntity
     [HideInInspector] public Spells spells;
     public enum StatType { Str, Dex, Intl, Luck };
 
-    private Color lightBlue = new Color(0,205,255);
-    private const int goldMinValue = 10;
-    private const int goldMaxValue = 15;
-    private const float levelDelayTime = 0.15f;
-    private const float battleDelayTime = 3;
-
-
     private void Awake() 
     {
         inventory = GetComponent<Inventory>();
@@ -52,10 +45,12 @@ public class Player : CharacterEntity
 
     public void MagicPressed(Spell spell)
     {
+        Color NotEnoughManaColor = new Color(0, 205, 255);
+
         if((mp - spell.Cost) < 0)
         {
             Debug.Log("not enough mana!");
-            infoText.color = lightBlue;
+            infoText.color = NotEnoughManaColor;
             infoText.text = "Not enough mana!";
             Instantiate(infoText, transform.position, Quaternion.identity);
         }
@@ -169,8 +164,11 @@ public class Player : CharacterEntity
 
     public void RecieveXPAndGold(int expRecieved, int goldRecieved)
     {
+        const int GoldMinValue = 10;
+        const int GoldMaxValue = 15;
+
         // Randomized gold - to vary playstyle
-        int randomGold = Random.Range(goldRecieved - goldMinValue, goldRecieved + goldMaxValue);
+        int randomGold = Random.Range(goldRecieved - GoldMinValue, goldRecieved + GoldMaxValue);
         inventory.gold += randomGold;
         exp += expRecieved;
         infoText.color = Color.white;
@@ -182,6 +180,8 @@ public class Player : CharacterEntity
 
     private IEnumerator CheckForLevelUp()
     {
+        const float LevelDelayTime = 0.15f;
+
         while (exp >= expThreshold)
         {
             float extraXP = exp - expThreshold;
@@ -189,7 +189,7 @@ public class Player : CharacterEntity
             spells.UnlockSpells(level);
             inventory.UpdateItemStats();
 
-            yield return new WaitForSeconds(levelDelayTime);
+            yield return new WaitForSeconds(LevelDelayTime);
             uiManager.healthBar.SetAmount(hp,maxHP);
             uiManager.manaBar.SetAmount(mp,maxMP);
             infoText.text = "Level up!";
@@ -201,7 +201,9 @@ public class Player : CharacterEntity
 
     private IEnumerator NextBattle()
     {
-        yield return new WaitForSeconds(battleDelayTime);
+        const float BattleDelayTime = 3;
+
+        yield return new WaitForSeconds(BattleDelayTime);
         anim.SetBool("Run", true);
         battleManager.battleDone = true;
         battleManager.ToggleNextBattle();
