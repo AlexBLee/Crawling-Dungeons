@@ -28,9 +28,10 @@ namespace BuildScript
 
 			PlayerSettings.keyaliasPass = keystorePassword;
 			PlayerSettings.keystorePass = keystorePassword;
+			EditorUserBuildSettings.buildAppBundle = true;
 
 			string target_dir = "build";
-			string target = APP_NAME + ".apk";
+			string target = APP_NAME + ".aab";
 
 			GenericBuild(SCENES, target_dir + "/" + target, BuildTarget.Android, BuildOptions.None);
 		}
