@@ -8,22 +8,21 @@ namespace BuildScript
 	// ahhh
 	class MyEditorScript
 	{
-		static string[] SCENES = FindEnabledEditorScenes();
+		private static string[] Scenes = FindEnabledEditorScenes();
 
-		static string APP_NAME = "CrawlingDungeons";
-		static string TARGET_DIR = "target";
+		private static string TargetDir = "build/";
 
 		[MenuItem("Custom/CI/Build WebGL")]
 		static void PerformWebGLBuild()
 		{
-			string target_dir = APP_NAME;
-			GenericBuild(SCENES, TARGET_DIR + "/" + target_dir, BuildTarget.WebGL, BuildOptions.None);
+			const string AppName = "CrawlingDungeons";
+			GenericBuild(Scenes, TargetDir + AppName, BuildTarget.WebGL, BuildOptions.None);
 		}
 
 		[MenuItem("Custom/CI/Build Android")]
 		static void PerformAndroidBuild()
 		{
-			string query = "AndroidKeystorePassword";
+			const string query = "AndroidKeystorePassword";
 			string keystorePassword = Environment.GetEnvironmentVariable(query);
 
 			PlayerSettings.keyaliasPass = keystorePassword;
@@ -32,10 +31,8 @@ namespace BuildScript
 			PlayerSettings.bundleVersion = PlayerSettings.Android.bundleVersionCode.ToString();
 			EditorUserBuildSettings.buildAppBundle = true;
 
-			string target_dir = "build";
-			string target = APP_NAME + ".aab";
-
-			GenericBuild(SCENES, target_dir + "/" + target, BuildTarget.Android, BuildOptions.None);
+			const string AppName = "CrawlingDungeons.aab";
+			GenericBuild(Scenes, TargetDir + AppName, BuildTarget.Android, BuildOptions.None);
 		}
 
 		private static string[] FindEnabledEditorScenes()
