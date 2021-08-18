@@ -40,10 +40,14 @@ public class GameDatabase : MonoBehaviour
     private TextAsset potionJson = null;
 
     [SerializeField]
+    private TextAsset spellJson = null;
+
+    [SerializeField]
     private TextAsset shopListJson = null;
 
     private Dictionary<string, EnemyData> enemyData = new Dictionary<string, EnemyData>();
     private Dictionary<string, Item> itemData = new Dictionary<string, Item>();
+    private Dictionary<string, Spell> spellData = new Dictionary<string, Spell>();
 
     private List<string[]> levelData = new List<string[]>();
     private List<string> shopListData = new List<string>();
@@ -71,6 +75,7 @@ public class GameDatabase : MonoBehaviour
     {
         InitializeEnemyData();
         InitializeItemData();
+        InitializeSpellData();
         levelData = JsonConvert.DeserializeObject<List<string[]>>(levelJson.text);
         shopListData = JsonConvert.DeserializeObject<List<string>>(shopListJson.text);
     }
@@ -82,6 +87,18 @@ public class GameDatabase : MonoBehaviour
         foreach (var enemy in data)
         {
             enemyData.Add(enemy.name, enemy);
+        }
+    }
+
+    private void InitializeSpellData()
+    {
+        JArray data = JArray.Parse(spellJson.text);
+
+        foreach (var spell in data)
+        {
+            var spellResult = SpellFactory.GetSpell(spell);
+
+            spellData.Add(spellResult.name, spellResult);
         }
     }
 
@@ -125,6 +142,11 @@ public class GameDatabase : MonoBehaviour
         }
 
         return null;
+    }
+
+    public Dictionary<string, Spell> GetSpellData()
+    {
+        return spellData;
     }
 
     public string[] GetLevelData(int levelNumber)

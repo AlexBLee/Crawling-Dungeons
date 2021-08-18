@@ -1,5 +1,5 @@
 ﻿[System.Serializable]
-public abstract class Spell
+public class Spell
 {
     public string name;
     public int damage;
@@ -7,5 +7,8 @@ public abstract class Spell
     public int levelRequired;
     public bool unlocked = false;
 
-    public abstract void ApplyDebuffs(CharacterEntity entity);
+    public virtual void ApplyDebuffs(CharacterEntity entity)
+    {
+        
+    }
 }
