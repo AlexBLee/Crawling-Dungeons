@@ -209,7 +209,7 @@ public class UIManager : MonoBehaviour
         // Keep the colour faded and disable the button.
         Color tempColor = text.color;
 
-        tempColor.a = buttonFadeAmount;
+        tempColor.a = ButtonFadeAmount;
         text.color = tempColor;
 
         text.text = message;
