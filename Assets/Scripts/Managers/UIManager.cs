@@ -35,9 +35,6 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject winPanel;
 
-    private const int itemMaxLocationCount = 24; // need an alternative for this number
-    private const float buttonFadeAmount = 0.5f;
-
     private void Start() 
     {
         attackButton.onClick.AddListener(player.Attack);
@@ -207,6 +204,8 @@ public class UIManager : MonoBehaviour
     // For potion list
     private void FadeButtons(Button button, TextMeshProUGUI text, string message)
     {
+        const float ButtonFadeAmount = 0.5f;
+
         // Keep the colour faded and disable the button.
         Color tempColor = text.color;
 

@@ -14,7 +14,6 @@ public class BattleManager : MonoBehaviour
     private bool calculating = true;
     private bool needToSpawn = true;
     private Vector2 newPosition;
-    private Vector2 enemyPosition = new Vector2(6.88f, 2.68f);
 
     [SerializeField] private Enemy enemy;
     [SerializeField] private Player player;
@@ -22,20 +21,9 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private UIManager uiManager;
     [SerializeField] private GameObject background;
 
-    private const float beginAttackDelay = 0.8f;
-    private const float backgroundMoveFactor = 4.0f;
-
     public List<Enemy> enemyList;
     public List<Enemy> spawnableEnemies;
     private int enemyCounter = 0;
-
-    private Vector2 reverseRotation = new Vector2(0,180);
-    private const int finalLevelNumber = 8;
-    private const float hpHeal = 0.15f;
-    private const float mpHeal = 0.15f;
-    private const float endlessModeFactor = 1.25f;
-    private const float timeApproachSpeed = 1.20f;
-
 
     private void Start() 
     {
@@ -88,11 +76,13 @@ public class BattleManager : MonoBehaviour
 
     public IEnumerator ToggleNextTurn()
     {
+        const float BeginAttackDelay = 0.8f;
+
         if(playerTurn)
         {
             if(enemy != null)
             {
-                yield return new WaitForSeconds(beginAttackDelay);
+                yield return new WaitForSeconds(BeginAttackDelay);
                 uiManager.DisableButtons();
                 enemy.SetAttackConditions();
             }
@@ -107,11 +97,13 @@ public class BattleManager : MonoBehaviour
 
     public void ToggleNextBattle()
     {
+        const float BackgroundMoveFactor = 4.0f;
+        
 
         if(calculating)
         {
             float backgroundX = background.transform.position.x;
-            newPosition = new Vector2(backgroundX -= backgroundMoveFactor, background.transform.position.y);
+            newPosition = new Vector2(backgroundX -= BackgroundMoveFactor, background.transform.position.y);
             calculating = false;
         }
 
@@ -137,6 +129,9 @@ public class BattleManager : MonoBehaviour
 
     private void SpawnNextEnemy(int number)
     {
+        Vector2 enemyPosition = new Vector2(6.88f, 2.68f);
+        Vector2 reverseRotation = new Vector2(0,180);
+
         if(enemyCounter < spawnableEnemies.Count)
         {
             GameObject enemyObject = Instantiate(spawnableEnemies[number].gameObject, enemyPosition, Quaternion.Euler(reverseRotation));
@@ -164,8 +159,12 @@ public class BattleManager : MonoBehaviour
 
     public void DeclareVictory()
     {
+        const int FinalLevelNumber = 8;
+        const float HpHeal = 0.15f;
+        const float MpHeal = 0.15f;
+
         AudioManager.Instance.Play("Victory");
-        if(SceneManager.GetActiveScene().buildIndex == finalLevelNumber)
+        if(SceneManager.GetActiveScene().buildIndex == FinalLevelNumber)
         {
             uiManager.ActivateGameWin();
         }
@@ -173,8 +172,8 @@ public class BattleManager : MonoBehaviour
         {
             uiManager.victoryPanel.SetActive(true);
 
-            player.Heal((int)(player.maxHP * hpHeal), true);
-            player.RestoreMP((int)(player.maxMP * mpHeal), true);
+            player.Heal((int)(player.maxHP * HpHeal), true);
+            player.RestoreMP((int)(player.maxMP * MpHeal), true);
 
             AddRemoveStat.numberOfStatPoints = player.statPoints;
             uiManager.levelNumber.text = player.level.ToString();
@@ -189,7 +188,9 @@ public class BattleManager : MonoBehaviour
     
     public void BuffEndlessEnemyStats(Enemy enemy)
     {
-        float x = Mathf.Pow(endlessModeFactor, GameManager.instance.endlessNumber);
+        const float EndlessModeFactor = 1.25f;
+
+        float x = Mathf.Pow(EndlessModeFactor, GameManager.instance.endlessNumber);
         
         enemy.hp = (int)(enemy.hp * x);
         enemy.mp = (int)(enemy.mp * x);
@@ -204,14 +205,17 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator MoveToExactPosition(Vector2 start, Vector2 destination)
     {
+        const float TimeApproachSpeed = 1.20f;
+        const float TimeToMove = 2;
+
         Vector2 startPos = start;
         Vector2 endPos = destination;
 
         float timer = 0;
-        while(timer < 2)
+        while (timer < TimeToMove)
         {
             timer += Time.deltaTime;
-            background.transform.position = Vector2.Lerp(startPos,endPos, timer/timeApproachSpeed);
+            background.transform.position = Vector2.Lerp(startPos,endPos, timer / TimeApproachSpeed);
             yield return null;
         }
 

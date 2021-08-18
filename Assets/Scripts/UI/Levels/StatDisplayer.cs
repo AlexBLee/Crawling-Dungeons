@@ -7,7 +7,6 @@ using TMPro;
 
 public class StatDisplayer : MonoBehaviour
 {
-    
     [SerializeField] private Player player;
     [SerializeField] private TextMeshProUGUI str, dex, intl, will, statPoints;
 

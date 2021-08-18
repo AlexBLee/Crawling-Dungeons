@@ -23,8 +23,6 @@ public class ShopDisplay : MonoBehaviour
     [SerializeField] private ItemPopup itemPopup;
     private RectTransform itemPopupRect;
 
-    private const float textFadeAmount = 0.5f;
-    private const float fitOnScreenFactor = 0.397f;
 
     void Start()
     {
@@ -159,8 +157,10 @@ public class ShopDisplay : MonoBehaviour
             // For position the UI correctly so everything fits on screen.
             if((index >= 0 && index <= 2) || (index >= 9 && index <= 11))
             {
-                itemPopupRect.offsetMin = new Vector2(Screen.width * fitOnScreenFactor, itemPopupRect.offsetMin.y);
-                itemPopupRect.offsetMax = new Vector2(Screen.width * fitOnScreenFactor, itemPopupRect.offsetMin.y);
+                const float FitOnScreenFactor = 0.397f;
+
+                itemPopupRect.offsetMin = new Vector2(Screen.width * FitOnScreenFactor, itemPopupRect.offsetMin.y);
+                itemPopupRect.offsetMax = new Vector2(Screen.width * FitOnScreenFactor, itemPopupRect.offsetMin.y);
             }
             else
             {
@@ -184,10 +184,11 @@ public class ShopDisplay : MonoBehaviour
     private void DisableShopButton(Button button)
     {
         TextMeshProUGUI text = button.GetComponentInChildren<TextMeshProUGUI>();
+        const float TextFadeAmount = 0.5f;
 
         Color tempColor = text.color;
 
-        tempColor.a = textFadeAmount;
+        tempColor.a = TextFadeAmount;
         text.color = tempColor;
         
         button.interactable = false;
