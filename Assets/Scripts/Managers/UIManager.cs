@@ -99,7 +99,7 @@ public class UIManager : MonoBehaviour
             Button magicButton = magicButtonList[i];
 
             magicButton.gameObject.SetActive(true);
-            magicButton.GetComponentInChildren<TextMeshProUGUI>().text = spell.Name;
+            magicButton.GetComponentInChildren<TextMeshProUGUI>().text = spell.name;
             magicButton.onClick.AddListener(() => { player.MagicPressed(spell); });
             magicButton.interactable = player.HasEnoughManaForSpell(spell) ? true : false;
         }

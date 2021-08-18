@@ -40,14 +40,14 @@ public class Player : CharacterEntity
 
     public bool HasEnoughManaForSpell(Spell spell)
     {
-        return (spell.Cost <= mp);
+        return (spell.cost <= mp);
     }
 
     public void MagicPressed(Spell spell)
     {
         Color NotEnoughManaColor = new Color(0, 205, 255);
 
-        if((mp - spell.Cost) < 0)
+        if((mp - spell.cost) < 0)
         {
             Debug.Log("not enough mana!");
             infoText.color = NotEnoughManaColor;
@@ -59,9 +59,9 @@ public class Player : CharacterEntity
             // AudioManager.Instance.Play(spell.effect.name);
             uiManager.HideMagicList();
 
-            Debug.Log("Casted: " + spell.Name);
+            Debug.Log("Casted: " + spell.name);
             spellUsed = spell;
-            mp -= spellUsed.Cost;
+            mp -= spellUsed.cost;
             
             uiManager.UpdateUIMana();
 

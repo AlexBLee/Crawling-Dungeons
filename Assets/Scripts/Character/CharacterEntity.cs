@@ -271,7 +271,7 @@ public class CharacterEntity : MonoBehaviour
         float x = Random.Range(magicMinDamage,magicMaxDamage);
         x *= (defStartPointCalc - ((float)target.def/convertToPercentageCalc));
         int damage = Mathf.RoundToInt(x);
-        damage += spellUsed.Damage;
+        damage += spellUsed.damage;
 
         // Critical chance calculation
         float chance = Random.Range(randomMin, randomMax);

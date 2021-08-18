@@ -25,7 +25,7 @@ public class Spells : MonoBehaviour
     {
         foreach (Spell spell in spells)
         {
-            if (playerLevel >= spell.LevelRequired)
+            if (playerLevel >= spell.levelRequired)
             {
                 spell.unlocked = true;
             }

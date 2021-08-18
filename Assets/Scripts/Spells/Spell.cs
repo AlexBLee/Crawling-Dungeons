@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿[System.Serializable]
 public abstract class Spell
 {
-    public abstract string Name { get; }
-    public abstract int Damage { get; }
-    public abstract int Cost { get; }
-    public abstract int LevelRequired { get; }
+    public string name;
+    public int damage;
+    public int cost;
+    public int levelRequired;
     public bool unlocked = false;
+
     public abstract void ApplyDebuffs(CharacterEntity entity);
 }
