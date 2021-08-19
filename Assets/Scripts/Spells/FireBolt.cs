@@ -1,13 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class FireBolt : Spell
+﻿public class FireBolt : Spell
 {
-    public override void ApplyDebuffs(CharacterEntity entity)
+    public override void UseSpellEffect(CharacterEntity entity)
     {
-        Debug.Log("FIRE!");
+        base.UseSpellEffect(entity);
         entity.def -= 3;
-        GameObject.Instantiate(prefab, entity.transform.position, Quaternion.identity);
     }
 }

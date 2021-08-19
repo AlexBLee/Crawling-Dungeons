@@ -2,8 +2,9 @@
 
 public class EnergyBall : Spell
 {
-    public override void ApplyDebuffs(CharacterEntity entity)
+    public override void UseSpellEffect(CharacterEntity entity)
     {
-        GameObject.Instantiate(prefab, entity.target.transform.position, Quaternion.identity);
+        GameObject spellPrefab = GameDatabase.instance.GetSpellPrefab(name);
+        GameObject.Instantiate(spellPrefab, entity.target.transform.position, Quaternion.identity);
     }
 }

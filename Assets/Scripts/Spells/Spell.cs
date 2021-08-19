@@ -8,16 +8,11 @@ public class Spell
     public int cost;
     public int levelRequired;
 
-    public GameObject prefab;
     public bool unlocked = false;
 
-    public void SetPrefab(GameObject gameObject)
+    public virtual void UseSpellEffect(CharacterEntity entity)
     {
-        prefab = gameObject;
-    }
-
-    public virtual void ApplyDebuffs(CharacterEntity entity)
-    {
-        
+        GameObject spellPrefab = GameDatabase.instance.GetSpellPrefab(name);
+        GameObject.Instantiate(spellPrefab, entity.transform.position, Quaternion.identity);
     }
 }

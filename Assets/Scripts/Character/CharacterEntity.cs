@@ -297,7 +297,7 @@ public class CharacterEntity : MonoBehaviour
 
         // Apply damage
         target.hp -= damage;
-        spellUsed.ApplyDebuffs(target);
+        spellUsed.UseSpellEffect(target);
         target.anim.SetTrigger("Hit");
         AudioManager.Instance.Play("SlashHit");
 
