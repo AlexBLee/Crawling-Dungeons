@@ -9,6 +9,5 @@ public class FireBolt : Spell
         Debug.Log("FIRE!");
         entity.def -= 3;
         GameObject.Instantiate(prefab, entity.transform.position, Quaternion.identity);
-        GameObject.FindObjectOfType<BattleManager>().BeginWait();
     }
 }
