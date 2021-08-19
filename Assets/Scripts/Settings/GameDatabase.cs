@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.U2D;
 using Newtonsoft.Json;
@@ -54,6 +54,9 @@ public class GameDatabase : MonoBehaviour
 
     [SerializeField]
     private SpriteAtlas spriteAtlas = null;
+
+    [SerializeField]
+    private List<GameObject> spellPrefabs = new List<GameObject>();
 
     protected void Awake()
     {
@@ -144,9 +147,14 @@ public class GameDatabase : MonoBehaviour
         return null;
     }
 
-    public Dictionary<string, Spell> GetSpellData()
+    public Spell GetSpellData(string name)
     {
-        return spellData;
+        return spellData[name];
+    }
+
+    public GameObject GetSpellPrefab(string name)
+    {
+        return spellPrefabs.Where(obj => obj.name == name).FirstOrDefault();
     }
 
     public string[] GetLevelData(int levelNumber)

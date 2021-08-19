@@ -9,6 +9,7 @@ public class IceBolt : Spell
         Debug.Log("Ice!");
         entity.def -= 5;
         entity.gameObject.GetComponent<Renderer>().material.color = Color.blue;
+        GameObject.Instantiate(prefab, entity.transform.position, Quaternion.identity);
         GameObject.FindObjectOfType<BattleManager>().BeginWait();
     }
 }

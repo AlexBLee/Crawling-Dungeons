@@ -12,7 +12,7 @@ public class Spells : MonoBehaviour
     {
         foreach (string spellName in GameConstants.PlayerAvailableSpells)
         {
-            // spells.Add(spellFactory.GetSpell(spellName));
+            spells.Add(GameDatabase.instance.GetSpellData(spellName));
         }
     }
 

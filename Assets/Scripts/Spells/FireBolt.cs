@@ -8,7 +8,7 @@ public class FireBolt : Spell
     {
         Debug.Log("FIRE!");
         entity.def -= 3;
-        entity.gameObject.GetComponent<Renderer>().material.color = Color.red;
+        GameObject.Instantiate(prefab, entity.transform.position, Quaternion.identity);
         GameObject.FindObjectOfType<BattleManager>().BeginWait();
     }
 }

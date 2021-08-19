@@ -8,29 +8,39 @@ public class SpellFactory
         const string NameKey = "name";
         string spellName = token[NameKey].Value<string>();
         string spellJson = token.ToString();
+        Spell spell = new Spell();
 
         switch (spellName)
         {
             case GameConstants.IceSpellName:
-                return JsonConvert.DeserializeObject<IceBolt>(spellJson);
+                spell = JsonConvert.DeserializeObject<IceBolt>(spellJson);
+                break;
 
             case GameConstants.FireSpellName:
-                return JsonConvert.DeserializeObject<FireBolt>(spellJson);
+                spell = JsonConvert.DeserializeObject<FireBolt>(spellJson);
+                break;
 
             case GameConstants.EnergyBallSpellName:
-                return JsonConvert.DeserializeObject<EnergyBall>(spellJson);
+                spell = JsonConvert.DeserializeObject<EnergyBall>(spellJson);
+                break;
 
             case GameConstants.ExplosionSpellName:
-                return JsonConvert.DeserializeObject<Explosion>(spellJson);
+                spell = JsonConvert.DeserializeObject<Explosion>(spellJson);
+                break;
 
             case GameConstants.XplosionSpellName:
-                return JsonConvert.DeserializeObject<Xplosion>(spellJson);
+                spell = JsonConvert.DeserializeObject<Xplosion>(spellJson);
+                break;
 
             case GameConstants.GodsMightSpellName:
-                return JsonConvert.DeserializeObject<GodsMight>(spellJson);
+                spell = JsonConvert.DeserializeObject<GodsMight>(spellJson);
+                break;
 
             default:
                 return null;
         }
+
+        spell.SetPrefab(GameDatabase.instance.GetSpellPrefab(spell.name));
+        return spell;
     }
 }
