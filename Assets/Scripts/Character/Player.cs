@@ -182,6 +182,7 @@ public class Player : CharacterEntity
             yield return new WaitForSeconds(LevelDelayTime);
             uiManager.healthBar.SetAmount(hp,maxHP);
             uiManager.manaBar.SetAmount(mp,maxMP);
+            uiManager.RefreshMagicList();
             infoText.text = "Level up!";
             Instantiate(infoText, transform.position, Quaternion.identity);
 

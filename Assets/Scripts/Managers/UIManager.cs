@@ -64,6 +64,7 @@ public class UIManager : MonoBehaviour
             }
         }
 
+        RefreshMagicList();
         DisplayPotionAmount();
 
         magicBackButton.onClick.AddListener(HideMagicList);
@@ -86,11 +87,9 @@ public class UIManager : MonoBehaviour
         itemButton.gameObject.SetActive(true);
     }
 
-    public void ShowMagicList()
+    public void RefreshMagicList()
     {
-        DisableButtons();
-        magicList.SetActive(true);
-        magicButtonList.ForEach(button => button.gameObject.SetActive(false));
+        RefreshMagicButtons();
 
         List<Spell> spellList = player.spells.GetUnlockedSpells();
 
@@ -102,6 +101,34 @@ public class UIManager : MonoBehaviour
             magicButton.gameObject.SetActive(true);
             magicButton.GetComponentInChildren<TextMeshProUGUI>().text = spell.name;
             magicButton.onClick.AddListener(() => { player.MagicPressed(spell); });
+        }
+    }
+
+    public void RefreshMagicButtons()
+    {
+        foreach (Button button in magicButtonList)
+        {
+            button.gameObject.SetActive(false);
+            button.onClick.RemoveAllListeners();
+        }
+    }
+
+    public void ShowMagicList()
+    {
+        DisableButtons();
+        magicList.SetActive(true);
+        CheckMagicButtonInteractivity();
+    }
+
+    public void CheckMagicButtonInteractivity()
+    {
+        List<Spell> spellList = player.spells.GetUnlockedSpells();
+
+        for (int i = 0; i < spellList.Count; i++)
+        {
+            Spell spell = spellList[i];
+            Button magicButton = magicButtonList[i];
+
             magicButton.interactable = player.HasEnoughManaForSpell(spell) ? true : false;
         }
     }
@@ -110,7 +137,6 @@ public class UIManager : MonoBehaviour
     {
         EnableButtons();
         magicList.SetActive(false);
-        magicButtonList.ForEach(button => button.gameObject.SetActive(false));
     }
 
     public void ShowPotionList()
