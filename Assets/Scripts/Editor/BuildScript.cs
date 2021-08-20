@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
 
@@ -22,17 +24,34 @@ namespace BuildScript
 		[MenuItem("Custom/CI/Build Android")]
 		static void PerformAndroidBuild()
 		{
+			SetKeystorePassword();
+			SetBundleVersionSettings();
+
+			const string AppName = "CrawlingDungeons.aab";
+			GenericBuild(Scenes, TargetDir + AppName, BuildTarget.Android, BuildOptions.None);
+		}
+
+		private static void SetKeystorePassword()
+		{
 			const string query = "AndroidKeystorePassword";
 			string keystorePassword = Environment.GetEnvironmentVariable(query);
 
 			PlayerSettings.keyaliasPass = keystorePassword;
 			PlayerSettings.keystorePass = keystorePassword;
-			PlayerSettings.Android.bundleVersionCode++;
-			PlayerSettings.bundleVersion = PlayerSettings.Android.bundleVersionCode.ToString();
+		}
+
+		private static void SetBundleVersionSettings()
+		{
+			string bundleVersionTextPath = Application.dataPath + "/Scripts/Editor/BundleVersionCode.txt";
+			string text = File.ReadAllText(bundleVersionTextPath);
+			int versionCode = int.Parse(text);
+
+			PlayerSettings.Android.bundleVersionCode = versionCode;
+			PlayerSettings.bundleVersion = text;
 			EditorUserBuildSettings.buildAppBundle = true;
 
-			const string AppName = "CrawlingDungeons.aab";
-			GenericBuild(Scenes, TargetDir + AppName, BuildTarget.Android, BuildOptions.None);
+			versionCode++;
+			File.WriteAllText(bundleVersionTextPath, versionCode.ToString());
 		}
 
 		private static string[] FindEnabledEditorScenes()
