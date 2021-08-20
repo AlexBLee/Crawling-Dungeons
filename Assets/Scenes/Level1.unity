@@ -3180,17 +3180,17 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
-  - name: IceSpell
+  - name: Icebolt
     clip: {fileID: 8300000, guid: 526630e342100d24d86e807d972e8b15, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
-  - name: Fire
+  - name: Firebolt
     clip: {fileID: 8300000, guid: 5f1bd2e635af3764eb72f3115a7ffa41, type: 3}
     volume: 1
     pitch: 1
     source: {fileID: 0}
-  - name: EnergyBall
+  - name: Energy Ball
     clip: {fileID: 8300000, guid: ae18be102b64f2c42acaae02c8de7270, type: 3}
     volume: 1
     pitch: 1
@@ -3205,7 +3205,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
-  - name: GodsMight
+  - name: Gods Might
     clip: {fileID: 8300000, guid: a3b571a9e39806d4f8c95835643de364, type: 3}
     volume: 1
     pitch: 1
