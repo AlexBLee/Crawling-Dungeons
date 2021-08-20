@@ -8,8 +8,6 @@ public class Spell
     public int cost;
     public int levelRequired;
 
-    public bool unlocked = false;
-
     public virtual void UseSpellEffect(CharacterEntity entity)
     {
         GameObject spellPrefab = GameDatabase.instance.GetSpellPrefab(name);

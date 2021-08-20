@@ -66,16 +66,6 @@ public class Player : CharacterEntity
             uiManager.UpdateUIMana();
 
             RangedAttack();
-
-            // Asks if the spell is supposed to be spawned firstly near the player or right on top of the enemy.
-            // if(spell.atPosition)
-            // {
-            //     Instantiate(spell.effect, spells.spellPosition, Quaternion.identity);            
-            // }
-            // else
-            // {
-            //     Instantiate(spell.effect, target.transform.position, Quaternion.identity);
-            // }
         }
     }
 

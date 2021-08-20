@@ -1,24 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public class Spells : MonoBehaviour
 {
     private List<Spell> spells = new List<Spell>();
-    private SpellFactory spellFactory = new SpellFactory();
+    private Dictionary<string, SpellStateInfo> spellStateInfo = new Dictionary<string, SpellStateInfo>();
 
     private void Start()
     {
         foreach (string spellName in GameConstants.PlayerAvailableSpells)
         {
             spells.Add(GameDatabase.instance.GetSpellData(spellName));
+            spellStateInfo.Add(spellName, new SpellStateInfo(spellName));
         }
     }
 
     public List<Spell> GetUnlockedSpells()
     {
-        return spells.Where((spell) => spell.unlocked).ToList();
+        List<Spell> unlockedSpells = new List<Spell>();
+
+        foreach (Spell spell in spells)
+        {
+            if (spellStateInfo[spell.name].GetUnlockedState())
+            {
+                unlockedSpells.Add(spell);
+            }
+        }
+
+        return unlockedSpells;
     }
 
     public void UnlockSpells(int playerLevel)
@@ -27,7 +36,7 @@ public class Spells : MonoBehaviour
         {
             if (playerLevel >= spell.levelRequired)
             {
-                spell.unlocked = true;
+                spellStateInfo[spell.name].SetUnlocked();
             }
         }
     }
