@@ -12,9 +12,6 @@ public class UIManager : MonoBehaviour
     public Button magicButton;
     public Button itemButton;
 
-    public GameObject potionList;
-    public List<PotionUI> potionUIList;
-
     public List<AddRemoveStat> addRemoves;
 
     public AmountBar healthBar;
@@ -33,38 +30,13 @@ public class UIManager : MonoBehaviour
     public GameObject winPanel;
 
     public MagicHUD MagicHUD;
+    public PotionHUD PotionHUD;
 
     private void Start() 
     {
         attackButton.onClick.AddListener(player.Attack);
         magicButton.onClick.AddListener(ShowMagicList);
         itemButton.onClick.AddListener(ShowPotionList);
-
-        // reset the potions so the buttons can re-link to the potions in the new scene.
-        foreach (ConsumableItem potion in player.inventory.items)
-        {
-            if (potion != null)
-            {
-                potion.marked = false;
-            }
-        }
-
-        foreach(PotionUI potionUI in potionUIList)
-        {
-            foreach (ConsumableItem potion in player.inventory.items)
-            {
-                if(potion != null && !potion.marked)
-                {
-                    potion.marked = true;
-                    potionUI.button.onClick.AddListener(delegate{player.inventory.ConsumeItem(player.inventory.items.IndexOf(potion), player);});
-                    potionUI.item = potion;
-                    break;
-                }
-            }
-        }
-
-        MagicHUD.Init();
-        DisplayPotionAmount();
 
         magicBackButton.onClick.AddListener(HideMagicList);
         potionBackButton.onClick.AddListener(HidePotionList);
@@ -101,38 +73,13 @@ public class UIManager : MonoBehaviour
     public void ShowPotionList()
     {
         DisableButtons();
-        potionList.SetActive(true);
-        DisplayPotionAmount();
+        PotionHUD.Show();
     }
 
     public void HidePotionList()
     {
         EnableButtons();
-        potionList.SetActive(false);
-    }
-
-    private void DisplayPotionAmount()
-    {
-        foreach (PotionUI potionUI in potionUIList)
-        {
-            if(potionUI.item != null)
-            {
-                if (potionUI.item.amount == 0)
-                {
-                    potionUI.item = null;
-                    FadeButtons(potionUI.button, potionUI.text, "N/A");
-                }
-                else
-                {
-                    potionUI.text.text = potionUI.item.itemName + " x" + potionUI.item.amount.ToString();
-                }
-            }
-            else
-            {
-                FadeButtons(potionUI.button, potionUI.text, "N/A");
-            }
-        }
-        
+        PotionHUD.Hide();
     }
     
     public void DeactivateSubtractors()
@@ -185,32 +132,6 @@ public class UIManager : MonoBehaviour
     public void UpdateUIMana()
     {
         manaBar.SetAmount(player.mp, player.maxMP);
-    }
-
-    // For potion list
-    private void FadeButtons(Button button, TextMeshProUGUI text, string message)
-    {
-        const float ButtonFadeAmount = 0.5f;
-
-        // Keep the colour faded and disable the button.
-        Color tempColor = text.color;
-
-        tempColor.a = ButtonFadeAmount;
-        text.color = tempColor;
-
-        text.text = message;
-        
-        button.interactable = false;
-    }
-
-    private void RestoreButtonDefaults(Button button, TextMeshProUGUI text)
-    {
-        Color tempColor = text.color;
-
-        tempColor.a = 1.0f;
-        text.color = tempColor;
-
-        button.interactable = true;
     }
 
     public void ActivateGameOver()

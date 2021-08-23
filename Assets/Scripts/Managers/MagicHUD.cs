@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine.UI;
-using UnityEngine;
 using TMPro;
 
 public class MagicHUD : HUDMenu
 {
     public List<Button> magicButtonList;
 
-    public override void Init()
+    public void Start()
     {
         RefreshMagicList();
     }
