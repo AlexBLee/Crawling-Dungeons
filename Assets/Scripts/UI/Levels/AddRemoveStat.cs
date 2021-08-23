@@ -32,8 +32,6 @@ public class AddRemoveStat : MonoBehaviour
         AudioManager.Instance.Play("AddClick");
         modified = player.AllocatePoints(statType);
         statDisplay.UpdateStats();
-        CheckStatAmount();
-        Debug.Log(modified);
     }
 
     private void RemoveStat()
@@ -41,28 +39,5 @@ public class AddRemoveStat : MonoBehaviour
         AudioManager.Instance.Play("RemoveClick");
         modified = player.DeallocatePoints(statType);
         statDisplay.UpdateStats();
-        CheckStatAmount();
-        Debug.Log(modified);
-
-    }
-
-
-    private void CheckStatAmount()
-    {
-        if(player.statPoints == 0)
-        {
-            uiManager.DeactivateAdders();
-            uiManager.ActivateSubtractors();
-        }
-        else if(player.statPoints == numberOfStatPoints)
-        {
-            uiManager.DeactivateSubtractors();
-            uiManager.ActivateAdders();
-        }
-        else if(player.statPoints > 0)
-        {
-            uiManager.ActivateSubtractors();
-            uiManager.ActivateAdders();
-        }
     }
 }

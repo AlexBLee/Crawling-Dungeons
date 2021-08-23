@@ -12,8 +12,6 @@ public class UIManager : MonoBehaviour
     public Button magicButton;
     public Button itemButton;
 
-    public List<AddRemoveStat> addRemoves;
-
     public AmountBar healthBar;
     public AmountBar manaBar;
 
@@ -31,6 +29,7 @@ public class UIManager : MonoBehaviour
 
     public MagicHUD MagicHUD;
     public PotionHUD PotionHUD;
+    public VictoryPanelHUD VictoryPanelHUD;
 
     private void Start() 
     {
@@ -41,7 +40,6 @@ public class UIManager : MonoBehaviour
         magicBackButton.onClick.AddListener(HideMagicList);
         potionBackButton.onClick.AddListener(HidePotionList);
         pauseButton.onClick.AddListener(ActivatePause);
-
     }
 
     public void DisableButtons()
@@ -81,47 +79,15 @@ public class UIManager : MonoBehaviour
         EnableButtons();
         PotionHUD.Hide();
     }
-    
-    public void DeactivateSubtractors()
+
+    public void ShowVictoryPanel()
     {
-        for(int i = 0; i < addRemoves.Count; i++)
-        {
-            if(!addRemoves[i].modified)
-            {
-                addRemoves[i].minus.gameObject.SetActive(false);
-            }
-        }
+        VictoryPanelHUD.Show();
     }
 
-    public void ActivateSubtractors()
+    public void HideVictoryPanel()
     {
-        for(int i = 0; i < addRemoves.Count; i++)
-        {
-            if(addRemoves[i].modified)
-            {
-                addRemoves[i].minus.gameObject.SetActive(true);
-            }
-            else
-            {
-                addRemoves[i].minus.gameObject.SetActive(false);
-            }
-        }
-    }
-
-    public void DeactivateAdders()
-    {
-        for(int i = 0; i < addRemoves.Count; i++)
-        {
-            addRemoves[i].plus.gameObject.SetActive(false);      
-        }
-    }
-
-    public void ActivateAdders()
-    {
-        for(int i = 0; i < addRemoves.Count; i++)
-        {
-            addRemoves[i].plus.gameObject.SetActive(true);
-        }
+        VictoryPanelHUD.Hide();
     }
 
     public void UpdateUIHealth()
@@ -145,7 +111,7 @@ public class UIManager : MonoBehaviour
         if(winPanel != null)
         {
             DisableButtons();
-            victoryPanel.SetActive(false);
+            HideVictoryPanel();
             winPanel.SetActive(true);
         }
     }

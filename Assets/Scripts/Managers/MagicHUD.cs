@@ -13,14 +13,9 @@ public class MagicHUD : HUDMenu
 
     public override void Show()
     {
-        gameObject.SetActive(true);
+        base.Show();
         RefreshMagicList();
         CheckMagicButtonInteractivity();
-    }
-
-    public override void Hide()
-    {
-        gameObject.SetActive(false);
     }
 
     private void RefreshMagicList()

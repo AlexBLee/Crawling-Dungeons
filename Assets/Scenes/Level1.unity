@@ -268,13 +268,14 @@ GameObject:
   - component: {fileID: 31275072}
   - component: {fileID: 31275074}
   - component: {fileID: 31275073}
+  - component: {fileID: 31275075}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &31275072
 RectTransform:
   m_ObjectHideFlags: 0
@@ -342,6 +343,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31275071}
   m_CullTransparentMesh: 0
+--- !u!114 &31275075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31275071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0302f41326ac164883246e6176e3f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1075298623}
+  addRemoves:
+  - {fileID: 1234366603}
+  - {fileID: 412490841}
+  - {fileID: 1197681905}
+  - {fileID: 611071602}
 --- !u!1 &68796132
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,17 +394,6 @@ MonoBehaviour:
   attackButton: {fileID: 1299836355}
   magicButton: {fileID: 256438349}
   itemButton: {fileID: 754336927}
-  potionList: {fileID: 1771009879}
-  potionUIList:
-  - button: {fileID: 954262405}
-    text: {fileID: 835221990}
-  - button: {fileID: 993212214}
-    text: {fileID: 1607982322}
-  addRemoves:
-  - {fileID: 1234366603}
-  - {fileID: 412490841}
-  - {fileID: 1197681905}
-  - {fileID: 611071602}
   healthBar: {fileID: 986476002}
   manaBar: {fileID: 1232276769}
   magicBackButton: {fileID: 1391364657}
@@ -398,6 +406,7 @@ MonoBehaviour:
   winPanel: {fileID: 0}
   MagicHUD: {fileID: 1498762881}
   PotionHUD: {fileID: 1771009881}
+  VictoryPanelHUD: {fileID: 31275075}
 --- !u!4 &68796134
 Transform:
   m_ObjectHideFlags: 0

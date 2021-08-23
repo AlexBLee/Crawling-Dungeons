@@ -11,13 +11,8 @@ public class PotionHUD : HUDMenu
 
     public override void Show()
     {
-        gameObject.SetActive(true);
+        base.Show();
         DisplayPotionAmount();
-    }
-
-    public override void Hide()
-    {
-        gameObject.SetActive(false);
     }
 
     private void InitializePotionButtons()

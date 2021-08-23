@@ -33,7 +33,6 @@ public class BattleManager : MonoBehaviour
         InitializeEnemiesForBattle();
         SpawnNextEnemy(enemyCounter);
         player.target = enemy;
-        uiManager.victoryPanel.SetActive(false);
     }
 
     private void Update() 
@@ -170,19 +169,13 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            uiManager.victoryPanel.SetActive(true);
+            uiManager.ShowVictoryPanel();
 
             player.Heal((int)(player.maxHP * HpHeal), true);
             player.RestoreMP((int)(player.maxMP * MpHeal), true);
 
             AddRemoveStat.numberOfStatPoints = player.statPoints;
             uiManager.levelNumber.text = player.level.ToString();
-        }
-
-        if(player.statPoints == 0)
-        {
-            uiManager.DeactivateAdders();
-            uiManager.DeactivateSubtractors();
         }
     }
     
