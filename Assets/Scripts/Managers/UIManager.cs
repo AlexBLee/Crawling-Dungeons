@@ -12,9 +12,6 @@ public class UIManager : MonoBehaviour
     public Button magicButton;
     public Button itemButton;
 
-    public GameObject magicList;
-    public List<Button> magicButtonList;
-
     public GameObject potionList;
     public List<PotionUI> potionUIList;
 
@@ -34,6 +31,8 @@ public class UIManager : MonoBehaviour
     public GameObject victoryPanel;
     public GameObject gameOverPanel;
     public GameObject winPanel;
+
+    public MagicHUD MagicHUD;
 
     private void Start() 
     {
@@ -64,7 +63,7 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        RefreshMagicList();
+        MagicHUD.Init();
         DisplayPotionAmount();
 
         magicBackButton.onClick.AddListener(HideMagicList);
@@ -87,56 +86,16 @@ public class UIManager : MonoBehaviour
         itemButton.gameObject.SetActive(true);
     }
 
-    public void RefreshMagicList()
-    {
-        RefreshMagicButtons();
-
-        List<Spell> spellList = player.spells.GetUnlockedSpells();
-
-        for (int i = 0; i < spellList.Count; i++)
-        {
-            Spell spell = spellList[i];
-            Button magicButton = magicButtonList[i];
-
-            magicButton.gameObject.SetActive(true);
-            magicButton.GetComponentInChildren<TextMeshProUGUI>().text = spell.name;
-            magicButton.onClick.AddListener(() => { player.MagicPressed(spell); });
-        }
-    }
-
-    public void RefreshMagicButtons()
-    {
-        foreach (Button button in magicButtonList)
-        {
-            button.gameObject.SetActive(false);
-            button.onClick.RemoveAllListeners();
-        }
-    }
-
     public void ShowMagicList()
     {
         DisableButtons();
-        magicList.SetActive(true);
-        CheckMagicButtonInteractivity();
-    }
-
-    public void CheckMagicButtonInteractivity()
-    {
-        List<Spell> spellList = player.spells.GetUnlockedSpells();
-
-        for (int i = 0; i < spellList.Count; i++)
-        {
-            Spell spell = spellList[i];
-            Button magicButton = magicButtonList[i];
-
-            magicButton.interactable = player.HasEnoughManaForSpell(spell) ? true : false;
-        }
+        MagicHUD.Show();
     }
 
     public void HideMagicList()
     {
         EnableButtons();
-        magicList.SetActive(false);
+        MagicHUD.Hide();
     }
 
     public void ShowPotionList()
