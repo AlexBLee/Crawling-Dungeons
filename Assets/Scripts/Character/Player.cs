@@ -229,7 +229,7 @@ public class Player : CharacterEntity
 
     public override void FinishDeath()
     {
-        uiManager.ActivateGameOver();
+        uiManager.ShowGameOver();
         base.FinishDeath();
     }
 

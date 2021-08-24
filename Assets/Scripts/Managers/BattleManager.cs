@@ -163,7 +163,7 @@ public class BattleManager : MonoBehaviour
         AudioManager.Instance.Play("Victory");
         if (SceneManager.GetActiveScene().buildIndex == FinalLevelNumber)
         {
-            uiManager.ActivateGameWin();
+            uiManager.ShowGameWin();
         }
         else
         {

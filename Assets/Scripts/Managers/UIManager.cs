@@ -11,17 +11,13 @@ public class UIManager : MonoBehaviour
 
     public Button magicBackButton;
     public Button potionBackButton;
-
     public Button pauseButton;
-    public GameObject pauseScreen;
-
-    public GameObject gameOverPanel;
-    public GameObject winPanel;
 
     public MagicHUD MagicHUD;
     public PotionHUD PotionHUD;
     public VictoryPanelHUD VictoryPanelHUD;
     public StatusHUD StatusHUD;
+    public ScreenPanelHUD ScreenPanelHUD;
 
     private void Start() 
     {
@@ -31,7 +27,7 @@ public class UIManager : MonoBehaviour
 
         magicBackButton.onClick.AddListener(HideMagicList);
         potionBackButton.onClick.AddListener(HidePotionList);
-        pauseButton.onClick.AddListener(ActivatePause);
+        pauseButton.onClick.AddListener(ShowPause);
     }
 
     public void DisableButtons()
@@ -82,25 +78,22 @@ public class UIManager : MonoBehaviour
         VictoryPanelHUD.Hide();
     }
 
-    public void ActivateGameOver()
+    public void ShowGameOver()
     {
         DisableButtons();
-        gameOverPanel.SetActive(true);
+        ScreenPanelHUD.ShowGameOver();
     }
 
-    public void ActivateGameWin()
+    public void ShowGameWin()
     {
-        if(winPanel != null)
-        {
-            DisableButtons();
-            HideVictoryPanel();
-            winPanel.SetActive(true);
-        }
+        DisableButtons();
+        HideVictoryPanel();
+        ScreenPanelHUD.ShowGameWin();
     }
 
-    public void ActivatePause()
+    public void ShowPause()
     {
-        pauseScreen.SetActive(true);
+        ScreenPanelHUD.ShowPause();
         Time.timeScale = 0.0f;
     }
 }
