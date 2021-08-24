@@ -361,6 +361,7 @@ MonoBehaviour:
   - {fileID: 412490841}
   - {fileID: 1197681905}
   - {fileID: 611071602}
+  levelNumber: {fileID: 6426164}
 --- !u!1 &68796132
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +399,6 @@ MonoBehaviour:
   manaBar: {fileID: 1232276769}
   magicBackButton: {fileID: 1391364657}
   potionBackButton: {fileID: 1093269235}
-  levelNumber: {fileID: 6426164}
   pauseButton: {fileID: 903645616}
   pauseScreen: {fileID: 411423833}
   victoryPanel: {fileID: 31275071}

@@ -32,6 +32,7 @@ public class AddRemoveStat : MonoBehaviour
         AudioManager.Instance.Play("AddClick");
         modified = player.AllocatePoints(statType);
         statDisplay.UpdateStats();
+        player.CheckStatAmount();
     }
 
     private void RemoveStat()
@@ -39,5 +40,26 @@ public class AddRemoveStat : MonoBehaviour
         AudioManager.Instance.Play("RemoveClick");
         modified = player.DeallocatePoints(statType);
         statDisplay.UpdateStats();
+        player.CheckStatAmount();
+    }
+
+    public void ActivateAdder()
+    {
+        plus.gameObject.SetActive(true);
+    }
+
+    public void DeactivateAdder()
+    {
+        plus.gameObject.SetActive(false);
+    }
+
+    public void ActivateSubtractorIfModified()
+    {
+        minus.gameObject.SetActive(modified ? true : false);
+    }
+
+    public void DeactivateSubtractor()
+    {
+        minus.gameObject.SetActive(false);
     }
 }

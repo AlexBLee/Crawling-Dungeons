@@ -6,6 +6,7 @@ public class Player : CharacterEntity
     [HideInInspector] public Inventory inventory;
     [HideInInspector] public Spells spells;
     public enum StatType { Str, Dex, Intl, Luck };
+    private int originalNumberOfStatPoints = 0;
 
     private void Awake() 
     {
@@ -126,7 +127,6 @@ public class Player : CharacterEntity
         statPoints++;
         UpdateDamageStats();
         return statZero;
-
     }
 
     private Stat AddStat(Stat stat)
@@ -147,6 +147,22 @@ public class Player : CharacterEntity
             stat.modified = false;
         }
         return stat;
+    }
+
+    public void CheckStatAmount()
+    {
+        if (statPoints == 0)
+        {
+            uiManager.VictoryPanelHUD.ActivateModifiedSubtractors();
+        }
+        else if (statPoints == originalNumberOfStatPoints)
+        {
+            uiManager.VictoryPanelHUD.ActivateAddersOnly();
+        }
+        else if (statPoints > 0)
+        {
+            uiManager.VictoryPanelHUD.ActivateAllStatModifiers();
+        }
     }
 
     #endregion
@@ -198,6 +214,17 @@ public class Player : CharacterEntity
         anim.SetBool("Run", true);
         battleManager.battleDone = true;
         battleManager.ToggleNextBattle();
+    }
+
+    public void DeclareVictory()
+    {
+        const float HpHeal = 0.15f;
+        const float MpHeal = 0.15f;
+
+        Heal((int)(maxHP * HpHeal), true);
+        RestoreMP((int)(maxMP * MpHeal), true);
+
+        originalNumberOfStatPoints = statPoints;
     }
 
     public override void FinishDeath()

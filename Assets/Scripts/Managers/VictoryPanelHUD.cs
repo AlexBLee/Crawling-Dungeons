@@ -1,76 +1,65 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class VictoryPanelHUD : HUDMenu
 {
-    public List<AddRemoveStat> addRemoves;
-    private int originalNumberOfStatPoints = 0;
+    [SerializeField] private List<AddRemoveStat> addRemoves;
+    [SerializeField] private TextMeshProUGUI levelNumber;
 
     public override void Show()
     {
         base.Show();
-        originalNumberOfStatPoints = player.statPoints;
+        levelNumber.text = player.level.ToString();
     }
 
-    public void DeactivateSubtractors()
+    private void DeactivateSubtractors()
     {
         for (int i = 0; i < addRemoves.Count; i++)
         {
-            if (!addRemoves[i].modified)
-            {
-                addRemoves[i].minus.gameObject.SetActive(false);
-            }
+            addRemoves[i].DeactivateSubtractor();
         }
     }
 
-    public void ActivateSubtractors()
+    private void ActivateSubtractorsIfModified()
     {
         for (int i = 0; i < addRemoves.Count; i++)
         {
-            if (addRemoves[i].modified)
-            {
-                addRemoves[i].minus.gameObject.SetActive(true);
-            }
-            else
-            {
-                addRemoves[i].minus.gameObject.SetActive(false);
-            }
+            addRemoves[i].ActivateSubtractorIfModified();
         }
     }
 
-    public void DeactivateAdders()
+    private void DeactivateAdders()
     {
         for (int i = 0; i < addRemoves.Count; i++)
         {
-            addRemoves[i].plus.gameObject.SetActive(false);      
+            addRemoves[i].DeactivateAdder();    
         }
     }
 
-    public void ActivateAdders()
+    private void ActivateAdders()
     {
         for (int i = 0; i < addRemoves.Count; i++)
         {
-            addRemoves[i].plus.gameObject.SetActive(true);
+            addRemoves[i].ActivateAdder();
         }
     }
 
-    private void CheckStatAmount()
+    public void ActivateAddersOnly()
     {
-        if (player.statPoints == 0)
-        {
-            DeactivateAdders();
-            ActivateSubtractors();
-        }
-        else if (player.statPoints == originalNumberOfStatPoints)
-        {
-            DeactivateSubtractors();
-            ActivateAdders();
-        }
-        else if (player.statPoints > 0)
-        {
-            ActivateSubtractors();
-            ActivateAdders();
-        }
+        DeactivateSubtractors();
+        ActivateAdders();
+    }
+
+    public void ActivateModifiedSubtractors()
+    {
+        DeactivateAdders();
+        ActivateSubtractorsIfModified();
+    }
+
+    public void ActivateAllStatModifiers()
+    {
+        ActivateSubtractorsIfModified();
+        ActivateAdders();
     }
 }

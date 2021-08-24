@@ -18,8 +18,6 @@ public class UIManager : MonoBehaviour
     public Button magicBackButton;
     public Button potionBackButton;
 
-    public TextMeshProUGUI levelNumber;
-
     public Button pauseButton;
     public GameObject pauseScreen;
 

@@ -159,23 +159,16 @@ public class BattleManager : MonoBehaviour
     public void DeclareVictory()
     {
         const int FinalLevelNumber = 8;
-        const float HpHeal = 0.15f;
-        const float MpHeal = 0.15f;
 
         AudioManager.Instance.Play("Victory");
-        if(SceneManager.GetActiveScene().buildIndex == FinalLevelNumber)
+        if (SceneManager.GetActiveScene().buildIndex == FinalLevelNumber)
         {
             uiManager.ActivateGameWin();
         }
         else
         {
             uiManager.ShowVictoryPanel();
-
-            player.Heal((int)(player.maxHP * HpHeal), true);
-            player.RestoreMP((int)(player.maxMP * MpHeal), true);
-
-            AddRemoveStat.numberOfStatPoints = player.statPoints;
-            uiManager.levelNumber.text = player.level.ToString();
+            player.DeclareVictory();
         }
     }
     
