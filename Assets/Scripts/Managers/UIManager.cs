@@ -94,6 +94,5 @@ public class UIManager : MonoBehaviour
     public void ShowPause()
     {
         ScreenPanelHUD.ShowPause();
-        Time.timeScale = 0.0f;
     }
 }
