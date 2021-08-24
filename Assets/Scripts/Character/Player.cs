@@ -22,8 +22,8 @@ public class Player : CharacterEntity
 
         if(uiManager != null)
         {
-            uiManager.UpdateUIHealth();
-            uiManager.UpdateUIMana();
+            uiManager.StatusHUD.UpdateUIHealth();
+            uiManager.StatusHUD.UpdateUIMana();
         }
 
         UpdateDamageStats();
@@ -64,7 +64,7 @@ public class Player : CharacterEntity
             spellUsed = spell;
             mp -= spellUsed.cost;
             
-            uiManager.UpdateUIMana();
+            uiManager.StatusHUD.UpdateUIMana();
 
             RangedAttack();
         }
@@ -196,8 +196,8 @@ public class Player : CharacterEntity
             inventory.UpdateItemStats();
 
             yield return new WaitForSeconds(LevelDelayTime);
-            uiManager.healthBar.SetAmount(hp,maxHP);
-            uiManager.manaBar.SetAmount(mp,maxMP);
+            uiManager.StatusHUD.UpdateUIHealth();
+            uiManager.StatusHUD.UpdateUIMana();
             uiManager.MagicHUD.Init();
             infoText.text = "Level up!";
             Instantiate(infoText, transform.position, Quaternion.identity);

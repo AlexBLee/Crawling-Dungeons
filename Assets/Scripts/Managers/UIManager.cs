@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,22 +9,19 @@ public class UIManager : MonoBehaviour
     public Button magicButton;
     public Button itemButton;
 
-    public AmountBar healthBar;
-    public AmountBar manaBar;
-
     public Button magicBackButton;
     public Button potionBackButton;
 
     public Button pauseButton;
     public GameObject pauseScreen;
 
-    public GameObject victoryPanel;
     public GameObject gameOverPanel;
     public GameObject winPanel;
 
     public MagicHUD MagicHUD;
     public PotionHUD PotionHUD;
     public VictoryPanelHUD VictoryPanelHUD;
+    public StatusHUD StatusHUD;
 
     private void Start() 
     {
@@ -86,16 +80,6 @@ public class UIManager : MonoBehaviour
     public void HideVictoryPanel()
     {
         VictoryPanelHUD.Hide();
-    }
-
-    public void UpdateUIHealth()
-    {
-        healthBar.SetAmount(player.hp, player.maxHP);
-    }
-
-    public void UpdateUIMana()
-    {
-        manaBar.SetAmount(player.mp, player.maxMP);
     }
 
     public void ActivateGameOver()

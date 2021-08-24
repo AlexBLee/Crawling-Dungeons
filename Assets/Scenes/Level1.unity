@@ -395,18 +395,16 @@ MonoBehaviour:
   attackButton: {fileID: 1299836355}
   magicButton: {fileID: 256438349}
   itemButton: {fileID: 754336927}
-  healthBar: {fileID: 986476002}
-  manaBar: {fileID: 1232276769}
   magicBackButton: {fileID: 1391364657}
   potionBackButton: {fileID: 1093269235}
   pauseButton: {fileID: 903645616}
   pauseScreen: {fileID: 411423833}
-  victoryPanel: {fileID: 31275071}
   gameOverPanel: {fileID: 1431259570}
   winPanel: {fileID: 0}
   MagicHUD: {fileID: 1498762881}
   PotionHUD: {fileID: 1771009881}
   VictoryPanelHUD: {fileID: 31275075}
+  StatusHUD: {fileID: 309717379}
 --- !u!4 &68796134
 Transform:
   m_ObjectHideFlags: 0
@@ -1386,6 +1384,7 @@ GameObject:
   - component: {fileID: 309717376}
   - component: {fileID: 309717378}
   - component: {fileID: 309717377}
+  - component: {fileID: 309717379}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -1459,6 +1458,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309717375}
   m_CullTransparentMesh: 0
+--- !u!114 &309717379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309717375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad6743e74a2b9547bf5bb61d3f433ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1075298623}
+  healthBar: {fileID: 986476002}
+  manaBar: {fileID: 1232276769}
 --- !u!1 &341455014
 GameObject:
   m_ObjectHideFlags: 0

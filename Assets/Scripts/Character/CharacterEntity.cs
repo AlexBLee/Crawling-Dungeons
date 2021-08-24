@@ -237,7 +237,7 @@ public class CharacterEntity : MonoBehaviour
         }
         else
         {
-            uiManager.UpdateUIHealth();
+            uiManager.StatusHUD.UpdateUIHealth();
             target.CheckDeath();
         }
 
@@ -312,7 +312,7 @@ public class CharacterEntity : MonoBehaviour
         }
         else
         {
-            uiManager.UpdateUIHealth();
+            uiManager.StatusHUD.UpdateUIHealth();
             target.GetComponent<Player>().CheckDeath();
         }
         spellUsed = null;
@@ -349,7 +349,7 @@ public class CharacterEntity : MonoBehaviour
             anim.SetTrigger("Heal");
         }
 
-        uiManager.UpdateUIHealth();
+        uiManager.StatusHUD.UpdateUIHealth();
 
     }
 
@@ -377,7 +377,7 @@ public class CharacterEntity : MonoBehaviour
             anim.SetTrigger("Heal");
         }
 
-        uiManager.UpdateUIMana();
+        uiManager.StatusHUD.UpdateUIMana();
     }
 
     #endregion
