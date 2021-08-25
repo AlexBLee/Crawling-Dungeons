@@ -22,8 +22,7 @@ public class Player : CharacterEntity
 
         if(uiManager != null)
         {
-            uiManager.StatusHUD.UpdateUIHealth();
-            uiManager.StatusHUD.UpdateUIMana();
+            uiManager.StatusHUD.UpdateAllBars();
         }
 
         UpdateDamageStats();

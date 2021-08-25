@@ -12,4 +12,10 @@
     {
         manaBar.SetAmount(player.mp, player.maxMP);
     }
+
+    public void UpdateAllBars()
+    {
+        UpdateUIHealth();
+        UpdateUIMana();
+    }
 }
