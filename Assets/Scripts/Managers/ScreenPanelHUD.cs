@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO: If we want to add additional features to each screen, we should separate the screen into its own class.
 public class ScreenPanelHUD : HUDMenu
 {
     public GameObject pauseScreen;
