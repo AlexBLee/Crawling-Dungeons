@@ -158,7 +158,7 @@ public class BattleManager : MonoBehaviour
 
     public void DeclareVictory()
     {
-        const int FinalLevelNumber = 8;
+        const int FinalLevelNumber = 7;
 
         AudioManager.Instance.Play("Victory");
         if (SceneManager.GetActiveScene().buildIndex == FinalLevelNumber)
