@@ -5,10 +5,6 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     private Player player;
-    private bool isEmpty = true;
-    private int indexOfItem;
-
-    public static int listIndex;
 
     public List<EquippableItem> equips = new List<EquippableItem>();
     public List<Item> items = new List<Item>();
@@ -57,29 +53,18 @@ public class Inventory : MonoBehaviour
     {
         int index = LookForFreeInventorySpace();
 
-        // If the added item is a Consumable item, it is stackable
-        if(item is ConsumableItem)
+        if (item is ConsumableItem && IsItemExisting(item.itemName))
         {
-            // Find if the added item already exists in the inventory
-            if(IsItemExisting(item.itemName))
-            {
-                // If an item is found, stack it.
-                if(items[indexOfItem] != null)
-                {
-                    items[indexOfItem].amount++;
-                    inventoryDisplay.UpdateItemAmount(indexOfItem);
-                    return 0;
-                }
-            }
-            else
-            {
-                listIndex++;
-            }
+            int itemIndex = items.IndexOf(item);
+
+            items[itemIndex].amount++;
+            inventoryDisplay.UpdateItemAmount(itemIndex);
+            return 0;
         }
 
+        item.amount++;
         items[index] = item;
         inventoryDisplay.AddItemImage(item,index);
-        isEmpty = false;
         return index;
     }
 
@@ -144,11 +129,6 @@ public class Inventory : MonoBehaviour
 
         inventoryDisplay.UpdateItemAmount(index);
         inventoryDisplay.RemoveItemImage(index);
-
-        if(items.Count(c => c != null) == 0)
-        {
-            isEmpty = true;
-        }
     }
 
     public void EquipItem(int invIndex, int equipIndex)
@@ -320,13 +300,12 @@ public class Inventory : MonoBehaviour
 
     public bool IsItemExisting(string itemName)
     {
-        for(int i = 0; i < items.Count; i++)
+        for (int i = 0; i < items.Count; i++)
         {
-            if(items[i] != null)
+            if (items[i] != null)
             {
-                if(items[i].itemName == itemName)
+                if (items[i].itemName == itemName)
                 {
-                    indexOfItem = i;
                     return true;
                 }
             }

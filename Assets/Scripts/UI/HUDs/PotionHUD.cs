@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 public class PotionHUD : HUDMenu
 {
@@ -17,12 +18,9 @@ public class PotionHUD : HUDMenu
 
     private void InitializePotionButtons()
     {
-        List<ConsumableItem> consumableItems = new List<ConsumableItem>();
-
-        foreach (ConsumableItem potion in player.inventory.items)
-        {
-            consumableItems.Add(potion);
-        }
+        List<ConsumableItem> consumableItems = player.inventory.items
+                                                .Where(item => item is ConsumableItem)
+                                                .Cast<ConsumableItem>().ToList();
 
         for (int i = 0; i < potionUIList.Count; i++)
         {
