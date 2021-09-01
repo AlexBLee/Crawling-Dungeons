@@ -11,7 +11,7 @@ The game is available here:
 | ------------- | ------------- |
 ### Downloading the source code
 
-To open the project, make sure you have **Unity version 2018.3.10f1** and clone the repository:
+To open the project, make sure you have **Unity version 2020.1.7f1** and clone the repository:
 
 ```
 git clone https://github.com/AlexBLee/Crawling-Dungeons.git
@@ -19,7 +19,7 @@ git clone https://github.com/AlexBLee/Crawling-Dungeons.git
 
 ## Documentation
 
-[Enemy/Level Creator](CreatorDocumentation.md)
+<strike>[Enemy/Level Creator](CreatorDocumentation.md)</strike> (deprecated)
 
 ## Credits
 
