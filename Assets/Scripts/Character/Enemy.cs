@@ -10,7 +10,7 @@ public class Enemy : CharacterEntity
     public bool newBattle;
     [SerializeField] private Vector3 fightPosition;
     [SerializeField] private bool canHeal;
-    private int healCounter = 1;
+    private int healCounter = 2;
 
     private void Start() 
     {   
@@ -80,9 +80,9 @@ public class Enemy : CharacterEntity
     {
         const int HealCounterDefault = 2;
         const float BonusDamage = 1.07f;
-        const float EnemyLowHealthPercentage = 0.40f;
+        const float EnemyLowHealthPercentage = 0.20f;
         const float SelfLowHealthPercentage = 0.30f;
-        const float HealFactor = 0.15f;
+        const float HealFactor = 0.10f;
 
         if (hp < maxHP * SelfLowHealthPercentage && canHeal)
         {

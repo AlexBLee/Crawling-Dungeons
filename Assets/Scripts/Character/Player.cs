@@ -224,6 +224,7 @@ public class Player : CharacterEntity
         RestoreMP((int)(maxMP * MpHeal), true);
 
         originalNumberOfStatPoints = statPoints;
+        CheckStatAmount();
     }
 
     public override void FinishDeath()

@@ -22,7 +22,7 @@ public class PotionHUD : HUDMenu
                                                 .Where(item => item is ConsumableItem)
                                                 .Cast<ConsumableItem>().ToList();
 
-        for (int i = 0; i < potionUIList.Count; i++)
+        for (int i = 0; i < consumableItems.Count; i++)
         {
             ConsumableItem potion = consumableItems[i];
             PotionUI potionUI = potionUIList[i];

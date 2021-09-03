@@ -9,9 +9,9 @@
     public const int InitialStatAmount = 20;
 
     public const int ExpThresholdGrowth = 200;
-    public const int StatPointsGrowth = 3;
-    public const int HpGrowth = 10;
-    public const int MpGrowth = 10;
+    public const int StatPointsGrowth = 6;
+    public const int HpGrowth = 20;
+    public const int MpGrowth = 20;
     public const int StatAmountGrowth = 3;
 
     public const int MinDamageStrCalc = 3;
