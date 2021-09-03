@@ -264,6 +264,9 @@ public class CharacterEntity : MonoBehaviour
             infoText.text = "Miss!";
             AudioManager.Instance.Play("Woosh");
             Instantiate(infoText, target.transform.position, Quaternion.identity);
+
+            // TODO: When fixes to this function are implemented, have this be done somewhere else.
+            battleManager.BeginWait();
             return;
         }
         
