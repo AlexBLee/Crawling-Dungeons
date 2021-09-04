@@ -53,6 +53,7 @@ public class Player : CharacterEntity
             infoText.color = NotEnoughManaColor;
             infoText.text = "Not enough mana!";
             Instantiate(infoText, transform.position, Quaternion.identity);
+            infoText.color = Color.white;
         }
         else
         {

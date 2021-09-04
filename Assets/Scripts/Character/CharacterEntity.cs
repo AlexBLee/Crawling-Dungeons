@@ -214,10 +214,6 @@ public class CharacterEntity : MonoBehaviour
             
             infoText.color = Color.yellow;
         }
-        else
-        {
-            infoText.color = Color.white;
-        }
 
         damage += additionalDamage;
 
@@ -242,6 +238,7 @@ public class CharacterEntity : MonoBehaviour
         }
 
         additionalDamage = 0;
+        infoText.color = Color.white;
     }
 
     // Currently a seperate funciton due to magic possibly not being just a basic attack?
@@ -293,10 +290,6 @@ public class CharacterEntity : MonoBehaviour
             
             infoText.color = Color.yellow;
         }
-        else
-        {
-            infoText.color = Color.white;
-        }
 
         // Apply damage
         target.hp -= damage;
@@ -319,6 +312,7 @@ public class CharacterEntity : MonoBehaviour
             target.GetComponent<Player>().CheckDeath();
         }
         spellUsed = null;
+        infoText.color = Color.white;
     }
  
     // Next turn setting + damage is done through animation
@@ -350,6 +344,7 @@ public class CharacterEntity : MonoBehaviour
             Instantiate(infoText, transform.position, Quaternion.identity);
             AudioManager.Instance.Play("UsePotion");
             anim.SetTrigger("Heal");
+            infoText.color = Color.white;
         }
 
         uiManager.StatusHUD.UpdateUIHealth();
@@ -378,6 +373,7 @@ public class CharacterEntity : MonoBehaviour
             Instantiate(infoText, transform.position, Quaternion.identity);
             AudioManager.Instance.Play("UsePotion");
             anim.SetTrigger("Heal");
+            infoText.color = Color.white;
         }
 
         uiManager.StatusHUD.UpdateUIMana();
