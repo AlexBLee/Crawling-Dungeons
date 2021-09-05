@@ -57,7 +57,7 @@ public class Player : CharacterEntity
         }
         else
         {
-            AudioManager.Instance.Play(spell.name);
+            AudioManager.Instance.PlaySound(spell.name);
             uiManager.HideMagicList();
 
             Debug.Log("Casted: " + spell.name);

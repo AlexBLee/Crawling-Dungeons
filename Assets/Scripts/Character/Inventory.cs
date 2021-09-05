@@ -72,7 +72,7 @@ public class Inventory : MonoBehaviour
     {
         if(gold >= item.cost)
         {
-            AudioManager.Instance.Play("Buy");
+            AudioManager.Instance.PlaySound("Buy");
             gold -= item.cost;
             shopDisplay.UpdateGold();
             Debug.Log("Bought " + item.itemName);
@@ -97,7 +97,7 @@ public class Inventory : MonoBehaviour
     public void SellItem(int index)
     {
         Item item = items[index];
-        AudioManager.Instance.Play("Buy");
+        AudioManager.Instance.PlaySound("Buy");
 
         const float SellFactor = 0.5f;
         int sellPrice = (int)((float)item.cost * SellFactor);
@@ -122,7 +122,7 @@ public class Inventory : MonoBehaviour
         // selling bool is only to differ between sounds
         if(!selling)
         {
-            AudioManager.Instance.Play("Trash");
+            AudioManager.Instance.PlaySound("Trash");
         }
         itemPopup.gameObject.SetActive(false);
         items[index] = null;
@@ -194,13 +194,13 @@ public class Inventory : MonoBehaviour
     {
         if(item is ArmorItem)
         {
-            AudioManager.Instance.Play("ArmorEquip");
+            AudioManager.Instance.PlaySound("ArmorEquip");
             ArmorItem armor = (ArmorItem)item;
             player.def += armor.defense;
         }
         else if(item is WeaponItem)
         {
-            AudioManager.Instance.Play("WeaponEquip");
+            AudioManager.Instance.PlaySound("WeaponEquip");
             WeaponItem wpn = (WeaponItem)item;
             if(wpn.isMagic)
             {

@@ -187,7 +187,7 @@ public class CharacterEntity : MonoBehaviour
         if (missChance < target.dodgeChance)
         {
             infoText.text = "Miss!";
-            AudioManager.Instance.Play("Woosh");
+            AudioManager.Instance.PlaySound("Woosh");
             Instantiate(infoText, target.transform.position, Quaternion.identity);
             return;
         }
@@ -220,7 +220,7 @@ public class CharacterEntity : MonoBehaviour
         // Apply damage
         target.hp -= damage;
         target.anim.SetTrigger("Hit");
-        AudioManager.Instance.Play("SlashHit");
+        AudioManager.Instance.PlaySound("SlashHit");
         
         // Spawning text
         infoText.text = damage.ToString();
@@ -259,7 +259,7 @@ public class CharacterEntity : MonoBehaviour
         if (missChance < target.dodgeChance)
         {
             infoText.text = "Miss!";
-            AudioManager.Instance.Play("Woosh");
+            AudioManager.Instance.PlaySound("Woosh");
             Instantiate(infoText, target.transform.position, Quaternion.identity);
 
             // TODO: When fixes to this function are implemented, have this be done somewhere else.
@@ -295,7 +295,7 @@ public class CharacterEntity : MonoBehaviour
         target.hp -= damage;
         spellUsed.UseSpellEffect(target);
         target.anim.SetTrigger("Hit");
-        AudioManager.Instance.Play("SlashHit");
+        AudioManager.Instance.PlaySound("SlashHit");
 
         // Spawn text
         infoText.text = damage.ToString();
@@ -342,7 +342,7 @@ public class CharacterEntity : MonoBehaviour
             infoText.text = amount.ToString();
             infoText.color = Color.green;
             Instantiate(infoText, transform.position, Quaternion.identity);
-            AudioManager.Instance.Play("UsePotion");
+            AudioManager.Instance.PlaySound("UsePotion");
             anim.SetTrigger("Heal");
             infoText.color = Color.white;
         }
@@ -371,7 +371,7 @@ public class CharacterEntity : MonoBehaviour
             infoText.text = amount.ToString();
             infoText.color = Color.cyan;
             Instantiate(infoText, transform.position, Quaternion.identity);
-            AudioManager.Instance.Play("UsePotion");
+            AudioManager.Instance.PlaySound("UsePotion");
             anim.SetTrigger("Heal");
             infoText.color = Color.white;
         }
@@ -413,7 +413,7 @@ public class CharacterEntity : MonoBehaviour
 
     public void PlaySound(string n)
     {
-        AudioManager.Instance.Play(n);
+        AudioManager.Instance.PlaySound(n);
     }
 
     private void ToggleNextTurn()

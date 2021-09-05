@@ -12,7 +12,7 @@ public class SpellFunctions : MonoBehaviour
 
     public void PlaySound(string n)
     {
-        AudioManager.Instance.Play(n);
+        AudioManager.Instance.PlaySound(n);
     }
 
     public void MagicAnimationFinish()

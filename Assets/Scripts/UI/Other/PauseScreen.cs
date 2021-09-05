@@ -7,7 +7,6 @@ public class PauseScreen : MonoBehaviour
 {
     public Button mainMenuButton;
     public Button resumeButton;
-    public AudioMixer audioMixer;
     public Slider musicSlider;
     public Slider soundEffectSlider;
 
@@ -16,9 +15,8 @@ public class PauseScreen : MonoBehaviour
         mainMenuButton.onClick.AddListener(GoToMainMenu);
         resumeButton.onClick.AddListener(ResumeGame);
 
-        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
-        soundEffectSlider.value = PlayerPrefs.GetFloat("SoundEffectVolume", 0.75f);
-
+        musicSlider.value = AudioManager.Instance.GetMusicVolumeLevel();
+        soundEffectSlider.value = AudioManager.Instance.GetSoundEffectVolumeLevel();
     }
 
     private void GoToMainMenu()
@@ -35,14 +33,12 @@ public class PauseScreen : MonoBehaviour
 
     public void SetMusicVolumeLevel(float sliderValue)
     {
-        audioMixer.SetFloat("Music", Mathf.Log10(sliderValue) * 20);
-        PlayerPrefs.SetFloat("MusicVolume", sliderValue);
+        AudioManager.Instance.SetMusicVolumeLevel(sliderValue);
     }
 
     public void SetSoundEffectVolumeLevel(float sliderValue)
     {
-        audioMixer.SetFloat("SoundEffect", Mathf.Log10(sliderValue) * 20);
-        PlayerPrefs.SetFloat("SoundEffectVolume", sliderValue);
+        AudioManager.Instance.SetSoundEffectVolumeLevel(sliderValue);
     }
     
 }

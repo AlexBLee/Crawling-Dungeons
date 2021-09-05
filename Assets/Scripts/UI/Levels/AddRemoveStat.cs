@@ -29,7 +29,7 @@ public class AddRemoveStat : MonoBehaviour
 
     private void AddStat()
     {
-        AudioManager.Instance.Play("AddClick");
+        AudioManager.Instance.PlaySound("AddClick");
         modified = player.AllocatePoints(statType);
         statDisplay.UpdateStats();
         player.CheckStatAmount();
@@ -37,7 +37,7 @@ public class AddRemoveStat : MonoBehaviour
 
     private void RemoveStat()
     {
-        AudioManager.Instance.Play("RemoveClick");
+        AudioManager.Instance.PlaySound("RemoveClick");
         modified = player.DeallocatePoints(statType);
         statDisplay.UpdateStats();
         player.CheckStatAmount();
