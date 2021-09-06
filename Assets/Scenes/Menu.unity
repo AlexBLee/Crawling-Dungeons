@@ -349,7 +349,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 53.55
+  m_fontSize: 35.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1379,7 +1379,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 119.15
+  m_fontSize: 79.4
   m_fontSizeBase: 109.8
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1647,6 +1647,31 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Woosh
     clip: {fileID: 8300000, guid: 30fe11abfa28c9341a30eba8b9377e51, type: 3}
+    volume: 0.7
+    pitch: 1
+    source: {fileID: 0}
+  - name: Buy
+    clip: {fileID: 8300000, guid: 749cf9f0e17c820459846dbb166fc5fc, type: 3}
+    volume: 0.7
+    pitch: 1
+    source: {fileID: 0}
+  - name: Trash
+    clip: {fileID: 8300000, guid: 38772d7809486704eb3e2c33f58198ff, type: 3}
+    volume: 0.7
+    pitch: 1
+    source: {fileID: 0}
+  - name: Bag
+    clip: {fileID: 8300000, guid: 190153575489eb043b0634563a12300a, type: 3}
+    volume: 0.7
+    pitch: 1
+    source: {fileID: 0}
+  - name: ArmorEquip
+    clip: {fileID: 8300000, guid: d6f8174af41d33c46a2e1f45bcf91a57, type: 3}
+    volume: 0.7
+    pitch: 1
+    source: {fileID: 0}
+  - name: WeaponEquip
+    clip: {fileID: 8300000, guid: 563dfd39b9b39c54b8655d2e0aed8de6, type: 3}
     volume: 0.7
     pitch: 1
     source: {fileID: 0}

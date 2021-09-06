@@ -7,6 +7,13 @@ public class EquippableItem : Item
     public float durability;
     public int itemType;
     
+    public virtual void AddStatsToPlayer(Player player)
+    {
+    }
+
+    public virtual void RemoveStatsFromPlayer(Player player)
+    {
+    }
     
 
 }

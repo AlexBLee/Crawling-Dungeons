@@ -135,19 +135,19 @@ public class Inventory : MonoBehaviour
     {
         itemPopup.gameObject.SetActive(false);
 
-        EquippableItem tempItem = (EquippableItem)inventoryDisplay.items[invIndex];
+        EquippableItem itemToEquip = (EquippableItem)inventoryDisplay.items[invIndex];
 
-        if(equips[equipIndex] != null)
+        if (equips[equipIndex] != null)
         {
             EquippableItem equippedItem = equips[equipIndex];
             AddItem(equips[equipIndex]);
 
-            RemoveItemStats(equippedItem);
+            equippedItem.RemoveStatsFromPlayer(player);
         }
 
-        AddItemStats(tempItem);
+        equips[equipIndex] = itemToEquip;
 
-        equips[equipIndex] = tempItem;
+        itemToEquip.AddStatsToPlayer(player);
         inventoryDisplay.AddEquippedItemImage(equips[equipIndex], equips[equipIndex].itemType);
 
         inventoryDisplay.items[invIndex] = null;
@@ -159,17 +159,16 @@ public class Inventory : MonoBehaviour
     {
         itemPopup.gameObject.SetActive(false);
 
-        Item tempItem = equips[index];
+        EquippableItem equippableItem = equips[index];
 
         inventoryDisplay.equippedItems[index] = null;
         inventoryDisplay.RemoveEquippedItemImage(index);
 
         equips[index] = null;
 
-        // For swapping equips
-        RemoveItemStats(tempItem);
+        equippableItem.RemoveStatsFromPlayer(player);
 
-        AddItem(tempItem);
+        AddItem(equippableItem);
     }
 
     public void ConsumeItem(int index, CharacterEntity character)
@@ -190,79 +189,13 @@ public class Inventory : MonoBehaviour
 
     // -----------------------------------------------------------------------------
 
-    public void AddItemStats(Item item)
-    {
-        if(item is ArmorItem)
-        {
-            AudioManager.Instance.PlaySound("ArmorEquip");
-            ArmorItem armor = (ArmorItem)item;
-            player.def += armor.defense;
-        }
-        else if(item is WeaponItem)
-        {
-            AudioManager.Instance.PlaySound("WeaponEquip");
-            WeaponItem wpn = (WeaponItem)item;
-            if(wpn.isMagic)
-            {
-                player.magicMinDamage += wpn.minDamage;
-                player.magicMaxDamage += wpn.maxDamage;
-            }
-            else
-            {
-                player.minDamage += wpn.minDamage;
-                player.maxDamage += wpn.maxDamage;
-            }
-        }
-    }
-
-    public void RemoveItemStats(Item item)
-    {
-        if(item is ArmorItem)
-        {
-            ArmorItem armor = (ArmorItem)item;
-            player.def -= armor.defense;
-        }
-        else if(item is WeaponItem)
-        {
-            WeaponItem wpn = (WeaponItem)item;
-            if(wpn.isMagic)
-            {
-                player.magicMinDamage -= wpn.minDamage;
-                player.magicMaxDamage -= wpn.maxDamage;
-            }
-            else
-            {
-                player.minDamage -= wpn.minDamage;
-                player.maxDamage -= wpn.maxDamage;
-            }
-        }
-    }
-
     public void UpdateItemStats()
     {
         for(int i = 0; i < equips.Count; i++)
         {
             if(equips[i] != null)
             {
-                if(equips[i] is ArmorItem)
-                {
-                    ArmorItem tempItem = (ArmorItem)equips[i];
-                    player.def += tempItem.defense;
-                }
-                else if(equips[i] is WeaponItem)
-                {
-                    WeaponItem tempItem = (WeaponItem)equips[i];
-                    if(tempItem.isMagic)
-                    {
-                        player.magicMinDamage += tempItem.minDamage;
-                        player.magicMaxDamage += tempItem.maxDamage;
-                    }
-                    else
-                    {
-                        player.minDamage += tempItem.minDamage;
-                        player.maxDamage += tempItem.maxDamage;
-                    }
-                }
+                equips[i].AddStatsToPlayer(player);
             }
         }
     }
