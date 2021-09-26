@@ -323,6 +323,11 @@ public class CharacterEntity : MonoBehaviour
 
     #endregion
 
+    public void PlaySound(string n)
+    {
+        AudioManager.Instance.PlaySound(n);
+    }
+    
     private void ToggleNextTurn()
     {
         StartCoroutine(battleManager.ToggleNextTurn());
