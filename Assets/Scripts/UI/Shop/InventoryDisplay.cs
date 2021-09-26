@@ -71,20 +71,20 @@ public class InventoryDisplay : MonoBehaviour
     private void UpdateInventory()
     {
         // Updating item inventory
-        for(int i = 0; i < items.Count; i++)
+        for (int i = 0; i < items.Count; i++)
         {
-            if(items[i] != null)
+            if (items[i] != null)
             {
-                images[i].sprite = items[i].image;
+                images[i].sprite = GameDatabase.instance.GetSprite(items[i].itemName);
             }
         }
 
         // Updating equip inventory
-        for(int i = 0; i < equippedItems.Count; i++)
+        for (int i = 0; i < equippedItems.Count; i++)
         {
-            if(equippedItems[i] != null)
+            if (equippedItems[i] != null)
             {
-                equippedImages[i].sprite = equippedItems[i].image;
+                equippedImages[i].sprite = GameDatabase.instance.GetSprite(equippedItems[i].itemName);
             }
         }
     }
@@ -92,9 +92,9 @@ public class InventoryDisplay : MonoBehaviour
     public void AddItemImage(Item item, int index)
     {
         items[index] = item;
-        images[index].sprite = items[index].image;
+        images[index].sprite = GameDatabase.instance.GetSprite(item.itemName);;
 
-        if(notFront)
+        if (notFront)
         {
             count = tempIndex;
         }
@@ -108,7 +108,7 @@ public class InventoryDisplay : MonoBehaviour
     public void AddEquippedItemImage(EquippableItem item, int index)
     {
         equippedItems[index] = item;
-        equippedImages[index].sprite = item.image;
+        equippedImages[index].sprite = GameDatabase.instance.GetSprite(item.itemName);
     }
 
     public void RemoveItemImage(int index)

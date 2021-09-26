@@ -3,7 +3,6 @@ using Newtonsoft.Json.Linq;
 
 public class ItemFactory
 {
-    private const string ItemTypeKey = "itemType";
 
     public enum ItemType
     {
@@ -19,50 +18,38 @@ public class ItemFactory
 
     public static Item CreateItem(JToken itemToken)
     {
+        const string ItemTypeKey = "itemType";
         ItemType itemType = (ItemType)(int)itemToken[ItemTypeKey];
         string itemJson = itemToken.ToString();
-        Item item = null;
 
         switch (itemType)
         {
             case ItemType.Helmet:
-                item = JsonConvert.DeserializeObject<Helmet>(itemJson);
-                break;
+                return JsonConvert.DeserializeObject<Helmet>(itemJson);
 
             case ItemType.Upper:
-                item = JsonConvert.DeserializeObject<Upper>(itemJson);
-                break;
+                return JsonConvert.DeserializeObject<Upper>(itemJson);
 
             case ItemType.RightHand:
-                item = JsonConvert.DeserializeObject<RightHand>(itemJson);
-                break;
+                return JsonConvert.DeserializeObject<RightHand>(itemJson);
 
             case ItemType.LeftHand:
-                item = JsonConvert.DeserializeObject<LeftHand>(itemJson);
-                break;
+                return JsonConvert.DeserializeObject<LeftHand>(itemJson);
 
             case ItemType.Lower:
-                item = JsonConvert.DeserializeObject<Lower>(itemJson);
-                break;
+                return JsonConvert.DeserializeObject<Lower>(itemJson);
 
             case ItemType.Boots:
-                item = JsonConvert.DeserializeObject<Boots>(itemJson);
-                break;
+                return JsonConvert.DeserializeObject<Boots>(itemJson);
 
-            // TODO: Find a way to deserialize more types of pots without bloating the code.
             case ItemType.HealthPot:
-                item = JsonConvert.DeserializeObject<HealthPot>(itemJson);
-                break;
+                return JsonConvert.DeserializeObject<HealthPot>(itemJson);
             
             case ItemType.ManaPot:
-                item = JsonConvert.DeserializeObject<ManaPot>(itemJson);
-                break;
+                return JsonConvert.DeserializeObject<ManaPot>(itemJson);
 
             default:
                 return null;
         }
-
-        item.SetImage();
-        return item;
     }
 }

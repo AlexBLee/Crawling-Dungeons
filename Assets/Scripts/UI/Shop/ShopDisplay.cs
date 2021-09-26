@@ -47,7 +47,7 @@ public class ShopDisplay : MonoBehaviour
         {
             itemDisplays[i].nameOfItem.text = itemList[i].itemName;
             itemDisplays[i].cost.text = itemList[i].cost.ToString();
-            itemDisplays[i].image.sprite = itemList[i].image;
+            itemDisplays[i].image.sprite = GameDatabase.instance.GetSprite(itemList[i].itemName);;
         }
 
         for(int i = 0; i < itemDisplays.Count; i++)
