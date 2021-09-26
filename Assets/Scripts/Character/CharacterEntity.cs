@@ -47,48 +47,6 @@ public class CharacterEntity : MonoBehaviour
 
     #region Stats  
 
-    public void InitalizeStats()
-    {
-        level =         PlayerDefaultConstants.InitialLevel;
-        exp =           PlayerDefaultConstants.InitialExp;
-        expThreshold =  PlayerDefaultConstants.InitialExpThreshold;
-        statPoints =    PlayerDefaultConstants.InitialStatPoints;
-
-        maxHP =         PlayerDefaultConstants.InitialMaxHP;
-        maxMP =         PlayerDefaultConstants.InitialMaxMP;
-
-        hp = maxHP;
-        mp = maxMP;
-
-        str.amount =    PlayerDefaultConstants.InitialStatAmount;
-        intl.amount =   PlayerDefaultConstants.InitialStatAmount;
-        dex.amount =    PlayerDefaultConstants.InitialStatAmount;
-        luck.amount =   PlayerDefaultConstants.InitialStatAmount;
-
-        UpdateDamageStats();
-    }
-
-    protected void LevelUp()
-    {
-        level++;
-        exp = 0;
-        expThreshold += PlayerDefaultConstants.ExpThresholdGrowth;
-        statPoints +=   PlayerDefaultConstants.StatPointsGrowth;
-
-        hp += PlayerDefaultConstants.HpGrowth;
-        mp += PlayerDefaultConstants.MpGrowth;
-
-        maxHP += PlayerDefaultConstants.HpGrowth;
-        maxMP += PlayerDefaultConstants.MpGrowth;
-
-        str.amount += PlayerDefaultConstants.StatAmountGrowth;
-        intl.amount += PlayerDefaultConstants.StatAmountGrowth;
-        dex.amount += PlayerDefaultConstants.StatAmountGrowth;
-        luck.amount += PlayerDefaultConstants.StatAmountGrowth;
-
-        UpdateDamageStats();
-    }
-
     protected void UpdateDamageStats()
     {
         minDamage = (str.amount / PlayerDefaultConstants.MinDamageStrCalc);
@@ -106,54 +64,9 @@ public class CharacterEntity : MonoBehaviour
         def = (str.amount / PlayerDefaultConstants.DefCalc);
     }
 
-    public void ApplyStatsFrom(CharacterEntity otherChar)
-    {
-        level = otherChar.level;
-        exp = otherChar.exp;
-        expThreshold = otherChar.expThreshold;
-        statPoints = otherChar.statPoints;
-
-        hp = otherChar.hp;
-        mp = otherChar.mp;
-
-        maxHP = otherChar.maxHP;
-        maxMP = otherChar.maxMP;
-
-        str = otherChar.str;
-        intl = otherChar.intl;
-        dex = otherChar.dex;
-        luck = otherChar.luck;
-
-        UpdateDamageStats();
-
-    }
-
-    public void ApplyStatsTo(CharacterEntity otherChar)
-    {
-        otherChar.level = level;
-        otherChar.exp = exp;
-        otherChar.expThreshold = expThreshold;
-        otherChar.statPoints = statPoints;
-
-        otherChar.hp = hp;
-        otherChar.mp = mp;
-
-        otherChar.maxHP = maxHP;
-        otherChar.maxMP = maxMP;
-
-        otherChar.str = str;
-        otherChar.intl = intl;
-        otherChar.dex = dex;
-        otherChar.luck = luck;
-
-        UpdateDamageStats();
-
-
-    }
-
     private void CheckDeath()
     {
-        if(hp <= 0 && inBattle)
+        if (hp <= 0 && inBattle)
         {
             dead = true;
             anim.SetTrigger("Death");
@@ -164,7 +77,6 @@ public class CharacterEntity : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
     
     #endregion
 
@@ -324,7 +236,7 @@ public class CharacterEntity : MonoBehaviour
 
     public void Heal(int amount, bool battleFinish)
     {
-        if(this is Player)
+        if (this is Player)
         {
             uiManager.HidePotionList();
             uiManager.DisableButtons();
@@ -332,12 +244,12 @@ public class CharacterEntity : MonoBehaviour
 
         hp += amount;
 
-        if(hp >= maxHP)
+        if (hp >= maxHP)
         {
             hp = maxHP;
         }
 
-        if(!battleFinish)
+        if (!battleFinish)
         {
             infoText.text = amount.ToString();
             infoText.color = Color.green;
@@ -410,11 +322,6 @@ public class CharacterEntity : MonoBehaviour
     }
 
     #endregion
-
-    public void PlaySound(string n)
-    {
-        AudioManager.Instance.PlaySound(n);
-    }
 
     private void ToggleNextTurn()
     {

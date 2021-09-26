@@ -38,8 +38,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        playerStats.InitalizeStats();
-        playerStats.inventory.InitializeInventory();
+        playerStats.Reset();
         levelNumber = 1;
     }
 

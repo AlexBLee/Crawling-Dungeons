@@ -32,6 +32,91 @@ public class Player : CharacterEntity
 
     // -----------------------------------------------------------------------------
 
+    private void InitalizeStats()
+    {
+        level =         PlayerDefaultConstants.InitialLevel;
+        exp =           PlayerDefaultConstants.InitialExp;
+        expThreshold =  PlayerDefaultConstants.InitialExpThreshold;
+        statPoints =    PlayerDefaultConstants.InitialStatPoints;
+
+        maxHP =         PlayerDefaultConstants.InitialMaxHP;
+        maxMP =         PlayerDefaultConstants.InitialMaxMP;
+
+        hp = maxHP;
+        mp = maxMP;
+
+        str.amount =    PlayerDefaultConstants.InitialStatAmount;
+        intl.amount =   PlayerDefaultConstants.InitialStatAmount;
+        dex.amount =    PlayerDefaultConstants.InitialStatAmount;
+        luck.amount =   PlayerDefaultConstants.InitialStatAmount;
+
+        UpdateDamageStats();
+    }
+
+    private void LevelUp()
+    {
+        level++;
+        exp = 0;
+        expThreshold += PlayerDefaultConstants.ExpThresholdGrowth;
+        statPoints +=   PlayerDefaultConstants.StatPointsGrowth;
+
+        hp += PlayerDefaultConstants.HpGrowth;
+        mp += PlayerDefaultConstants.MpGrowth;
+
+        maxHP += PlayerDefaultConstants.HpGrowth;
+        maxMP += PlayerDefaultConstants.MpGrowth;
+
+        str.amount += PlayerDefaultConstants.StatAmountGrowth;
+        intl.amount += PlayerDefaultConstants.StatAmountGrowth;
+        dex.amount += PlayerDefaultConstants.StatAmountGrowth;
+        luck.amount += PlayerDefaultConstants.StatAmountGrowth;
+
+        UpdateDamageStats();
+    }
+    
+    public void ApplyStatsFrom(CharacterEntity otherChar)
+    {
+        level = otherChar.level;
+        exp = otherChar.exp;
+        expThreshold = otherChar.expThreshold;
+        statPoints = otherChar.statPoints;
+
+        hp = otherChar.hp;
+        mp = otherChar.mp;
+
+        maxHP = otherChar.maxHP;
+        maxMP = otherChar.maxMP;
+
+        str = otherChar.str;
+        intl = otherChar.intl;
+        dex = otherChar.dex;
+        luck = otherChar.luck;
+
+        UpdateDamageStats();
+
+    }
+
+    public void ApplyStatsTo(CharacterEntity otherChar)
+    {
+        otherChar.level = level;
+        otherChar.exp = exp;
+        otherChar.expThreshold = expThreshold;
+        otherChar.statPoints = statPoints;
+
+        otherChar.hp = hp;
+        otherChar.mp = mp;
+
+        otherChar.maxHP = maxHP;
+        otherChar.maxMP = maxMP;
+
+        otherChar.str = str;
+        otherChar.intl = intl;
+        otherChar.dex = dex;
+        otherChar.luck = luck;
+
+        UpdateDamageStats();
+    }
+    
     public void Attack()
     {
         uiManager.DisableButtons();
@@ -233,6 +318,13 @@ public class Player : CharacterEntity
         uiManager.ShowGameOver();
         base.FinishDeath();
     }
+
+    public void Reset()
+    {
+        InitalizeStats();
+        inventory.InitializeInventory();
+    }
+    
 
 
     // -----------------------------------------------------------------------------
