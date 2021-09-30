@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
+using JetBrains.Annotations;
 
 // the class for all Characters in the game.
 public class CharacterEntity : MonoBehaviour
@@ -82,119 +83,86 @@ public class CharacterEntity : MonoBehaviour
 
     #region Moves
     
+    [UsedImplicitly]
     public void DoDamage()
     {
-        // Damage is calculated by finding a random value between the minimum/maximum damage, and then taking the damage reduced by the enemy's defense.
-        // for clarification, 1 def is equal to 1% of damage reduced.
-        // so in this case, the enemy takes 99% of the damage.
-
-        // TODO reorganize this whole function
-        int randomMin = 0;
-        int randomMax = 100;
-        float defStartPointCalc = 1f;
-        float convertToPercentageCalc = 100;
-        int critBonusDamage = 2;
-
-        float missChance = Random.Range(randomMin,randomMax);
-        if (missChance < target.dodgeChance)
+        if (TargetDodged())
         {
-            infoText.text = "Miss!";
-            AudioManager.Instance.PlaySound("Woosh");
-            Instantiate(infoText, target.transform.position, Quaternion.identity);
             return;
         }
 
-        // Initial damage calculation
-        float x = Random.Range(minDamage,maxDamage);
-        x *= (defStartPointCalc - ((float)target.def/convertToPercentageCalc)); 
-        int damage = Mathf.RoundToInt(x);
-
-        // Critcal chance calculation
-        float chance = Random.Range(randomMin, randomMax);
-        if(chance < critChance)
-        {
-            damage *= critBonusDamage;
-            
-            if(target is Player)
-            {
-                LeftHand shield = (LeftHand)target.GetComponent<Inventory>().equips[3];
-                if(shield != null)
-                {
-                    damage = shield.ReduceCrit(damage);
-                }
-            }
-            
-            infoText.color = Color.yellow;
-        }
-
-        damage += additionalDamage;
-
-        // Apply damage
-        target.hp -= damage;
-        target.anim.SetTrigger("Hit");
-        AudioManager.Instance.PlaySound("SlashHit");
-        
-        // Spawning text
-        infoText.text = damage.ToString();
-        Instantiate(infoText, target.transform.position, Quaternion.identity);
-        Debug.Log(gameObject.name + " dealt " + damage + " damage to " + target.name);
-
-        if(target is Enemy)
-        {
-            target.CheckDeath();
-        }
-        else
-        {
-            uiManager.StatusHUD.UpdateUIHealth();
-            target.CheckDeath();
-        }
+        target.RecieveDamage(CalculateInitialDamage(minDamage, maxDamage, additionalDamage));
 
         additionalDamage = 0;
         infoText.color = Color.white;
     }
 
-    // Currently a seperate funciton due to magic possibly not being just a basic attack?
+    [UsedImplicitly]
     protected void DoMagicDamage()
     {
-        // Damage is calculated by finding a random value between the minimum/maximum damage, and then taking the damage reduced by the enemy's defense.
-        // for clarification, 1 def is equal to 1% of damage reduced.
-        // so in this case, the enemy takes 99% of the damage.
+        if (TargetDodged())
+        {
+            battleManager.BeginWait();
+            return;
+        }
 
-        // TODO reorganize this whole function
-        int randomMin = 0;
-        int randomMax = 100;
-        float defStartPointCalc = 1f;
-        float convertToPercentageCalc = 100;
-        int critBonusDamage = 2;
+        target.RecieveDamage(CalculateInitialDamage(magicMinDamage, magicMaxDamage, spellUsed.damage));
 
-        float missChance = Random.Range(randomMin,randomMax);
+        spellUsed.UseSpellEffect(target);
+
+        spellUsed = null;
+        infoText.color = Color.white;
+    }
+
+    private bool TargetDodged()
+    {
+        const int RandomMin = 0;
+        const int RandomMax = 100;
+        float missChance = Random.Range(RandomMin, RandomMax);
+        
         if (missChance < target.dodgeChance)
         {
             infoText.text = "Miss!";
             AudioManager.Instance.PlaySound("Woosh");
             Instantiate(infoText, target.transform.position, Quaternion.identity);
-
-            // TODO: When fixes to this function are implemented, have this be done somewhere else.
-            battleManager.BeginWait();
-            return;
+            return true;
         }
-        
-        // Initial Damage Calculation
-        float x = Random.Range(magicMinDamage,magicMaxDamage);
-        x *= (defStartPointCalc - ((float)target.def/convertToPercentageCalc));
-        int damage = Mathf.RoundToInt(x);
-        damage += spellUsed.damage;
 
-        // Critical chance calculation
-        float chance = Random.Range(randomMin, randomMax);
-        if(chance < critChance)
+        return false;
+    }
+
+    private int CalculateInitialDamage(float minimumDamage, float maximumDamage, float extraDamage)
+    {
+        const float DefStartPointCalc = 1f;
+        const float ConvertToPercentageCalc = 100;
+
+        float damage = Random.Range(minimumDamage, maximumDamage);
+
+        damage *= (DefStartPointCalc - (target.def / ConvertToPercentageCalc));
+
+        damage = CalculateCritDamage(damage);
+
+        damage += extraDamage;
+
+        return Mathf.RoundToInt(damage);
+    }
+
+    private float CalculateCritDamage(float damage)
+    {
+        const int CritBonusDamage = 2;
+        const int RandomMin = 0;
+        const int RandomMax = 100;
+
+        float chance = Random.Range(RandomMin, RandomMax);
+
+        if (chance < critChance)
         {
-            damage *= critBonusDamage;
+            damage *= CritBonusDamage;
             
-            if(target is Player)
+            if (target is Player)
             {
                 LeftHand shield = (LeftHand)target.GetComponent<Inventory>().equips[3];
-                if(shield != null)
+                if (shield != null)
                 {
                     damage = shield.ReduceCrit(damage);
                 }
@@ -203,30 +171,22 @@ public class CharacterEntity : MonoBehaviour
             infoText.color = Color.yellow;
         }
 
-        // Apply damage
-        target.hp -= damage;
-        spellUsed.UseSpellEffect(target);
-        target.anim.SetTrigger("Hit");
+        return damage;
+    }
+
+    protected virtual void RecieveDamage(int damage)
+    {
+        hp -= damage;
+        anim.SetTrigger("Hit");
         AudioManager.Instance.PlaySound("SlashHit");
 
-        // Spawn text
+        // Spawning text
         infoText.text = damage.ToString();
-        Instantiate(infoText, target.transform.position, Quaternion.identity);
-        Debug.Log(gameObject.name + " dealt " + damage + " damage to " + target.name);
-
-        if(target is Enemy)
-        {
-            target.GetComponent<Enemy>().CheckDeath();
-        }
-        else
-        {
-            uiManager.StatusHUD.UpdateUIHealth();
-            target.GetComponent<Player>().CheckDeath();
-        }
-        spellUsed = null;
-        infoText.color = Color.white;
+        Instantiate(infoText, transform.position, Quaternion.identity);
+        
+        CheckDeath();
     }
- 
+
     // Next turn setting + damage is done through animation
     protected void RangedAttack()
     {

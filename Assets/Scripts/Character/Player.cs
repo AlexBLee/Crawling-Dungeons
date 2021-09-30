@@ -313,6 +313,12 @@ public class Player : CharacterEntity
         CheckStatAmount();
     }
 
+    protected override void RecieveDamage(int damage)
+    {
+        base.RecieveDamage(damage);
+        uiManager.StatusHUD.UpdateUIHealth();
+    }
+
     public override void FinishDeath()
     {
         uiManager.ShowGameOver();
