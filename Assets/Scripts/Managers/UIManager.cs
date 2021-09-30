@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class UIManager : MonoBehaviour
     public StatusHUD StatusHUD;
     public ScreenPanelHUD ScreenPanelHUD;
 
+    [SerializeField] private TextMeshPro infoText;
+    
     private void Start() 
     {
         attackButton.onClick.AddListener(player.Attack);
@@ -94,5 +97,14 @@ public class UIManager : MonoBehaviour
     public void ShowPause()
     {
         ScreenPanelHUD.ShowPause();
+    }
+
+    public void SpawnInfoText(string message, Color color, Vector3 position)
+    {
+        infoText.text = message;
+        infoText.color = color;
+        Instantiate(infoText, position, Quaternion.identity);
+
+        infoText.color = Color.white;
     }
 }

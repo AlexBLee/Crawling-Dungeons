@@ -40,8 +40,8 @@ public class CharacterEntity : MonoBehaviour
     [HideInInspector] public Animator anim;
     protected Vector3 initialPos;
     public CharacterEntity target;
-    [HideInInspector] public TextMeshPro infoText;
     public Spell spellUsed;
+    private bool isCritting = false;
 
 
     // ------------------------------------
@@ -94,7 +94,6 @@ public class CharacterEntity : MonoBehaviour
         target.RecieveDamage(CalculateInitialDamage(minDamage, maxDamage, additionalDamage));
 
         additionalDamage = 0;
-        infoText.color = Color.white;
     }
 
     [UsedImplicitly]
@@ -111,7 +110,6 @@ public class CharacterEntity : MonoBehaviour
         spellUsed.UseSpellEffect(target);
 
         spellUsed = null;
-        infoText.color = Color.white;
     }
 
     private bool TargetDodged()
@@ -122,9 +120,9 @@ public class CharacterEntity : MonoBehaviour
         
         if (missChance < target.dodgeChance)
         {
-            infoText.text = "Miss!";
+            uiManager.SpawnInfoText("Miss!", Color.white, target.transform.position);
             AudioManager.Instance.PlaySound("Woosh");
-            Instantiate(infoText, target.transform.position, Quaternion.identity);
+
             return true;
         }
 
@@ -171,8 +169,12 @@ public class CharacterEntity : MonoBehaviour
                     damage = shield.ReduceCrit(damage);
                 }
             }
-            
-            infoText.color = Color.yellow;
+
+            isCritting = true;
+        }
+        else
+        {
+            isCritting = false;
         }
 
         return damage;
@@ -184,10 +186,7 @@ public class CharacterEntity : MonoBehaviour
         anim.SetTrigger("Hit");
         AudioManager.Instance.PlaySound("SlashHit");
 
-        // Spawning text
-        infoText.text = damage.ToString();
-        Instantiate(infoText, transform.position, Quaternion.identity);
-        
+        uiManager.SpawnInfoText(damage.ToString(), isCritting ? Color.yellow : Color.white, transform.position);
         CheckDeath();
     }
 
@@ -209,12 +208,9 @@ public class CharacterEntity : MonoBehaviour
 
         if (!battleFinish)
         {
-            infoText.text = amount.ToString();
-            infoText.color = Color.green;
-            Instantiate(infoText, transform.position, Quaternion.identity);
+            uiManager.SpawnInfoText(amount.ToString(), Color.green, transform.position);
             AudioManager.Instance.PlaySound("UsePotion");
             anim.SetTrigger("Heal");
-            infoText.color = Color.white;
         }
     }
 
@@ -229,12 +225,9 @@ public class CharacterEntity : MonoBehaviour
 
         if (!battleFinish)
         {
-            infoText.text = amount.ToString();
-            infoText.color = Color.cyan;
-            Instantiate(infoText, transform.position, Quaternion.identity);
+            uiManager.SpawnInfoText(amount.ToString(), Color.cyan, transform.position);
             AudioManager.Instance.PlaySound("UsePotion");
             anim.SetTrigger("Heal");
-            infoText.color = Color.white;
         }
     }
 

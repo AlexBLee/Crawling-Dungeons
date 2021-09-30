@@ -317,7 +317,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuButton: {fileID: 536650636}
   resumeButton: {fileID: 696561257}
-  audioMixer: {fileID: 24100000, guid: d157d36ab7d8c41418caf9b249f913cf, type: 2}
   musicSlider: {fileID: 2062846092}
   soundEffectSlider: {fileID: 2020321677}
 --- !u!114 &28972422
@@ -5497,6 +5496,8 @@ MonoBehaviour:
   VictoryPanelHUD: {fileID: 1906186019}
   StatusHUD: {fileID: 2055575441}
   ScreenPanelHUD: {fileID: 700246098}
+  infoText: {fileID: 5973154270874184695, guid: dc9f3253454acfa4a8730ae96c228bf3,
+    type: 3}
 --- !u!4 &1079093181
 Transform:
   m_ObjectHideFlags: 0
