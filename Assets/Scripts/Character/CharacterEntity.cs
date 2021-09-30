@@ -159,9 +159,13 @@ public class CharacterEntity : MonoBehaviour
         {
             damage *= CritBonusDamage;
             
-            if (target is Player)
+            if (target is Player player)
             {
-                LeftHand shield = (LeftHand)target.GetComponent<Inventory>().equips[3];
+                LeftHand shield = (LeftHand)player
+                    .GetInventory()
+                    .GetEquipList()
+                    [(int)Inventory.EquipSlot.LeftHand];
+
                 if (shield != null)
                 {
                     damage = shield.ReduceCrit(damage);
@@ -194,14 +198,8 @@ public class CharacterEntity : MonoBehaviour
         anim.SetTrigger("Cast");
     }
 
-    public void Heal(int amount, bool battleFinish)
+    public virtual void Heal(int amount, bool battleFinish)
     {
-        if (this is Player)
-        {
-            uiManager.HidePotionList();
-            uiManager.DisableButtons();
-        }
-
         hp += amount;
 
         if (hp >= maxHP)
@@ -218,27 +216,18 @@ public class CharacterEntity : MonoBehaviour
             anim.SetTrigger("Heal");
             infoText.color = Color.white;
         }
-
-        uiManager.StatusHUD.UpdateUIHealth();
-
     }
 
-    public void RestoreMP(int amount, bool battleFinish)
+    public virtual void RestoreMP(int amount, bool battleFinish)
     {
-        if(this is Player)
-        {
-            uiManager.HidePotionList();
-            uiManager.DisableButtons();
-        }
-
         mp += amount;
 
-        if(mp >= maxMP)
+        if (mp >= maxMP)
         {
             mp = maxMP;
         }
 
-        if(!battleFinish)
+        if (!battleFinish)
         {
             infoText.text = amount.ToString();
             infoText.color = Color.cyan;
@@ -247,8 +236,6 @@ public class CharacterEntity : MonoBehaviour
             anim.SetTrigger("Heal");
             infoText.color = Color.white;
         }
-
-        uiManager.StatusHUD.UpdateUIMana();
     }
 
     #endregion

@@ -252,6 +252,25 @@ public class Player : CharacterEntity
 
     #endregion
 
+    public override void Heal(int amount, bool battleFinish)
+    {
+        uiManager.HidePotionList();
+        uiManager.DisableButtons();
+
+        base.Heal(amount, battleFinish);
+
+        uiManager.StatusHUD.UpdateUIHealth();
+    }
+
+    public override void RestoreMP(int amount, bool battleFinish)
+    {
+        uiManager.HidePotionList();
+        uiManager.DisableButtons();
+
+        base.RestoreMP(amount, battleFinish);
+
+        uiManager.StatusHUD.UpdateUIMana();
+    }
 
     public void RecieveXPAndGold(int expRecieved, int goldRecieved)
     {
@@ -311,6 +330,11 @@ public class Player : CharacterEntity
 
         originalNumberOfStatPoints = statPoints;
         CheckStatAmount();
+    }
+
+    public Inventory GetInventory()
+    {
+        return inventory;
     }
 
     protected override void RecieveDamage(int damage)

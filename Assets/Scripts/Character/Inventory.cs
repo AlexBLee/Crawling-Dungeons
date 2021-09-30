@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public enum EquipSlot
+    {
+        Helmet,
+        Upper,
+        RightHand,
+        LeftHand,
+        Lower,
+        Boots
+    }
+    
     private Player player;
 
     public List<EquippableItem> equips = new List<EquippableItem>();
@@ -244,5 +254,10 @@ public class Inventory : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public List<EquippableItem> GetEquipList()
+    {
+        return equips;
     }
 }
