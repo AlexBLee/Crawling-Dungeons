@@ -188,7 +188,6 @@ public class Inventory : MonoBehaviour
         ConsumableItem consumable = (ConsumableItem)items[index];
 
         consumable.amount--;
-        Debug.Log(consumable.amount);
         consumable.ConsumeEffect(character);
         
         if(consumable.amount == 0)

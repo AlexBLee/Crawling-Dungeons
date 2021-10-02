@@ -288,6 +288,9 @@ public class Player : CharacterEntity
     {
         const float LevelDelayTime = 0.15f;
 
+        const float LevelDisplayOffset = 0.5f;
+        Vector2 positionOffset = new Vector2(transform.position.x + LevelDisplayOffset, transform.position.y);
+
         while (exp >= expThreshold)
         {
             float extraXP = exp - expThreshold;
@@ -300,7 +303,7 @@ public class Player : CharacterEntity
             uiManager.StatusHUD.UpdateUIMana();
             uiManager.MagicHUD.Init();
             
-            uiManager.SpawnInfoText("Level up!", Color.white, transform.position);
+            uiManager.SpawnInfoText("Level up!", Color.white, positionOffset);
 
             exp += extraXP;
         }
