@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
-using DG.Tweening;
 
 public class BattleManager : MonoBehaviour
 {
@@ -15,7 +14,6 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private Player player;
     
     [SerializeField] private UIManager uiManager;
-    [SerializeField] private GameObject background;
 
     public List<Enemy> enemyList;
     public List<Enemy> spawnableEnemies;
@@ -85,16 +83,7 @@ public class BattleManager : MonoBehaviour
     public void ToggleNextBattle()
     {
         SpawnNextEnemy(enemyCounter);
-        MoveBackgroundToPosition();
-    }
-    
-    private void MoveBackgroundToPosition()
-    {
-        const float TimeToMove = 2;
-        const float BackgroundMoveFactor = -3.5f;
-        Vector2 newPos = new Vector2(background.transform.position.x + BackgroundMoveFactor, background.transform.position.y);
-
-        background.transform.DOMove(newPos, TimeToMove);
+        uiManager.MoveBackgroundToPosition();
     }
 
     public void StartNewBattle()

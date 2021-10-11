@@ -3351,11 +3351,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTurn: 1
-  battleDone: 0
   enemy: {fileID: 0}
   player: {fileID: 0}
   uiManager: {fileID: 869116809}
-  background: {fileID: 1529571563}
   enemyList:
   - {fileID: 4452915190085327153, guid: fcba2c932338492448839a8b61cf1dc5, type: 3}
   - {fileID: 4452915190085327153, guid: 4cef138db1eb0f044850d840065c5a39, type: 3}
@@ -4721,6 +4719,7 @@ MonoBehaviour:
   ScreenPanelHUD: {fileID: 292359757}
   infoText: {fileID: 5973154270874184695, guid: dc9f3253454acfa4a8730ae96c228bf3,
     type: 3}
+  background: {fileID: 1529571563}
 --- !u!4 &869116810
 Transform:
   m_ObjectHideFlags: 0

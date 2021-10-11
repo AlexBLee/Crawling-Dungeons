@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class UIManager : MonoBehaviour
 {
@@ -21,7 +22,8 @@ public class UIManager : MonoBehaviour
     public ScreenPanelHUD ScreenPanelHUD;
 
     [SerializeField] private TextMeshPro infoText;
-    
+    [SerializeField] private GameObject background;
+
     private void Start() 
     {
         attackButton.onClick.AddListener(player.Attack);
@@ -106,5 +108,14 @@ public class UIManager : MonoBehaviour
         Instantiate(infoText, position, Quaternion.identity);
 
         infoText.color = Color.white;
+    }
+    
+    public void MoveBackgroundToPosition()
+    {
+        const float TimeToMove = 2;
+        const float BackgroundMoveFactor = -3.5f;
+        Vector2 newPos = new Vector2(background.transform.position.x + BackgroundMoveFactor, background.transform.position.y);
+
+        background.transform.DOMove(newPos, TimeToMove);
     }
 }
