@@ -12,14 +12,12 @@ public class AddRemoveStat : MonoBehaviour
     // true = add point
     // false = subtract
     [SerializeField] private Player player;
-    [SerializeField] public static int numberOfStatPoints;
     [SerializeField] private Player.StatType statType;
     public Button plus;
     public Button minus;
     public bool modified;
 
     [SerializeField] private StatDisplayer statDisplay;
-    [SerializeField] private UIManager uiManager;
 
     private void Start() 
     {

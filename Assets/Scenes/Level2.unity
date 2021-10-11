@@ -1844,6 +1844,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264899429}
   m_CullTransparentMesh: 0
+--- !u!1 &270629765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 270629767}
+  - component: {fileID: 270629766}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &270629766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270629765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc5cab1578db1c40802bb4d23211cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &270629767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270629765}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 453.3056, y: 609.0478, z: -1001.85004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &305859754
 GameObject:
   m_ObjectHideFlags: 0
@@ -2273,7 +2316,6 @@ MonoBehaviour:
   minus: {fileID: 1358146223}
   modified: 0
   statDisplay: {fileID: 2007136427}
-  uiManager: {fileID: 0}
 --- !u!1 &426408884
 GameObject:
   m_ObjectHideFlags: 0
@@ -2332,7 +2374,6 @@ MonoBehaviour:
   minus: {fileID: 1852833421}
   modified: 0
   statDisplay: {fileID: 2007136427}
-  uiManager: {fileID: 0}
 --- !u!1 &437983770
 GameObject:
   m_ObjectHideFlags: 0
@@ -3238,7 +3279,6 @@ MonoBehaviour:
   playerTurn: 1
   enemy: {fileID: 0}
   player: {fileID: 1075298623}
-  uiManager: {fileID: 68796133}
   enemyList:
   - {fileID: 4452915190085327153, guid: fcba2c932338492448839a8b61cf1dc5, type: 3}
   - {fileID: 4452915190085327153, guid: 4cef138db1eb0f044850d840065c5a39, type: 3}
@@ -3857,7 +3897,6 @@ MonoBehaviour:
   minus: {fileID: 21518813}
   modified: 0
   statDisplay: {fileID: 2007136427}
-  uiManager: {fileID: 0}
 --- !u!1 &782277364
 GameObject:
   m_ObjectHideFlags: 0
@@ -3991,7 +4030,6 @@ MonoBehaviour:
   minus: {fileID: 96343373}
   modified: 0
   statDisplay: {fileID: 2007136427}
-  uiManager: {fileID: 0}
 --- !u!1 &816822175
 GameObject:
   m_ObjectHideFlags: 0

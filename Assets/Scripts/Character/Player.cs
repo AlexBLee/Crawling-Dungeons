@@ -20,11 +20,11 @@ public class Player : CharacterEntity
     {
         initialPos = transform.position;
 
-        if(uiManager != null)
+        if (Managers.Instance.UI != null)
         {
-            uiManager.StatusHUD.UpdateAllBars();
+            Managers.Instance.UI.StatusHUD.UpdateAllBars();
         }
-
+        
         UpdateDamageStats();
         spells.UnlockSpells(level);
         inventory.UpdateItemStats();
@@ -119,7 +119,7 @@ public class Player : CharacterEntity
     
     public void Attack()
     {
-        uiManager.DisableButtons();
+        Managers.Instance.UI.DisableButtons();
         MoveToAttackPosition(target.transform.position);
     }
 
@@ -134,18 +134,18 @@ public class Player : CharacterEntity
 
         if ((mp - spell.cost) < 0)
         {
-            uiManager.SpawnInfoText(DisplayStrings.NotEnoughManaText, NotEnoughManaColor, transform.position);
+            Managers.Instance.UI.SpawnInfoText(DisplayStrings.NotEnoughManaText, NotEnoughManaColor, transform.position);
         }
         else
         {
             AudioManager.Instance.PlaySound(spell.name);
-            uiManager.HideMagicList();
+            Managers.Instance.UI.HideMagicList();
 
             Debug.Log("Casted: " + spell.name);
             spellUsed = spell;
             mp -= spellUsed.cost;
             
-            uiManager.StatusHUD.UpdateUIMana();
+            Managers.Instance.UI.StatusHUD.UpdateUIMana();
 
             RangedAttack();
         }
@@ -234,15 +234,15 @@ public class Player : CharacterEntity
     {
         if (statPoints == 0)
         {
-            uiManager.VictoryPanelHUD.ActivateModifiedSubtractors();
+            Managers.Instance.UI.VictoryPanelHUD.ActivateModifiedSubtractors();
         }
         else if (statPoints == originalNumberOfStatPoints)
         {
-            uiManager.VictoryPanelHUD.ActivateAddersOnly();
+            Managers.Instance.UI.VictoryPanelHUD.ActivateAddersOnly();
         }
         else if (statPoints > 0)
         {
-            uiManager.VictoryPanelHUD.ActivateAllStatModifiers();
+            Managers.Instance.UI.VictoryPanelHUD.ActivateAllStatModifiers();
         }
     }
 
@@ -250,22 +250,22 @@ public class Player : CharacterEntity
 
     public override void Heal(int amount, bool battleFinish)
     {
-        uiManager.HidePotionList();
-        uiManager.DisableButtons();
+        Managers.Instance.UI.HidePotionList();
+        Managers.Instance.UI.DisableButtons();
 
         base.Heal(amount, battleFinish);
 
-        uiManager.StatusHUD.UpdateUIHealth();
+        Managers.Instance.UI.StatusHUD.UpdateUIHealth();
     }
 
     public override void RestoreMP(int amount, bool battleFinish)
     {
-        uiManager.HidePotionList();
-        uiManager.DisableButtons();
+        Managers.Instance.UI.HidePotionList();
+        Managers.Instance.UI.DisableButtons();
 
         base.RestoreMP(amount, battleFinish);
 
-        uiManager.StatusHUD.UpdateUIMana();
+        Managers.Instance.UI.StatusHUD.UpdateUIMana();
     }
 
     public void RecieveXPAndGold(int expRecieved, int goldRecieved)
@@ -278,7 +278,7 @@ public class Player : CharacterEntity
         inventory.gold += randomGold;
         exp += expRecieved;
 
-        uiManager.SpawnInfoText(string.Format(DisplayStrings.GainXPText, expRecieved), Color.white, transform.position);
+        Managers.Instance.UI.SpawnInfoText(string.Format(DisplayStrings.GainXPText, expRecieved), Color.white, transform.position);
 
         StartCoroutine(CheckForLevelUp());
         StartCoroutine(NextBattle());
@@ -299,11 +299,11 @@ public class Player : CharacterEntity
             inventory.UpdateItemStats();
 
             yield return new WaitForSeconds(LevelDelayTime);
-            uiManager.StatusHUD.UpdateUIHealth();
-            uiManager.StatusHUD.UpdateUIMana();
-            uiManager.MagicHUD.Init();
+            Managers.Instance.UI.StatusHUD.UpdateUIHealth();
+            Managers.Instance.UI.StatusHUD.UpdateUIMana();
+            Managers.Instance.UI.MagicHUD.Init();
             
-            uiManager.SpawnInfoText(DisplayStrings.LevelUpText, Color.white, positionOffset);
+            Managers.Instance.UI.SpawnInfoText(DisplayStrings.LevelUpText, Color.white, positionOffset);
 
             exp += extraXP;
         }
@@ -315,7 +315,7 @@ public class Player : CharacterEntity
 
         yield return new WaitForSeconds(BattleDelayTime);
         anim.SetBool(CharacterClipAnims.RunAnimName, true);
-        battleManager.ToggleNextBattle();
+        Managers.Instance.Battle.ToggleNextBattle();
     }
 
     public void DeclareVictory()
@@ -338,12 +338,12 @@ public class Player : CharacterEntity
     protected override void RecieveDamage(int damage)
     {
         base.RecieveDamage(damage);
-        uiManager.StatusHUD.UpdateUIHealth();
+        Managers.Instance.UI.StatusHUD.UpdateUIHealth();
     }
 
     public override void FinishDeath()
     {
-        uiManager.ShowGameOver();
+        Managers.Instance.UI.ShowGameOver();
         base.FinishDeath();
     }
 

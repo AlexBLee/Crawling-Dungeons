@@ -7,15 +7,12 @@ public class Enemy : CharacterEntity
     public int experiencePoints;
     public int gold;
 
-    public bool newBattle;
     [SerializeField] private Vector3 fightPosition;
     [SerializeField] private bool canHeal;
     private int healCounter = 2;
 
     private void Start() 
     {   
-        uiManager = FindObjectOfType<UIManager>();
-        
         DeserializeData();
         UpdateDamageStats();
 
@@ -53,7 +50,7 @@ public class Enemy : CharacterEntity
         initialPos = transform.position;
 
         anim.SetBool(CharacterClipAnims.RunAnimName, false);
-        battleManager.StartNewBattle();
+        Managers.Instance.Battle.StartNewBattle();
     }
 
     public void SetAttackConditions()

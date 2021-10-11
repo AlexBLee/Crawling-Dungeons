@@ -13,8 +13,6 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private Enemy enemy;
     [SerializeField] private Player player;
     
-    [SerializeField] private UIManager uiManager;
-
     public List<Enemy> enemyList;
     public List<Enemy> spawnableEnemies;
     private int enemyCounter = 0;
@@ -23,7 +21,7 @@ public class BattleManager : MonoBehaviour
     {
         player = FindObjectOfType<Player>();
 
-        uiManager.DisableButtons();
+        Managers.Instance.UI.DisableButtons();
         InitializeEnemiesForBattle();
         SpawnNextEnemy(enemyCounter);
         player.target = enemy;
@@ -49,7 +47,7 @@ public class BattleManager : MonoBehaviour
 
     private void TogglePlayerTurn()
     {
-        uiManager.EnableButtons();
+        Managers.Instance.UI.EnableButtons();
         playerTurn = true;
     }
     
@@ -68,14 +66,14 @@ public class BattleManager : MonoBehaviour
             if(enemy != null)
             {
                 yield return new WaitForSeconds(BeginAttackDelay);
-                uiManager.DisableButtons();
+                Managers.Instance.UI.DisableButtons();
                 enemy.SetAttackConditions();
             }
             playerTurn = false;
         }
         else
         {
-            uiManager.EnableButtons();
+            Managers.Instance.UI.EnableButtons();
             playerTurn = true;
         }
     }
@@ -83,7 +81,7 @@ public class BattleManager : MonoBehaviour
     public void ToggleNextBattle()
     {
         SpawnNextEnemy(enemyCounter);
-        uiManager.MoveBackgroundToPosition();
+        Managers.Instance.UI.MoveBackgroundToPosition();
     }
 
     public void StartNewBattle()
@@ -107,9 +105,7 @@ public class BattleManager : MonoBehaviour
                 BuffEndlessEnemyStats(enemy);
             }
             
-            enemy.battleManager = this;
             enemy.target = FindObjectOfType<Player>();
-            enemy.newBattle = true;
             player.target = enemy;
 
             enemyCounter++;
@@ -128,11 +124,11 @@ public class BattleManager : MonoBehaviour
         AudioManager.Instance.PlayMusic(AudioStrings.VictoryMusic);
         if (SceneManager.GetActiveScene().buildIndex == FinalLevelNumber)
         {
-            uiManager.ShowGameWin();
+            Managers.Instance.UI.ShowGameWin();
         }
         else
         {
-            uiManager.ShowVictoryPanel();
+            Managers.Instance.UI.ShowVictoryPanel();
             player.DeclareVictory();
         }
     }

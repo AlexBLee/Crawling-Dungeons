@@ -8,10 +8,6 @@ using JetBrains.Annotations;
 // the class for all Characters in the game.
 public class CharacterEntity : MonoBehaviour
 {
-    // Managers ------------------------------
-    public BattleManager battleManager;
-    public UIManager uiManager;
-
     // Stats ----------------------------------
     public int level;
     public float exp;
@@ -101,7 +97,7 @@ public class CharacterEntity : MonoBehaviour
     {
         if (TargetDodged())
         {
-            battleManager.BeginWait();
+            Managers.Instance.Battle.BeginWait();
             return;
         }
 
@@ -120,7 +116,7 @@ public class CharacterEntity : MonoBehaviour
         
         if (missChance < target.dodgeChance)
         {
-            uiManager.SpawnInfoText(DisplayStrings.MissText, Color.white, target.transform.position);
+            Managers.Instance.UI.SpawnInfoText(DisplayStrings.MissText, Color.white, target.transform.position);
             AudioManager.Instance.PlaySound(AudioStrings.Miss);
 
             return true;
@@ -186,7 +182,7 @@ public class CharacterEntity : MonoBehaviour
         anim.SetTrigger(CharacterClipAnims.HitAnimName);
         AudioManager.Instance.PlaySound(AudioStrings.Hit);
 
-        uiManager.SpawnInfoText(damage.ToString(), 
+        Managers.Instance.UI.SpawnInfoText(damage.ToString(), 
             target.isCritting 
                 ? Color.yellow 
                 : Color.white, transform.position);
@@ -197,7 +193,7 @@ public class CharacterEntity : MonoBehaviour
     // Next turn setting + damage is done through animation
     protected void RangedAttack()
     {
-        uiManager.DisableButtons();
+        Managers.Instance.UI.DisableButtons();
         anim.SetTrigger(CharacterClipAnims.CastAnimName);
     }
 
@@ -212,7 +208,7 @@ public class CharacterEntity : MonoBehaviour
 
         if (!battleFinish)
         {
-            uiManager.SpawnInfoText(amount.ToString(), Color.green, transform.position);
+            Managers.Instance.UI.SpawnInfoText(amount.ToString(), Color.green, transform.position);
             AudioManager.Instance.PlaySound(AudioStrings.UsePotion);
             anim.SetTrigger(CharacterClipAnims.HealAnimName);
         }
@@ -229,7 +225,7 @@ public class CharacterEntity : MonoBehaviour
 
         if (!battleFinish)
         {
-            uiManager.SpawnInfoText(amount.ToString(), Color.cyan, transform.position);
+            Managers.Instance.UI.SpawnInfoText(amount.ToString(), Color.cyan, transform.position);
             AudioManager.Instance.PlaySound(AudioStrings.UsePotion);
             anim.SetTrigger(CharacterClipAnims.HealAnimName);
         }
@@ -274,6 +270,6 @@ public class CharacterEntity : MonoBehaviour
     
     private void ToggleNextTurn()
     {
-        StartCoroutine(battleManager.ToggleNextTurn());
+        StartCoroutine(Managers.Instance.Battle.ToggleNextTurn());
     }
 }
