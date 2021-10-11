@@ -315,7 +315,6 @@ public class Player : CharacterEntity
 
         yield return new WaitForSeconds(BattleDelayTime);
         anim.SetBool("Run", true);
-        battleManager.battleDone = true;
         battleManager.ToggleNextBattle();
     }
 

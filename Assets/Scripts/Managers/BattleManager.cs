@@ -5,15 +5,11 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
+using DG.Tweening;
 
 public class BattleManager : MonoBehaviour
 {
     public bool playerTurn = true;
-    public bool battleDone = false;
-    private bool newBattle = true;
-    private bool calculating = true;
-    private bool needToSpawn = true;
-    private Vector2 newPosition;
 
     [SerializeField] private Enemy enemy;
     [SerializeField] private Player player;
@@ -33,14 +29,6 @@ public class BattleManager : MonoBehaviour
         InitializeEnemiesForBattle();
         SpawnNextEnemy(enemyCounter);
         player.target = enemy;
-    }
-
-    private void Update() 
-    {
-        if(battleDone)
-        {
-            ToggleNextBattle();
-        }
     }
 
     private void InitializeEnemiesForBattle()
@@ -96,34 +84,23 @@ public class BattleManager : MonoBehaviour
 
     public void ToggleNextBattle()
     {
-        const float BackgroundMoveFactor = 4.0f;
-        
+        SpawnNextEnemy(enemyCounter);
+        MoveBackgroundToPosition();
+    }
+    
+    private void MoveBackgroundToPosition()
+    {
+        const float TimeToMove = 2;
+        const float BackgroundMoveFactor = -3.5f;
+        Vector2 newPos = new Vector2(background.transform.position.x + BackgroundMoveFactor, background.transform.position.y);
 
-        if(calculating)
-        {
-            float backgroundX = background.transform.position.x;
-            newPosition = new Vector2(backgroundX -= BackgroundMoveFactor, background.transform.position.y);
-            calculating = false;
-        }
-
-        if(needToSpawn)
-        {
-            SpawnNextEnemy(enemyCounter);
-            needToSpawn = false;
-        }
-
-        StartCoroutine(MoveToExactPosition(background.transform.position,newPosition));
-
-
+        background.transform.DOMove(newPos, TimeToMove);
     }
 
     public void StartNewBattle()
     {
-        battleDone = false;
         player.anim.SetBool("Run", false);
         TogglePlayerTurn();
-        needToSpawn = true;
-        newBattle = true;
     }
 
     private void SpawnNextEnemy(int number)
@@ -146,7 +123,6 @@ public class BattleManager : MonoBehaviour
             enemy.newBattle = true;
             player.target = enemy;
 
-            needToSpawn = false;
             enemyCounter++;
         }
         // If no more enemies to spawn, floor is complete.
@@ -188,29 +164,4 @@ public class BattleManager : MonoBehaviour
         enemy.luck.amount = (int)(enemy.luck.amount * x);
         
     }
-
-    private IEnumerator MoveToExactPosition(Vector2 start, Vector2 destination)
-    {
-        const float TimeApproachSpeed = 1.20f;
-        const float TimeToMove = 2;
-
-        Vector2 startPos = start;
-        Vector2 endPos = destination;
-
-        float timer = 0;
-        while (timer < TimeToMove)
-        {
-            timer += Time.deltaTime;
-            background.transform.position = Vector2.Lerp(startPos,endPos, timer / TimeApproachSpeed);
-            yield return null;
-        }
-
-        if(newBattle)
-        {
-            calculating = true;
-            newBattle = false;
-        }
-
-    }
-
 }
