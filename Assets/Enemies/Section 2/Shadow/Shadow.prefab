@@ -124,8 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3246be1913fa8b49802ff7df0b3b740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleManager: {fileID: 0}
-  uiManager: {fileID: 0}
   level: 1
   exp: 0
   expThreshold: 50
@@ -161,12 +159,14 @@ MonoBehaviour:
   inBattle: 1
   anim: {fileID: 4452915190085327165}
   target: {fileID: 0}
-  infoText: {fileID: 5973154270874184695, guid: dc9f3253454acfa4a8730ae96c228bf3,
-    type: 3}
+  spellUsed:
+    name: 
+    damage: 0
+    cost: 0
+    levelRequired: 0
   enemyName: Shadow
   experiencePoints: 460
   gold: 200
-  newBattle: 0
   fightPosition: {x: 4.28, y: 2.58, z: 0}
   canHeal: 0
 --- !u!95 &4452915190085327165
