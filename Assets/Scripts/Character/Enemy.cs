@@ -44,7 +44,7 @@ public class Enemy : CharacterEntity
 
     protected void MoveToStartPosition(Vector2 position)
     {
-        anim.SetBool("Run", true);
+        anim.SetBool(CharacterClipAnims.RunAnimName, true);
         transform.DOMove(position, 1).OnComplete(StartBattle);
     }
 
@@ -52,7 +52,7 @@ public class Enemy : CharacterEntity
     {
         initialPos = transform.position;
 
-        anim.SetBool("Run", false);
+        anim.SetBool(CharacterClipAnims.RunAnimName, false);
         battleManager.StartNewBattle();
     }
 

@@ -70,7 +70,7 @@ public class CharacterEntity : MonoBehaviour
         if (hp <= 0 && inBattle)
         {
             dead = true;
-            anim.SetTrigger("Death");
+            anim.SetTrigger(CharacterClipAnims.DeathAnimName);
         }
     }
 
@@ -183,7 +183,7 @@ public class CharacterEntity : MonoBehaviour
     protected virtual void RecieveDamage(int damage)
     {
         hp -= damage;
-        anim.SetTrigger("Hit");
+        anim.SetTrigger(CharacterClipAnims.HitAnimName);
         AudioManager.Instance.PlaySound(AudioStrings.Hit);
 
         uiManager.SpawnInfoText(damage.ToString(), 
@@ -198,7 +198,7 @@ public class CharacterEntity : MonoBehaviour
     protected void RangedAttack()
     {
         uiManager.DisableButtons();
-        anim.SetTrigger("Cast");
+        anim.SetTrigger(CharacterClipAnims.CastAnimName);
     }
 
     public virtual void Heal(int amount, bool battleFinish)
@@ -214,7 +214,7 @@ public class CharacterEntity : MonoBehaviour
         {
             uiManager.SpawnInfoText(amount.ToString(), Color.green, transform.position);
             AudioManager.Instance.PlaySound(AudioStrings.UsePotion);
-            anim.SetTrigger("Heal");
+            anim.SetTrigger(CharacterClipAnims.HealAnimName);
         }
     }
 
@@ -231,7 +231,7 @@ public class CharacterEntity : MonoBehaviour
         {
             uiManager.SpawnInfoText(amount.ToString(), Color.cyan, transform.position);
             AudioManager.Instance.PlaySound(AudioStrings.UsePotion);
-            anim.SetTrigger("Heal");
+            anim.SetTrigger(CharacterClipAnims.HealAnimName);
         }
     }
 
@@ -241,7 +241,7 @@ public class CharacterEntity : MonoBehaviour
    
     protected void MoveToAttackPosition(Vector2 targetPosition)
     {
-        anim.SetBool("Run", true);
+        anim.SetBool(CharacterClipAnims.RunAnimName, true);
 
         float modifiedTargetPos = targetPosition.x - transform.right.x;
         transform.DOMoveX(modifiedTargetPos, 1).OnComplete(StartAttack);
@@ -249,8 +249,8 @@ public class CharacterEntity : MonoBehaviour
 
     private void StartAttack()
     {
-        anim.SetBool("Run", false);
-        anim.SetTrigger("Attack");
+        anim.SetBool(CharacterClipAnims.RunAnimName, false);
+        anim.SetTrigger(CharacterClipAnims.AttackAnimName);
     }
 
     // Animation Finishes - triggered in animations.

@@ -314,7 +314,7 @@ public class Player : CharacterEntity
         const float BattleDelayTime = 3;
 
         yield return new WaitForSeconds(BattleDelayTime);
-        anim.SetBool("Run", true);
+        anim.SetBool(CharacterClipAnims.RunAnimName, true);
         battleManager.ToggleNextBattle();
     }
 

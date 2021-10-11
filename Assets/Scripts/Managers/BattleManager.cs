@@ -88,7 +88,7 @@ public class BattleManager : MonoBehaviour
 
     public void StartNewBattle()
     {
-        player.anim.SetBool("Run", false);
+        player.anim.SetBool(CharacterClipAnims.RunAnimName, false);
         TogglePlayerTurn();
     }
 
