@@ -134,7 +134,7 @@ public class Player : CharacterEntity
 
         if ((mp - spell.cost) < 0)
         {
-            uiManager.SpawnInfoText("NotEnoughMana", NotEnoughManaColor, transform.position);
+            uiManager.SpawnInfoText(DisplayStrings.NotEnoughManaText, NotEnoughManaColor, transform.position);
         }
         else
         {
@@ -278,7 +278,7 @@ public class Player : CharacterEntity
         inventory.gold += randomGold;
         exp += expRecieved;
 
-        uiManager.SpawnInfoText("+" + expRecieved + " XP", Color.white, transform.position);
+        uiManager.SpawnInfoText(string.Format(DisplayStrings.GainXPText, expRecieved), Color.white, transform.position);
 
         StartCoroutine(CheckForLevelUp());
         StartCoroutine(NextBattle());
@@ -303,7 +303,7 @@ public class Player : CharacterEntity
             uiManager.StatusHUD.UpdateUIMana();
             uiManager.MagicHUD.Init();
             
-            uiManager.SpawnInfoText("Level up!", Color.white, positionOffset);
+            uiManager.SpawnInfoText(DisplayStrings.LevelUpText, Color.white, positionOffset);
 
             exp += extraXP;
         }

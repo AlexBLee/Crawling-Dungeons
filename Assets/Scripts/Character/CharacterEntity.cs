@@ -120,7 +120,7 @@ public class CharacterEntity : MonoBehaviour
         
         if (missChance < target.dodgeChance)
         {
-            uiManager.SpawnInfoText("Miss!", Color.white, target.transform.position);
+            uiManager.SpawnInfoText(DisplayStrings.MissText, Color.white, target.transform.position);
             AudioManager.Instance.PlaySound(AudioStrings.Miss);
 
             return true;

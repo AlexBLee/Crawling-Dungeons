@@ -47,14 +47,14 @@ public class PotionHUD : HUDMenu
         {
             if (potionUI.item != null)
             {
-                potionUI.button.interactable = potionUI.item.amount == 0 ? false : true;
-                potionUI.text.text = potionUI.item.itemName + " x" + potionUI.item.amount.ToString();
+                potionUI.button.interactable = potionUI.item.amount != 0;
+                potionUI.text.text = string.Format(DisplayStrings.PotionFormatString, potionUI.item.itemName, potionUI.item.amount.ToString());
 
             }
             else
             {
                 potionUI.button.interactable = false;
-                potionUI.text.text = "N/A";
+                potionUI.text.text = DisplayStrings.NotApplicableText;
             }
         }
     }

@@ -40,7 +40,7 @@ public class AmountBar : MonoBehaviour
             }
 
             bar.fillAmount = mPercentage;
-            txtAmount.text = minAmount + "/" + maxAmount;
+            txtAmount.text = string.Format(DisplayStrings.BarFillAmountText, minAmount, maxAmount);
         }
     }
 
