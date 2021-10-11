@@ -138,9 +138,9 @@ public class CharacterEntity : MonoBehaviour
 
         damage *= (DefStartPointCalc - (target.def / ConvertToPercentageCalc));
 
-        damage = CalculateCritDamage(damage);
-
         damage += extraDamage;
+
+        damage = CalculateCritDamage(damage);
 
         return Mathf.RoundToInt(damage);
     }
@@ -186,7 +186,11 @@ public class CharacterEntity : MonoBehaviour
         anim.SetTrigger("Hit");
         AudioManager.Instance.PlaySound("SlashHit");
 
-        uiManager.SpawnInfoText(damage.ToString(), isCritting ? Color.yellow : Color.white, transform.position);
+        uiManager.SpawnInfoText(damage.ToString(), 
+            target.isCritting 
+                ? Color.yellow 
+                : Color.white, transform.position);
+        
         CheckDeath();
     }
 
