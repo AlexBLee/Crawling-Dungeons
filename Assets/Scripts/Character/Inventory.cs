@@ -82,7 +82,7 @@ public class Inventory : MonoBehaviour
     {
         if(gold >= item.cost)
         {
-            AudioManager.Instance.PlaySound("Buy");
+            AudioManager.Instance.PlaySound(AudioStrings.Buy);
             gold -= item.cost;
             shopDisplay.UpdateGold();
             Debug.Log("Bought " + item.itemName);
@@ -107,7 +107,7 @@ public class Inventory : MonoBehaviour
     public void SellItem(int index)
     {
         Item item = items[index];
-        AudioManager.Instance.PlaySound("Buy");
+        AudioManager.Instance.PlaySound(AudioStrings.Buy);
 
         const float SellFactor = 0.5f;
         int sellPrice = (int)((float)item.cost * SellFactor);
@@ -132,7 +132,7 @@ public class Inventory : MonoBehaviour
         // selling bool is only to differ between sounds
         if(!selling)
         {
-            AudioManager.Instance.PlaySound("Trash");
+            AudioManager.Instance.PlaySound(AudioStrings.Trash);
         }
         itemPopup.gameObject.SetActive(false);
         items[index] = null;

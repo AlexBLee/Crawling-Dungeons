@@ -121,7 +121,7 @@ public class CharacterEntity : MonoBehaviour
         if (missChance < target.dodgeChance)
         {
             uiManager.SpawnInfoText("Miss!", Color.white, target.transform.position);
-            AudioManager.Instance.PlaySound("Woosh");
+            AudioManager.Instance.PlaySound(AudioStrings.Miss);
 
             return true;
         }
@@ -184,7 +184,7 @@ public class CharacterEntity : MonoBehaviour
     {
         hp -= damage;
         anim.SetTrigger("Hit");
-        AudioManager.Instance.PlaySound("SlashHit");
+        AudioManager.Instance.PlaySound(AudioStrings.Hit);
 
         uiManager.SpawnInfoText(damage.ToString(), 
             target.isCritting 
@@ -213,7 +213,7 @@ public class CharacterEntity : MonoBehaviour
         if (!battleFinish)
         {
             uiManager.SpawnInfoText(amount.ToString(), Color.green, transform.position);
-            AudioManager.Instance.PlaySound("UsePotion");
+            AudioManager.Instance.PlaySound(AudioStrings.UsePotion);
             anim.SetTrigger("Heal");
         }
     }
@@ -230,7 +230,7 @@ public class CharacterEntity : MonoBehaviour
         if (!battleFinish)
         {
             uiManager.SpawnInfoText(amount.ToString(), Color.cyan, transform.position);
-            AudioManager.Instance.PlaySound("UsePotion");
+            AudioManager.Instance.PlaySound(AudioStrings.UsePotion);
             anim.SetTrigger("Heal");
         }
     }

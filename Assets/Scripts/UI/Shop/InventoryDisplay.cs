@@ -63,7 +63,7 @@ public class InventoryDisplay : MonoBehaviour
     private void ShowInventory()
     {
         itemPopup.gameObject.SetActive(false);
-        AudioManager.Instance.PlaySound("Bag");
+        AudioManager.Instance.PlaySound(AudioStrings.Bag);
         shop.SetActive(false);
         inventory.SetActive(true);
     }

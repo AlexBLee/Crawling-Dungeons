@@ -125,7 +125,7 @@ public class BattleManager : MonoBehaviour
     {
         const int FinalLevelNumber = 7;
 
-        AudioManager.Instance.PlayMusic("Victory");
+        AudioManager.Instance.PlayMusic(AudioStrings.VictoryMusic);
         if (SceneManager.GetActiveScene().buildIndex == FinalLevelNumber)
         {
             uiManager.ShowGameWin();
