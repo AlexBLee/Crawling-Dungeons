@@ -141,7 +141,7 @@ TextureImporter:
       213: 21300090
     second: mon4_sprite_base_8
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -161,6 +161,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -170,8 +172,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -192,9 +194,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1211,6 +1217,53 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      mon4_sprite_base_14: 21300014
+      mon4_sprite_base_151: 21300076
+      mon4_sprite_base_7: 21300088
+      mon4_sprite_base_103: 21300048
+      mon4_sprite_base_102: 21300046
+      mon4_sprite_base_101: 21300044
+      mon4_sprite_base_18: 21300022
+      mon4_sprite_base_106: 21300054
+      mon4_sprite_base_1: 21300002
+      mon4_sprite_base_48: 21300034
+      mon4_sprite_base_2: 21300004
+      mon4_sprite_base_110: 21300062
+      mon4_sprite_base_97: 21300038
+      mon4_sprite_base_98: 21300040
+      mon4_sprite_base_109: 21300060
+      mon4_sprite_base_118: 21300070
+      mon4_sprite_base_11: 21300008
+      mon4_sprite_base_8: 21300090
+      mon4_sprite_base_152: 21300078
+      mon4_sprite_base_5: 21300084
+      mon4_sprite_base_107: 21300056
+      mon4_sprite_base_100: 21300042
+      mon4_sprite_base_3: 21300006
+      mon4_sprite_base_13: 21300012
+      mon4_sprite_base_153: 21300080
+      mon4_sprite_base_17: 21300020
+      mon4_sprite_base_19: 21300024
+      mon4_sprite_base_0: 21300000
+      mon4_sprite_base_95: 21300036
+      mon4_sprite_base_119: 21300072
+      mon4_sprite_base_12: 21300010
+      mon4_sprite_base_116: 21300066
+      mon4_sprite_base_4: 21300082
+      mon4_sprite_base_15: 21300016
+      mon4_sprite_base_150: 21300074
+      mon4_sprite_base_46: 21300030
+      mon4_sprite_base_6: 21300086
+      mon4_sprite_base_108: 21300058
+      mon4_sprite_base_16: 21300018
+      mon4_sprite_base_44: 21300026
+      mon4_sprite_base_105: 21300052
+      mon4_sprite_base_117: 21300068
+      mon4_sprite_base_47: 21300032
+      mon4_sprite_base_104: 21300050
+      mon4_sprite_base_45: 21300028
+      mon4_sprite_base_114: 21300064
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

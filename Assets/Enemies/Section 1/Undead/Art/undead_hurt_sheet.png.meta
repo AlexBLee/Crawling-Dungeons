@@ -51,7 +51,7 @@ TextureImporter:
       213: 21300030
     second: undead_hurt_sheet_15
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -71,6 +71,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -80,8 +82,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -102,9 +104,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -491,6 +497,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      undead_hurt_sheet_5: 21300010
+      undead_hurt_sheet_1: 21300002
+      undead_hurt_sheet_4: 21300008
+      undead_hurt_sheet_13: 21300026
+      undead_hurt_sheet_10: 21300020
+      undead_hurt_sheet_0: 21300000
+      undead_hurt_sheet_9: 21300018
+      undead_hurt_sheet_14: 21300028
+      undead_hurt_sheet_12: 21300024
+      undead_hurt_sheet_15: 21300030
+      undead_hurt_sheet_6: 21300012
+      undead_hurt_sheet_2: 21300004
+      undead_hurt_sheet_11: 21300022
+      undead_hurt_sheet_3: 21300006
+      undead_hurt_sheet_8: 21300016
+      undead_hurt_sheet_7: 21300014
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

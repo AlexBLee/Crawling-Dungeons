@@ -759,6 +759,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -768,8 +769,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -790,6 +791,8 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
@@ -6014,6 +6017,252 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Background 4_203: 21300322
+      Background 4_192: 21300300
+      Background 4_159: 21300234
+      Background 4_115: 21300158
+      Background 4_88: 21300112
+      Background 4_95: 21300126
+      Background 4_145: 21300206
+      Background 4_104: 21300144
+      Background 4_256: 21300426
+      Background 4_189: 21300294
+      Background 4_85: 21300106
+      Background 4_176: 21300268
+      Background 4_72: 21300094
+      Background 4_114: 21300156
+      Background 4_9: 21300018
+      Background 4_92: 21300120
+      Background 4_195: 21300306
+      Background 4_211: 21300338
+      Background 4_190: 21300296
+      Background 4_229: 21300374
+      Background 4_281: 21300474
+      Background 4_290: 21300482
+      Background 4_162: 21300240
+      Background 4_171: 21300258
+      Background 4_257: 21300428
+      Background 4_194: 21300304
+      Background 4_231: 21300378
+      Background 4_259: 21300432
+      Background 4_84: 21300104
+      Background 4_134: 21300196
+      Background 4_199: 21300314
+      Background 4_137: 21300202
+      Background 4_230: 21300376
+      Background 4_246: 21300408
+      Background 4_144: 21300204
+      Background 4_0: 21300000
+      Background 4_155: 21300226
+      Background 4_151: 21300218
+      Background 4_131: 21300190
+      Background 4_2: 21300004
+      Background 4_202: 21300320
+      Background 4_154: 21300224
+      Background 4_269: 21300452
+      Background 4_102: 21300140
+      Background 4_222: 21300360
+      Background 4_280: 21300472
+      Background 4_56: 21300062
+      Background 4_5: 21300010
+      Background 4_118: 21300164
+      Background 4_161: 21300238
+      Background 4_164: 21300244
+      Background 4_272: 21300456
+      Background 4_61: 21300072
+      Background 4_238: 21300392
+      Background 4_274: 21300460
+      Background 4_232: 21300380
+      Background 4_130: 21300188
+      Background 4_288: 21300478
+      Background 4_132: 21300192
+      Background 4_264: 21300442
+      Background 4_236: 21300388
+      Background 4_175: 21300266
+      Background 4_196: 21300308
+      Background 4_106: 21300148
+      Background 4_6: 21300012
+      Background 4_122: 21300172
+      Background 4_197: 21300310
+      Background 4_265: 21300444
+      Background 4_135: 21300198
+      Background 4_184: 21300284
+      Background 4_291: 21300484
+      Background 4_120: 21300168
+      Background 4_282: 21300476
+      Background 4_60: 21300070
+      Background 4_62: 21300074
+      Background 4_20: 21300030
+      Background 4_124: 21300176
+      Background 4_65: 21300080
+      Background 4_210: 21300336
+      Background 4_186: 21300288
+      Background 4_8: 21300016
+      Background 4_247: 21300410
+      Background 4_261: 21300436
+      Background 4_213: 21300342
+      Background 4_63: 21300076
+      Background 4_68: 21300086
+      Background 4_158: 21300232
+      Background 4_36: 21300040
+      Background 4_157: 21300230
+      Background 4_239: 21300394
+      Background 4_245: 21300406
+      Background 4_34: 21300036
+      Background 4_7: 21300014
+      Background 4_97: 21300130
+      Background 4_89: 21300114
+      Background 4_220: 21300356
+      Background 4_38: 21300044
+      Background 4_67: 21300084
+      Background 4_262: 21300438
+      Background 4_226: 21300368
+      Background 4_93: 21300122
+      Background 4_146: 21300208
+      Background 4_153: 21300222
+      Background 4_279: 21300470
+      Background 4_188: 21300292
+      Background 4_251: 21300418
+      Background 4_169: 21300254
+      Background 4_10: 21300020
+      Background 4_82: 21300100
+      Background 4_273: 21300458
+      Background 4_117: 21300162
+      Background 4_277: 21300466
+      Background 4_70: 21300090
+      Background 4_35: 21300038
+      Background 4_241: 21300398
+      Background 4_168: 21300252
+      Background 4_183: 21300282
+      Background 4_248: 21300412
+      Background 4_181: 21300278
+      Background 4_187: 21300290
+      Background 4_221: 21300358
+      Background 4_207: 21300330
+      Background 4_59: 21300068
+      Background 4_233: 21300382
+      Background 4_52: 21300054
+      Background 4_69: 21300088
+      Background 4_17: 21300024
+      Background 4_101: 21300138
+      Background 4_81: 21300098
+      Background 4_193: 21300302
+      Background 4_150: 21300216
+      Background 4_149: 21300214
+      Background 4_204: 21300324
+      Background 4_205: 21300326
+      Background 4_219: 21300354
+      Background 4_121: 21300170
+      Background 4_267: 21300448
+      Background 4_16: 21300022
+      Background 4_99: 21300134
+      Background 4_19: 21300028
+      Background 4_225: 21300366
+      Background 4_66: 21300082
+      Background 4_214: 21300344
+      Background 4_4: 21300008
+      Background 4_166: 21300248
+      Background 4_223: 21300362
+      Background 4_208: 21300332
+      Background 4_240: 21300396
+      Background 4_254: 21300424
+      Background 4_136: 21300200
+      Background 4_100: 21300136
+      Background 4_80: 21300096
+      Background 4_119: 21300166
+      Background 4_212: 21300340
+      Background 4_209: 21300334
+      Background 4_105: 21300146
+      Background 4_177: 21300270
+      Background 4_224: 21300364
+      Background 4_116: 21300160
+      Background 4_58: 21300066
+      Background 4_113: 21300154
+      Background 4_3: 21300006
+      Background 4_32: 21300032
+      Background 4_180: 21300276
+      Background 4_107: 21300150
+      Background 4_292: 21300486
+      Background 4_87: 21300110
+      Background 4_1: 21300002
+      Background 4_147: 21300210
+      Background 4_266: 21300446
+      Background 4_268: 21300450
+      Background 4_83: 21300102
+      Background 4_33: 21300034
+      Background 4_252: 21300420
+      Background 4_242: 21300400
+      Background 4_129: 21300186
+      Background 4_51: 21300052
+      Background 4_179: 21300274
+      Background 4_37: 21300042
+      Background 4_96: 21300128
+      Background 4_165: 21300246
+      Background 4_156: 21300228
+      Background 4_163: 21300242
+      Background 4_201: 21300318
+      Background 4_206: 21300328
+      Background 4_71: 21300092
+      Background 4_278: 21300468
+      Background 4_173: 21300262
+      Background 4_170: 21300256
+      Background 4_90: 21300116
+      Background 4_127: 21300182
+      Background 4_275: 21300462
+      Background 4_216: 21300348
+      Background 4_98: 21300132
+      Background 4_148: 21300212
+      Background 4_133: 21300194
+      Background 4_128: 21300184
+      Background 4_178: 21300272
+      Background 4_249: 21300414
+      Background 4_253: 21300422
+      Background 4_152: 21300220
+      Background 4_243: 21300402
+      Background 4_244: 21300404
+      Background 4_235: 21300386
+      Background 4_125: 21300178
+      Background 4_263: 21300440
+      Background 4_258: 21300430
+      Background 4_123: 21300174
+      Background 4_198: 21300312
+      Background 4_57: 21300064
+      Background 4_18: 21300026
+      Background 4_103: 21300142
+      Background 4_94: 21300124
+      Background 4_126: 21300180
+      Background 4_260: 21300434
+      Background 4_237: 21300390
+      Background 4_215: 21300346
+      Background 4_48: 21300046
+      Background 4_200: 21300316
+      Background 4_86: 21300108
+      Background 4_185: 21300286
+      Background 4_112: 21300152
+      Background 4_217: 21300350
+      Background 4_174: 21300264
+      Background 4_49: 21300048
+      Background 4_160: 21300236
+      Background 4_172: 21300260
+      Background 4_234: 21300384
+      Background 4_91: 21300118
+      Background 4_289: 21300480
+      Background 4_227: 21300370
+      Background 4_270: 21300454
+      Background 4_50: 21300050
+      Background 4_54: 21300058
+      Background 4_250: 21300416
+      Background 4_53: 21300056
+      Background 4_228: 21300372
+      Background 4_182: 21300280
+      Background 4_191: 21300298
+      Background 4_293: 21300488
+      Background 4_64: 21300078
+      Background 4_276: 21300464
+      Background 4_218: 21300352
+      Background 4_55: 21300060
+      Background 4_167: 21300250
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

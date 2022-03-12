@@ -363,7 +363,7 @@ TextureImporter:
       213: 21300238
     second: Minotaur - Sprite Sheet_119
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -383,6 +383,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -392,8 +394,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -414,9 +416,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1727,6 +1733,67 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Minotaur - Sprite Sheet_14: 21300028
+      Minotaur - Sprite Sheet_15: 21300030
+      Minotaur - Sprite Sheet_49: 21300098
+      Minotaur - Sprite Sheet_31: 21300062
+      Minotaur - Sprite Sheet_4: 21300008
+      Minotaur - Sprite Sheet_52: 21300104
+      Minotaur - Sprite Sheet_3: 21300006
+      Minotaur - Sprite Sheet_18: 21300036
+      Minotaur - Sprite Sheet_54: 21300108
+      Minotaur - Sprite Sheet_22: 21300044
+      Minotaur - Sprite Sheet_33: 21300066
+      Minotaur - Sprite Sheet_36: 21300072
+      Minotaur - Sprite Sheet_25: 21300050
+      Minotaur - Sprite Sheet_47: 21300094
+      Minotaur - Sprite Sheet_34: 21300068
+      Minotaur - Sprite Sheet_58: 21300116
+      Minotaur - Sprite Sheet_1: 21300002
+      Minotaur - Sprite Sheet_37: 21300074
+      Minotaur - Sprite Sheet_42: 21300084
+      Minotaur - Sprite Sheet_59: 21300118
+      Minotaur - Sprite Sheet_45: 21300090
+      Minotaur - Sprite Sheet_30: 21300060
+      Minotaur - Sprite Sheet_40: 21300080
+      Minotaur - Sprite Sheet_20: 21300040
+      Minotaur - Sprite Sheet_43: 21300086
+      Minotaur - Sprite Sheet_12: 21300024
+      Minotaur - Sprite Sheet_19: 21300038
+      Minotaur - Sprite Sheet_13: 21300026
+      Minotaur - Sprite Sheet_8: 21300016
+      Minotaur - Sprite Sheet_35: 21300070
+      Minotaur - Sprite Sheet_39: 21300078
+      Minotaur - Sprite Sheet_44: 21300088
+      Minotaur - Sprite Sheet_48: 21300096
+      Minotaur - Sprite Sheet_9: 21300018
+      Minotaur - Sprite Sheet_5: 21300010
+      Minotaur - Sprite Sheet_28: 21300056
+      Minotaur - Sprite Sheet_11: 21300022
+      Minotaur - Sprite Sheet_38: 21300076
+      Minotaur - Sprite Sheet_7: 21300014
+      Minotaur - Sprite Sheet_57: 21300114
+      Minotaur - Sprite Sheet_32: 21300064
+      Minotaur - Sprite Sheet_21: 21300042
+      Minotaur - Sprite Sheet_23: 21300046
+      Minotaur - Sprite Sheet_29: 21300058
+      Minotaur - Sprite Sheet_26: 21300052
+      Minotaur - Sprite Sheet_6: 21300012
+      Minotaur - Sprite Sheet_53: 21300106
+      Minotaur - Sprite Sheet_17: 21300034
+      Minotaur - Sprite Sheet_46: 21300092
+      Minotaur - Sprite Sheet_56: 21300112
+      Minotaur - Sprite Sheet_41: 21300082
+      Minotaur - Sprite Sheet_51: 21300102
+      Minotaur - Sprite Sheet_16: 21300032
+      Minotaur - Sprite Sheet_0: 21300000
+      Minotaur - Sprite Sheet_2: 21300004
+      Minotaur - Sprite Sheet_27: 21300054
+      Minotaur - Sprite Sheet_24: 21300048
+      Minotaur - Sprite Sheet_55: 21300110
+      Minotaur - Sprite Sheet_50: 21300100
+      Minotaur - Sprite Sheet_10: 21300020
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

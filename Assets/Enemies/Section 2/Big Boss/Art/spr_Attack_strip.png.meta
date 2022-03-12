@@ -108,7 +108,7 @@ TextureImporter:
       213: 3343691472068613169
     second: spr_Attack_strip_34
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -128,6 +128,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -137,8 +139,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -159,9 +161,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -854,6 +860,37 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      spr_Attack_strip_6: 2605570758333437872
+      spr_Attack_strip_8: -7498011885135911818
+      spr_Attack_strip_24: 770058544204002501
+      spr_Attack_strip_33: 4461908965857881572
+      spr_Attack_strip_17: -6502687301001742279
+      spr_Attack_strip_11: -621819348721470125
+      spr_Attack_strip_16: 9003257293396088241
+      spr_Attack_strip_22: 5592364565445058471
+      spr_Attack_strip_23: 8245095844184432511
+      spr_Attack_strip_0: -6235691402107294915
+      spr_Attack_strip_19: 936541899446201329
+      spr_Attack_strip_13: 9013182157612888475
+      spr_Attack_strip_12: -3372633092897190165
+      spr_Attack_strip_3: 9175705419129574094
+      spr_Attack_strip_5: 1683564000844977430
+      spr_Attack_strip_32: -6889948688667058865
+      spr_Attack_strip_26: 553756337389665028
+      spr_Attack_strip_21: -7647390283290309172
+      spr_Attack_strip_1: 1607126157118247823
+      spr_Attack_strip_25: 4294128330841424897
+      spr_Attack_strip_2: 2876403623204602902
+      spr_Attack_strip_10: -8218420519516316836
+      spr_Attack_strip_4: -2360855855492003918
+      spr_Attack_strip_31: -1087426738896296840
+      spr_Attack_strip_28: -4621021454210811217
+      spr_Attack_strip_14: 3455971978717044054
+      spr_Attack_strip_9: -7991757054763694234
+      spr_Attack_strip_7: -2668672189161051785
+      spr_Attack_strip_15: -712497145185000420
+      spr_Attack_strip_30: -451401323598944944
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

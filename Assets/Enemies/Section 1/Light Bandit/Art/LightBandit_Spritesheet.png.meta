@@ -120,7 +120,7 @@ TextureImporter:
       213: 21300076
     second: LightBandit_Spritesheet_38
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -140,6 +140,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -149,8 +151,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -171,9 +173,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1043,6 +1049,46 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      LightBandit_Spritesheet_27: 21300054
+      LightBandit_Spritesheet_0: 21300000
+      LightBandit_Spritesheet_5: 21300010
+      LightBandit_Spritesheet_18: 21300036
+      LightBandit_Spritesheet_10: 21300020
+      LightBandit_Spritesheet_33: 21300066
+      LightBandit_Spritesheet_32: 21300064
+      LightBandit_Spritesheet_15: 21300030
+      LightBandit_Spritesheet_7: 21300014
+      LightBandit_Spritesheet_17: 21300034
+      LightBandit_Spritesheet_34: 21300068
+      LightBandit_Spritesheet_19: 21300038
+      LightBandit_Spritesheet_37: 21300074
+      LightBandit_Spritesheet_25: 21300050
+      LightBandit_Spritesheet_13: 21300026
+      LightBandit_Spritesheet_9: 21300018
+      LightBandit_Spritesheet_30: 21300060
+      LightBandit_Spritesheet_31: 21300062
+      LightBandit_Spritesheet_3: 21300006
+      LightBandit_Spritesheet_26: 21300052
+      LightBandit_Spritesheet_11: 21300022
+      LightBandit_Spritesheet_22: 21300044
+      LightBandit_Spritesheet_4: 21300008
+      LightBandit_Spritesheet_14: 21300028
+      LightBandit_Spritesheet_8: 21300016
+      LightBandit_Spritesheet_23: 21300046
+      LightBandit_Spritesheet_38: 21300076
+      LightBandit_Spritesheet_6: 21300012
+      LightBandit_Spritesheet_12: 21300024
+      LightBandit_Spritesheet_35: 21300070
+      LightBandit_Spritesheet_16: 21300032
+      LightBandit_Spritesheet_36: 21300072
+      LightBandit_Spritesheet_2: 21300004
+      LightBandit_Spritesheet_1: 21300002
+      LightBandit_Spritesheet_20: 21300040
+      LightBandit_Spritesheet_29: 21300058
+      LightBandit_Spritesheet_21: 21300042
+      LightBandit_Spritesheet_28: 21300056
+      LightBandit_Spritesheet_24: 21300048
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

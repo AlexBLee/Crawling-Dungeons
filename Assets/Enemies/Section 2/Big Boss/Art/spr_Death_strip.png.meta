@@ -135,7 +135,7 @@ TextureImporter:
       213: 2246280064353988657
     second: spr_Death_strip_43
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -155,6 +155,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -164,8 +166,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -186,9 +188,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1091,6 +1097,47 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      spr_Death_strip_27: 4699521677829010168
+      spr_Death_strip_30: -4985728106674742239
+      spr_Death_strip_9: 4162771850997127152
+      spr_Death_strip_35: -8354572587344520944
+      spr_Death_strip_15: 5066935971532481064
+      spr_Death_strip_25: -3914245059478023961
+      spr_Death_strip_8: 2421849573554293318
+      spr_Death_strip_10: -6934561839069940554
+      spr_Death_strip_41: 8480890774510788038
+      spr_Death_strip_4: 4420751291758949957
+      spr_Death_strip_23: -8157588399918901116
+      spr_Death_strip_17: -8765412970425680228
+      spr_Death_strip_21: 5324047034241963461
+      spr_Death_strip_0: -5816762264772739797
+      spr_Death_strip_39: 467278600896353753
+      spr_Death_strip_6: 4519577923427776642
+      spr_Death_strip_31: 2606369420117942688
+      spr_Death_strip_29: -4978014194055612527
+      spr_Death_strip_3: 748963819499947031
+      spr_Death_strip_40: -7273571784574598369
+      spr_Death_strip_2: -7514295990448559657
+      spr_Death_strip_7: -6700023217249205702
+      spr_Death_strip_12: -5459225536721841036
+      spr_Death_strip_13: -3693121127315992576
+      spr_Death_strip_37: 8278241914169921169
+      spr_Death_strip_26: -3735063294205927994
+      spr_Death_strip_22: 8329863831276588296
+      spr_Death_strip_42: -6099987014071864878
+      spr_Death_strip_24: 7497856904849595743
+      spr_Death_strip_5: -8226119704173901570
+      spr_Death_strip_38: -419408298176567923
+      spr_Death_strip_43: 2246280064353988657
+      spr_Death_strip_28: 8251400086737965601
+      spr_Death_strip_32: -3997775270767100439
+      spr_Death_strip_11: 6810482140059462877
+      spr_Death_strip_19: -1917262608349789233
+      spr_Death_strip_18: 311567082650047582
+      spr_Death_strip_33: 6725430975258481470
+      spr_Death_strip_1: -768325280531544420
+      spr_Death_strip_20: 3849386565364450552
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

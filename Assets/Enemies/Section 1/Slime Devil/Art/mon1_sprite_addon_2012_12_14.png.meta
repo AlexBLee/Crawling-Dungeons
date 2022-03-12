@@ -114,7 +114,7 @@ TextureImporter:
       213: 21300072
     second: mon1_sprite_addon_2012_12_14_82
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -134,6 +134,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -143,8 +145,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -165,9 +167,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -848,6 +854,37 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      mon1_sprite_addon_2012_12_14_79: 21300066
+      mon1_sprite_addon_2012_12_14_3: 21300006
+      mon1_sprite_addon_2012_12_14_1: 21300002
+      mon1_sprite_addon_2012_12_14_26: 21300024
+      mon1_sprite_addon_2012_12_14_35: 21300032
+      mon1_sprite_addon_2012_12_14_28: 21300028
+      mon1_sprite_addon_2012_12_14_23: 21300018
+      mon1_sprite_addon_2012_12_14_78: 21300064
+      mon1_sprite_addon_2012_12_14_38: 21300038
+      mon1_sprite_addon_2012_12_14_75: 21300058
+      mon1_sprite_addon_2012_12_14_77: 21300062
+      mon1_sprite_addon_2012_12_14_82: 21300072
+      mon1_sprite_addon_2012_12_14_10: 21300008
+      mon1_sprite_addon_2012_12_14_24: 21300020
+      mon1_sprite_addon_2012_12_14_80: 21300068
+      mon1_sprite_addon_2012_12_14_13: 21300014
+      mon1_sprite_addon_2012_12_14_81: 21300070
+      mon1_sprite_addon_2012_12_14_40: 21300042
+      mon1_sprite_addon_2012_12_14_25: 21300022
+      mon1_sprite_addon_2012_12_14_76: 21300060
+      mon1_sprite_addon_2012_12_14_11: 21300010
+      mon1_sprite_addon_2012_12_14_46: 21300054
+      mon1_sprite_addon_2012_12_14_0: 21300000
+      mon1_sprite_addon_2012_12_14_12: 21300012
+      mon1_sprite_addon_2012_12_14_39: 21300040
+      mon1_sprite_addon_2012_12_14_14: 21300016
+      mon1_sprite_addon_2012_12_14_27: 21300026
+      mon1_sprite_addon_2012_12_14_34: 21300030
+      mon1_sprite_addon_2012_12_14_36: 21300034
+      mon1_sprite_addon_2012_12_14_2: 21300004
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

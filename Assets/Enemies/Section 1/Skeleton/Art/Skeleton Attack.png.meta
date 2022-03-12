@@ -57,7 +57,7 @@ TextureImporter:
       213: 21300034
     second: Skeleton Attack_17
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -77,6 +77,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -86,8 +88,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -108,9 +110,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -539,6 +545,25 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Skeleton Attack_15: 21300030
+      Skeleton Attack_16: 21300032
+      Skeleton Attack_0: 21300000
+      Skeleton Attack_10: 21300020
+      Skeleton Attack_1: 21300002
+      Skeleton Attack_2: 21300004
+      Skeleton Attack_8: 21300016
+      Skeleton Attack_14: 21300028
+      Skeleton Attack_17: 21300034
+      Skeleton Attack_12: 21300024
+      Skeleton Attack_13: 21300026
+      Skeleton Attack_5: 21300010
+      Skeleton Attack_4: 21300008
+      Skeleton Attack_7: 21300014
+      Skeleton Attack_11: 21300022
+      Skeleton Attack_6: 21300012
+      Skeleton Attack_9: 21300018
+      Skeleton Attack_3: 21300006
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

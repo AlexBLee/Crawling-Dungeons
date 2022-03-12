@@ -57,7 +57,7 @@ TextureImporter:
       213: 1922383520397997318
     second: spr_Taunt_strip_17
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -77,6 +77,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -86,8 +88,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -108,9 +110,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -551,6 +557,25 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      spr_Taunt_strip_5: 8072178207778483292
+      spr_Taunt_strip_8: -4644469739640383020
+      spr_Taunt_strip_15: -4814574031146570493
+      spr_Taunt_strip_10: -4241990367008558795
+      spr_Taunt_strip_4: -6457851273087942242
+      spr_Taunt_strip_7: 4675603199279399284
+      spr_Taunt_strip_1: -8950723899767326342
+      spr_Taunt_strip_0: -9188809562700547408
+      spr_Taunt_strip_11: 5960166317127097172
+      spr_Taunt_strip_9: 8140299717186013194
+      spr_Taunt_strip_17: 1922383520397997318
+      spr_Taunt_strip_14: 2391731007760265339
+      spr_Taunt_strip_12: 8326882135241537613
+      spr_Taunt_strip_13: -6731446349771509471
+      spr_Taunt_strip_2: -1310060639694738761
+      spr_Taunt_strip_16: -6476216495301984242
+      spr_Taunt_strip_6: -6524808069594947228
+      spr_Taunt_strip_3: -3033454397504359021
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

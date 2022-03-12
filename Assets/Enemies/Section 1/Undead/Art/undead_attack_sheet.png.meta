@@ -63,7 +63,7 @@ TextureImporter:
       213: 21300038
     second: undead_attack_sheet_19
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -83,6 +83,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -92,8 +94,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -114,9 +116,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -587,6 +593,27 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      undead_attack_sheet_19: 21300038
+      undead_attack_sheet_9: 21300018
+      undead_attack_sheet_1: 21300002
+      undead_attack_sheet_3: 21300006
+      undead_attack_sheet_16: 21300032
+      undead_attack_sheet_2: 21300004
+      undead_attack_sheet_18: 21300036
+      undead_attack_sheet_7: 21300014
+      undead_attack_sheet_10: 21300020
+      undead_attack_sheet_8: 21300016
+      undead_attack_sheet_15: 21300030
+      undead_attack_sheet_14: 21300028
+      undead_attack_sheet_11: 21300022
+      undead_attack_sheet_5: 21300010
+      undead_attack_sheet_12: 21300024
+      undead_attack_sheet_4: 21300008
+      undead_attack_sheet_6: 21300012
+      undead_attack_sheet_13: 21300026
+      undead_attack_sheet_17: 21300034
+      undead_attack_sheet_0: 21300000
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

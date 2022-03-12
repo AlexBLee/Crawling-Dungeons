@@ -40,10 +40,11 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 01ad825fe69635b48bea70a38f55c841, type: 3}
-    totalSpriteSurfaceArea: 17408
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -84,5 +85,6 @@ SpriteAtlas:
   - Scimmy
   - Hellmet
   - Long Sword
+  m_RenderDataMap: {}
   m_Tag: item-sprite-atlas
   m_IsVariant: 0

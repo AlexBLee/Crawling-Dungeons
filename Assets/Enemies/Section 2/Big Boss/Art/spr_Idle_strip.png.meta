@@ -51,7 +51,7 @@ TextureImporter:
       213: 5025321710924349243
     second: spr_Idle_strip_15
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -71,6 +71,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -80,8 +82,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -102,9 +104,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -503,6 +509,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      spr_Idle_strip_9: 5980455629194962102
+      spr_Idle_strip_7: -4208320113244273313
+      spr_Idle_strip_8: -1637692612783327286
+      spr_Idle_strip_14: -6277127698302024435
+      spr_Idle_strip_10: -7823000694551588917
+      spr_Idle_strip_11: -4920067686192474687
+      spr_Idle_strip_1: -314029059331799083
+      spr_Idle_strip_3: -8927325975047059614
+      spr_Idle_strip_13: -3470545904337852754
+      spr_Idle_strip_4: -5897403576546682017
+      spr_Idle_strip_5: 5467768180949139379
+      spr_Idle_strip_15: 5025321710924349243
+      spr_Idle_strip_12: 659905401063497288
+      spr_Idle_strip_0: 9168396658961621293
+      spr_Idle_strip_6: 6120145019611335709
+      spr_Idle_strip_2: 50084547246263522
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
