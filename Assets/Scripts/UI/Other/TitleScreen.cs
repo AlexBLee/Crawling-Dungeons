@@ -9,11 +9,13 @@ public class TitleScreen : MonoBehaviour
     [SerializeField] private GameObject tapToStart;
     [SerializeField] private Button standardButton;
     [SerializeField] private Button endlessButton;
+    [SerializeField] private Button quitButton;
 
     private void Start() 
     {
         standardButton.onClick.AddListener(PlayStandard);
         endlessButton.onClick.AddListener(PlayEndless);
+        quitButton.onClick.AddListener(Quit);
     }
 
     void Update()
@@ -33,18 +35,24 @@ public class TitleScreen : MonoBehaviour
             tapToStart.SetActive(false);
             standardButton.gameObject.SetActive(true);
             endlessButton.gameObject.SetActive(true);
+            quitButton.gameObject.SetActive(true);
         }
         #endif
     }
 
-    public void PlayStandard()
+    private void PlayStandard()
     {
         SceneManager.LoadScene("Level1");
     }
 
-    public void PlayEndless()
+    private void PlayEndless()
     {
         SceneManager.LoadScene("Level1");
         GameManager.endlessMode = true;
+    }
+
+    private void Quit()
+    {
+        Application.Quit();
     }
 }
