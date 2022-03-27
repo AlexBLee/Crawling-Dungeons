@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 
 public class MagicHUD : HUDMenu
 {
+    [SerializeField] private Player player;
     public List<Button> magicButtonList;
 
     public void Start()

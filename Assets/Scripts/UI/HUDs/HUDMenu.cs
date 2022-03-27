@@ -2,8 +2,6 @@
 
 public class HUDMenu : MonoBehaviour
 {
-    public Player player;
-
     public virtual void Init()
     {
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class VictoryPanelHUD : HUDMenu
 {
+    [SerializeField] private Player player;
     [SerializeField] private List<AddRemoveStat> addRemoves;
     [SerializeField] private TextMeshProUGUI levelNumber;
 

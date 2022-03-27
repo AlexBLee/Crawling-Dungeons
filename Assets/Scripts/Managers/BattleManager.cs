@@ -99,6 +99,8 @@ public class BattleManager : MonoBehaviour
         {
             GameObject enemyObject = Instantiate(spawnableEnemies[number].gameObject, enemyPosition, Quaternion.Euler(reverseRotation));
             enemy = enemyObject.GetComponent<Enemy>();
+            Managers.Instance.UI.StatusHUD[1].characterEntity = enemy;
+            Managers.Instance.UI.StatusHUD[1].UpdateUIHealth();
 
             if(GameManager.endlessMode)
             {

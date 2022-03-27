@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
@@ -18,13 +19,13 @@ public class UIManager : MonoBehaviour
     public MagicHUD MagicHUD;
     public PotionHUD PotionHUD;
     public VictoryPanelHUD VictoryPanelHUD;
-    public StatusHUD StatusHUD;
+    public List<StatusHUD> StatusHUD = new List<StatusHUD>();
     public ScreenPanelHUD ScreenPanelHUD;
 
     [SerializeField] private TextMeshPro infoText;
     [SerializeField] private GameObject background;
 
-    private void Start() 
+    private void Start()
     {
         attackButton.onClick.AddListener(player.Attack);
         magicButton.onClick.AddListener(ShowMagicList);

@@ -22,7 +22,7 @@ public class Player : CharacterEntity
 
         if (Managers.Instance.UI != null)
         {
-            Managers.Instance.UI.StatusHUD.UpdateAllBars();
+            Managers.Instance.UI.StatusHUD[0].UpdateAllBars();
         }
         
         UpdateDamageStats();
@@ -145,7 +145,7 @@ public class Player : CharacterEntity
             spellUsed = spell;
             mp -= spellUsed.cost;
             
-            Managers.Instance.UI.StatusHUD.UpdateUIMana();
+            Managers.Instance.UI.StatusHUD[0].UpdateUIMana();
 
             RangedAttack();
         }
@@ -255,7 +255,7 @@ public class Player : CharacterEntity
 
         base.Heal(amount, battleFinish);
 
-        Managers.Instance.UI.StatusHUD.UpdateUIHealth();
+        Managers.Instance.UI.StatusHUD[0].UpdateUIHealth();
     }
 
     public override void RestoreMP(int amount, bool battleFinish)
@@ -265,7 +265,7 @@ public class Player : CharacterEntity
 
         base.RestoreMP(amount, battleFinish);
 
-        Managers.Instance.UI.StatusHUD.UpdateUIMana();
+        Managers.Instance.UI.StatusHUD[0].UpdateUIMana();
     }
 
     public void RecieveXPAndGold(int expRecieved, int goldRecieved)
@@ -299,8 +299,8 @@ public class Player : CharacterEntity
             inventory.UpdateItemStats();
 
             yield return new WaitForSeconds(LevelDelayTime);
-            Managers.Instance.UI.StatusHUD.UpdateUIHealth();
-            Managers.Instance.UI.StatusHUD.UpdateUIMana();
+            Managers.Instance.UI.StatusHUD[0].UpdateUIHealth();
+            Managers.Instance.UI.StatusHUD[0].UpdateUIMana();
             Managers.Instance.UI.MagicHUD.Init();
             
             Managers.Instance.UI.SpawnInfoText(DisplayStrings.LevelUpText, Color.white, positionOffset);
@@ -333,12 +333,6 @@ public class Player : CharacterEntity
     public Inventory GetInventory()
     {
         return inventory;
-    }
-
-    protected override void RecieveDamage(int damage)
-    {
-        base.RecieveDamage(damage);
-        Managers.Instance.UI.StatusHUD.UpdateUIHealth();
     }
 
     public override void FinishDeath()

@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class PotionHUD : HUDMenu
 {
+    [SerializeField] private Player player;
     public List<PotionUI> potionUIList;
 
     public void Start()
