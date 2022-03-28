@@ -52,6 +52,18 @@ public class Enemy : CharacterEntity
         anim.SetBool(CharacterClipAnims.RunAnimName, false);
         Managers.Instance.Battle.StartNewBattle();
     }
+    
+    protected override void RecieveDamage(int damage)
+    {
+        base.RecieveDamage(damage);
+        Managers.Instance.UI.StatusHUD[1].UpdateUIHealth();
+    }
+    
+    public override void Heal(int amount, bool battleFinish)
+    {
+        base.Heal(amount, battleFinish);
+        Managers.Instance.UI.StatusHUD[1].UpdateUIHealth();
+    }
 
     public void SetAttackConditions()
     {

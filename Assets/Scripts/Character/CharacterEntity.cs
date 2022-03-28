@@ -178,8 +178,6 @@ public class CharacterEntity : MonoBehaviour
 
     protected virtual void RecieveDamage(int damage)
     {
-        var index = this is Player ? 0 : 1;
-
         hp -= damage;
         anim.SetTrigger(CharacterClipAnims.HitAnimName);
         AudioManager.Instance.PlaySound(AudioStrings.Hit);
@@ -189,8 +187,6 @@ public class CharacterEntity : MonoBehaviour
                 ? Color.yellow 
                 : Color.white, transform.position);
 
-        Managers.Instance.UI.StatusHUD[index].UpdateUIHealth();
-        
         CheckDeath();
     }
 

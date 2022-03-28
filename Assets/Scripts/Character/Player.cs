@@ -248,6 +248,12 @@ public class Player : CharacterEntity
 
     #endregion
 
+    protected override void RecieveDamage(int damage)
+    {
+        base.RecieveDamage(damage);
+        Managers.Instance.UI.StatusHUD[0].UpdateUIHealth();
+    }
+
     public override void Heal(int amount, bool battleFinish)
     {
         Managers.Instance.UI.HidePotionList();
