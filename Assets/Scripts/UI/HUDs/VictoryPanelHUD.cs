@@ -12,6 +12,11 @@ public class VictoryPanelHUD : HUDMenu
     {
         base.Show();
         levelNumber.text = player.level.ToString();
+
+        foreach (var addRemove in addRemoves)
+        {
+            addRemove.Player = player;
+        }
     }
 
     private void DeactivateSubtractors()

@@ -11,7 +11,7 @@ public class AddRemoveStat : MonoBehaviour
 {
     // true = add point
     // false = subtract
-    [SerializeField] private Player player;
+    [HideInInspector] public Player Player;
     [SerializeField] private Player.StatType statType;
     public Button plus;
     public Button minus;
@@ -28,17 +28,17 @@ public class AddRemoveStat : MonoBehaviour
     private void AddStat()
     {
         AudioManager.Instance.PlaySound(AudioStrings.AddStatClick);
-        modified = player.AllocatePoints(statType);
+        modified = Player.AllocatePoints(statType);
         statDisplay.UpdateStats();
-        player.CheckStatAmount();
+        Player.CheckStatAmount();
     }
 
     private void RemoveStat()
     {
         AudioManager.Instance.PlaySound(AudioStrings.RemoveStatClick);
-        modified = player.DeallocatePoints(statType);
+        modified = Player.DeallocatePoints(statType);
         statDisplay.UpdateStats();
-        player.CheckStatAmount();
+        Player.CheckStatAmount();
     }
 
     public void ActivateAdder()

@@ -924,6 +924,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1075298623}
+    - target: {fileID: 2180728991778788031, guid: 01021d669c10db8478e5005e021b400a,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1075298623}
     - target: {fileID: 2180728992220481815, guid: 01021d669c10db8478e5005e021b400a,
         type: 3}
       propertyPath: player
@@ -1049,6 +1054,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2180728992586591079, guid: 01021d669c10db8478e5005e021b400a,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1075298623}
+    - target: {fileID: 2180728992632650414, guid: 01021d669c10db8478e5005e021b400a,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1075298623}
     - target: {fileID: 5452494394917026847, guid: 01021d669c10db8478e5005e021b400a,
         type: 3}
       propertyPath: characterEntity
