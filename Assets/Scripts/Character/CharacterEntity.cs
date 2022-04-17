@@ -39,6 +39,7 @@ public class CharacterEntity : MonoBehaviour
     public Spell spellUsed;
     private bool isCritting = false;
 
+    public List<Spell> spellModifiers = new List<Spell>();
 
     // ------------------------------------
 
@@ -103,7 +104,11 @@ public class CharacterEntity : MonoBehaviour
 
         target.RecieveDamage(CalculateInitialDamage(magicMinDamage, magicMaxDamage, spellUsed.damage));
 
+        spellUsed.InstantiateSpell(target);
+        
         spellUsed.UseSpellEffect(target);
+
+        target.spellModifiers.Add(spellUsed);
 
         spellUsed = null;
     }
@@ -270,6 +275,18 @@ public class CharacterEntity : MonoBehaviour
     
     private void ToggleNextTurn()
     {
+        foreach (Spell spell in spellModifiers)
+        {
+            spell.UseSpellEffect(this);
+
+            if (spell.turnsLeft == 0)
+            {
+                spell.UndoEffect(this);
+            }
+        }
+
+        spellModifiers.RemoveAll(spell => spell.turnsLeft == 0);
+
         StartCoroutine(Managers.Instance.Battle.ToggleNextTurn());
     }
 }

@@ -3,36 +3,42 @@
     "name": "Icebolt",
     "damage": 15,
     "cost": 5,
-    "levelRequired": 1
+    "levelRequired": 1,
+    "turnsLeft": 5
   },
   {
     "name": "Firebolt",
     "damage": 25,
     "cost": 10,
-    "levelRequired": 2
+    "levelRequired": 2,
+    "turnsLeft": 5
   },
   {
     "name": "Energy Ball",
     "damage": 35,
     "cost": 15,
-    "levelRequired": 3
+    "levelRequired": 3,
+    "turnsLeft": 0
   },
   {
     "name": "Explosion",
     "damage": 45,
     "cost": 30,
-    "levelRequired": 4
+    "levelRequired": 4,
+    "turnsLeft": 0
   },
   {
     "name": "Xplosion",
     "damage": 75,
     "cost": 60,
-    "levelRequired": 5
+    "levelRequired": 5,
+    "turnsLeft": 0
   },
   {
     "name": "Gods Might",
     "damage": 100,
     "cost": 100,
-    "levelRequired": 6
+    "levelRequired": 6,
+    "turnsLeft": 5
   }
 ]
