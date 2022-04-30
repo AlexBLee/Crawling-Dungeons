@@ -1,3 +1,3 @@
-﻿public class Explosion : Spell
+﻿public class Explosion : SpellInfo
 {
 }

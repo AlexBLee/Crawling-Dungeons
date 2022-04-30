@@ -36,10 +36,10 @@ public class CharacterEntity : MonoBehaviour
     [HideInInspector] public Animator anim;
     protected Vector3 initialPos;
     public CharacterEntity target;
-    public Spell spellUsed;
+    public SpellInfo spellUsed;
     private bool isCritting = false;
 
-    public List<Spell> spellModifiers = new List<Spell>();
+    public List<SpellInfo> spellModifiers = new List<SpellInfo>();
 
     // ------------------------------------
 
@@ -284,7 +284,7 @@ public class CharacterEntity : MonoBehaviour
 
     public void ApplySpells()
     {
-        foreach (Spell spell in spellModifiers)
+        foreach (SpellInfo spell in spellModifiers)
         {
             spell.turnsLeft--;
 

@@ -123,12 +123,12 @@ public class Player : CharacterEntity
         MoveToAttackPosition(target.transform.position);
     }
 
-    public bool HasEnoughManaForSpell(Spell spell)
+    public bool HasEnoughManaForSpell(SpellInfo spell)
     {
         return (spell.cost <= mp);
     }
 
-    public void MagicPressed(Spell spell)
+    public void MagicPressed(SpellInfo spell)
     {
         Color NotEnoughManaColor = new Color(0, 205, 255);
 

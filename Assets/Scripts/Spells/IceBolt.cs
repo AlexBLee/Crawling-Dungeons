@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class IceBolt : Spell
+public class IceBolt : SpellInfo
 {
     public override void UseSpellEffect(CharacterEntity entity)
     {

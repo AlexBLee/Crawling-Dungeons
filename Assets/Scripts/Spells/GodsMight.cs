@@ -1,3 +1,3 @@
-﻿public class GodsMight : Spell
+﻿public class GodsMight : SpellInfo
 {
 }

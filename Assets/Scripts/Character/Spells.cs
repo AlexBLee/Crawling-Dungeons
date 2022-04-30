@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Spells : MonoBehaviour
 {
-    private List<Spell> spells = new List<Spell>();
+    private List<SpellInfo> spells = new List<SpellInfo>();
     private Dictionary<string, SpellStateInfo> spellStateInfo = new Dictionary<string, SpellStateInfo>();
 
     private void Start()
@@ -15,11 +15,11 @@ public class Spells : MonoBehaviour
         }
     }
 
-    public List<Spell> GetUnlockedSpells()
+    public List<SpellInfo> GetUnlockedSpells()
     {
-        List<Spell> unlockedSpells = new List<Spell>();
+        List<SpellInfo> unlockedSpells = new List<SpellInfo>();
 
-        foreach (Spell spell in spells)
+        foreach (SpellInfo spell in spells)
         {
             if (spellStateInfo[spell.name].GetUnlockedState())
             {
@@ -32,7 +32,7 @@ public class Spells : MonoBehaviour
 
     public void UnlockSpells(int playerLevel)
     {
-        foreach (Spell spell in spells)
+        foreach (SpellInfo spell in spells)
         {
             if (playerLevel >= spell.levelRequired)
             {

@@ -47,7 +47,7 @@ public class GameDatabase : MonoBehaviour
 
     private Dictionary<string, EnemyData> enemyData = new Dictionary<string, EnemyData>();
     private Dictionary<string, Item> itemData = new Dictionary<string, Item>();
-    private Dictionary<string, Spell> spellData = new Dictionary<string, Spell>();
+    private Dictionary<string, SpellInfo> spellData = new Dictionary<string, SpellInfo>();
 
     private List<string[]> levelData = new List<string[]>();
     private List<string> shopListData = new List<string>();
@@ -147,7 +147,7 @@ public class GameDatabase : MonoBehaviour
         return null;
     }
 
-    public Spell GetSpellData(string name)
+    public SpellInfo GetSpellData(string name)
     {
         return spellData[name];
     }

@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 
 public class SpellFactory
 {
-    public static Spell GetSpell(JToken token)
+    public static SpellInfo GetSpell(JToken token)
     {
         const string NameKey = "name";
         string spellName = token[NameKey].Value<string>();

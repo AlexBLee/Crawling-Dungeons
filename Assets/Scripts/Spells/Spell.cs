@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-public class Spell
+public class SpellInfo
 {
     public string name;
     public int damage;

@@ -1,4 +1,4 @@
-﻿public class FireBolt : Spell
+﻿public class FireBolt : SpellInfo
 {
     public override void UseSpellEffect(CharacterEntity entity)
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class EnergyBall : Spell
+public class EnergyBall : SpellInfo
 {
     public override void UseSpellEffect(CharacterEntity entity)
     {
