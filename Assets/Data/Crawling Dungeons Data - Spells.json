@@ -4,14 +4,14 @@
     "damage": 15,
     "cost": 5,
     "levelRequired": 1,
-    "turnsLeft": 5
+    "turnsLeft": 3
   },
   {
     "name": "Firebolt",
     "damage": 25,
     "cost": 10,
     "levelRequired": 2,
-    "turnsLeft": 5
+    "turnsLeft": 2
   },
   {
     "name": "Energy Ball",

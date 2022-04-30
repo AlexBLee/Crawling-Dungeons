@@ -67,6 +67,7 @@ public class CharacterEntity : MonoBehaviour
         if (hp <= 0 && inBattle)
         {
             dead = true;
+            spellModifiers.Clear();
             anim.SetTrigger(CharacterClipAnims.DeathAnimName);
         }
     }
@@ -108,7 +109,10 @@ public class CharacterEntity : MonoBehaviour
         
         spellUsed.UseSpellEffect(target);
 
-        target.spellModifiers.Add(spellUsed);
+        if (!target.spellModifiers.Contains(spellUsed))
+        {
+            target.spellModifiers.Add(spellUsed);
+        }
 
         spellUsed = null;
     }
@@ -275,9 +279,14 @@ public class CharacterEntity : MonoBehaviour
     
     private void ToggleNextTurn()
     {
+        StartCoroutine(Managers.Instance.Battle.ToggleNextTurn());
+    }
+
+    public void ApplySpells()
+    {
         foreach (Spell spell in spellModifiers)
         {
-            spell.UseSpellEffect(this);
+            spell.turnsLeft--;
 
             if (spell.turnsLeft == 0)
             {
@@ -285,8 +294,6 @@ public class CharacterEntity : MonoBehaviour
             }
         }
 
-        spellModifiers.RemoveAll(spell => spell.turnsLeft == 0);
-
-        StartCoroutine(Managers.Instance.Battle.ToggleNextTurn());
+        spellModifiers.RemoveAll(spell => spell.turnsLeft <= 0);
     }
 }

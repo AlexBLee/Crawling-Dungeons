@@ -17,7 +17,6 @@ public class Spell
 
     public virtual void UseSpellEffect(CharacterEntity entity)
     {
-        turnsLeft -= 1;
     }
 
     public virtual void UndoEffect(CharacterEntity entity)

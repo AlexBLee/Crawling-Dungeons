@@ -61,18 +61,20 @@ public class BattleManager : MonoBehaviour
     {
         const float BeginAttackDelay = 0.8f;
 
-        if(playerTurn)
+        if (playerTurn)
         {
-            if(enemy != null)
+            if (enemy != null)
             {
                 yield return new WaitForSeconds(BeginAttackDelay);
                 Managers.Instance.UI.DisableButtons();
                 enemy.SetAttackConditions();
+                player.ApplySpells();
             }
             playerTurn = false;
         }
         else
         {
+            enemy.ApplySpells();
             Managers.Instance.UI.EnableButtons();
             playerTurn = true;
         }
