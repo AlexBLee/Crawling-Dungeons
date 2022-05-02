@@ -106,12 +106,19 @@ public class CharacterEntity : MonoBehaviour
         target.RecieveDamage(CalculateInitialDamage(magicMinDamage, magicMaxDamage, spellUsed.Damage));
 
         spellUsed.InstantiateSpell(target);
-        
-        spellUsed.UseSpellEffect(target);
 
-        if (!target.spellModifiers.Contains(spellUsed))
+        if (!target.CheckIfSpellExists(spellUsed.Name))
         {
             target.spellModifiers.Add(spellUsed);
+
+            spellUsed.UseSpellEffect(target);
+        }
+        else
+        {
+            Spell spell = SpellFactory.GetSpell(spellUsed.Name);
+            Spell existingSpell = target.spellModifiers.Find(spell => spellUsed.Name == spell.Name);
+
+            existingSpell.TurnsLeft = spell.TurnsLeft;
         }
 
         spellUsed = null;
@@ -280,6 +287,11 @@ public class CharacterEntity : MonoBehaviour
     private void ToggleNextTurn()
     {
         StartCoroutine(Managers.Instance.Battle.ToggleNextTurn());
+    }
+
+    public bool CheckIfSpellExists(string name)
+    {
+        return spellModifiers.Exists(spell => spell.Name == name);
     }
 
     public void ApplySpells()
