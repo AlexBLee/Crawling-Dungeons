@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
 
-public class IceBolt : SpellInfo
+public class IceBolt : Spell
 {
+    public IceBolt(SpellInfo spellInfo) : base(spellInfo)
+    {
+    }
+    
     public override void UseSpellEffect(CharacterEntity entity)
     {
         base.UseSpellEffect(entity);

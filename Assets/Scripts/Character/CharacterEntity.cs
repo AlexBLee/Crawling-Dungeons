@@ -36,10 +36,10 @@ public class CharacterEntity : MonoBehaviour
     [HideInInspector] public Animator anim;
     protected Vector3 initialPos;
     public CharacterEntity target;
-    public SpellInfo spellUsed;
+    public Spell spellUsed;
     private bool isCritting = false;
 
-    public List<SpellInfo> spellModifiers = new List<SpellInfo>();
+    public List<Spell> spellModifiers = new List<Spell>();
 
     // ------------------------------------
 
@@ -103,7 +103,7 @@ public class CharacterEntity : MonoBehaviour
             return;
         }
 
-        target.RecieveDamage(CalculateInitialDamage(magicMinDamage, magicMaxDamage, spellUsed.damage));
+        target.RecieveDamage(CalculateInitialDamage(magicMinDamage, magicMaxDamage, spellUsed.Damage));
 
         spellUsed.InstantiateSpell(target);
         
@@ -284,16 +284,17 @@ public class CharacterEntity : MonoBehaviour
 
     public void ApplySpells()
     {
-        foreach (SpellInfo spell in spellModifiers)
+        foreach (Spell spell in spellModifiers)
         {
-            spell.turnsLeft--;
+            spell.TurnsLeft--;
+            Debug.Log($"{spell.Name}: {spell.TurnsLeft}");
 
-            if (spell.turnsLeft == 0)
+            if (spell.TurnsLeft == 0)
             {
                 spell.UndoEffect(this);
             }
         }
 
-        spellModifiers.RemoveAll(spell => spell.turnsLeft <= 0);
+        spellModifiers.RemoveAll(spell => spell.TurnsLeft <= 0);
     }
 }

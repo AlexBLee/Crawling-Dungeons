@@ -47,7 +47,7 @@ public class GameDatabase : MonoBehaviour
 
     private Dictionary<string, EnemyData> enemyData = new Dictionary<string, EnemyData>();
     private Dictionary<string, Item> itemData = new Dictionary<string, Item>();
-    private Dictionary<string, SpellInfo> spellData = new Dictionary<string, SpellInfo>();
+    private Dictionary<string, Spell> spellData = new Dictionary<string, Spell>();
 
     private List<string[]> levelData = new List<string[]>();
     private List<string> shopListData = new List<string>();
@@ -99,9 +99,7 @@ public class GameDatabase : MonoBehaviour
 
         foreach (var spell in data)
         {
-            var spellResult = SpellFactory.GetSpell(spell);
-
-            spellData.Add(spellResult.name, spellResult);
+            SpellFactory.InitializeSpellData(spell);
         }
     }
 
@@ -147,7 +145,7 @@ public class GameDatabase : MonoBehaviour
         return null;
     }
 
-    public SpellInfo GetSpellData(string name)
+    public Spell GetSpellData(string name)
     {
         return spellData[name];
     }

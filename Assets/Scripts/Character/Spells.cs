@@ -3,27 +3,26 @@ using UnityEngine;
 
 public class Spells : MonoBehaviour
 {
-    private List<SpellInfo> spells = new List<SpellInfo>();
+    private List<Spell> spells = new List<Spell>();
     private Dictionary<string, SpellStateInfo> spellStateInfo = new Dictionary<string, SpellStateInfo>();
 
     private void Start()
     {
         foreach (string spellName in GameConstants.PlayerAvailableSpells)
         {
-            spells.Add(GameDatabase.instance.GetSpellData(spellName));
             spellStateInfo.Add(spellName, new SpellStateInfo(spellName));
         }
     }
 
-    public List<SpellInfo> GetUnlockedSpells()
+    public List<string> GetUnlockedSpells()
     {
-        List<SpellInfo> unlockedSpells = new List<SpellInfo>();
+        List<string> unlockedSpells = new List<string>();
 
-        foreach (SpellInfo spell in spells)
+        foreach (string spellName in GameConstants.PlayerAvailableSpells)
         {
-            if (spellStateInfo[spell.name].GetUnlockedState())
+            if (spellStateInfo[spellName].GetUnlockedState())
             {
-                unlockedSpells.Add(spell);
+                unlockedSpells.Add(spellName);
             }
         }
 
@@ -32,11 +31,13 @@ public class Spells : MonoBehaviour
 
     public void UnlockSpells(int playerLevel)
     {
-        foreach (SpellInfo spell in spells)
+        foreach (string spellName in GameConstants.PlayerAvailableSpells)
         {
-            if (playerLevel >= spell.levelRequired)
+            Spell spell = SpellFactory.GetSpell(spellName);
+
+            if (playerLevel >= spell.LevelRequired)
             {
-                spellStateInfo[spell.name].SetUnlocked();
+                spellStateInfo[spell.Name].SetUnlocked();
             }
         }
     }

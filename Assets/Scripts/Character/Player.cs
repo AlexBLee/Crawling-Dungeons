@@ -123,27 +123,27 @@ public class Player : CharacterEntity
         MoveToAttackPosition(target.transform.position);
     }
 
-    public bool HasEnoughManaForSpell(SpellInfo spell)
+    public bool HasEnoughManaForSpell(Spell spell)
     {
-        return (spell.cost <= mp);
+        return (spell.Cost <= mp);
     }
 
-    public void MagicPressed(SpellInfo spell)
+    public void MagicPressed(Spell spell)
     {
         Color NotEnoughManaColor = new Color(0, 205, 255);
 
-        if ((mp - spell.cost) < 0)
+        if ((mp - spell.Cost) < 0)
         {
             Managers.Instance.UI.SpawnInfoText(DisplayStrings.NotEnoughManaText, NotEnoughManaColor, transform.position);
         }
         else
         {
-            AudioManager.Instance.PlaySound(spell.name);
+            AudioManager.Instance.PlaySound(spell.Name);
             Managers.Instance.UI.HideMagicList();
 
-            Debug.Log("Casted: " + spell.name);
+            Debug.Log("Casted: " + spell.Name);
             spellUsed = spell;
-            mp -= spellUsed.cost;
+            mp -= spellUsed.Cost;
             
             Managers.Instance.UI.StatusHUD[0].UpdateUIMana();
 

@@ -1,3 +1,6 @@
-﻿public class GodsMight : SpellInfo
+﻿public class GodsMight : Spell
 {
+    public GodsMight(SpellInfo spellInfo) : base(spellInfo)
+    {
+    }
 }

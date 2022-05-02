@@ -24,15 +24,15 @@ public class MagicHUD : HUDMenu
     {
         RefreshMagicButtons();
 
-        List<SpellInfo> spellList = player.spells.GetUnlockedSpells();
+        List<string> spellList = player.spells.GetUnlockedSpells();
 
         for (int i = 0; i < spellList.Count; i++)
         {
-            SpellInfo spell = spellList[i];
+            Spell spell = SpellFactory.GetSpell(spellList[i]);
             Button magicButton = magicButtonList[i];
 
             magicButton.gameObject.SetActive(true);
-            magicButton.GetComponentInChildren<TextMeshProUGUI>().text = spell.name;
+            magicButton.GetComponentInChildren<TextMeshProUGUI>().text = spell.Name;
             magicButton.onClick.AddListener(() => { player.MagicPressed(spell); });
         }
     }
@@ -48,11 +48,11 @@ public class MagicHUD : HUDMenu
 
     private void CheckMagicButtonInteractivity()
     {
-        List<SpellInfo> spellList = player.spells.GetUnlockedSpells();
+        List<string> spellList = player.spells.GetUnlockedSpells();
 
         for (int i = 0; i < spellList.Count; i++)
         {
-            SpellInfo spell = spellList[i];
+            Spell spell = SpellFactory.GetSpell(spellList[i]);
             Button magicButton = magicButtonList[i];
 
             magicButton.interactable = player.HasEnoughManaForSpell(spell) ? true : false;
