@@ -7,7 +7,7 @@
         {
             "name": "Unity Editor",
             "type": "unity",
-            "path": "/c:/Users/Alex Lee/Desktop/Portfolio/Unity/2D-RPG-Mobile-Game/Library/EditorInstance.json",
+            "path": "/G:/Projects/Crawling-Dungeons/Library/EditorInstance.json",
             "request": "launch"
         },
         {
@@ -32,6 +32,21 @@
         },
         {
             "name": "Android Player",
+            "type": "unity",
+            "request": "launch"
+        },
+        {
+            "name": "Xbox One Player",
+            "type": "unity",
+            "request": "launch"
+        },
+        {
+            "name": "PS4 Player",
+            "type": "unity",
+            "request": "launch"
+        },
+        {
+            "name": "SwitchPlayer",
             "type": "unity",
             "request": "launch"
         }
