@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public Button attackButton;
     public Button magicButton;
     public Button itemButton;
+    public Button GuardButton;
 
     public Button magicBackButton;
     public Button potionBackButton;
@@ -41,6 +42,7 @@ public class UIManager : MonoBehaviour
         attackButton.gameObject.SetActive(false);
         magicButton.gameObject.SetActive(false);
         itemButton.gameObject.SetActive(false);
+        GuardButton.gameObject.SetActive(false);
     }
 
     public void EnableButtons()
@@ -48,6 +50,7 @@ public class UIManager : MonoBehaviour
         attackButton.gameObject.SetActive(true);
         magicButton.gameObject.SetActive(true);
         itemButton.gameObject.SetActive(true);
+        GuardButton.gameObject.SetActive(true);
     }
 
     public void ShowMagicList()
