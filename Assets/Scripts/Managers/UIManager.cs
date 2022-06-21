@@ -31,6 +31,7 @@ public class UIManager : MonoBehaviour
         attackButton.onClick.AddListener(player.Attack);
         magicButton.onClick.AddListener(ShowMagicList);
         itemButton.onClick.AddListener(ShowPotionList);
+        GuardButton.onClick.AddListener(player.Guard);
 
         magicBackButton.onClick.AddListener(HideMagicList);
         potionBackButton.onClick.AddListener(HidePotionList);

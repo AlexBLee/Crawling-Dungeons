@@ -7,5 +7,6 @@
     public const string NotApplicableText = "N/A";
     public const string PotionFormatString = "{0} x{1}";
     public const string BarFillAmountText = "{0}/{1}";
+    public const string GuardingText = "Guard!";
 
 }

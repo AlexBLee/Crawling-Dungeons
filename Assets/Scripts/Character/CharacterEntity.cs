@@ -30,6 +30,7 @@ public class CharacterEntity : MonoBehaviour
     // Conditions --------------------------
     public bool inBattle;
     protected bool dead = false;
+    private bool guarding;
 
     // Others ----------------------------
     
@@ -145,6 +146,7 @@ public class CharacterEntity : MonoBehaviour
     {
         const float DefStartPointCalc = 1f;
         const float ConvertToPercentageCalc = 100;
+        const float GuardingFactor = 0.66f;
 
         float damage = Random.Range(minimumDamage, maximumDamage);
 
@@ -153,6 +155,11 @@ public class CharacterEntity : MonoBehaviour
         damage += extraDamage;
 
         damage = CalculateCritDamage(damage);
+
+        if (target.guarding)
+        {
+            damage *= GuardingFactor;
+        }
 
         return Mathf.RoundToInt(damage);
     }
@@ -197,6 +204,8 @@ public class CharacterEntity : MonoBehaviour
         hp -= damage;
         anim.SetTrigger(CharacterClipAnims.HitAnimName);
         AudioManager.Instance.PlaySound(AudioStrings.Hit);
+
+        guarding = false;
 
         Managers.Instance.UI.SpawnInfoText(damage.ToString(), 
             target.isCritting 
@@ -245,6 +254,16 @@ public class CharacterEntity : MonoBehaviour
             AudioManager.Instance.PlaySound(AudioStrings.UsePotion);
             anim.SetTrigger(CharacterClipAnims.HealAnimName);
         }
+    }
+
+    public virtual void Guard()
+    {
+        guarding = true;
+
+        Managers.Instance.UI.SpawnInfoText(DisplayStrings.GuardingText, Color.white, transform.position);
+        Managers.Instance.UI.DisableButtons();
+        anim.SetTrigger(CharacterClipAnims.GuardAnimName);
+        ToggleNextTurn();
     }
 
     #endregion

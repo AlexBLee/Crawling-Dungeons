@@ -6,4 +6,5 @@
     public const string HealAnimName = "Heal";
     public const string AttackAnimName = "Attack";
     public const string RunAnimName = "Run";
+    public const string GuardAnimName = "Guard";
 }
