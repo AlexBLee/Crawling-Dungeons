@@ -204,6 +204,7 @@ public class CharacterEntity : MonoBehaviour
         hp -= damage;
         anim.SetTrigger(CharacterClipAnims.HitAnimName);
         AudioManager.Instance.PlaySound(AudioStrings.Hit);
+        anim.SetBool(CharacterClipAnims.GuardAnimName, false);
 
         guarding = false;
 
@@ -262,7 +263,7 @@ public class CharacterEntity : MonoBehaviour
 
         Managers.Instance.UI.SpawnInfoText(DisplayStrings.GuardingText, Color.white, transform.position);
         Managers.Instance.UI.DisableButtons();
-        anim.SetTrigger(CharacterClipAnims.GuardAnimName);
+        anim.SetBool(CharacterClipAnims.GuardAnimName, true);
         ToggleNextTurn();
     }
 
