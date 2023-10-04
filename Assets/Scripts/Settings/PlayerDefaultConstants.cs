@@ -14,13 +14,13 @@
     public const int MpGrowth = 20;
     public const int StatAmountGrowth = 3;
 
-    public const int MinDamageStrCalc = 3;
+    public const float MinDamageStrCalc = 3;
     public const float MaxDamageStrCalc = 2.5f;
     public const float MinDamageDexCalc = 3.5f;
     public const float MaxDamageDexCalc = 4.5f;
-    public const int MagicMinDamageCalc = 5;
-    public const int MagicMaxDamageCalc = 2;
-    public const int CritChanceCalc = 2;
-    public const int DodgeChanceCalc = 8;
+    public const float MagicMinDamageCalc = 5;
+    public const float MagicMaxDamageCalc = 2;
+    public const float CritChanceCalc = 2;
+    public const float DodgeChanceCalc = 8;
     public const int DefCalc = 10;
 }

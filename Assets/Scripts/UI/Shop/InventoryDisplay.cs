@@ -34,11 +34,11 @@ public class InventoryDisplay : MonoBehaviour
 
     private void Start() 
     {
-        player.inventory.inventoryDisplay = this;
+        player.Inventory.inventoryDisplay = this;
         // player.inventory.ApplyItemsFrom(GameManager.instance.playerStats);
 
-        items = player.inventory.items;
-        equippedItems = player.inventory.equips;
+        items = player.Inventory.items;
+        equippedItems = player.Inventory.equips;
 
         inventoryButton.onClick.AddListener(ShowInventory);
 
@@ -57,7 +57,7 @@ public class InventoryDisplay : MonoBehaviour
         }
 
         UpdateInventory();
-        goldText.text = player.inventory.gold.ToString();
+        goldText.text = player.Inventory.gold.ToString();
     }
 
     private void ShowInventory()

@@ -19,7 +19,7 @@ public class NextLevel : MonoBehaviour
     private void GoToNextLevel()
     {
         player.ApplyStatsTo(GameManager.instance.playerStats);
-        player.inventory.ApplyItemsTo(GameManager.instance.playerStats);
+        player.Inventory.ApplyItemsTo(GameManager.instance.playerStats);
         GameManager.instance.levelNumber++;
         SceneManager.LoadScene("Shop");
     }

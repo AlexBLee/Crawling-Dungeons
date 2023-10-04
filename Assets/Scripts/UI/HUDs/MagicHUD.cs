@@ -24,7 +24,7 @@ public class MagicHUD : HUDMenu
     {
         RefreshMagicButtons();
 
-        List<string> spellList = player.spells.GetUnlockedSpells();
+        List<string> spellList = player.Spells.GetUnlockedSpells();
 
         for (int i = 0; i < spellList.Count; i++)
         {
@@ -48,7 +48,7 @@ public class MagicHUD : HUDMenu
 
     private void CheckMagicButtonInteractivity()
     {
-        List<string> spellList = player.spells.GetUnlockedSpells();
+        List<string> spellList = player.Spells.GetUnlockedSpells();
 
         for (int i = 0; i < spellList.Count; i++)
         {

@@ -45,16 +45,16 @@ public class Inventory : MonoBehaviour
 
     public void ApplyItemsFrom(Player otherPlayer)
     {
-        items = otherPlayer.inventory.items;
-        equips = otherPlayer.inventory.equips;
-        gold = otherPlayer.inventory.gold;
+        items = otherPlayer.Inventory.items;
+        equips = otherPlayer.Inventory.equips;
+        gold = otherPlayer.Inventory.gold;
     }
 
     public void ApplyItemsTo(Player otherPlayer)
     {
-        otherPlayer.inventory.items = items;
-        otherPlayer.inventory.equips = equips;
-        otherPlayer.inventory.gold = gold;
+        otherPlayer.Inventory.items = items;
+        otherPlayer.Inventory.equips = equips;
+        otherPlayer.Inventory.gold = gold;
     }
 
     // -----------------------------------------------------------------------------

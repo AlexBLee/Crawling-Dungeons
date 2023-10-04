@@ -20,7 +20,7 @@ public class PotionHUD : HUDMenu
 
     private void InitializePotionButtons()
     {
-        List<ConsumableItem> consumableItems = player.inventory.items
+        List<ConsumableItem> consumableItems = player.Inventory.items
                                                 .Where(item => item is ConsumableItem)
                                                 .Cast<ConsumableItem>().ToList();
 
@@ -33,7 +33,7 @@ public class PotionHUD : HUDMenu
             {
                 potionUI.button.onClick.AddListener(() => 
                 {
-                    player.inventory.ConsumeItem(player.inventory.items.IndexOf(potion), player);
+                    player.Inventory.ConsumeItem(player.Inventory.items.IndexOf(potion), player);
                 });
 
                 potionUI.item = potion;

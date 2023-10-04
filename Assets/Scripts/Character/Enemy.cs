@@ -4,8 +4,9 @@ using DG.Tweening;
 public class Enemy : CharacterEntity
 {
     public string enemyName;
-    public int experiencePoints;
-    public int gold;
+    
+    private int _experiencePoints;
+    private int _gold;
 
     [SerializeField] private Vector3 fightPosition;
     [SerializeField] private bool canHeal;
@@ -35,8 +36,8 @@ public class Enemy : CharacterEntity
         luck.amount = data.luck;
 
         def = data.def;
-        experiencePoints = data.exp;
-        gold = data.gold;
+        _experiencePoints = data.exp;
+        _gold = data.gold;
     }
 
     protected void MoveToStartPosition(Vector2 position)
@@ -112,7 +113,7 @@ public class Enemy : CharacterEntity
 
     public override void FinishDeath()
     {
-        target.GetComponent<Player>().RecieveXPAndGold(experiencePoints, gold);
+        target.GetComponent<Player>().RecieveXPAndGold(_experiencePoints, _gold);
         base.FinishDeath();
     }
 

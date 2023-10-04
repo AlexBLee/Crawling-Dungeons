@@ -3,16 +3,17 @@ using UnityEngine;
 
 public class Player : CharacterEntity
 {
-    [HideInInspector] public Inventory inventory;
-    [HideInInspector] public Spells spells;
+    [SerializeField] private Inventory _inventory;
+    [SerializeField] private Spells _spells;
+    
     public enum StatType { Str, Dex, Intl, Luck };
-    private int originalNumberOfStatPoints = 0;
+    private int _originalNumberOfStatPoints = 0;
+
+    public Inventory Inventory => _inventory;
+    public Spells Spells => _spells;
 
     private void Awake() 
     {
-        inventory = GetComponent<Inventory>();
-        spells = GetComponent<Spells>();
-
         ApplyStatsFrom(GameManager.instance.playerStats);
     }
 
@@ -26,13 +27,13 @@ public class Player : CharacterEntity
         }
         
         UpdateDamageStats();
-        spells.UnlockSpells(level);
-        inventory.UpdateItemStats();
+        _spells.UnlockSpells(level);
+        _inventory.UpdateItemStats();
     }
 
     // -----------------------------------------------------------------------------
 
-    private void InitalizeStats()
+    private void InitializeStats()
     {
         level =         PlayerDefaultConstants.InitialLevel;
         exp =           PlayerDefaultConstants.InitialExp;
@@ -130,11 +131,11 @@ public class Player : CharacterEntity
 
     public void MagicPressed(Spell spell)
     {
-        Color NotEnoughManaColor = new Color(0, 205, 255);
+        Color notEnoughManaColor = new Color(0, 205, 255);
 
         if ((mp - spell.Cost) < 0)
         {
-            Managers.Instance.UI.SpawnInfoText(DisplayStrings.NotEnoughManaText, NotEnoughManaColor, transform.position);
+            Managers.Instance.UI.SpawnInfoText(DisplayStrings.NotEnoughManaText, notEnoughManaColor, transform.position);
         }
         else
         {
@@ -236,7 +237,7 @@ public class Player : CharacterEntity
         {
             Managers.Instance.UI.VictoryPanelHUD.ActivateModifiedSubtractors();
         }
-        else if (statPoints == originalNumberOfStatPoints)
+        else if (statPoints == _originalNumberOfStatPoints)
         {
             Managers.Instance.UI.VictoryPanelHUD.ActivateAddersOnly();
         }
@@ -281,7 +282,7 @@ public class Player : CharacterEntity
 
         // Randomized gold - to vary playstyle
         int randomGold = Random.Range(goldRecieved - GoldMinValue, goldRecieved + GoldMaxValue);
-        inventory.gold += randomGold;
+        _inventory.gold += randomGold;
         exp += expRecieved;
 
         Managers.Instance.UI.SpawnInfoText(string.Format(DisplayStrings.GainXPText, expRecieved), Color.white, transform.position);
@@ -301,8 +302,8 @@ public class Player : CharacterEntity
         {
             float extraXP = exp - expThreshold;
             LevelUp();
-            spells.UnlockSpells(level);
-            inventory.UpdateItemStats();
+            _spells.UnlockSpells(level);
+            _inventory.UpdateItemStats();
 
             yield return new WaitForSeconds(LevelDelayTime);
             Managers.Instance.UI.StatusHUD[0].UpdateUIHealth();
@@ -332,13 +333,13 @@ public class Player : CharacterEntity
         Heal((int)(maxHP * HpHeal), true);
         RestoreMP((int)(maxMP * MpHeal), true);
 
-        originalNumberOfStatPoints = statPoints;
+        _originalNumberOfStatPoints = statPoints;
         CheckStatAmount();
     }
 
     public Inventory GetInventory()
     {
-        return inventory;
+        return _inventory;
     }
 
     public override void FinishDeath()
@@ -349,8 +350,8 @@ public class Player : CharacterEntity
 
     public void Reset()
     {
-        InitalizeStats();
-        inventory.InitializeInventory();
+        InitializeStats();
+        _inventory.InitializeInventory();
     }
     
 

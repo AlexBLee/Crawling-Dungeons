@@ -28,7 +28,7 @@ public class ShopDisplay : MonoBehaviour
     {
         InitializeItemList();
 
-        player.inventory.shopDisplay = this;
+        player.Inventory.shopDisplay = this;
         itemPopupRect = itemPopup.GetComponent<RectTransform>();
 
         shopButton.onClick.AddListener(ShowShop);
@@ -80,12 +80,12 @@ public class ShopDisplay : MonoBehaviour
 
     public void UpdateGold()
     {
-        moneyText.text = player.inventory.gold.ToString();
+        moneyText.text = player.Inventory.gold.ToString();
     }
 
     private void ExitShop()
     {
-        player.inventory.ApplyItemsTo(GameManager.instance.playerStats);
+        player.Inventory.ApplyItemsTo(GameManager.instance.playerStats);
         SceneManager.LoadScene(GameManager.instance.levelNumber);
     }
 
@@ -144,7 +144,7 @@ public class ShopDisplay : MonoBehaviour
                 itemPopup.buyAndEquipButton.gameObject.SetActive(true);
             }
 
-            if(player.inventory.gold < itemList[index].cost)
+            if(player.Inventory.gold < itemList[index].cost)
             {
                 DisableShopButton(itemPopup.buyButton);
                 DisableShopButton(itemPopup.buyAndEquipButton);

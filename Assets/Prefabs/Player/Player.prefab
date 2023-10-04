@@ -162,8 +162,8 @@ MonoBehaviour:
   inBattle: 1
   anim: {fileID: 70495698347628144}
   target: {fileID: 0}
-  inventory: {fileID: 0}
-  spells: {fileID: 0}
+  _inventory: {fileID: 1126867815815248243}
+  _spells: {fileID: 8029826314284748128}
 --- !u!114 &1126867815815248243
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -69,8 +69,8 @@ public class EnemyCreator : EditorWindow
                 enemy.dex.amount = dex;
                 enemy.luck.amount = will;
                 enemy.def = def;
-                enemy.experiencePoints = experiencePoints;
-                enemy.gold = gold;
+                // enemy.experiencePoints = experiencePoints;
+                // enemy.gold = gold;
 
                 // Creating animation folder + animator
                 string enemyDestination = AssetDatabase.GUIDToAssetPath(AssetDatabase.CreateFolder("Assets/Enemies", enemyName));

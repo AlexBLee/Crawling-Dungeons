@@ -28,16 +28,16 @@ public class ItemPopup : MonoBehaviour
 
     private void Start() 
     {
-        player.inventory.itemPopup = this;
+        player.Inventory.itemPopup = this;
 
-        equipButton.onClick.AddListener(delegate{player.inventory.EquipItem(index, equipIndex);});
-        trashButton.onClick.AddListener(delegate{player.inventory.RemoveItem(index, false);});
+        equipButton.onClick.AddListener(delegate{player.Inventory.EquipItem(index, equipIndex);});
+        trashButton.onClick.AddListener(delegate{player.Inventory.RemoveItem(index, false);});
 
-        unequipButton.onClick.AddListener(delegate{player.inventory.UnequipItem(index);});
-        sellButton.onClick.AddListener(delegate{player.inventory.SellItem(index);});
+        unequipButton.onClick.AddListener(delegate{player.Inventory.UnequipItem(index);});
+        sellButton.onClick.AddListener(delegate{player.Inventory.SellItem(index);});
 
-        buyButton.onClick.AddListener(delegate{player.inventory.BuyItem(item, false);});
-        buyAndEquipButton.onClick.AddListener(delegate{player.inventory.BuyItem(item, true);});
+        buyButton.onClick.AddListener(delegate{player.Inventory.BuyItem(item, false);});
+        buyAndEquipButton.onClick.AddListener(delegate{player.Inventory.BuyItem(item, true);});
     }
 
     public void DisableAllButtons()

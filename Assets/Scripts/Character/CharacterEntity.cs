@@ -1,13 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using DG.Tweening;
 using JetBrains.Annotations;
 
 // the class for all Characters in the game.
 public class CharacterEntity : MonoBehaviour
 {
+    [SerializeField] private DamageDealer _damageDealer;
+    [SerializeField] private DamageReceiver _damageReceiver;
+    
     // Stats ----------------------------------
     public int level;
     public float exp;
@@ -30,7 +31,7 @@ public class CharacterEntity : MonoBehaviour
     // Conditions --------------------------
     public bool inBattle;
     protected bool dead = false;
-    private bool guarding;
+    private bool _guarding;
 
     // Others ----------------------------
     
@@ -41,6 +42,10 @@ public class CharacterEntity : MonoBehaviour
     private bool isCritting = false;
 
     public List<Spell> spellModifiers = new List<Spell>();
+
+    public DamageDealer DamageDealer => _damageDealer;
+    public DamageReceiver DamageReceiver => _damageReceiver;
+    public bool Guarding => _guarding;
 
     // ------------------------------------
 
@@ -156,7 +161,7 @@ public class CharacterEntity : MonoBehaviour
 
         damage = CalculateCritDamage(damage);
 
-        if (target.guarding)
+        if (target._guarding)
         {
             damage *= GuardingFactor;
         }
@@ -206,7 +211,7 @@ public class CharacterEntity : MonoBehaviour
         AudioManager.Instance.PlaySound(AudioStrings.Hit);
         anim.SetBool(CharacterClipAnims.GuardAnimName, false);
 
-        guarding = false;
+        _guarding = false;
 
         Managers.Instance.UI.SpawnInfoText(damage.ToString(), 
             target.isCritting 
@@ -259,7 +264,7 @@ public class CharacterEntity : MonoBehaviour
 
     public virtual void Guard()
     {
-        guarding = true;
+        _guarding = true;
 
         Managers.Instance.UI.SpawnInfoText(DisplayStrings.GuardingText, Color.white, transform.position);
         Managers.Instance.UI.DisableButtons();
@@ -306,6 +311,7 @@ public class CharacterEntity : MonoBehaviour
     
     private void ToggleNextTurn()
     {
+        _guarding = false;
         StartCoroutine(Managers.Instance.Battle.ToggleNextTurn());
     }
 
