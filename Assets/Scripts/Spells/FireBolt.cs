@@ -7,6 +7,6 @@
     public override void UseSpellEffect(CharacterEntity entity)
     {
         base.UseSpellEffect(entity);
-        entity.def -= 3;
+        entity.CharacterBattleStats.Def -= 3;
     }
 }

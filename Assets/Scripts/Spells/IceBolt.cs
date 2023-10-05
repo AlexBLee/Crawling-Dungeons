@@ -10,13 +10,13 @@ public class IceBolt : Spell
     {
         base.UseSpellEffect(entity);
 
-        entity.def -= 5;
+        entity.CharacterBattleStats.Def -= 5;
         entity.gameObject.GetComponent<Renderer>().material.color = Color.blue;
     }
 
     public override void UndoEffect(CharacterEntity entity)
     {
-        entity.def += 5;
+        entity.CharacterBattleStats.Def += 5;
         entity.gameObject.GetComponent<Renderer>().material.color = Color.white;
     }
 }

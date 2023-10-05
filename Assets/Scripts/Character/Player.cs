@@ -5,16 +5,13 @@ public class Player : CharacterEntity
 {
     [SerializeField] private Inventory _inventory;
     [SerializeField] private Spells _spells;
-    
-    public enum StatType { Str, Dex, Intl, Luck };
-    private int _originalNumberOfStatPoints = 0;
 
     public Inventory Inventory => _inventory;
     public Spells Spells => _spells;
 
     private void Awake() 
     {
-        ApplyStatsFrom(GameManager.instance.playerStats);
+        CharacterBattleStats.ApplyStatsFrom(GameManager.instance.playerStats.CharacterBattleStats);
     }
 
     private void Start()
@@ -26,98 +23,13 @@ public class Player : CharacterEntity
             Managers.Instance.UI.StatusHUD[0].UpdateAllBars();
         }
         
-        UpdateDamageStats();
-        _spells.UnlockSpells(level);
+        _characterBattleStats.UpdateDamageStats();
+        _spells.UnlockSpells(_characterBattleStats._level);
         _inventory.UpdateItemStats();
     }
 
     // -----------------------------------------------------------------------------
 
-    private void InitializeStats()
-    {
-        level =         PlayerDefaultConstants.InitialLevel;
-        exp =           PlayerDefaultConstants.InitialExp;
-        expThreshold =  PlayerDefaultConstants.InitialExpThreshold;
-        statPoints =    PlayerDefaultConstants.InitialStatPoints;
-
-        maxHP =         PlayerDefaultConstants.InitialMaxHP;
-        maxMP =         PlayerDefaultConstants.InitialMaxMP;
-
-        hp = maxHP;
-        mp = maxMP;
-
-        str.amount =    PlayerDefaultConstants.InitialStatAmount;
-        intl.amount =   PlayerDefaultConstants.InitialStatAmount;
-        dex.amount =    PlayerDefaultConstants.InitialStatAmount;
-        luck.amount =   PlayerDefaultConstants.InitialStatAmount;
-
-        UpdateDamageStats();
-    }
-
-    private void LevelUp()
-    {
-        level++;
-        exp = 0;
-        expThreshold += PlayerDefaultConstants.ExpThresholdGrowth;
-        statPoints +=   PlayerDefaultConstants.StatPointsGrowth;
-
-        hp += PlayerDefaultConstants.HpGrowth;
-        mp += PlayerDefaultConstants.MpGrowth;
-
-        maxHP += PlayerDefaultConstants.HpGrowth;
-        maxMP += PlayerDefaultConstants.MpGrowth;
-
-        str.amount += PlayerDefaultConstants.StatAmountGrowth;
-        intl.amount += PlayerDefaultConstants.StatAmountGrowth;
-        dex.amount += PlayerDefaultConstants.StatAmountGrowth;
-        luck.amount += PlayerDefaultConstants.StatAmountGrowth;
-
-        UpdateDamageStats();
-    }
-    
-    public void ApplyStatsFrom(CharacterEntity otherChar)
-    {
-        level = otherChar.level;
-        exp = otherChar.exp;
-        expThreshold = otherChar.expThreshold;
-        statPoints = otherChar.statPoints;
-
-        hp = otherChar.hp;
-        mp = otherChar.mp;
-
-        maxHP = otherChar.maxHP;
-        maxMP = otherChar.maxMP;
-
-        str = otherChar.str;
-        intl = otherChar.intl;
-        dex = otherChar.dex;
-        luck = otherChar.luck;
-
-        UpdateDamageStats();
-
-    }
-
-    public void ApplyStatsTo(CharacterEntity otherChar)
-    {
-        otherChar.level = level;
-        otherChar.exp = exp;
-        otherChar.expThreshold = expThreshold;
-        otherChar.statPoints = statPoints;
-
-        otherChar.hp = hp;
-        otherChar.mp = mp;
-
-        otherChar.maxHP = maxHP;
-        otherChar.maxMP = maxMP;
-
-        otherChar.str = str;
-        otherChar.intl = intl;
-        otherChar.dex = dex;
-        otherChar.luck = luck;
-
-        UpdateDamageStats();
-    }
-    
     public void Attack()
     {
         Managers.Instance.UI.DisableButtons();
@@ -126,14 +38,14 @@ public class Player : CharacterEntity
 
     public bool HasEnoughManaForSpell(Spell spell)
     {
-        return (spell.Cost <= mp);
+        return (spell.Cost <= _characterBattleStats.Mp);
     }
 
     public void MagicPressed(Spell spell)
     {
         Color notEnoughManaColor = new Color(0, 205, 255);
 
-        if ((mp - spell.Cost) < 0)
+        if (_characterBattleStats.Mp - spell.Cost < 0)
         {
             Managers.Instance.UI.SpawnInfoText(DisplayStrings.NotEnoughManaText, notEnoughManaColor, transform.position);
         }
@@ -144,148 +56,45 @@ public class Player : CharacterEntity
 
             Debug.Log("Casted: " + spell.Name);
             spellUsed = spell;
-            mp -= spellUsed.Cost;
+            _characterBattleStats.Mp -= spellUsed.Cost;
             
             Managers.Instance.UI.StatusHUD[0].UpdateUIMana();
 
-            RangedAttack();
+            _damageDealer.RangedAttack();
         }
     }
 
-    #region Stats
-
-    public bool AllocatePoints(StatType type)
-    {
-        switch (type)
-        {
-            case StatType.Str:
-                str = AddStat(str);
-                break;
-            case StatType.Dex:
-                dex = AddStat(dex);
-                break;
-            case StatType.Intl:
-                intl = AddStat(intl);
-                break;
-            case StatType.Luck:
-                luck = AddStat(luck);
-                break;
-            default:
-                break;
-        }
-
-        statPoints--;
-        UpdateDamageStats();
-        return true;
-    }
-
-    public bool DeallocatePoints(StatType type)
-    {
-        // exists to match the modified bool of the stat and return the correct value to the stat remover
-        bool statZero = false;
-
-        switch (type)
-        {
-            case StatType.Str:
-                str = RemoveStat(str, statZero);
-                statZero = str.modified;
-                break;
-            case StatType.Dex:
-                dex = RemoveStat(dex, statZero);
-                statZero = dex.modified;
-                break;
-            case StatType.Intl:
-                intl = RemoveStat(intl, statZero);
-                statZero = intl.modified;
-                break;
-            case StatType.Luck:
-                luck = RemoveStat(luck, statZero);
-                statZero = luck.modified;
-                break;
-            default:
-                return false;
-        }
-
-        statPoints++;
-        UpdateDamageStats();
-        return statZero;
-    }
-
-    private Stat AddStat(Stat stat)
-    {
-        stat.amount++;
-        stat.pointsAllocated++;
-        stat.modified = true;
-        return stat;
-    }
-
-    private Stat RemoveStat(Stat stat, bool result)
-    {
-        stat.amount--;
-        stat.pointsAllocated--;
-
-        if(stat.pointsAllocated == 0)
-        {
-            stat.modified = false;
-        }
-        return stat;
-    }
-
-    public void CheckStatAmount()
-    {
-        if (statPoints == 0)
-        {
-            Managers.Instance.UI.VictoryPanelHUD.ActivateModifiedSubtractors();
-        }
-        else if (statPoints == _originalNumberOfStatPoints)
-        {
-            Managers.Instance.UI.VictoryPanelHUD.ActivateAddersOnly();
-        }
-        else if (statPoints > 0)
-        {
-            Managers.Instance.UI.VictoryPanelHUD.ActivateAllStatModifiers();
-        }
-    }
-
-    #endregion
-
-    protected override void RecieveDamage(int damage)
-    {
-        base.RecieveDamage(damage);
-        Managers.Instance.UI.StatusHUD[0].UpdateUIHealth();
-    }
-
-    public override void Heal(int amount, bool battleFinish)
+    private void Heal(int amount, bool battleFinish)
     {
         Managers.Instance.UI.HidePotionList();
         Managers.Instance.UI.DisableButtons();
-
-        base.Heal(amount, battleFinish);
+        
+        _characterBattleStats.Heal(amount, battleFinish);
 
         Managers.Instance.UI.StatusHUD[0].UpdateUIHealth();
     }
 
-    public override void RestoreMP(int amount, bool battleFinish)
+    private void RestoreMP(int amount, bool battleFinish)
     {
         Managers.Instance.UI.HidePotionList();
         Managers.Instance.UI.DisableButtons();
 
-        base.RestoreMP(amount, battleFinish);
+        _characterBattleStats.Heal(amount, battleFinish);
 
         Managers.Instance.UI.StatusHUD[0].UpdateUIMana();
     }
 
-    public void RecieveXPAndGold(int expRecieved, int goldRecieved)
+    public void RecieveXPAndGold(int expReceived, int goldReceived)
     {
         const int GoldMinValue = 10;
         const int GoldMaxValue = 15;
 
         // Randomized gold - to vary playstyle
-        int randomGold = Random.Range(goldRecieved - GoldMinValue, goldRecieved + GoldMaxValue);
+        var randomGold = Random.Range(goldReceived - GoldMinValue, goldReceived + GoldMaxValue);
         _inventory.gold += randomGold;
-        exp += expRecieved;
+        _characterBattleStats._exp += expReceived;
 
-        Managers.Instance.UI.SpawnInfoText(string.Format(DisplayStrings.GainXPText, expRecieved), Color.white, transform.position);
+        Managers.Instance.UI.SpawnInfoText(string.Format(DisplayStrings.GainXPText, expReceived), Color.white, transform.position);
 
         StartCoroutine(CheckForLevelUp());
         StartCoroutine(NextBattle());
@@ -298,11 +107,11 @@ public class Player : CharacterEntity
         const float LevelDisplayOffset = 0.5f;
         Vector2 positionOffset = new Vector2(transform.position.x + LevelDisplayOffset, transform.position.y);
 
-        while (exp >= expThreshold)
+        while (_characterBattleStats._exp >= _characterBattleStats._expThreshold)
         {
-            float extraXP = exp - expThreshold;
-            LevelUp();
-            _spells.UnlockSpells(level);
+            var extraXP = _characterBattleStats._exp - _characterBattleStats._expThreshold;
+            _characterBattleStats.LevelUp();
+            _spells.UnlockSpells(_characterBattleStats._level);
             _inventory.UpdateItemStats();
 
             yield return new WaitForSeconds(LevelDelayTime);
@@ -312,7 +121,7 @@ public class Player : CharacterEntity
             
             Managers.Instance.UI.SpawnInfoText(DisplayStrings.LevelUpText, Color.white, positionOffset);
 
-            exp += extraXP;
+            _characterBattleStats._exp += extraXP;
         }
     }
 
@@ -330,10 +139,10 @@ public class Player : CharacterEntity
         const float HpHeal = 0.15f;
         const float MpHeal = 0.15f;
 
-        Heal((int)(maxHP * HpHeal), true);
-        RestoreMP((int)(maxMP * MpHeal), true);
+        Heal((int)(_characterBattleStats.MaxHp * HpHeal), true);
+        RestoreMP((int)(_characterBattleStats.MaxMp * MpHeal), true);
 
-        _originalNumberOfStatPoints = statPoints;
+        _originalNumberOfStatPoints = _statPoints;
         CheckStatAmount();
     }
 
@@ -350,7 +159,7 @@ public class Player : CharacterEntity
 
     public void Reset()
     {
-        InitializeStats();
+        _characterBattleStats.InitializeStats();
         _inventory.InitializeInventory();
     }
     

@@ -12,13 +12,13 @@ public class WeaponItem : EquippableItem
     {
         if (isMagic)
         {
-            player.magicMinDamage += minDamage;
-            player.magicMaxDamage += maxDamage;
+            player.CharacterBattleStats.MagicMinDamage += minDamage;
+            player.CharacterBattleStats.MagicMaxDamage += maxDamage;
         }
         else
         {
-            player.minDamage += minDamage;
-            player.maxDamage += maxDamage;
+            player.CharacterBattleStats.MinDamage += minDamage;
+            player.CharacterBattleStats.MaxDamage += maxDamage;
         }
     }
 
@@ -26,13 +26,13 @@ public class WeaponItem : EquippableItem
     {
         if (isMagic)
         {
-            player.magicMinDamage -= minDamage;
-            player.magicMaxDamage -= maxDamage;
+            player.CharacterBattleStats.MagicMinDamage -= minDamage;
+            player.CharacterBattleStats.MagicMaxDamage -= maxDamage;
         }
         else
         {
-            player.minDamage -= minDamage;
-            player.maxDamage -= maxDamage;
+            player.CharacterBattleStats.MinDamage -= minDamage;
+            player.CharacterBattleStats.MaxDamage -= maxDamage;
         }
     }
 

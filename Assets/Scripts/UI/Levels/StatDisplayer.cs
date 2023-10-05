@@ -18,7 +18,7 @@ public class StatDisplayer : MonoBehaviour
 
     public void UpdateStats()
     {
-        statPoints.text = player.statPoints.ToString();
+        statPoints.text = player.StatPoints.ToString();
         UpdateStr();
         UpdateDex();
         UpdateInt();
@@ -27,22 +27,22 @@ public class StatDisplayer : MonoBehaviour
 
     public void UpdateStr()
     {
-        str.text = player.str.amount.ToString();
+        str.text = player.CharacterBattleStats.Str.amount.ToString();
     }
 
     public void UpdateDex()
     {
-        dex.text = player.dex.amount.ToString();
+        dex.text = player.CharacterBattleStats.Dex.amount.ToString();
     }
 
     public void UpdateInt()
     {
-        intl.text = player.intl.amount.ToString();
+        intl.text = player.CharacterBattleStats.Int.amount.ToString();
     }
 
     public void UpdateWill()
     {
-        will.text = player.luck.amount.ToString();
+        will.text = player.CharacterBattleStats.Luck.amount.ToString();
     }
 
 

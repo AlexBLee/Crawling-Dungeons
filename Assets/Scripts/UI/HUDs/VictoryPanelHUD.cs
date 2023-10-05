@@ -11,7 +11,7 @@ public class VictoryPanelHUD : HUDMenu
     public override void Show()
     {
         base.Show();
-        levelNumber.text = player.level.ToString();
+        levelNumber.text = player.CharacterBattleStats._level.ToString();
 
         foreach (var addRemove in addRemoves)
         {

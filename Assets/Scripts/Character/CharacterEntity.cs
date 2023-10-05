@@ -1,35 +1,15 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using JetBrains.Annotations;
 
 // the class for all Characters in the game.
 public class CharacterEntity : MonoBehaviour
 {
-    [SerializeField] private DamageDealer _damageDealer;
-    [SerializeField] private DamageReceiver _damageReceiver;
-    
-    // Stats ----------------------------------
-    public int level;
-    public float exp;
-    public float expThreshold;
-    public int statPoints;
-
-    public int hp, mp;
-    public int maxHP, maxMP;
-    public Stat str, intl, dex, luck;
-
-    [SerializeField] protected int additionalDamage;
-    [SerializeField] protected float critChance;
-    [SerializeField] protected float dodgeChance;
-
-    public float minDamage, maxDamage;
-    public float magicMinDamage, magicMaxDamage;
-
-    public int def;
+    [SerializeField] protected DamageDealer _damageDealer;
+    [SerializeField] protected DamageReceiver _damageReceiver;
+    [SerializeField] protected CharacterBattleStats _characterBattleStats;
 
     // Conditions --------------------------
-    public bool inBattle;
     protected bool dead = false;
     private bool _guarding;
 
@@ -40,226 +20,24 @@ public class CharacterEntity : MonoBehaviour
     public CharacterEntity target;
     public Spell spellUsed;
     private bool isCritting = false;
+    protected int _statPoints;
+    protected int _originalNumberOfStatPoints = 0;
+
 
     public List<Spell> spellModifiers = new List<Spell>();
 
     public DamageDealer DamageDealer => _damageDealer;
     public DamageReceiver DamageReceiver => _damageReceiver;
+    public CharacterBattleStats CharacterBattleStats => _characterBattleStats;
+    public int StatPoints => _statPoints;
+
     public bool Guarding => _guarding;
 
     // ------------------------------------
-
-    #region Stats  
-
-    protected void UpdateDamageStats()
-    {
-        minDamage = (str.amount / PlayerDefaultConstants.MinDamageStrCalc);
-        maxDamage = (str.amount / PlayerDefaultConstants.MaxDamageStrCalc);
-
-        minDamage += (dex.amount / PlayerDefaultConstants.MinDamageDexCalc);
-        maxDamage += (dex.amount / PlayerDefaultConstants.MaxDamageDexCalc);
-
-        magicMinDamage = (intl.amount / PlayerDefaultConstants.MagicMinDamageCalc);
-        magicMaxDamage = (intl.amount / PlayerDefaultConstants.MagicMaxDamageCalc);
-
-        critChance = (luck.amount / PlayerDefaultConstants.CritChanceCalc);
-        dodgeChance = (dex.amount / PlayerDefaultConstants.DodgeChanceCalc);
-
-        def = (str.amount / PlayerDefaultConstants.DefCalc);
-    }
-
-    private void CheckDeath()
-    {
-        if (hp <= 0 && inBattle)
-        {
-            dead = true;
-            spellModifiers.Clear();
-            anim.SetTrigger(CharacterClipAnims.DeathAnimName);
-        }
-    }
-
+    
     public virtual void FinishDeath()
     {
         Destroy(gameObject);
-    }
-    
-    #endregion
-
-    #region Moves
-    
-    [UsedImplicitly]
-    public void DoDamage()
-    {
-        if (TargetDodged())
-        {
-            return;
-        }
-
-        target.RecieveDamage(CalculateInitialDamage(minDamage, maxDamage, additionalDamage));
-
-        additionalDamage = 0;
-    }
-
-    [UsedImplicitly]
-    protected void DoMagicDamage()
-    {
-        if (TargetDodged())
-        {
-            Managers.Instance.Battle.BeginWait();
-            return;
-        }
-
-        target.RecieveDamage(CalculateInitialDamage(magicMinDamage, magicMaxDamage, spellUsed.Damage));
-
-        spellUsed.InstantiateSpell(target);
-
-        if (!target.CheckIfSpellExists(spellUsed.Name))
-        {
-            target.spellModifiers.Add(spellUsed);
-
-            spellUsed.UseSpellEffect(target);
-        }
-        else
-        {
-            Spell spell = SpellFactory.GetSpell(spellUsed.Name);
-            Spell existingSpell = target.spellModifiers.Find(spell => spellUsed.Name == spell.Name);
-
-            existingSpell.TurnsLeft = spell.TurnsLeft;
-        }
-
-        spellUsed = null;
-    }
-
-    private bool TargetDodged()
-    {
-        const int RandomMin = 0;
-        const int RandomMax = 100;
-        float missChance = Random.Range(RandomMin, RandomMax);
-        
-        if (missChance < target.dodgeChance)
-        {
-            Managers.Instance.UI.SpawnInfoText(DisplayStrings.MissText, Color.white, target.transform.position);
-            AudioManager.Instance.PlaySound(AudioStrings.Miss);
-
-            return true;
-        }
-
-        return false;
-    }
-
-    private int CalculateInitialDamage(float minimumDamage, float maximumDamage, float extraDamage)
-    {
-        const float DefStartPointCalc = 1f;
-        const float ConvertToPercentageCalc = 100;
-        const float GuardingFactor = 0.66f;
-
-        float damage = Random.Range(minimumDamage, maximumDamage);
-
-        damage *= (DefStartPointCalc - (target.def / ConvertToPercentageCalc));
-
-        damage += extraDamage;
-
-        damage = CalculateCritDamage(damage);
-
-        if (target._guarding)
-        {
-            damage *= GuardingFactor;
-        }
-
-        return Mathf.RoundToInt(damage);
-    }
-
-    private float CalculateCritDamage(float damage)
-    {
-        const int CritBonusDamage = 2;
-        const int RandomMin = 0;
-        const int RandomMax = 100;
-
-        float chance = Random.Range(RandomMin, RandomMax);
-
-        if (chance < critChance)
-        {
-            damage *= CritBonusDamage;
-            
-            if (target is Player player)
-            {
-                LeftHand shield = (LeftHand)player
-                    .GetInventory()
-                    .GetEquipList()
-                    [(int)Inventory.EquipSlot.LeftHand];
-
-                if (shield != null)
-                {
-                    damage = shield.ReduceCrit(damage);
-                }
-            }
-
-            isCritting = true;
-        }
-        else
-        {
-            isCritting = false;
-        }
-
-        return damage;
-    }
-
-    protected virtual void RecieveDamage(int damage)
-    {
-        hp -= damage;
-        anim.SetTrigger(CharacterClipAnims.HitAnimName);
-        AudioManager.Instance.PlaySound(AudioStrings.Hit);
-        anim.SetBool(CharacterClipAnims.GuardAnimName, false);
-
-        _guarding = false;
-
-        Managers.Instance.UI.SpawnInfoText(damage.ToString(), 
-            target.isCritting 
-                ? Color.yellow 
-                : Color.white, transform.position);
-
-        CheckDeath();
-    }
-
-    // Next turn setting + damage is done through animation
-    protected void RangedAttack()
-    {
-        Managers.Instance.UI.DisableButtons();
-        anim.SetTrigger(CharacterClipAnims.CastAnimName);
-    }
-
-    public virtual void Heal(int amount, bool battleFinish)
-    {
-        hp += amount;
-
-        if (hp >= maxHP)
-        {
-            hp = maxHP;
-        }
-
-        if (!battleFinish)
-        {
-            Managers.Instance.UI.SpawnInfoText(amount.ToString(), Color.green, transform.position);
-            AudioManager.Instance.PlaySound(AudioStrings.UsePotion);
-            anim.SetTrigger(CharacterClipAnims.HealAnimName);
-        }
-    }
-
-    public virtual void RestoreMP(int amount, bool battleFinish)
-    {
-        mp += amount;
-
-        if (mp >= maxMP)
-        {
-            mp = maxMP;
-        }
-
-        if (!battleFinish)
-        {
-            Managers.Instance.UI.SpawnInfoText(amount.ToString(), Color.cyan, transform.position);
-            AudioManager.Instance.PlaySound(AudioStrings.UsePotion);
-            anim.SetTrigger(CharacterClipAnims.HealAnimName);
-        }
     }
 
     public virtual void Guard()
@@ -271,8 +49,22 @@ public class CharacterEntity : MonoBehaviour
         anim.SetBool(CharacterClipAnims.GuardAnimName, true);
         ToggleNextTurn();
     }
-
-    #endregion
+    
+    public void CheckStatAmount()
+    {
+        if (_statPoints == 0)
+        {
+            Managers.Instance.UI.VictoryPanelHUD.ActivateModifiedSubtractors();
+        }
+        else if (_statPoints == _originalNumberOfStatPoints)
+        {
+            Managers.Instance.UI.VictoryPanelHUD.ActivateAddersOnly();
+        }
+        else if (_statPoints > 0)
+        {
+            Managers.Instance.UI.VictoryPanelHUD.ActivateAllStatModifiers();
+        }
+    }
 
     #region Animations/Movement
    

@@ -101,7 +101,7 @@ public class BattleManager : MonoBehaviour
         {
             GameObject enemyObject = Instantiate(spawnableEnemies[number].gameObject, enemyPosition, Quaternion.Euler(reverseRotation));
             enemy = enemyObject.GetComponent<Enemy>();
-            Managers.Instance.UI.StatusHUD[1].characterEntity = enemy;
+            Managers.Instance.UI.StatusHUD[1].SetCharacter(enemy);
             Managers.Instance.UI.StatusHUD[1].UpdateUIHealth();
 
             if(GameManager.endlessMode)
@@ -143,14 +143,14 @@ public class BattleManager : MonoBehaviour
 
         float x = Mathf.Pow(EndlessModeFactor, GameManager.instance.endlessNumber);
         
-        enemy.hp = (int)(enemy.hp * x);
-        enemy.mp = (int)(enemy.mp * x);
-        enemy.maxHP = (int)(enemy.maxHP * x);
-        enemy.maxMP = (int)(enemy.maxMP * x);
-        enemy.str.amount = (int)(enemy.str.amount * x);
-        enemy.dex.amount = (int)(enemy.dex.amount * x);
-        enemy.intl.amount = (int)(enemy.intl.amount * x);
-        enemy.luck.amount = (int)(enemy.luck.amount * x);
+        // enemy.hp = (int)(enemy.hp * x);
+        // enemy.mp = (int)(enemy.mp * x);
+        // enemy.maxHP = (int)(enemy.maxHP * x);
+        // enemy.maxMP = (int)(enemy.maxMP * x);
+        // enemy.str.amount = (int)(enemy.str.amount * x);
+        // enemy.dex.amount = (int)(enemy.dex.amount * x);
+        // enemy.intl.amount = (int)(enemy.intl.amount * x);
+        // enemy.luck.amount = (int)(enemy.luck.amount * x);
         
     }
 }

@@ -1,17 +1,26 @@
-﻿public class StatusHUD : HUDMenu
+﻿using UnityEngine;
+
+public class StatusHUD : HUDMenu
 {
-    public CharacterEntity characterEntity;
+    [SerializeField] private CharacterEntity _characterEntity;
     public AmountBar healthBar;
     public AmountBar manaBar;
 
+    public CharacterEntity CharacterEntity => _characterEntity;
+
+    public void SetCharacter(CharacterEntity entity)
+    {
+        _characterEntity = entity;
+    }
+
     public void UpdateUIHealth()
     {
-        healthBar.SetAmount(characterEntity.hp, characterEntity.maxHP);
+        healthBar.SetAmount(_characterEntity.CharacterBattleStats.Hp, _characterEntity.CharacterBattleStats.MaxHp);
     }
 
     public void UpdateUIMana()
     {
-        manaBar.SetAmount(characterEntity.mp, characterEntity.maxMP);
+        manaBar.SetAmount(_characterEntity.CharacterBattleStats.Mp, _characterEntity.CharacterBattleStats.MaxMp);
     }
 
     public void UpdateAllBars()

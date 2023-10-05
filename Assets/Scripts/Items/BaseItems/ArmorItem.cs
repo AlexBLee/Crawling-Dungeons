@@ -8,11 +8,11 @@ public class ArmorItem : EquippableItem
 
     public override void AddStatsToPlayer(Player player)
     {
-        player.def += defense;
+        player.CharacterBattleStats.Def += defense;
     }
 
     public override void RemoveStatsFromPlayer(Player player)
     {
-        player.def -= defense;
+        player.CharacterBattleStats.Def -= defense;
     }
 }

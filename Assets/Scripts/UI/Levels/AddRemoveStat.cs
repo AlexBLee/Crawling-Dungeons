@@ -1,9 +1,5 @@
 ﻿#pragma warning disable CS0649
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;// Required when using Event data.
 using UnityEngine.UI;
 
 
@@ -12,7 +8,7 @@ public class AddRemoveStat : MonoBehaviour
     // true = add point
     // false = subtract
     [HideInInspector] public Player Player;
-    [SerializeField] private Player.StatType statType;
+    [SerializeField] private CharacterBattleStats.StatType statType;
     public Button plus;
     public Button minus;
     public bool modified;
@@ -28,7 +24,7 @@ public class AddRemoveStat : MonoBehaviour
     private void AddStat()
     {
         AudioManager.Instance.PlaySound(AudioStrings.AddStatClick);
-        modified = Player.AllocatePoints(statType);
+        modified = Player.CharacterBattleStats.AllocatePoints(statType);
         statDisplay.UpdateStats();
         Player.CheckStatAmount();
     }
@@ -36,7 +32,7 @@ public class AddRemoveStat : MonoBehaviour
     private void RemoveStat()
     {
         AudioManager.Instance.PlaySound(AudioStrings.RemoveStatClick);
-        modified = Player.DeallocatePoints(statType);
+        modified = Player.CharacterBattleStats.DeallocatePoints(statType);
         statDisplay.UpdateStats();
         Player.CheckStatAmount();
     }

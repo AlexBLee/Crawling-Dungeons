@@ -61,7 +61,7 @@ public class DamageDealer : MonoBehaviour
 
         float damage = Random.Range(minimumDamage, maximumDamage);
 
-        damage *= (DefStartPointCalc - (_target.def / ConvertToPercentageCalc));
+        damage *= (DefStartPointCalc - (_target.CharacterBattleStats.Def / ConvertToPercentageCalc));
 
         damage += extraDamage;
 
@@ -111,7 +111,7 @@ public class DamageDealer : MonoBehaviour
     }
 
     // Next turn setting + damage is done through animation
-    protected void RangedAttack()
+    public void RangedAttack()
     {
         Managers.Instance.UI.DisableButtons();
         _animationPlayer.PlayAnimationTrigger(CharacterClipAnims.CastAnimName);

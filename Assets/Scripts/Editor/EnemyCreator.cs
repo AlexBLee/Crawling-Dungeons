@@ -60,18 +60,18 @@ public class EnemyCreator : EditorWindow
                 }
 
                 // Stats
-                enemy.hp = hp;
-                enemy.maxHP = hp;
-                enemy.mp = mp;
-                enemy.maxMP = mp;
-                enemy.str.amount = str;
-                enemy.intl.amount = intl;
-                enemy.dex.amount = dex;
-                enemy.luck.amount = will;
-                enemy.def = def;
-                // enemy.experiencePoints = experiencePoints;
-                // enemy.gold = gold;
-
+                enemy.CharacterBattleStats.Hp = hp;
+                enemy.CharacterBattleStats.MaxHp = hp;
+                enemy.CharacterBattleStats.Mp = mp;
+                enemy.CharacterBattleStats.MaxMp = mp;
+                enemy.CharacterBattleStats.Str.amount = str;
+                enemy.CharacterBattleStats.Int.amount = intl;
+                enemy.CharacterBattleStats.Dex.amount = dex;
+                enemy.CharacterBattleStats.Luck.amount = will;
+                enemy.CharacterBattleStats.Def = def;
+                enemy.ExperiencePoints = experiencePoints;
+                enemy.Gold = gold;
+                
                 // Creating animation folder + animator
                 string enemyDestination = AssetDatabase.GUIDToAssetPath(AssetDatabase.CreateFolder("Assets/Enemies", enemyName));
                 AssetDatabase.CreateFolder(enemyDestination, "Animations");

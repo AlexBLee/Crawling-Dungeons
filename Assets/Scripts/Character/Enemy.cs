@@ -5,39 +5,24 @@ public class Enemy : CharacterEntity
 {
     public string enemyName;
     
-    private int _experiencePoints;
-    private int _gold;
+    public int ExperiencePoints;
+    public int Gold;
 
     [SerializeField] private Vector3 fightPosition;
     [SerializeField] private bool canHeal;
     private int healCounter = 2;
 
-    private void Start() 
-    {   
-        DeserializeData();
-        UpdateDamageStats();
+    private void Start()
+    {
+        var enemyData = GameDatabase.instance.GetEnemyData(enemyName);
+        
+        _characterBattleStats.DeserializeEnemyData(enemyData);
+        _characterBattleStats.UpdateDamageStats();
+        
+        ExperiencePoints = enemyData.exp;
+        Gold = enemyData.gold;
 
         MoveToStartPosition(fightPosition);
-    }
-
-    private void DeserializeData()
-    {
-        EnemyData data = GameDatabase.instance.GetEnemyData(enemyName);
-        
-        maxHP = data.maxHP;
-        hp = maxHP;
-
-        maxMP = data.maxMP;
-        mp = maxMP;
-
-        str.amount = data.str;
-        intl.amount = data.intl;
-        dex.amount = data.dex;
-        luck.amount = data.luck;
-
-        def = data.def;
-        _experiencePoints = data.exp;
-        _gold = data.gold;
     }
 
     protected void MoveToStartPosition(Vector2 position)
@@ -52,18 +37,6 @@ public class Enemy : CharacterEntity
 
         anim.SetBool(CharacterClipAnims.RunAnimName, false);
         Managers.Instance.Battle.StartNewBattle();
-    }
-    
-    protected override void RecieveDamage(int damage)
-    {
-        base.RecieveDamage(damage);
-        Managers.Instance.UI.StatusHUD[1].UpdateUIHealth();
-    }
-    
-    public override void Heal(int amount, bool battleFinish)
-    {
-        base.Heal(amount, battleFinish);
-        Managers.Instance.UI.StatusHUD[1].UpdateUIHealth();
     }
 
     public void SetAttackConditions()
@@ -94,16 +67,17 @@ public class Enemy : CharacterEntity
         const float SelfLowHealthPercentage = 0.30f;
         const float HealFactor = 0.10f;
 
-        if (hp < maxHP * SelfLowHealthPercentage && canHeal)
+        if (_characterBattleStats.Hp < _characterBattleStats.MaxHp * SelfLowHealthPercentage && canHeal)
         {
             canHeal = false;
             healCounter = HealCounterDefault;
-            Heal((int)(maxHP * HealFactor), false);
+            _characterBattleStats.Heal((int)(_characterBattleStats.MaxHp * HealFactor), false);
         }
-        else if (target.hp < target.maxHP * EnemyLowHealthPercentage)
+        else if (target.CharacterBattleStats.Hp < target.CharacterBattleStats.MaxHp * EnemyLowHealthPercentage)
         {
-            additionalDamage = (int)(maxDamage * BonusDamage);
-            RangedAttack();
+            //TODO: Maybe dont need this.
+            // additionalDamage = (int)(maxDamage * BonusDamage);
+            _damageDealer.RangedAttack();
         }
         else
         {
@@ -113,7 +87,7 @@ public class Enemy : CharacterEntity
 
     public override void FinishDeath()
     {
-        target.GetComponent<Player>().RecieveXPAndGold(_experiencePoints, _gold);
+        target.GetComponent<Player>().RecieveXPAndGold(ExperiencePoints, Gold);
         base.FinishDeath();
     }
 
